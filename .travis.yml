@@ -1,0 +1,18 @@
+sudo: false
+dist: trusty
+
+cache:
+  apt: true
+
+addons:
+  apt:
+    packages:
+      - git
+
+install:
+  - git clone https://github.com/robherring/dtc.git -b travis-ci
+  - pushd dtc && make dtc && make install-bin && popd
+
+script:
+  - make all
+
