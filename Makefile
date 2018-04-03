@@ -1,6 +1,7 @@
 
 DTC ?= dtc
 CPP = cpp
+DT_CHECKER = ../yaml-bindings/dt-validate.py
 DT_DOC_CHECKER = ../yaml-bindings/tools/dt-doc-validate
 
 MAKEFLAGS += -rR --no-print-directory
@@ -65,7 +66,14 @@ ifneq ($(filter s% -s%,$(MAKEFLAGS)),)
 endif
 endif
 
-export quiet Q KBUILD_VERBOSE
+ifeq ("$(origin C)", "command line")
+  KBUILD_CHECKSRC = $(C)
+endif
+ifndef KBUILD_CHECKSRC
+  KBUILD_CHECKSRC = 0
+endif
+
+export quiet Q KBUILD_VERBOSE KBUILD_CHECKSRC
 
 %/: DTB	= $(patsubst %.dts,%.dtb,$(shell find $@ -name \*.dts))
 
@@ -77,8 +85,12 @@ DTB ?= $(patsubst %.dts,%.dtb,$(shell find src/ -name \*.dts))
 src	:= src/
 obj	:= src/
 
+ifneq ($(KBUILD_CHECKSRC),0)
+  DTYAML = $(patsubst %.dtb,%.dt.yaml,$(DTB))
+endif
+
 PHONY += all
-all: $(DTB)
+all: $(DTB) $(DTYAML)
 
 include scripts/Kbuild.include
 
@@ -99,13 +111,38 @@ dtc_cpp_flags  = -Wp,-MD,$(depfile).pre.tmp -nostdinc		\
 
 quiet_cmd_dtc = DTC     $@
 cmd_dtc = $(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
-        $(DTC) -O dtb -o $@ -b 0 \
+        $(DTC) -O $(2) -o $@ -b 0 \
                 -i $(src) $(DTC_FLAGS) \
                 -d $(depfile).dtc.tmp $(dtc-tmp) ; \
         cat $(depfile).pre.tmp $(depfile).dtc.tmp > $(depfile)
 
-%.dtb: %.dts
-	$(call if_changed_dep,dtc)
+ifneq ($(KBUILD_CHECKSRC),0)
+  ifeq ($(KBUILD_CHECKSRC),2)
+    quiet_cmd_force_checksrc = CHECK   $@
+          cmd_force_checksrc = $(DT_CHECKER) $@ ;
+  else
+      quiet_cmd_checksrc     = CHECK   $@
+            cmd_checksrc     = $(DT_CHECKER) $@ ;
+  endif
+endif
+
+define rule_dt_yaml
+        $(call echo-cmd,dtc) $(cmd_dtc) ;                                   \
+        $(call echo-cmd,checksrc) $(cmd_checksrc)
+endef
+
+dt_yaml_cmd_files := $(wildcard $(foreach f,$(DTYAML),$(dir $(f)).$(notdir $(f)).cmd))
+
+ifneq ($(dt_yaml_cmd_files),)
+  include $(dt_yaml_cmd_files)
+endif
+
+%.dt.yaml: %.dts FORCE
+	$(call if_changed_rule,dt_yaml,yaml)
+	$(call cmd,force_checksrc)
+
+%.dtb: %.dts FORCE
+	$(call if_changed_dep,dtc,dtb)
 
 BINDINGS := $(shell find Bindings/ -name \*.yaml)
 
@@ -122,7 +159,7 @@ RCS_FIND_IGNORE := \( -name SCCS -o -name BitKeeper -o -name .svn -o -name CVS \
                    -o -name .pc -o -name .hg -o -name .git \) -prune -o
 
 PHONY += clean
-clean: __clean-files = $(DTB)
+clean: __clean-files = $(DTB) $(patsubst %.dtb,%.dt.yaml,$(DTB))
 clean: FORCE
 	$(call cmd,clean)
 	@find . $(RCS_FIND_IGNORE) \
