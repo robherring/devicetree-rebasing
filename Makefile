@@ -1,6 +1,7 @@
 
 DTC ?= dtc
 CPP = cpp
+DT_DOC_CHECKER = ../yaml-bindings/tools/dt-doc-validate
 
 MAKEFLAGS += -rR --no-print-directory
 
@@ -31,7 +32,7 @@ endif
 #         cmd_cc_o_c       = $(CC) $(c_flags) -c -o $@ $<
 #
 # If $(quiet) is empty, the whole command will be printed.
-# If it is set to "quiet_", only the short version will be printed.
+# If it is set to "quiet_", only the short version will be printed. 
 # If it is set to "silent_", nothing will be printed at all, since
 # the variable $(silent_cmd_cc_o_c) doesn't exist.
 #
@@ -106,6 +107,17 @@ cmd_dtc = $(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
 %.dtb: %.dts
 	$(call if_changed_dep,dtc)
 
+BINDINGS := $(shell find Bindings/ -name \*.yaml)
+
+PHONY += checkbindings
+checkbindings: $(BINDINGS)
+
+quiet_cmd_chk_binding = CHKBIND	$@
+      cmd_chk_binding = $(DT_DOC_CHECKER) $@
+
+%.yaml: FORCE
+	$(call cmd,chk_binding)
+
 RCS_FIND_IGNORE := \( -name SCCS -o -name BitKeeper -o -name .svn -o -name CVS \
                    -o -name .pc -o -name .hg -o -name .git \) -prune -o
 
@@ -123,6 +135,8 @@ help:
 	@echo "Targets:"
 	@echo "  all:                   Build all device tree binaries"
 	@echo "  clean:                 Clean all generated files"
+	@echo ""
+	@echo "  checkbindings          Check all binding schema docs"
 	@echo ""
 	@echo "  src/<dir>/<DTS>.dtb    Build a single device tree binary"
 	@echo "  src/<dir>/             Build all device tree binaries in specified directory"
