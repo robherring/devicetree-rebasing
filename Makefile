@@ -1,16 +1,8 @@
 
 DTC ?= dtc
-CPP ?= cpp
+CPP = cpp
 
 MAKEFLAGS += -rR --no-print-directory
-
-ALL_ARCHES := $(patsubst src/%,%,$(wildcard src/*))
-
-PHONY += all
-all: $(foreach i,$(ALL_ARCHES),all_$(i))
-
-PHONY += clean
-clean: $(foreach i,$(ALL_ARCHES),clean_$(i))
 
 # Do not:
 # o  use make's built-in rules and variables
@@ -39,7 +31,7 @@ endif
 #         cmd_cc_o_c       = $(CC) $(c_flags) -c -o $@ $<
 #
 # If $(quiet) is empty, the whole command will be printed.
-# If it is set to "quiet_", only the short version will be printed. 
+# If it is set to "quiet_", only the short version will be printed.
 # If it is set to "silent_", nothing will be printed at all, since
 # the variable $(silent_cmd_cc_o_c) doesn't exist.
 #
@@ -74,34 +66,22 @@ endif
 
 export quiet Q KBUILD_VERBOSE
 
-all_%:
-	$(Q)$(MAKE) ARCH=$* all_arch
+%/: DTB	= $(patsubst %.dts,%.dtb,$(shell find $@ -name \*.dts))
 
-clean_%:
-	$(Q)$(MAKE) ARCH=$* clean_arch
+%/: FORCE
+	$(Q)$(MAKE) DTB="$(DTB)"
 
-ifeq ($(ARCH),)
+DTB ?= $(patsubst %.dts,%.dtb,$(shell find src/ -name \*.dts))
 
-ALL_DTS		:= $(shell find src/* -name \*.dts)
+src	:= src/
+obj	:= src/
 
-ALL_DTB		:= $(patsubst %.dts,%.dtb,$(ALL_DTS))
-
-$(ALL_DTB): ARCH=$(word 2,$(subst /, ,$@))
-$(ALL_DTB): FORCE
-	$(Q)$(MAKE) ARCH=$(ARCH) $@
-
-else
-
-ARCH_DTS	:= $(shell find src/$(ARCH) -name \*.dts)
-
-ARCH_DTB	:= $(patsubst %.dts,%.dtb,$(ARCH_DTS))
-
-src	:= src/$(ARCH)
-obj	:= src/$(ARCH)
+PHONY += all
+all: $(DTB)
 
 include scripts/Kbuild.include
 
-cmd_files := $(wildcard $(foreach f,$(ARCH_DTB),$(dir $(f)).$(notdir $(f)).cmd))
+cmd_files := $(wildcard $(foreach f,$(DTB),$(dir $(f)).$(notdir $(f)).cmd))
 
 ifneq ($(cmd_files),)
   include $(cmd_files)
@@ -123,19 +103,15 @@ cmd_dtc = $(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
                 -d $(depfile).dtc.tmp $(dtc-tmp) ; \
         cat $(depfile).pre.tmp $(depfile).dtc.tmp > $(depfile)
 
-$(obj)/%.dtb: $(src)/%.dts FORCE
+%.dtb: %.dts
 	$(call if_changed_dep,dtc)
-
-PHONY += all_arch
-all_arch: $(ARCH_DTB)
-	@:
 
 RCS_FIND_IGNORE := \( -name SCCS -o -name BitKeeper -o -name .svn -o -name CVS \
                    -o -name .pc -o -name .hg -o -name .git \) -prune -o
 
-PHONY += clean_arch
-clean_arch: __clean-files = $(ARCH_DTB)
-clean_arch: FORCE
+PHONY += clean
+clean: __clean-files = $(DTB)
+clean: FORCE
 	$(call cmd,clean)
 	@find . $(RCS_FIND_IGNORE) \
 		\( -name '.*.cmd' \
@@ -143,19 +119,13 @@ clean_arch: FORCE
 		-o -name '.*.tmp' \
 		\) -type f -print | xargs rm -f
 
-endif
-
 help:
 	@echo "Targets:"
-	@echo "  all:                   Build all device tree binaries for all architectures"
+	@echo "  all:                   Build all device tree binaries"
 	@echo "  clean:                 Clean all generated files"
 	@echo ""
-	@echo "  all_<ARCH>:            Build all device tree binaries for <ARCH>"
-	@echo "  clean_<ARCH>:          Clean all generated files for <ARCH>"
-	@echo ""
-	@echo "  src/<ARCH>/<DTS>.dtb   Build a single device tree binary"
-	@echo ""
-	@echo "Architectures: $(ALL_ARCHES)"
+	@echo "  src/<dir>/<DTS>.dtb    Build a single device tree binary"
+	@echo "  src/<dir>/             Build all device tree binaries in specified directory"
 
 PHONY += FORCE
 FORCE:
