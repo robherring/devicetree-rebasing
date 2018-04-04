@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/i2c/ov5640.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Omnivision OV5640 MIPI CSI-2 / parallel sensor
+
+maintainers:
+  - Steve Longerbeam <slongerbeam@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Omnivision OV5640 MIPI CSI-2 / parallel sensor
+
+  Required Properties:
+  - compatible: should be "ovti,ov5640"
+  - clocks: reference to the xclk input clock.
+  - clock-names: should be "xclk".
+  - DOVDD-supply: Digital I/O voltage supply, 1.8 volts
+  - AVDD-supply: Analog voltage supply, 2.8 volts
+  - DVDD-supply: Digital core voltage supply, 1.5 volts
+
+  Optional Properties:
+  - reset-gpios: reference to the GPIO connected to the reset pin, if any.
+  	       This is an active low signal to the OV5640.
+  - powerdown-gpios: reference to the GPIO connected to the powerdown pin,
+  		   if any. This is an active high signal to the OV5640.
+
+  The device node must contain one 'port' child node for its digital output
+  video port, in accordance with the video interface bindings defined in
+  Documentation/devicetree/bindings/media/video-interfaces.txt.
+
+  OV5640 can be connected to a MIPI CSI-2 bus or a parallel bus endpoint.
+
+  Endpoint node required properties for CSI-2 connection are:
+  - remote-endpoint: a phandle to the bus receiver's endpoint node.
+  - clock-lanes: should be set to <0> (clock lane on hardware lane 0)
+  - data-lanes: should be set to <1> or <1 2> (one or two CSI-2 lanes supported)
+
+  Endpoint node required properties for parallel connection are:
+  - remote-endpoint: a phandle to the bus receiver's endpoint node.
+  - bus-width: shall be set to <8> for 8 bits parallel bus
+  	     or <10> for 10 bits parallel bus
+  - data-shift: shall be set to <2> for 8 bits parallel bus
+  	      (lines 9:2 are used) or <0> for 10 bits parallel bus
+  - hsync-active: active state of the HSYNC signal, 0/1 for LOW/HIGH respectively.
+  - vsync-active: active state of the VSYNC signal, 0/1 for LOW/HIGH respectively.
+  - pclk-sample: sample data on rising (1) or falling (0) edge of the pixel clock
+  	       signal.
+
+...

@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/axxia.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Axxia AXM55xx device tree bindings
+
+maintainers:
+  - Anders Berg <anders.berg@lsi.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Axxia AXM55xx device tree bindings
+
+  Boards using the AXM55xx SoC need to have the following properties:
+
+  Required root node property:
+
+    - compatible = "lsi,axm5516"
+
+  Boards:
+
+    LSI AXM5516 Validation board (Amarillo)
+  	compatible = "lsi,axm5516-amarillo", "lsi,axm5516"

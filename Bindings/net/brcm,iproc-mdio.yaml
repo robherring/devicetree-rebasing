@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/brcm,iproc-mdio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom iProc MDIO bus controller
+
+maintainers:
+  - Arun Parameswaran <arunp@broadcom.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Broadcom iProc MDIO bus controller
+
+  Required properties:
+  - compatible: should be "brcm,iproc-mdio"
+  - reg: address and length of the register set for the MDIO interface
+  - #size-cells: must be 1
+  - #address-cells: must be 0
+
+  Child nodes of this MDIO bus controller node are standard Ethernet PHY device
+  nodes as described in Documentation/devicetree/bindings/net/phy.txt
+
+...

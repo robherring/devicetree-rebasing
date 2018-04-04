@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/sigma,smp8642-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Sigma Designs SMP86xx/SMP87xx watchdog
+
+maintainers:
+  - Mans Rullgard <mans@mansr.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Sigma Designs SMP86xx/SMP87xx watchdog
+
+  Required properties:
+  - compatible: Should be "sigma,smp8642-wdt"
+  - reg: Specifies the physical address region
+  - clocks: Should be a phandle to the clock
+
+  Optional properties:
+  - timeout-sec: watchdog timeout in seconds
+
+...

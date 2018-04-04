@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mailbox/rockchip-mailbox.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Rockchip mailbox
+
+maintainers:
+  - Caesar Wang <wxt@rock-chips.com>
+description: |+
+  The Rockchip mailbox is used by the Rockchip CPU cores to communicate
+  requests to MCU processor.
+
+  Refer to ./mailbox.txt for generic information about mailbox device-tree
+  bindings.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Rockchip mailbox
+
+  The Rockchip mailbox is used by the Rockchip CPU cores to communicate
+  requests to MCU processor.
+
+  Refer to ./mailbox.txt for generic information about mailbox device-tree
+  bindings.
+
+  Required properties:
+
+   - compatible: should be one of the following.
+     - "rockchip,rk3368-mbox" for rk3368
+   - reg: physical base address of the controller and length of memory mapped
+  	region.
+   - interrupts: The interrupt number to the cpu. The interrupt specifier format
+  	depends on the interrupt controller.
+   - #mbox-cells: Common mailbox binding property to identify the number
+  	of cells required for the mailbox specifier. Should be 1
+
+...

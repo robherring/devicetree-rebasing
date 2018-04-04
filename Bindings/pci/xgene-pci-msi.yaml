@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/xgene-pci-msi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AppliedMicro X-Gene v1 PCIe MSI controller
+
+maintainers:
+  - Duc Dang <dhdang@apm.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * AppliedMicro X-Gene v1 PCIe MSI controller
+
+  Required properties:
+
+  - compatible: should be "apm,xgene1-msi" to identify
+  	      X-Gene v1 PCIe MSI controller block.
+  - msi-controller: indicates that this is an X-Gene v1 PCIe MSI controller node
+  - reg: physical base address (0x79000000) and length (0x900000) for controller
+         registers. These registers include the MSI termination address and data
+         registers as well as the MSI interrupt status registers.
+  - reg-names: not required
+  - interrupts: A list of 16 interrupt outputs of the controller, starting from
+  	      interrupt number 0x10 to 0x1f.
+  - interrupt-names: not required
+
+  Each PCIe node needs to have property msi-parent that points to an MSI
+  controller node
+
+...

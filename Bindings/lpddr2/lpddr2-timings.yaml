@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/lpddr2/lpddr2-timings.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AC timing parameters of LPDDR2(JESD209-2) memories for a given speed-bin
+
+maintainers:
+  - Aneesh V <aneesh@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * AC timing parameters of LPDDR2(JESD209-2) memories for a given speed-bin
+
+  Required properties:
+  - compatible : Should be "jedec,lpddr2-timings"
+  - min-freq : minimum DDR clock frequency for the speed-bin. Type is <u32>
+  - max-freq : maximum DDR clock frequency for the speed-bin. Type is <u32>
+
+  Optional properties:
+
+  The following properties represent AC timing parameters from the memory
+  data-sheet of the device for a given speed-bin. All these properties are
+  of type <u32> and the default unit is ps (pico seconds). Parameters with
+  a different unit have a suffix indicating the unit such as 'tRAS-max-ns'
+  - tRCD
+  - tWR
+  - tRAS-min
+  - tRRD
+  - tWTR
+  - tXP
+  - tRTP
+  - tDQSCK-max
+  - tFAW
+  - tZQCS
+  - tZQinit
+  - tRPab
+  - tZQCL
+  - tCKESR
+  - tRAS-max-ns
+  - tDQSCK-max-derated
+
+...

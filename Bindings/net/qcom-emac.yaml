@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/qcom-emac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm Technologies EMAC Gigabit Ethernet Controller
+
+maintainers:
+  - Timur Tabi <timur@codeaurora.org>
+description: |+
+  This network controller consists of two devices: a MAC and an SGMII
+  internal PHY.  Each device is represented by a device tree node.  A phandle
+  connects the MAC node to its corresponding internal phy node.  Another
+  phandle points to the external PHY node.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Qualcomm Technologies EMAC Gigabit Ethernet Controller
+
+  This network controller consists of two devices: a MAC and an SGMII
+  internal PHY.  Each device is represented by a device tree node.  A phandle
+  connects the MAC node to its corresponding internal phy node.  Another
+  phandle points to the external PHY node.
+
+  Required properties:
+
+  MAC node:
+  - compatible : Should be "qcom,fsm9900-emac".
+  - reg : Offset and length of the register regions for the device
+  - interrupts : Interrupt number used by this controller
+  - mac-address : The 6-byte MAC address. If present, it is the default
+  	MAC address.
+  - internal-phy : phandle to the internal PHY node
+  - phy-handle : phandle the the external PHY node
+
+  Internal PHY node:
+  - compatible : Should be "qcom,fsm9900-emac-sgmii" or "qcom,qdf2432-emac-sgmii".
+  - reg : Offset and length of the register region(s) for the device
+  - interrupts : Interrupt number used by this controller
+
+  The external phy child node:
+  - reg : The phy address
+
+...

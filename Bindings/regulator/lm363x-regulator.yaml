@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/regulator/lm363x-regulator.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI LMU LM363x regulator device tree bindings
+
+maintainers:
+  - Milo Kim <milo.kim@ti.com>
+description: |+
+  LM363x regulator driver supports LM3631 and LM3632.
+  LM3631 has five regulators and LM3632 supports three regulators.
+
+  Required property:
+    - compatible: "ti,lm363x-regulator"
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  TI LMU LM363x regulator device tree bindings
+
+  LM363x regulator driver supports LM3631 and LM3632.
+  LM3631 has five regulators and LM3632 supports three regulators.
+
+  Required property:
+    - compatible: "ti,lm363x-regulator"
+
+  Optional properties:
+    LM3632 has external enable pins for two LDOs.
+    - enable-gpios: Two GPIO specifiers for Vpos and Vneg control pins.
+                    The first entry is Vpos, the second is Vneg enable pin.
+
+  Child nodes:
+    LM3631
+    - vboost
+    - vcont
+    - voref
+    - vpos
+    - vneg
+
+    LM3632
+    - vboost
+    - vpos
+    - vneg
+
+    Optional properties of a child node:
+    Each sub-node should contain the constraints and initialization.
+    Please refer to [1].
+
+...

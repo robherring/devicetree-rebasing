@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/ste-coh901318.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST-Ericsson COH 901 318 DMA Controller
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: |+
+  This is a DMA controller which has begun as a fork of the
+  ARM PL08x PrimeCell VHDL code.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ST-Ericsson COH 901 318 DMA Controller
+
+  This is a DMA controller which has begun as a fork of the
+  ARM PL08x PrimeCell VHDL code.
+
+  Required properties:
+  - compatible: should be "stericsson,coh901318"
+  - reg: register locations and length
+  - interrupts: the single DMA IRQ
+  - #dma-cells: must be set to <1>, as the channels on the
+    COH 901 318 are simple and identified by a single number
+  - dma-channels: the number of DMA channels handled
+
+...

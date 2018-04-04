@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/phy-stih407-usb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST STiH407 USB PHY controller
+
+maintainers:
+  - Peter Griffin <peter.griffin@linaro.org>
+description: |+
+  This file documents the dt bindings for the usb picoPHY driver which is the PHY for both USB2 and USB3
+  host controllers (when controlling usb2/1.1 devices) available on STiH407 SoC family from STMicroelectronics.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ST STiH407 USB PHY controller
+
+  This file documents the dt bindings for the usb picoPHY driver which is the PHY for both USB2 and USB3
+  host controllers (when controlling usb2/1.1 devices) available on STiH407 SoC family from STMicroelectronics.
+
+  Required properties:
+  - compatible		: should be "st,stih407-usb2-phy"
+  - st,syscfg		: phandle of sysconfig bank plus integer array containing phyparam and phyctrl register offsets
+  - resets		: list of phandle and reset specifier pairs. There should be two entries, one
+  			  for the whole phy and one for the port
+  - reset-names		: list of reset signal names. Should be "global" and "port"
+  See: Documentation/devicetree/bindings/reset/st,sti-powerdown.txt
+  See: Documentation/devicetree/bindings/reset/reset.txt
+
+...

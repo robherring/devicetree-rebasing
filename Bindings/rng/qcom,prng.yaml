@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rng/qcom,prng.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm MSM pseudo random number generator.
+
+maintainers:
+  - Stanimir Varbanov <svarbanov@mm-sol.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    rng@f9bff000 {
+      compatible = "qcom,prng";
+      reg = <0xf9bff000 0x200>;
+      clocks = <&clock GCC_PRNG_AHB_CLK>;
+      clock-names = "core";
+    };
+historical: |+
+  Qualcomm MSM pseudo random number generator.
+
+  Required properties:
+
+  - compatible  : should be "qcom,prng"
+  - reg         : specifies base physical address and size of the registers map
+  - clocks      : phandle to clock-controller plus clock-specifier pair
+  - clock-names : "core" clocks all registers, FIFO and circuits in PRNG IP block
+
+...

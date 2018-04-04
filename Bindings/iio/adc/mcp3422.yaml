@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/mcp3422.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Microchip mcp3421/2/3/4/6/7/8 chip family (ADC)
+
+maintainers:
+  - Angelo Compagnucci <angelo.compagnucci@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Microchip mcp3421/2/3/4/6/7/8 chip family (ADC)
+
+  Required properties:
+   - compatible: Should be
+  	"microchip,mcp3421" or
+  	"microchip,mcp3422" or
+  	"microchip,mcp3423" or
+  	"microchip,mcp3424" or
+  	"microchip,mcp3425" or
+  	"microchip,mcp3426" or
+  	"microchip,mcp3427" or
+  	"microchip,mcp3428"
+   - reg: I2C address for the device
+
+...

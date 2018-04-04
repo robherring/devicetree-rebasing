@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/micrel-ks8851.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Micrel KS8851 Ethernet mac (MLL)
+
+maintainers:
+  - Jean-Christophe PLAGNIOL-VILLARD <plagnioj@jcrosoft.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Micrel KS8851 Ethernet mac (MLL)
+
+  Required properties:
+  - compatible = "micrel,ks8851-mll" of parallel interface
+  - reg : 2 physical address and size of registers for data and command
+  - interrupts : interrupt connection
+
+  Micrel KS8851 Ethernet mac (SPI)
+
+  Required properties:
+  - compatible = "micrel,ks8851" or the deprecated "ks8851"
+  - reg : chip select number
+  - interrupts : interrupt connection
+
+  Optional properties:
+  - vdd-supply: analog 3.3V supply for Ethernet mac
+  - vdd-io-supply: digital 1.8V IO supply for Ethernet mac
+  - reset-gpios: reset_n input pin

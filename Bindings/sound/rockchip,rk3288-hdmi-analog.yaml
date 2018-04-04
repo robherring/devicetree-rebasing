@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/rockchip,rk3288-hdmi-analog.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ROCKCHIP RK3288 with HDMI and analog audio
+
+maintainers:
+  - Romain Perier <romain.perier@collabora.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ROCKCHIP RK3288 with HDMI and analog audio
+
+  Required properties:
+  - compatible: "rockchip,rk3288-hdmi-analog"
+  - rockchip,model: The user-visible name of this sound complex
+  - rockchip,i2s-controller: The phandle of the Rockchip I2S controller that's
+    connected to the CODEC
+  - rockchip,audio-codec: The phandle of the analog audio codec.
+  - rockchip,routing: A list of the connections between audio components.
+  		    Each entry is a pair of strings, the first being the
+  		    connection's sink, the second being the connection's
+  		    source. For this driver the first string should always be
+  		    "Analog".
+
+  Optionnal properties:
+  - rockchip,hp-en-gpios = The phandle of the GPIO that power up/down the
+    headphone (when the analog output is an headphone).
+  - rockchip,hp-det-gpios = The phandle of the GPIO that detects the headphone
+    (when the analog output is an headphone).
+  - pinctrl-names, pinctrl-0: Please refer to pinctrl-bindings.txt
+
+...

@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/cirrus,clps711x-mctrl-gpio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM Cirrus Logic CLPS711X SYSFLG1 MCTRL GPIOs
+
+maintainers:
+  - Alexander Shiyan <shc_work@mail.ru>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sysgpio: sysgpio {
+      compatible = "cirrus,ep7312-mctrl-gpio",
+             "cirrus,ep7209-mctrl-gpio";
+      gpio-controller;
+      #gpio-cells = <2>;
+    };
+historical: |+
+  * ARM Cirrus Logic CLPS711X SYSFLG1 MCTRL GPIOs
+
+  Required properties:
+  - compatible: Should contain "cirrus,ep7209-mctrl-gpio".
+  - gpio-controller: Marks the device node as a gpio controller.
+  - #gpio-cells: Should be two. The first cell is the pin number and
+    the second cell is used to specify the gpio polarity:
+      0 = Active high,
+      1 = Active low.
+
+...

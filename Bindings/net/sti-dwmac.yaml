@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/sti-dwmac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics SoC DWMAC glue layer controller
+
+maintainers:
+  - Srinivas Kandagatla <srinivas.kandagatla@st.com>
+  - Giuseppe CAVALLARO <peppe.cavallaro@st.com>
+description: |+
+  This file documents differences between the core properties in
+  Documentation/devicetree/bindings/net/stmmac.txt
+  and what is needed on STi platforms to program the stmmac glue logic.
+
+  The device node has following properties.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  STMicroelectronics SoC DWMAC glue layer controller
+
+  This file documents differences between the core properties in
+  Documentation/devicetree/bindings/net/stmmac.txt
+  and what is needed on STi platforms to program the stmmac glue logic.
+
+  The device node has following properties.
+
+  Required properties:
+   - compatible	: Can be "st,stih415-dwmac", "st,stih416-dwmac",
+     "st,stih407-dwmac", "st,stid127-dwmac".
+   - st,syscon : Should be phandle/offset pair. The phandle to the syscon node which
+     encompases the glue register, and the offset of the control register.
+   - st,gmac_en: this is to enable the gmac into a dedicated sysctl control
+     register available on STiH407 SoC.
+   - pinctrl-0: pin-control for all the MII mode supported.
+
+  Optional properties:
+   - resets : phandle pointing to the system reset controller with correct
+     reset line index for ethernet reset.
+   - st,ext-phyclk: valid only for RMII where PHY can generate 50MHz clock or
+     MAC can generate it.
+   - st,tx-retime-src: This specifies which clk is wired up to the mac for
+     retimeing tx lines. This is totally board dependent and can take one of the
+     posssible values from "txclk", "clk_125" or "clkgen".
+     If not passed, the internal clock will be used by default.
+   - sti-ethclk: this is the phy clock.
+   - sti-clkconf: this is an extra sysconfig register, available in new SoCs,
+     to program the clk retiming.
+   - st,gmac_en: to enable the GMAC, this only is present in some SoCs; e.g.
+     STiH407.
+
+...

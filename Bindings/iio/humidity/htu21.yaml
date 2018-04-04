@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/humidity/htu21.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: '*HTU21 - Measurement-Specialties htu21 temperature & humidity sensor and humidity
+  part of MS8607 sensor'
+
+maintainers:
+  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  *HTU21 - Measurement-Specialties htu21 temperature & humidity sensor and humidity part of MS8607 sensor
+
+  Required properties:
+
+  	- compatible: should be "meas,htu21" or "meas,ms8607-humidity"
+  	- reg: I2C address of the sensor
+
+...

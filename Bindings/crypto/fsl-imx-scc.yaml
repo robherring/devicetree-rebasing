@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/crypto/fsl-imx-scc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale Security Controller (SCC)
+
+maintainers:
+  - Steffen Trumtrar <s.trumtrar@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    scc: crypto@53fac000 {
+      compatible = "fsl,imx25-scc";
+      reg = <0x53fac000 0x4000>;
+      clocks = <&clks 111>;
+      clock-names = "ipg";
+      interrupts = <49>, <50>;
+      interrupt-names = "scm", "smn";
+    };
+historical: |+
+  Freescale Security Controller (SCC)
+
+  Required properties:
+  - compatible : Should be "fsl,imx25-scc".
+  - reg : Should contain register location and length.
+  - interrupts : Should contain interrupt numbers for SCM IRQ and SMN IRQ.
+  - interrupt-names : Should specify the names "scm" and "smn" for the
+  		    SCM IRQ and SMN IRQ.
+  - clocks: Should contain the clock driving the SCC core.
+  - clock-names: Should be set to "ipg".
+
+...

@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/spreadtrum,sprd-timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Spreadtrum timers
+
+maintainers:
+  - Baolin Wang <baolin.wang@spreadtrum.com>
+description: |+
+  The Spreadtrum SC9860 platform provides 3 general-purpose timers.
+  These timers can support 32bit or 64bit counter, as well as supporting
+  period mode or one-shot mode, and they are can be wakeup source
+  during deep sleep.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    timer@40050000 {
+      compatible = "sprd,sc9860-timer";
+      reg = <0 0x40050000 0 0x20>;
+      interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
+      clocks = <&ext_32k>;
+    };
+historical: |+
+  Spreadtrum timers
+
+  The Spreadtrum SC9860 platform provides 3 general-purpose timers.
+  These timers can support 32bit or 64bit counter, as well as supporting
+  period mode or one-shot mode, and they are can be wakeup source
+  during deep sleep.
+
+  Required properties:
+  - compatible: should be "sprd,sc9860-timer" for SC9860 platform.
+  - reg: The register address of the timer device.
+  - interrupts: Should contain the interrupt for the timer device.
+  - clocks: The phandle to the source clock (usually a 32.768 KHz fixed clock).
+
+...

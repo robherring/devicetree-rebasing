@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/tianma,tm070rvhg71.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Tianma Micro-electronics TM070RVHG71 7.0" WXGA TFT LCD panel
+
+maintainers:
+  - Lukasz Majewski <lukma@denx.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Tianma Micro-electronics TM070RVHG71 7.0" WXGA TFT LCD panel
+
+  Required properties:
+  - compatible: should be "tianma,tm070rvhg71"
+  - power-supply: single regulator to provide the supply voltage
+  - backlight: phandle of the backlight device attached to the panel
+
+  Required nodes:
+  - port: LVDS port mapping to connect this display
+
+  This panel needs single power supply voltage. Its backlight is conntrolled
+  via PWM signal.
+
+...

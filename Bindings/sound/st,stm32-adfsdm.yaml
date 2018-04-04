@@ -1,0 +1,85 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/st,stm32-adfsdm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics Audio Digital Filter Sigma Delta modulators(DFSDM)
+
+maintainers:
+  - Arnaud Pouliquen <arnaud.pouliquen@st.com>
+description: |+
+  The DFSDM allows PDM microphones capture through SPI interface. The Audio
+  interface is seems as a sub block of the DFSDM device.
+  For details on DFSDM bindings refer to ../iio/adc/st,stm32-dfsdm-adc.txt
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sound_card {
+      compatible = "audio-graph-card";
+
+      dais = <&cpu_port>;
+    };
+
+    dfsdm: dfsdm@40017000 {
+      compatible = "st,stm32h7-dfsdm";
+      reg = <0x40017000 0x400>;
+      clocks = <&rcc DFSDM1_CK>;
+      clock-names = "dfsdm";
+      #interrupt-cells = <1>;
+      #address-cells = <1>;
+      #size-cells = <0>;
+
+      dfsdm_adc0: filter@0 {
+        compatible = "st,stm32-dfsdm-dmic";
+        reg = <0>;
+        interrupts = <110>;
+        dmas = <&dmamux1 101 0x400 0x00>;
+        dma-names = "rx";
+        st,adc-channels = <1>;
+        st,adc-channel-names = "dmic0";
+        st,adc-channel-types = "SPI_R";
+        st,adc-channel-clk-src = "CLKOUT";
+        st,filter-order = <5>;
+
+        dfsdm_dai0: dfsdm-dai {
+          compatible = "st,stm32h7-dfsdm-dai";
+          #sound-dai-cells = <0>;
+          io-channels = <&dfsdm_adc0 0>;
+          cpu_port: port {
+          dfsdm_endpoint: endpoint {
+            remote-endpoint = <&dmic0_endpoint>;
+          };
+        };
+      };
+    };
+
+    dmic0: dmic@0 {
+      compatible = "dmic-codec";
+      #sound-dai-cells = <0>;
+      port {
+        dmic0_endpoint: endpoint {
+          remote-endpoint = <&dfsdm_endpoint>;
+        };
+      };
+    };
+historical: |+
+  STMicroelectronics Audio Digital Filter Sigma Delta modulators(DFSDM)
+
+  The DFSDM allows PDM microphones capture through SPI interface. The Audio
+  interface is seems as a sub block of the DFSDM device.
+  For details on DFSDM bindings refer to ../iio/adc/st,stm32-dfsdm-adc.txt
+
+  Required properties:
+    - compatible: "st,stm32h7-dfsdm-dai".
+
+    - #sound-dai-cells : Must be equal to 0
+
+    - io-channels : phandle to iio dfsdm instance node.
+
+...

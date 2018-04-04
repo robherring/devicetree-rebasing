@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/bridge/tda998x.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for the NXP TDA998x HDMI transmitter
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |+
+  Required properties;
+    - compatible: must be "nxp,tda998x"
+
+    - reg: I2C address
+
+  Required node:
+    - port: Input port node with endpoint definition, as described
+          in Documentation/devicetree/bindings/graph.txt
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Device-Tree bindings for the NXP TDA998x HDMI transmitter
+
+  Required properties;
+    - compatible: must be "nxp,tda998x"
+
+    - reg: I2C address
+
+  Required node:
+    - port: Input port node with endpoint definition, as described
+          in Documentation/devicetree/bindings/graph.txt
+
+  Optional properties:
+    - interrupts: interrupt number and trigger type
+  	default: polling
+
+    - pinctrl-0: pin control group to be used for
+  	screen plug/unplug interrupt.
+
+    - pinctrl-names: must contain a "default" entry.
+
+    - video-ports: 24 bits value which defines how the video controller
+  	output is wired to the TDA998x input - default: <0x230145>
+
+    - audio-ports: array of 8-bit values, 2 values per one DAI[1].
+  	The first value defines the DAI type: TDA998x_SPDIF or TDA998x_I2S[2].
+  	The second value defines the tda998x AP_ENA reg content when the DAI
+  	in question is used. The implementation allows one or two DAIs. If two
+  	DAIs are defined, they must be of different type.
+
+  [1] Documentation/sound/alsa/soc/DAI.txt
+  [2] include/dt-bindings/display/tda998x.h
+
+...

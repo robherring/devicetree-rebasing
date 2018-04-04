@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/samsung/pmu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SAMSUNG Exynos SoC series PMU Registers
+
+maintainers:
+  - Linus Torvalds <torvalds@linux-foundation.org>
+  - Leela Krishna Amudala <l.krishna@samsung.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  SAMSUNG Exynos SoC series PMU Registers
+
+  Properties:
+   - compatible : should contain two values. First value must be one from following list:
+  		   - "samsung,exynos3250-pmu" - for Exynos3250 SoC,
+  		   - "samsung,exynos4210-pmu" - for Exynos4210 SoC,
+  		   - "samsung,exynos4412-pmu" - for Exynos4412 SoC,
+  		   - "samsung,exynos5250-pmu" - for Exynos5250 SoC,
+  		   - "samsung,exynos5260-pmu" - for Exynos5260 SoC.
+  		   - "samsung,exynos5410-pmu" - for Exynos5410 SoC,
+  		   - "samsung,exynos5420-pmu" - for Exynos5420 SoC.
+  		   - "samsung,exynos5433-pmu" - for Exynos5433 SoC.
+  		   - "samsung,exynos7-pmu" - for Exynos7 SoC.
+  		second value must be always "syscon".
+
+   - reg : offset and length of the register set.
+
+   - #clock-cells : must be <1>, since PMU requires once cell as clock specifier.
+  		The single specifier cell is used as index to list of clocks
+  		provided by PMU, which is currently:
+  			0 : SoC clock output (CLKOUT pin)
+
+   - clock-names : list of clock names for particular CLKOUT mux inputs in
+  		following format:
+  			"clkoutN", where N is a decimal number corresponding to
+  			CLKOUT mux control bits value for given input, e.g.
+  				"clkout0", "clkout7", "clkout15".
+
+   - clocks : list of phandles and specifiers to all input clocks listed in
+  		clock-names property.
+
+  Optional properties:
+
+  Some PMUs are capable of behaving as an interrupt controller (mostly
+  to wake up a suspended PMU). In which case, they can have the
+  following properties:
+
+  - interrupt-controller: indicate that said PMU is an interrupt controller
+
+  - #interrupt-cells: must be identical to the that of the parent interrupt
+    controller.
+
+  - interrupt-parent: a phandle indicating which interrupt controller
+    this PMU signals interrupts to.
+
+...

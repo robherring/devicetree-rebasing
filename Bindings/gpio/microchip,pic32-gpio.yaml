@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/microchip,pic32-gpio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Microchip PIC32 GPIO devices (PIO).
+
+maintainers:
+  - Joshua Henderson <joshua.henderson@microchip.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Microchip PIC32 GPIO devices (PIO).
+
+  Required properties:
+   - compatible: "microchip,pic32mzda-gpio"
+   - reg: Base address and length for the device.
+   - interrupts: The port interrupt shared by all pins.
+   - gpio-controller: Marks the port as GPIO controller.
+   - #gpio-cells: Two. The first cell is the pin number and
+     the second cell is used to specify the gpio polarity as defined in
+     defined in <dt-bindings/gpio/gpio.h>:
+        0 = GPIO_ACTIVE_HIGH
+        1 = GPIO_ACTIVE_LOW
+        2 = GPIO_OPEN_DRAIN
+   - interrupt-controller: Marks the device node as an interrupt controller.
+   - #interrupt-cells: Two. The first cell is the GPIO number and second cell
+     is used to specify the trigger type as defined in
+     <dt-bindings/interrupt-controller/irq.h>:
+        IRQ_TYPE_EDGE_RISING
+        IRQ_TYPE_EDGE_FALLING
+        IRQ_TYPE_EDGE_BOTH
+   - clocks: Clock specifier (see clock bindings for details).
+   - microchip,gpio-bank: Specifies which bank a controller owns.
+   - gpio-ranges: Interaction with the PINCTRL subsystem.
+
+...

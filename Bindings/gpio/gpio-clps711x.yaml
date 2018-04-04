@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-clps711x.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cirrus Logic CLPS711X GPIO controller
+
+maintainers:
+  - Alexander Shiyan <shc_work@mail.ru>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Cirrus Logic CLPS711X GPIO controller
+
+  Required properties:
+  - compatible: Should be "cirrus,ep7209-gpio"
+  - reg: Physical base GPIO controller registers location and length.
+    There should be two registers, first is DATA register, the second
+    is DIRECTION.
+  - gpio-controller: Marks the device node as a gpio controller.
+  - #gpio-cells: Should be two. The first cell is the pin number and
+    the second cell is used to specify the gpio polarity:
+      0 = active high
+      1 = active low
+
+  Note: Each GPIO port should have an alias correctly numbered in "aliases"
+  node.
+
+...

@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/of-xilinx-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Xilinx AXI/PLB soft-core watchdog Device Tree Bindings
+
+maintainers:
+  - Michal Simek <michal.simek@xilinx.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Xilinx AXI/PLB soft-core watchdog Device Tree Bindings
+  ---------------------------------------------------------
+
+  Required properties:
+  - compatible		: Should be "xlnx,xps-timebase-wdt-1.00.a" or
+  			  "xlnx,xps-timebase-wdt-1.01.a".
+  - reg			: Physical base address and size
+
+  Optional properties:
+  - clocks		: Input clock specifier. Refer to common clock
+  			  bindings.
+  - clock-frequency	: Frequency of clock in Hz
+  - xlnx,wdt-enable-once	: 0 - Watchdog can be restarted
+  			  1 - Watchdog can be enabled just once
+  - xlnx,wdt-interval	: Watchdog timeout interval in 2^<val> clock cycles,
+  			  <val> is integer from 8 to 31.
+
+...

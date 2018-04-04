@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/nxp,lpc1850-scu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC18xx/43xx SCU pin controller Device Tree Bindings
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NXP LPC18xx/43xx SCU pin controller Device Tree Bindings
+  --------------------------------------------------------
+
+  Required properties:
+  - compatible		: Should be "nxp,lpc1850-scu"
+  - reg			: Address and length of the register set for the device
+  - clocks		: Clock specifier (see clock bindings for details)
+
+  The lpc1850-scu driver uses the generic pin multiplexing and generic pin
+  configuration documented in pinctrl-bindings.txt.
+
+  The following generic nodes are supported:
+   - function
+   - pins
+   - bias-disable
+   - bias-pull-up
+   - bias-pull-down
+   - drive-strength
+   - input-enable
+   - input-disable
+   - input-schmitt-enable
+   - input-schmitt-disable
+   - slew-rate
+
+  NXP specific properties:
+   - nxp,gpio-pin-interrupt : Assign pin to gpio pin interrupt controller
+  			    irq number 0 to 7. See example below.
+
+  Not all pins support all properties so either refer to the NXP 1850/4350
+  user manual or the pin table in the pinctrl-lpc18xx driver for supported
+  pin properties.
+
+...

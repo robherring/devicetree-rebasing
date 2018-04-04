@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/ab8500/charger.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AB8500 Charger Driver
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  === AB8500 Charger Driver ===
+
+  Required Properties:
+  - compatible = Shall be "stericsson,ab8500-charger"
+  - battery = Shall be battery specific information
+  	Example:
+  	ab8500_charger {
+  		compatible = "stericsson,ab8500-charger";
+  		battery	   = <&ab8500_battery>;
+  	};
+
+  - vddadc-supply: Supply for USB and Main charger
+  	Example:
+  	ab8500-charger {
+  		vddadc-supply	= <&ab8500_ldo_tvout_reg>;
+  	}
+  - autopower_cfg:
+  	Boolean value depicting the presence of 'automatic poweron after powerloss'
+  	Example:
+  	ab8500-charger {
+  		autopower_cfg;
+  	};
+
+  For information on battery specific node, Ref:
+  Documentation/devicetree/bindings/power_supply/ab8500/fg.txt

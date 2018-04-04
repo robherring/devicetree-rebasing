@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/tegra/nvidia,tegra20-ahb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NVIDIA Tegra AHB
+
+maintainers:
+  - Hiroshi DOYU <hdoyu@nvidia.com>
+  - Paul Walmsley <paul@pwsan.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    ahb: ahb@6000c004 {
+      compatible = "nvidia,tegra20-ahb";
+      reg = <0x6000c004 0x10c>; /* AHB Arbitration + Gizmo Controller */
+    };
+historical: |+
+  NVIDIA Tegra AHB
+
+  Required properties:
+  - compatible : For Tegra20, must contain "nvidia,tegra20-ahb".  For
+    Tegra30, must contain "nvidia,tegra30-ahb".  Otherwise, must contain
+    '"nvidia,<chip>-ahb", "nvidia,tegra30-ahb"' where <chip> is tegra124,
+    tegra132, or tegra210.
+  - reg : Should contain 1 register ranges(address and length).  For
+    Tegra20, Tegra30, and Tegra114 chips, the value must be <0x6000c004
+    0x10c>.  For Tegra124, Tegra132 and Tegra210 chips, the value should
+    be be <0x6000c000 0x150>.
+
+...

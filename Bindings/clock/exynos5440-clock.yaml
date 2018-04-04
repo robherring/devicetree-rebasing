@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/exynos5440-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung Exynos5440 Clock Controller
+
+maintainers:
+  - Thomas Abraham <thomas.abraham@linaro.org>
+description: |+
+  The Exynos5440 clock controller generates and supplies clock to various
+  controllers within the Exynos5440 SoC.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    clock: clock-controller@10010000 {
+      compatible = "samsung,exynos5440-clock";
+      reg = <0x160000 0x10000>;
+      #clock-cells = <1>;
+    };
+historical: |+
+  * Samsung Exynos5440 Clock Controller
+
+  The Exynos5440 clock controller generates and supplies clock to various
+  controllers within the Exynos5440 SoC.
+
+  Required Properties:
+
+  - compatible: should be "samsung,exynos5440-clock".
+
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+
+  - #clock-cells: should be 1.
+
+  Each clock is assigned an identifier and client nodes can use this identifier
+  to specify the clock which they consume.
+
+  All available clocks are defined as preprocessor macros in
+  dt-bindings/clock/exynos5440.h header and can be used in device
+  tree sources.
+
+...

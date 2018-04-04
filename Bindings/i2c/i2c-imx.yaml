@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-imx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale Inter IC (I2C) and High Speed Inter IC (HS-I2C) for i.MX
+
+maintainers:
+  - Wolfram Sang <wolfram@the-dreams.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale Inter IC (I2C) and High Speed Inter IC (HS-I2C) for i.MX
+
+  Required properties:
+  - compatible :
+    - "fsl,imx1-i2c" for I2C compatible with the one integrated on i.MX1 SoC
+    - "fsl,imx21-i2c" for I2C compatible with the one integrated on i.MX21 SoC
+    - "fsl,vf610-i2c" for I2C compatible with the one integrated on Vybrid vf610 SoC
+  - reg : Should contain I2C/HS-I2C registers location and length
+  - interrupts : Should contain I2C/HS-I2C interrupt
+  - clocks : Should contain the I2C/HS-I2C clock specifier
+
+  Optional properties:
+  - clock-frequency : Constains desired I2C/HS-I2C bus clock frequency in Hz.
+    The absence of the property indicates the default frequency 100 kHz.
+  - dmas: A list of two dma specifiers, one for each entry in dma-names.
+  - dma-names: should contain "tx" and "rx".
+  - scl-gpios: specify the gpio related to SCL pin
+  - sda-gpios: specify the gpio related to SDA pin
+  - pinctrl: add extra pinctrl to configure i2c pins to gpio function for i2c
+    bus recovery, call it "gpio" state
+
+...

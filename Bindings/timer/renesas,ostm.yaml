@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/renesas,ostm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas OS Timer (OSTM)
+
+maintainers:
+  - Chris Brandt <chris.brandt@renesas.com>
+description: |+
+  The OSTM is a multi-channel 32-bit timer/counter with fixed clock
+  source that can operate in either interval count down timer or free-running
+  compare match mode.
+
+  Channels are independent from each other.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    ostm0: timer@fcfec000 {
+      compatible = "renesas,r7s72100-ostm", "renesas,ostm";
+      reg = <0xfcfec000 0x30>;
+      interrupts = <GIC_SPI 102 IRQ_TYPE_EDGE_RISING>;
+      clocks = <&mstp5_clks R7S72100_CLK_OSTM0>;
+      power-domains = <&cpg_clocks>;
+    };
+historical: |+
+  * Renesas OS Timer (OSTM)
+
+  The OSTM is a multi-channel 32-bit timer/counter with fixed clock
+  source that can operate in either interval count down timer or free-running
+  compare match mode.
+
+  Channels are independent from each other.
+
+  Required Properties:
+
+    - compatible: must be one or more of the following:
+      - "renesas,r7s72100-ostm" for the r7s72100 OSTM
+      - "renesas,ostm" for any OSTM
+  		This is a fallback for the above renesas,*-ostm entries
+
+    - reg: base address and length of the register block for a timer channel.
+
+    - interrupts: interrupt specifier for the timer channel.
+
+    - clocks: clock specifier for the timer channel.
+
+...

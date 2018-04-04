@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/mitsubishi,aa121td01.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mitsubishi AA121TD01 LVDS Display Panel
+
+maintainers:
+  - Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+description: |+
+  The AA121TD01 is a 12.1" WXGA TFT-LCD display panel.
+
+  These DT bindings follow the LVDS panel bindings defined in panel-lvds.txt
+  with the following device-specific properties.
+
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mitsubishi AA121TD01 LVDS Display Panel
+  =======================================
+
+  The AA121TD01 is a 12.1" WXGA TFT-LCD display panel.
+
+  These DT bindings follow the LVDS panel bindings defined in panel-lvds.txt
+  with the following device-specific properties.
+
+
+  Required properties:
+
+  - compatible: Shall contain "mitsubishi,aa121td01" and "panel-lvds", in that
+    order.
+  - vcc-supply: Reference to the regulator powering the panel VCC pins.
+
+
+...

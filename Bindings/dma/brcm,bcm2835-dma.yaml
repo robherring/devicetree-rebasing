@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/brcm,bcm2835-dma.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: BCM2835 DMA controller
+
+maintainers:
+  - Scott Branden <sbranden@broadcom.com>
+description: |+
+  The BCM2835 DMA controller has 16 channels in total.
+  Only the lower 13 channels have an associated IRQ.
+  Some arbitrary channels are used by the firmware
+  (1,3,6,7 in the current firmware version).
+  The channels 0,2 and 3 have special functionality
+  and should not be used by the driver.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * BCM2835 DMA controller
+
+  The BCM2835 DMA controller has 16 channels in total.
+  Only the lower 13 channels have an associated IRQ.
+  Some arbitrary channels are used by the firmware
+  (1,3,6,7 in the current firmware version).
+  The channels 0,2 and 3 have special functionality
+  and should not be used by the driver.
+
+  Required properties:
+  - compatible: Should be "brcm,bcm2835-dma".
+  - reg: Should contain DMA registers location and length.
+  - interrupts: Should contain the DMA interrupts associated
+  		to the DMA channels in ascending order.
+  - interrupt-names: Should contain the names of the interrupt
+  		   in the form "dmaXX".
+  		   Use "dma-shared-all" for the common interrupt line
+  		   that is shared by all dma channels.
+  - #dma-cells: Must be <1>, the cell in the dmas property of the
+  		client device represents the DREQ number.
+  - brcm,dma-channel-mask: Bit mask representing the channels
+  			 not used by the firmware in ascending order,
+  			 i.e. first channel corresponds to LSB.
+
+...

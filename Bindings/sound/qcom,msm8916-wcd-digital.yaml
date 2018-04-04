@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/qcom,msm8916-wcd-digital.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: msm8916 digital audio CODEC
+
+maintainers:
+  - Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+description: |
+  ## Bindings for codec core in lpass:
+
+  Required properties
+   - compatible = "qcom,msm8916-wcd-digital-codec";
+   - reg: address space for lpass codec.
+   - clocks: Handle to mclk and ahbclk
+   - clock-names: should be "mclk", "ahbix-clk".
+
+  Example:
+
+  audio-codec@771c000{
+  	compatible = "qcom,msm8916-wcd-digital-codec";
+  	reg = <0x0771c000 0x400>;
+  	clocks = <&gcc GCC_ULTAUDIO_AHBFABRIC_IXFABRIC_CLK>,
+  		 <&gcc GCC_CODEC_DIGCODEC_CLK>;
+  	clock-names = "ahbix-clk", "mclk";
+  	#sound-dai-cells = <1>;
+  };
+             
+
+properties:
+  compatible: {}
+historical: |+
+  msm8916 digital audio CODEC
+
+  ## Bindings for codec core in lpass:
+
+  Required properties
+   - compatible = "qcom,msm8916-wcd-digital-codec";
+   - reg: address space for lpass codec.
+   - clocks: Handle to mclk and ahbclk
+   - clock-names: should be "mclk", "ahbix-clk".
+
+...

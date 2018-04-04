@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/sff,sfp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Small Form Factor (SFF) Committee Small Form-factor Pluggable (SFP)
+
+maintainers:
+  - Baruch Siach <baruch@tkos.co.il>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Small Form Factor (SFF) Committee Small Form-factor Pluggable (SFP)
+  Transceiver
+
+  Required properties:
+
+  - compatible : must be one of
+    "sff,sfp" for SFP modules
+    "sff,sff" for soldered down SFF modules
+
+  Optional Properties:
+
+  - i2c-bus : phandle of an I2C bus controller for the SFP two wire serial
+    interface
+
+  - mod-def0-gpios : GPIO phandle and a specifier of the MOD-DEF0 (AKA Mod_ABS)
+    module presence input gpio signal, active (module absent) high. Must
+    not be present for SFF modules
+
+  - los-gpios : GPIO phandle and a specifier of the Receiver Loss of Signal
+    Indication input gpio signal, active (signal lost) high
+
+  - tx-fault-gpios : GPIO phandle and a specifier of the Module Transmitter
+    Fault input gpio signal, active (fault condition) high
+
+  - tx-disable-gpios : GPIO phandle and a specifier of the Transmitter Disable
+    output gpio signal, active (Tx disable) high
+
+  - rate-select0-gpios : GPIO phandle and a specifier of the Rx Signaling Rate
+    Select (AKA RS0) output gpio signal, low: low Rx rate, high: high Rx rate
+    Must not be present for SFF modules
+
+  - rate-select1-gpios : GPIO phandle and a specifier of the Tx Signaling Rate
+    Select (AKA RS1) output gpio signal (SFP+ only), low: low Tx rate, high:
+    high Tx rate. Must not be present for SFF modules
+
+...

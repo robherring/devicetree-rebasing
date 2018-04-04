@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/sdhci-st.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics sdhci-st MMC/SD controller
+
+maintainers:
+  - Peter Griffin <peter.griffin@linaro.org>
+description: |+
+  This file documents the differences between the core properties in
+  Documentation/devicetree/bindings/mmc/mmc.txt and the properties
+  used by the sdhci-st driver.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * STMicroelectronics sdhci-st MMC/SD controller
+
+  This file documents the differences between the core properties in
+  Documentation/devicetree/bindings/mmc/mmc.txt and the properties
+  used by the sdhci-st driver.
+
+  Required properties:
+  - compatible:		Must be "st,sdhci" and it can be compatible to "st,sdhci-stih407"
+  			to set the internal glue logic used for configuring the MMC
+  			subsystem (mmcss) inside the FlashSS (available in STiH407 SoC
+  			family).
+
+  - clock-names:		Should be "mmc" and "icn".  (NB: The latter is not compulsory)
+  			See: Documentation/devicetree/bindings/resource-names.txt
+  - clocks:		Phandle to the clock.
+  			See: Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  - interrupts:		One mmc interrupt should be described here.
+  - interrupt-names:	Should be "mmcirq".
+
+  - pinctrl-names:	A pinctrl state names "default" must be defined.
+  - pinctrl-0:		Phandle referencing pin configuration of the sd/emmc controller.
+  			See: Documentation/devicetree/bindings/pinctrl/pinctrl-binding.txt
+
+  - reg:			This must provide the host controller base address and it can also
+  			contain the FlashSS Top register for TX/RX delay used by the driver
+  			to configure DLL inside the flashSS, if so reg-names must also be
+  			specified.
+
+  Optional properties:
+  - reg-names:		Should be "mmc" and "top-mmc-delay". "top-mmc-delay" is optional
+  			for eMMC on stih407 family silicon to configure DLL inside FlashSS.
+
+  - non-removable:	Non-removable slot. Also used for configuring mmcss in STiH407 SoC
+  			family.
+  			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
+
+  - bus-width:		Number of data lines.
+  			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
+
+  - max-frequency:	Can be 200MHz, 100MHz or 50MHz (default) and used for
+  			configuring the CCONFIG3 in the mmcss.
+  			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
+
+  - resets:		Phandle and reset specifier pair to softreset line of HC IP.
+  			See: Documentation/devicetree/bindings/reset/reset.txt
+
+  - vqmmc-supply:		Phandle to the regulator dt node, mentioned as the vcc/vdd
+  			supply in eMMC/SD specs.
+
+  - sd-uhs-sdr50:	To enable the SDR50 in the mmcss.
+  			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
+
+  - sd-uhs-sdr104:	To enable the SDR104 in the mmcss.
+  			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
+
+  - sd-uhs-ddr50:		To enable the DDR50 in the mmcss.
+  			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
+
+...

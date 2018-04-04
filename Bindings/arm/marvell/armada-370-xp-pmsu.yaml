@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/marvell/armada-370-xp-pmsu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Power Management Service Unit(PMSU)
+
+maintainers:
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Power Management Service Unit(PMSU)
+  -----------------------------------
+  Available on Marvell SOCs: Armada 370, Armada 38x and Armada XP
+
+  Required properties:
+
+  - compatible: should be one of:
+    - "marvell,armada-370-pmsu" for Armada 370 or Armada XP
+    - "marvell,armada-380-pmsu" for Armada 38x
+    - "marvell,armada-370-xp-pmsu" was used for Armada 370/XP but is now
+      deprecated and will be removed
+
+  - reg: Should contain PMSU registers location and length.
+
+...

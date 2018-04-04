@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/bus/ti,da850-mstpri.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for Texas Instruments da8xx master peripheral
+
+maintainers:
+  - Bartosz Golaszewski <bgolaszewski@baylibre.com>
+description: |+
+  DA8XX SoCs feature a set of registers allowing to change the priority of all
+  peripherals classified as masters.
+
+  Documentation:
+  OMAP-L138 (DA850) - http://www.ti.com/lit/ug/spruh82c/spruh82c.pdf
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Device tree bindings for Texas Instruments da8xx master peripheral
+    priority driver
+
+  DA8XX SoCs feature a set of registers allowing to change the priority of all
+  peripherals classified as masters.
+
+  Documentation:
+  OMAP-L138 (DA850) - http://www.ti.com/lit/ug/spruh82c/spruh82c.pdf
+
+  Required properties:
+
+  - compatible:		"ti,da850-mstpri" - for da850 based boards
+  - reg:			offset and length of the mstpri registers
+
+...

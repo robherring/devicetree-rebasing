@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/nxp,rtc-2123.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP PCF2123 SPI Real Time Clock
+
+maintainers:
+  - Joshua Clayton <stillcompiling@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NXP PCF2123 SPI Real Time Clock
+
+  Required properties:
+  - compatible: should be: "nxp,rtc-pcf2123"
+  - reg: should be the SPI slave chipselect address
+
+  Optional properties:
+  - spi-cs-high: PCF2123 needs chipselect high
+
+...

@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/pxa-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Clock bindings for Marvell PXA chips
+
+maintainers:
+  - Robert Jarzmik <robert.jarzmik@free.fr>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Clock bindings for Marvell PXA chips
+
+  Required properties:
+  - compatible: Should be "marvell,pxa-clocks"
+  - #clock-cells: Should be <1>
+
+  The clock consumer should specify the desired clock by having the clock
+  ID in its "clocks" phandle cell (see include/.../pxa-clock.h).
+
+...

@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/lpc32xx-pwm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: LPC32XX PWM controller
+
+maintainers:
+  - Alexandre Pereira da Silva <aletes.xgr@gmail.com>
+  - Vladimir Zapolskiy <vz@mleia.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  LPC32XX PWM controller
+
+  Required properties:
+  - compatible: should be "nxp,lpc3220-pwm"
+  - reg: physical base address and length of the controller's registers
+
+...

@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/fpga/altera-freeze-bridge.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera Freeze Bridge Controller Driver
+
+maintainers:
+  - Alan Tull <atull@opensource.altera.com>
+description: |+
+  The Altera Freeze Bridge Controller manages one or more freeze bridges.
+  The controller can freeze/disable the bridges which prevents signal
+  changes from passing through the bridge.  The controller can also
+  unfreeze/enable the bridges which allows traffic to pass through the
+  bridge normally.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    freeze-controller@100000450 {
+      compatible = "altr,freeze-bridge-controller";
+      regs = <0x1000 0x10>;
+      bridge-enable = <0>;
+    };
+historical: |+
+  Altera Freeze Bridge Controller Driver
+
+  The Altera Freeze Bridge Controller manages one or more freeze bridges.
+  The controller can freeze/disable the bridges which prevents signal
+  changes from passing through the bridge.  The controller can also
+  unfreeze/enable the bridges which allows traffic to pass through the
+  bridge normally.
+
+  Required properties:
+  - compatible		: Should contain "altr,freeze-bridge-controller"
+  - regs			: base address and size for freeze bridge module
+
+  Optional properties:
+  - bridge-enable		: 0 if driver should disable bridge at startup
+  			  1 if driver should enable bridge at startup
+  			  Default is to leave bridge in current state.
+
+...

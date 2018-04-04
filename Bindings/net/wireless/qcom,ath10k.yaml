@@ -1,0 +1,70 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/wireless/qcom,ath10k.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm Atheros ath10k wireless devices
+
+maintainers:
+  - Raja Mani <rmani@qti.qualcomm.com>
+  - Kalle Valo <kvalo@qca.qualcomm.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Qualcomm Atheros ath10k wireless devices
+
+  Required properties:
+  - compatible: Should be one of the following:
+  	* "qcom,ath10k"
+  	* "qcom,ipq4019-wifi"
+
+  PCI based devices uses compatible string "qcom,ath10k" and takes calibration
+  data along with board specific data via "qcom,ath10k-calibration-data".
+  Rest of the properties are not applicable for PCI based devices.
+
+  AHB based devices (i.e. ipq4019) uses compatible string "qcom,ipq4019-wifi"
+  and also uses most of the properties defined in this doc (except
+  "qcom,ath10k-calibration-data"). It uses "qcom,ath10k-pre-calibration-data"
+  to carry pre calibration data.
+
+  In general, entry "qcom,ath10k-pre-calibration-data" and
+  "qcom,ath10k-calibration-data" conflict with each other and only one
+  can be provided per device.
+
+  Optional properties:
+  - reg: Address and length of the register set for the device.
+  - resets: Must contain an entry for each entry in reset-names.
+            See ../reset/reseti.txt for details.
+  - reset-names: Must include the list of following reset names,
+  	       "wifi_cpu_init"
+  	       "wifi_radio_srif"
+  	       "wifi_radio_warm"
+  	       "wifi_radio_cold"
+  	       "wifi_core_warm"
+  	       "wifi_core_cold"
+  - clocks: List of clock specifiers, must contain an entry for each required
+            entry in clock-names.
+  - clock-names: Should contain the clock names "wifi_wcss_cmd", "wifi_wcss_ref",
+                 "wifi_wcss_rtc".
+  - interrupts: List of interrupt lines. Must contain an entry
+  	      for each entry in the interrupt-names property.
+  - interrupt-names: Must include the entries for MSI interrupt
+  		   names ("msi0" to "msi15") and legacy interrupt
+  		   name ("legacy"),
+  - qcom,msi_addr: MSI interrupt address.
+  - qcom,msi_base: Base value to add before writing MSI data into
+  		MSI address register.
+  - qcom,ath10k-calibration-variant: string to search for in the board-2.bin
+  				   variant list with the same bus and device
+  				   specific ids
+  - qcom,ath10k-calibration-data : calibration data + board specific data
+  				 as an array, the length can vary between
+  				 hw versions.
+  - qcom,ath10k-pre-calibration-data : pre calibration data as an array,
+  				     the length can vary between hw versions.
+
+...

@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/mvebu-corediv-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Core Divider Clock bindings for Marvell MVEBU SoCs
+
+maintainers:
+  - Ezequiel Garcia <ezequiel.garcia@free-electrons.com>
+description: |+
+  The following is a list of provided IDs and clock names on Armada 370/XP:
+   0 = nand (NAND clock)
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Core Divider Clock bindings for Marvell MVEBU SoCs
+
+  The following is a list of provided IDs and clock names on Armada 370/XP:
+   0 = nand (NAND clock)
+
+  Required properties:
+  - compatible : must be "marvell,armada-370-corediv-clock",
+  		       "marvell,armada-375-corediv-clock",
+  		       "marvell,armada-380-corediv-clock",
+                         "marvell,mv98dx3236-corediv-clock",
+
+  - reg : must be the register address of Core Divider control register
+  - #clock-cells : from common clock binding; shall be set to 1
+  - clocks : must be set to the parent's phandle
+
+...

@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/cros-ec-keyb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ChromeOS EC Keyboard
+
+maintainers:
+  - Simon Glass <sjg@chromium.org>
+description: |+
+  Google's ChromeOS EC Keyboard is a simple matrix keyboard implemented on
+  a separate EC (Embedded Controller) device. It provides a message for reading
+  key scans from the EC. These are then converted into keycodes for processing
+  by the kernel.
+
+  This binding is based on matrix-keymap.txt and extends/modifies it as follows:
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ChromeOS EC Keyboard
+
+  Google's ChromeOS EC Keyboard is a simple matrix keyboard implemented on
+  a separate EC (Embedded Controller) device. It provides a message for reading
+  key scans from the EC. These are then converted into keycodes for processing
+  by the kernel.
+
+  This binding is based on matrix-keymap.txt and extends/modifies it as follows:
+
+  Required properties:
+  - compatible: "google,cros-ec-keyb"
+
+  Optional properties:
+  - google,needs-ghost-filter: True to enable a ghost filter for the matrix
+  keyboard. This is recommended if the EC does not have its own logic or
+  hardware for this.
+
+
+...

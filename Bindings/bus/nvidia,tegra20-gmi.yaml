@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/bus/nvidia,tegra20-gmi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for NVIDIA Tegra Generic Memory Interface bus
+
+maintainers:
+  - Mirza Krak <mirza.krak@gmail.com>
+description: |+
+  The Generic Memory Interface bus enables memory transfers between internal and
+  external memory. Can be used to attach various high speed devices such as
+  synchronous/asynchronous NOR, FPGA, UARTS and more.
+
+  The actual devices are instantiated from the child nodes of a GMI node.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Device tree bindings for NVIDIA Tegra Generic Memory Interface bus
+
+  The Generic Memory Interface bus enables memory transfers between internal and
+  external memory. Can be used to attach various high speed devices such as
+  synchronous/asynchronous NOR, FPGA, UARTS and more.
+
+  The actual devices are instantiated from the child nodes of a GMI node.
+
+  Required properties:
+   - compatible : Should contain one of the following:
+          For Tegra20 must contain "nvidia,tegra20-gmi".
+          For Tegra30 must contain "nvidia,tegra30-gmi".
+   - reg: Should contain GMI controller registers location and length.
+   - clocks: Must contain an entry for each entry in clock-names.
+   - clock-names: Must include the following entries: "gmi"
+   - resets : Must contain an entry for each entry in reset-names.
+   - reset-names : Must include the following entries: "gmi"
+   - #address-cells: The number of cells used to represent physical base
+     addresses in the GMI address space. Should be 2.
+   - #size-cells: The number of cells used to represent the size of an address
+     range in the GMI address space. Should be 1.
+   - ranges: Must be set up to reflect the memory layout with three integer values
+     for each chip-select line in use (only one entry is supported, see below
+     comments):
+     <cs-number> <offset> <physical address of mapping> <size>
+
+  Note that the GMI controller does not have any internal chip-select address
+  decoding, because of that chip-selects either need to be managed via software
+  or by employing external chip-select decoding logic.
+
+  If external chip-select logic is used to support multiple devices it is assumed
+  that the devices use the same timing and so are probably the same type. It also
+  assumes that they can fit in the 256MB address range. In this case only one
+  child device is supported which represents the active chip-select line, see

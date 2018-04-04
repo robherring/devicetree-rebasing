@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/netxbig-gpio-ext.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for the GPIO extension bus found on some LaCie/Seagate boards
+
+maintainers:
+  - Simon Guinot <simon.guinot@sequanux.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for the GPIO extension bus found on some LaCie/Seagate boards
+  (Example: 2Big/5Big Network v2, 2Big NAS).
+
+  Required properties:
+  - compatible: "lacie,netxbig-gpio-ext".
+  - addr-gpios: GPIOs representing the address register (LSB -> MSB).
+  - data-gpios: GPIOs representing the data register (LSB -> MSB).
+  - enable-gpio: latches the new configuration (address, data) on raising edge.
+
+...

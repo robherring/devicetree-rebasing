@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/sony,acx565akm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Sony ACX565AKM SDI Panel
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Sony ACX565AKM SDI Panel
+  ========================
+
+  Required properties:
+  - compatible: "sony,acx565akm"
+
+  Optional properties:
+  - label: a symbolic name for the panel
+  - reset-gpios: panel reset gpio
+
+  Required nodes:
+  - Video port for SDI input
+
+...

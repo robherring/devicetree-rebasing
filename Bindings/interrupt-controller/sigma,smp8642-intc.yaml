@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/sigma,smp8642-intc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Sigma Designs SMP86xx/SMP87xx secondary interrupt controller
+
+maintainers:
+  - Mans Rullgard <mans@mansr.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Sigma Designs SMP86xx/SMP87xx secondary interrupt controller
+
+  Required properties:
+  - compatible: should be "sigma,smp8642-intc"
+  - reg: physical address of MMIO region
+  - ranges: address space mapping of child nodes
+  - interrupt-parent: phandle of parent interrupt controller
+  - interrupt-controller: boolean
+  - #address-cells: should be <1>
+  - #size-cells: should be <1>
+
+  One child node per control block with properties:
+  - reg: address of registers for this control block
+  - interrupt-controller: boolean
+  - #interrupt-cells: should be <2>, interrupt index and flags per interrupts.txt
+  - interrupts: interrupt spec of primary interrupt controller
+
+...

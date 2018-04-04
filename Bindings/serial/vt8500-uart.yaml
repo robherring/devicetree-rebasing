@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/vt8500-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: VIA VT8500 and WonderMedia WM8xxx UART Controller
+
+maintainers:
+  - Tony Prisk <linux@prisktech.co.nz>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    aliases {
+      serial0 = &uart0;
+    };
+
+    uart0: serial@d8200000 {
+      compatible = "via,vt8500-uart";
+      reg = <0xd8200000 0x1040>;
+      interrupts = <32>;
+      clocks = <&clkuart0>;
+    };
+historical: |+
+  * VIA VT8500 and WonderMedia WM8xxx UART Controller
+
+  Required properties:
+  - compatible: should be "via,vt8500-uart" (for VIA/WonderMedia chips up to and
+  	including WM8850/WM8950), or "wm,wm8880-uart" (for WM8880 and later)
+
+  - reg: base physical address of the controller and length of memory mapped
+  	region.
+
+  - interrupts: hardware interrupt number
+
+  - clocks: shall be the input parent clock phandle for the clock. This should
+  	be the 24Mhz reference clock.
+
+  Aliases may be defined to ensure the correct ordering of the uarts.
+
+...

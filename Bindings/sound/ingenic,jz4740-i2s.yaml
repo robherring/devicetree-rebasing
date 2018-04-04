@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/ingenic,jz4740-i2s.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Ingenic JZ4740 I2S controller
+
+maintainers:
+  - Zubair Lutfullah Kakakhel <Zubair.Kakakhel@imgtec.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Ingenic JZ4740 I2S controller
+
+  Required properties:
+  - compatible : "ingenic,jz4740-i2s" or "ingenic,jz4780-i2s"
+  - reg : I2S registers location and length
+  - clocks : AIC and I2S PLL clock specifiers.
+  - clock-names: "aic" and "i2s"
+  - dmas: DMA controller phandle and DMA request line for I2S Tx and Rx channels
+  - dma-names: Must be "tx" and "rx"
+
+...

@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/ptp/brcm,ptp-dte.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom Digital Timing Engine(DTE) based PTP clock
+
+maintainers:
+  - Arun Parameswaran <arun.parameswaran@broadcom.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Broadcom Digital Timing Engine(DTE) based PTP clock
+
+  Required properties:
+  - compatible: should contain the core compatibility string
+                and the SoC compatibility string. The SoC
+                compatibility string is to handle SoC specific
+                hardware differences.
+                Core compatibility string:
+                   "brcm,ptp-dte"
+                SoC compatibility strings:
+                   "brcm,iproc-ptp-dte" - for iproc based SoC's
+  - reg: address and length of the DTE block's NCO registers
+
+...

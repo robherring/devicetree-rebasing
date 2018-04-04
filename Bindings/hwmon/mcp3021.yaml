@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/hwmon/mcp3021.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: mcp3021 properties
+
+maintainers:
+  - Clemens Gruber <clemens.gruber@pqgruber.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  mcp3021 properties
+
+  Required properties:
+  - compatible: Must be one of the following:
+  	- "microchip,mcp3021" for mcp3021
+  	- "microchip,mcp3221" for mcp3221
+  - reg: I2C address
+
+  Optional properties:
+
+  - reference-voltage-microvolt
+  	Reference voltage in microvolt (uV)
+
+...

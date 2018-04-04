@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/zte.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ZTE platforms device tree bindings
+
+maintainers:
+  - Jun Nie <jun.nie@linaro.org>
+description: |
+  -  ZX296702 board:
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ZTE platforms device tree bindings
+  ---------------------------------------
+
+  -  ZX296702 board:
+      Required root node properties:
+        - compatible = "zte,zx296702-ad1", "zte,zx296702"
+
+  System management required properties:
+        - compatible = "zte,sysctrl"
+
+  Low power management required properties:
+        - compatible = "zte,zx296702-pcu"
+
+  Bus matrix required properties:
+        - compatible = "zte,zx-bus-matrix"
+
+
+  ---------------------------------------
+  -  ZX296718 SoC:
+      Required root node properties:
+        - compatible = "zte,zx296718"
+
+  ZX296718 EVB board:
+        - "zte,zx296718-evb"
+
+  System management required properties:
+        - compatible = "zte,zx296718-aon-sysctrl"
+        - compatible = "zte,zx296718-sysctrl"
+
+...

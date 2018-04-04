@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/amlogic/analog-top.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'Amlogic Meson8 and Meson8b "analog top" registers:'
+
+maintainers:
+  - Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+description: |+
+  The analog top registers contain information about the so-called
+  "metal revision" (which encodes the "minor version") of the SoC.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    analog_top: analog-top@81a8 {
+      compatible = "amlogic,meson8-analog-top", "syscon";
+      reg = <0x81a8 0x14>;
+    };
+historical: |+
+  Amlogic Meson8 and Meson8b "analog top" registers:
+  --------------------------------------------------
+
+  The analog top registers contain information about the so-called
+  "metal revision" (which encodes the "minor version") of the SoC.
+
+  Required properties:
+  - reg: the register range of the analog top registers
+  - compatible: depending on the SoC this should be one of:
+  		- "amlogic,meson8-analog-top"
+  		- "amlogic,meson8b-analog-top"
+  		along with "syscon"
+
+
+...

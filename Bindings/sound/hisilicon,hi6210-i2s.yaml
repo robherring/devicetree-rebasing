@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/hisilicon,hi6210-i2s.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Hisilicon 6210 i2s controller
+
+maintainers:
+  - John Stultz <john.stultz@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Hisilicon 6210 i2s controller
+
+  Required properties:
+
+  - compatible: should be one of the following:
+     - "hisilicon,hi6210-i2s"
+  - reg: physical base address of the i2s controller unit and length of
+     memory mapped region.
+  - interrupts: should contain the i2s interrupt.
+  - clocks: a list of phandle + clock-specifier pairs, one for each entry
+    in clock-names.
+  - clock-names: should contain following:
+     - "dacodec"
+     - "i2s-base"
+  - dmas: DMA specifiers for tx dma. See the DMA client binding,
+    Documentation/devicetree/bindings/dma/dma.txt
+  - dma-names: should be "tx" and "rx"
+  - hisilicon,sysctrl-syscon: phandle to sysctrl syscon
+  - #sound-dai-cells: Should be set to 1 (for multi-dai)
+     - The dai cell indexes reference the following interfaces:
+         0: S2 interface
+         (Currently that is the only one available, but more may be
+          supported in the future)
+
+...

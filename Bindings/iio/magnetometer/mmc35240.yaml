@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/magnetometer/mmc35240.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MEMSIC MMC35240 magnetometer sensor
+
+maintainers:
+  - Jandy Gou <qingsong.gou@ck-telecom.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * MEMSIC MMC35240 magnetometer sensor
+
+  Required properties:
+
+    - compatible : should be "memsic,mmc35240"
+    - reg : the I2C address of the magnetometer
+
+...

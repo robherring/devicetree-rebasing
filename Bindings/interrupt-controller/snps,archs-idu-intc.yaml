@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/snps,archs-idu-intc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARC-HS Interrupt Distribution Unit
+
+maintainers:
+  - Yuriy Kolerov <yuriy.kolerov@synopsys.com>
+  - Rob Herring <robh@kernel.org>
+description: |+
+  This optional 2nd level interrupt controller can be used in SMP configurations for
+    dynamic IRQ routing, load balancing of common/external IRQs towards core intc.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    core_intc: core-interrupt-controller {
+      compatible = "snps,archs-intc";
+      interrupt-controller;
+      #interrupt-cells = <1>;
+    };
+
+    idu_intc: idu-interrupt-controller {
+      compatible = "snps,archs-idu-intc";
+      interrupt-controller;
+      interrupt-parent = <&core_intc>;
+      #interrupt-cells = <1>;
+    };
+
+    some_device: serial@c0fc1000 {
+      interrupt-parent = <&idu_intc>;
+      interrupts = <0>;  /* upstream idu IRQ #24 */
+    };
+historical: |+
+  * ARC-HS Interrupt Distribution Unit
+
+    This optional 2nd level interrupt controller can be used in SMP configurations for
+    dynamic IRQ routing, load balancing of common/external IRQs towards core intc.
+
+  Properties:
+
+  - compatible: "snps,archs-idu-intc"
+  - interrupt-controller: This is an interrupt controller.
+  - interrupt-parent: <reference to parent core intc>
+  - #interrupt-cells: Must be <1>.
+
+    Value of the cell specifies the "common" IRQ from peripheral to IDU. Number N
+    of the particular interrupt line of IDU corresponds to the line N+24 of the
+    core interrupt controller.
+
+    intc accessed via the special ARC AUX register interface, hence "reg" property
+    is not specified.
+
+...

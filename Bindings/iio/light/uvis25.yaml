@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/light/uvis25.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST UVIS25 uv sensor
+
+maintainers:
+  - Lorenzo Bianconi <lorenzo.bianconi83@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * ST UVIS25 uv sensor
+
+  Required properties:
+  - compatible: should be "st,uvis25"
+  - reg: i2c address of the sensor / spi cs line
+
+  Optional properties:
+  - interrupt-parent: should be the phandle for the interrupt controller
+  - interrupts: interrupt mapping for IRQ. It should be configured with
+    flags IRQ_TYPE_LEVEL_HIGH, IRQ_TYPE_EDGE_RISING, IRQ_TYPE_LEVEL_LOW or
+    IRQ_TYPE_EDGE_FALLING.
+
+    Refer to interrupt-controller/interrupts.txt for generic interrupt
+    client node bindings.
+
+...

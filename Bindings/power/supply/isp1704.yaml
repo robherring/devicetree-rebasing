@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/isp1704.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for NXP ISP1704 USB Charger Detection
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for NXP ISP1704 USB Charger Detection
+
+  Required properties:
+  - compatible: Should contain one of the following:
+   * "nxp,isp1704"
+  - nxp,enable-gpio: Should contain a phandle + gpio-specifier
+    to the GPIO pin connected to the chip's enable pin.
+  - usb-phy: Should contain a phandle to the USB PHY
+    the ISP1704 is connected to.
+
+...

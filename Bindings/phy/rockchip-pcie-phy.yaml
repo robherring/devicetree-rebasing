@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/rockchip-pcie-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Rockchip PCIE PHY
+
+maintainers:
+  - Shawn Lin <shawn.lin@rock-chips.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Rockchip PCIE PHY
+  -----------------------
+
+  Required properties:
+   - compatible: rockchip,rk3399-pcie-phy
+   - clocks: Must contain an entry in clock-names.
+  	See ../clocks/clock-bindings.txt for details.
+   - clock-names: Must be "refclk"
+   - resets: Must contain an entry in reset-names.
+  	See ../reset/reset.txt for details.
+   - reset-names: Must be "phy"
+
+  Required properties for legacy PHY mode (deprecated):
+   - #phy-cells: must be 0
+
+  Required properties for per-lane PHY mode (preferred):
+   - #phy-cells: must be 1
+
+...

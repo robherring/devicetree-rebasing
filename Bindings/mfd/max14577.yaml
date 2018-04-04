@@ -1,0 +1,89 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/max14577.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim MAX14577/77836 Multi-Function Device
+
+maintainers:
+  - Krzysztof Kozlowski <k.kozlowski@samsung.com>
+description: |+
+  MAX14577 is a Multi-Function Device with Micro-USB Interface Circuit, Li+
+  Battery Charger and SFOUT LDO output for powering USB devices. It is
+  interfaced to host controller using I2C.
+
+  MAX77836 additionally contains PMIC (with two LDO regulators) and Fuel Gauge.
+
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Maxim MAX14577/77836 Multi-Function Device
+
+  MAX14577 is a Multi-Function Device with Micro-USB Interface Circuit, Li+
+  Battery Charger and SFOUT LDO output for powering USB devices. It is
+  interfaced to host controller using I2C.
+
+  MAX77836 additionally contains PMIC (with two LDO regulators) and Fuel Gauge.
+
+
+  Required properties:
+  - compatible : Must be "maxim,max14577" or "maxim,max77836".
+  - reg : I2C slave address for the max14577 chip (0x25 for max14577/max77836)
+  - interrupts : IRQ line for the chip.
+  - interrupt-parent :  The parent interrupt controller.
+
+
+  Required nodes:
+   - charger :
+  	Node for configuring the charger driver.
+  	Required properties:
+  		- compatible : "maxim,max14577-charger"
+  			or "maxim,max77836-charger"
+  		- maxim,fast-charge-uamp : Current in uA for Fast Charge;
+  			Valid values:
+  			- for max14577: 90000 - 950000;
+  			- for max77836: 45000 - 475000;
+  		- maxim,eoc-uamp : Current in uA for End-Of-Charge mode;
+  			Valid values:
+  			- for max14577: 50000 - 200000;
+  			- for max77836: 5000 - 100000;
+  		- maxim,ovp-uvolt : OverVoltage Protection Threshold in uV;
+  			In an overvoltage condition, INT asserts and charging
+  			stops. Valid values:
+  			- 6000000, 6500000, 7000000, 7500000;
+  		- maxim,constant-uvolt : Battery Constant Voltage in uV;
+  			Valid values:
+  			- 4000000 - 4280000 (step by 20000);
+  			- 4350000;
+
+
+  Optional nodes:
+  - max14577-muic/max77836-muic :
+  	Node used only by extcon consumers.
+  	Required properties:
+  		- compatible : "maxim,max14577-muic" or "maxim,max77836-muic"
+
+  - regulators :
+  	Required properties:
+  		- compatible : "maxim,max14577-regulator"
+  			or "maxim,max77836-regulator"
+
+  	May contain a sub-node per regulator from the list below. Each
+  	sub-node should contain the constraints and initialization information
+  	for that regulator. See regulator.txt for a description of standard
+  	properties for these sub-nodes.
+
+  	List of valid regulator names:
+  	- for max14577: CHARGER, SAFEOUT.
+  	- for max77836: CHARGER, SAFEOUT, LDO1, LDO2.
+
+  	The SAFEOUT is a fixed voltage regulator so there is no need to specify
+  	voltages for it.
+
+
+...

@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/alphascale,asm9260-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Alphascale asm9260 SoC Real Time Clock
+
+maintainers:
+  - Oleksij Rempel <linux@rempel-privat.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Alphascale asm9260 SoC Real Time Clock
+
+  Required properties:
+  - compatible: Should be "alphascale,asm9260-rtc"
+  - reg: Physical base address of the controller and length
+         of memory mapped region.
+  - interrupts: IRQ line for the RTC.
+  - clocks: Reference to the clock entry.
+  - clock-names: should contain:
+    * "ahb" for the SoC RTC clock
+
+...

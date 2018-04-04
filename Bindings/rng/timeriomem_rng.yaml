@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rng/timeriomem_rng.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: HWRNG support for the timeriomem_rng driver
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  HWRNG support for the timeriomem_rng driver
+
+  Required properties:
+  - compatible : "timeriomem_rng"
+  - reg : base address to sample from
+  - period : wait time in microseconds to use between samples
+
+  Optional properties:
+  - quality : estimated number of bits of true entropy per 1024 bits read from the
+              rng.  Defaults to zero which causes the kernel's default quality to
+              be used instead.  Note that the default quality is usually zero
+              which disables using this rng to automatically fill the kernel's
+              entropy pool.
+
+  N.B. currently 'reg' must be four bytes wide and aligned
+
+...

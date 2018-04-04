@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/connector/dvi-connector.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: DVI Connector
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  DVI Connector
+  ==============
+
+  Required properties:
+  - compatible: "dvi-connector"
+
+  Optional properties:
+  - label: a symbolic name for the connector
+  - ddc-i2c-bus: phandle to the i2c bus that is connected to DVI DDC
+  - analog: the connector has DVI analog pins
+  - digital: the connector has DVI digital pins
+  - dual-link: the connector has pins for DVI dual-link
+
+  Required nodes:
+  - Video port for DVI input
+
+  Note: One (or both) of 'analog' or 'digital' must be set.
+
+...

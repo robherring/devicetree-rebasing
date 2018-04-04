@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/pressure/ms5637.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MS5637 - Measurement-Specialties MS5637, MS5805, MS5837 and MS8607 pressure
+  & temperature sensor
+
+maintainers:
+  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * MS5637 - Measurement-Specialties MS5637, MS5805, MS5837 and MS8607 pressure & temperature sensor
+
+  Required properties:
+
+  	-compatible: should be one of the following
+  		meas,ms5637
+  		meas,ms5805
+  		meas,ms5837
+  		meas,ms8607-temppressure
+  	-reg: I2C address of the sensor
+
+...

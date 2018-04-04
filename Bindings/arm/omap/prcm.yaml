@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/omap/prcm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OMAP PRCM bindings
+
+maintainers:
+  - Tero Kristo <t-kristo@ti.com>
+description: |+
+  Power Reset and Clock Manager lists the device clocks and clockdomains under
+  a DT hierarchy. Each TI SoC can have multiple PRCM entities listed for it,
+  each describing one module and the clock hierarchy under it. see [1] for
+  documentation about the individual clock/clockdomain nodes.
+
+  [1] Documentation/devicetree/bindings/clock/ti/*
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  OMAP PRCM bindings
+
+  Power Reset and Clock Manager lists the device clocks and clockdomains under
+  a DT hierarchy. Each TI SoC can have multiple PRCM entities listed for it,
+  each describing one module and the clock hierarchy under it. see [1] for
+  documentation about the individual clock/clockdomain nodes.
+
+  [1] Documentation/devicetree/bindings/clock/ti/*
+
+  Required properties:
+  - compatible:	Must be one of:
+  		"ti,am3-prcm"
+  		"ti,am4-prcm"
+  		"ti,omap2-prcm"
+  		"ti,omap3-prm"
+  		"ti,omap3-cm"
+  		"ti,omap4-cm1"
+  		"ti,omap4-prm"
+  		"ti,omap4-cm2"
+  		"ti,omap4-scrm"
+  		"ti,omap5-prm"
+  		"ti,omap5-cm-core-aon"
+  		"ti,omap5-scrm"
+  		"ti,omap5-cm-core"
+  		"ti,dra7-prm"
+  		"ti,dra7-cm-core-aon"
+  		"ti,dra7-cm-core"
+  		"ti,dm814-prcm"
+  		"ti,dm816-prcm"
+  - reg:		Contains PRCM module register address range
+  		(base address and length)
+  - clocks:	clocks for this module
+  - clockdomains:	clockdomains for this module
+
+...

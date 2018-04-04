@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/ti,nspire-keypad.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI-NSPIRE Keypad
+
+maintainers:
+  - Daniel Tang <dt.tangr@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI-NSPIRE Keypad
+
+  Required properties:
+  - compatible: Compatible property value should be "ti,nspire-keypad".
+
+  - reg: Physical base address of the peripheral and length of memory mapped
+    region.
+
+  - interrupts: The interrupt number for the peripheral.
+
+  - scan-interval: How often to scan in us. Based on a APB speed of 33MHz, the
+  	maximum and minimum delay time is ~2000us and ~500us respectively
+
+  - row-delay: How long to wait before scanning each row.
+
+  - clocks: The clock this peripheral is attached to.
+
+  - linux,keymap: The keymap to use
+  	(see Documentation/devicetree/bindings/input/matrix-keymap.txt)
+
+  Optional properties:
+  - active-low: Specify that the keypad is active low (i.e. logical low signifies
+  	a key press).
+
+...

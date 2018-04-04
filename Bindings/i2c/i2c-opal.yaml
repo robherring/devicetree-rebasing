@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-opal.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-tree bindings for I2C OPAL driver
+
+maintainers:
+  - Neelesh Gupta <neelegup@linux.vnet.ibm.com>
+description: |+
+  Most of the device node and properties layout is specific to the firmware and
+  used by the firmware itself for configuring the port. From the linux
+  perspective, the properties of use are "ibm,port-name" and "ibm,opal-id".
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Device-tree bindings for I2C OPAL driver
+  ----------------------------------------
+
+  Most of the device node and properties layout is specific to the firmware and
+  used by the firmware itself for configuring the port. From the linux
+  perspective, the properties of use are "ibm,port-name" and "ibm,opal-id".
+
+  Required properties:
+
+  - reg: Port-id within a given master
+  - compatible: must be "ibm,opal-i2c"
+  - ibm,opal-id: Refers to a specific bus and used to identify it when calling
+  	       the relevant OPAL functions.
+  - bus-frequency: Operating frequency of the i2c bus (in HZ). Informational for
+  		 linux, used by the FW though.
+
+  Optional properties:
+  - ibm,port-name: Firmware provides this name that uniquely identifies the i2c
+  		 port.
+
+  The node contains a number of other properties that are used by the FW itself
+  and depend on the specific hardware implementation. The example below depicts
+  a P8 on-chip bus.
+
+...

@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/ab8500/btemp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AB8500 Battery Temperature Monitor Driver
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: |+
+  The properties below describes the node for btemp driver.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  === AB8500 Battery Temperature Monitor Driver ===
+
+  The properties below describes the node for btemp driver.
+
+  Required Properties:
+  - compatible = Shall be: "stericsson,ab8500-btemp"
+  - battery = Shall be battery specific information
+
+  	Example:
+  	ab8500_btemp {
+  		compatible = "stericsson,ab8500-btemp";
+  		battery	   = <&ab8500_battery>;
+  	};
+
+  For information on battery specific node, Ref:
+  Documentation/devicetree/bindings/power_supply/ab8500/fg.txt

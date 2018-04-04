@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/sprd.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Spreadtrum SoC Platforms Device Tree Bindings
+
+maintainers:
+  - Chunyan Zhang <chunyan.zhang@spreadtrum.com>
+description: |
+  SC9836 openphone Board
+             
+
+properties:
+  compatible: {}
+historical: |
+  Spreadtrum SoC Platforms Device Tree Bindings
+  ----------------------------------------------------
+
+  SC9836 openphone Board
+  Required root node properties:
+  	- compatible = "sprd,sc9836-openphone", "sprd,sc9836";
+
+  SC9860 SoC
+  Required root node properties:
+  	- compatible = "sprd,sc9860"
+
+  SP9860G 3GFHD Board
+  Required root node properties:
+  	- compatible = "sprd,sp9860g-1h10", "sprd,sc9860";

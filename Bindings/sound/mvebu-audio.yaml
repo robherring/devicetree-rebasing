@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/mvebu-audio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: mvebu (Kirkwood, Dove, Armada 370) audio controller
+
+maintainers:
+  - Jean-Francois Moine <moinejf@free.fr>
+  - Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * mvebu (Kirkwood, Dove, Armada 370) audio controller
+
+  Required properties:
+
+  - compatible:
+    "marvell,kirkwood-audio" for Kirkwood platforms
+    "marvell,dove-audio" for Dove platforms
+    "marvell,armada370-audio" for Armada 370 platforms
+
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+
+  - interrupts:
+    with "marvell,kirkwood-audio", the audio interrupt
+    with "marvell,dove-audio", a list of two interrupts, the first for
+    the data flow, and the second for errors.
+
+  - clocks: one or two phandles.
+    The first one is mandatory and defines the internal clock.
+    The second one is optional and defines an external clock.
+
+  - clock-names: names associated to the clocks:
+  	"internal" for the internal clock
+  	"extclk" for the external clock
+
+...

@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/ti/ti,tpd12s015.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TPD12S015 HDMI level shifter and ESD protection chip
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TPD12S015 HDMI level shifter and ESD protection chip
+  ====================================================
+
+  Required properties:
+  - compatible: "ti,tpd12s015"
+
+  Optional properties:
+  - gpios: CT CP HPD, LS OE and HPD gpios
+
+  Required nodes:
+  - Video port 0 for HDMI input
+  - Video port 1 for HDMI output
+
+...

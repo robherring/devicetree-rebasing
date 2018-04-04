@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/ab8500/chargalg.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AB8500 Charging Algorithm Driver
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: |+
+  The properties below describes the node for chargalg driver.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  === AB8500 Charging Algorithm Driver ===
+
+  The properties below describes the node for chargalg driver.
+
+  Required Properties:
+  - compatible = Shall be: "stericsson,ab8500-chargalg"
+  - battery = Shall be battery specific information
+
+...

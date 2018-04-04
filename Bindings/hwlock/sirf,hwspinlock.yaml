@@ -1,0 +1,72 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/hwlock/sirf,hwspinlock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SIRF Hardware spinlock device Binding
+
+maintainers:
+  - Wei Chen <wei.chen@csr.com>
+description: |
+  Required properties :
+  - compatible : shall contain only one of the following:
+  	"sirf,hwspinlock"
+
+  - reg : the register address of hwspinlock
+
+  - #hwlock-cells : hwlock users only use the hwlock id to represent a specific
+  	hwlock, so the number of cells should be <1> here.
+
+  Please look at the generic hwlock binding for usage information for consumers,
+  "Documentation/devicetree/bindings/hwlock/hwlock.txt"
+
+  Example of hwlock provider:
+  	hwlock {
+  		compatible = "sirf,hwspinlock";
+  		reg = <0x13240000 0x00010000>;
+  		#hwlock-cells = <1>;
+  	};
+
+  Example of hwlock users:
+  	node {
+  		...
+  		hwlocks = <&hwlock 2>;
+  		...
+  	};
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    hwlock {
+      compatible = "sirf,hwspinlock";
+      reg = <0x13240000 0x00010000>;
+      #hwlock-cells = <1>;
+    };
+
+    Example of hwlock users:
+    node {
+      ...
+      hwlocks = <&hwlock 2>;
+      ...
+    };
+historical: |+
+  SIRF Hardware spinlock device Binding
+  -----------------------------------------------
+
+  Required properties :
+  - compatible : shall contain only one of the following:
+  	"sirf,hwspinlock"
+
+  - reg : the register address of hwspinlock
+
+  - #hwlock-cells : hwlock users only use the hwlock id to represent a specific
+  	hwlock, so the number of cells should be <1> here.
+
+  Please look at the generic hwlock binding for usage information for consumers,
+  "Documentation/devicetree/bindings/hwlock/hwlock.txt"
+
+...

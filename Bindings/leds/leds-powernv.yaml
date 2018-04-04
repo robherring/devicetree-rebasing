@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/leds-powernv.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device Tree binding for LEDs on IBM Power Systems
+
+maintainers:
+  - Vasant Hegde <hegdevasant@linux.vnet.ibm.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Device Tree binding for LEDs on IBM Power Systems
+  -------------------------------------------------
+
+  Required properties:
+  - compatible : Should be "ibm,opal-v3-led".
+  - led-mode   : Should be "lightpath" or "guidinglight".
+
+  Each location code of FRU/Enclosure must be expressed in the
+  form of a sub-node.
+
+  Required properties for the sub nodes:
+  - led-types : Supported LED types (attention/identify/fault) provided
+                in the form of string array.
+
+...

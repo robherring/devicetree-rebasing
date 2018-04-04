@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/zii,rave-sp-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Zodiac Inflight Innovations RAVE Supervisory Processor Watchdog Bindings
+
+maintainers:
+  - Andrey Smirnov <andrew.smirnov@gmail.com>
+description: |+
+  RAVE SP watchdog device is a "MFD cell" device corresponding to
+  watchdog functionality of RAVE Supervisory Processor. It is expected
+  that its Device Tree node is specified as a child of the node
+  corresponding to the parent RAVE SP device (as documented in
+  Documentation/devicetree/bindings/mfd/zii,rave-sp.txt)
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    rave-sp {
+      compatible = "zii,rave-sp-rdu1";
+      current-speed = <38400>;
+
+      eeprom {
+        wdt_timeout: wdt-timeout@8E {
+          reg = <0x8E 2>;
+        };
+      };
+
+      watchdog {
+        compatible = "zii,rave-sp-watchdog";
+        nvmem-cells = <&wdt_timeout>;
+        nvmem-cell-names = "wdt-timeout";
+      };
+historical: |+
+  Zodiac Inflight Innovations RAVE Supervisory Processor Watchdog Bindings
+
+  RAVE SP watchdog device is a "MFD cell" device corresponding to
+  watchdog functionality of RAVE Supervisory Processor. It is expected
+  that its Device Tree node is specified as a child of the node
+  corresponding to the parent RAVE SP device (as documented in
+  Documentation/devicetree/bindings/mfd/zii,rave-sp.txt)
+
+  Required properties:
+
+  - compatible: Depending on wire protocol implemented by RAVE SP
+    firmware, should be one of:
+  	- "zii,rave-sp-watchdog"
+  	- "zii,rave-sp-watchdog-legacy"
+
+  Optional properties:
+
+  - wdt-timeout:	Two byte nvmem cell specified as per
+  		Documentation/devicetree/bindings/nvmem/nvmem.txt
+
+...

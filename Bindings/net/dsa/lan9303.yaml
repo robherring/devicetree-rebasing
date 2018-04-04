@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/dsa/lan9303.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SMSC/MicroChip LAN9303 three port ethernet switch
+
+maintainers:
+  - Juergen Beisert <jbe@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  SMSC/MicroChip LAN9303 three port ethernet switch
+  -------------------------------------------------
+
+  Required properties:
+
+  - compatible: should be
+    - "smsc,lan9303-i2c" for I2C managed mode
+      or
+    - "smsc,lan9303-mdio" for mdio managed mode
+
+  Optional properties:
+
+  - reset-gpios: GPIO to be used to reset the whole device
+  - reset-duration: reset duration in milliseconds, defaults to 200 ms
+
+  Subnodes:
+
+  The integrated switch subnode should be specified according to the binding
+  described in dsa/dsa.txt. The CPU port of this switch is always port 0.
+
+  Note: always use 'reg = <0/1/2>;' for the three DSA ports, even if the device is
+  configured to use 1/2/3 instead. This hardware configuration will be
+  auto-detected and mapped accordingly.
+
+...

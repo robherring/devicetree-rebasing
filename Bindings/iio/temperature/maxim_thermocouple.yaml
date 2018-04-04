@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/temperature/maxim_thermocouple.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim thermocouple support
+
+maintainers:
+  - Matt Ranostay <mranostay@gmail.com>
+description: |+
+  * https://datasheets.maximintegrated.com/en/ds/MAX6675.pdf
+  * https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    max31855@0 {
+      compatible = "maxim,max31855";
+      reg = <0>;
+      spi-max-frequency = <4300000>;
+    };
+historical: |+
+  Maxim thermocouple support
+
+  * https://datasheets.maximintegrated.com/en/ds/MAX6675.pdf
+  * https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf
+
+  Required properties:
+
+  	- compatible: must be "maxim,max31855" or "maxim,max6675"
+  	- reg: SPI chip select number for the device
+  	- spi-max-frequency: must be 4300000
+  	- spi-cpha: must be defined for max6675 to enable SPI mode 1
+
+  	Refer to spi/spi-bus.txt for generic SPI slave bindings.
+
+...

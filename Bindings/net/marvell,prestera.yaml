@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/marvell,prestera.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Prestera Switch Chip bindings
+
+maintainers:
+  - Chris Packham <chris.packham@alliedtelesis.co.nz>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Marvell Prestera Switch Chip bindings
+  -------------------------------------
+
+  Required properties:
+  - compatible: one of the following
+  	"marvell,prestera-98dx3236",
+  	"marvell,prestera-98dx3336",
+  	"marvell,prestera-98dx4251",
+  - reg: address and length of the register set for the device.
+  - interrupts: interrupt for the device
+
+  Optional properties:
+  - dfx: phandle reference to the "DFX Server" node
+
+...

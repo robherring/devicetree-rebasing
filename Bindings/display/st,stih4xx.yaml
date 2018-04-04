@@ -1,0 +1,135 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/st,stih4xx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics stih4xx platforms
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |
+  - sti-vtg: video timing generator
+             
+
+properties:
+  compatible: {}
+historical: |+
+  STMicroelectronics stih4xx platforms
+
+  - sti-vtg: video timing generator
+    Required properties:
+    - compatible: "st,vtg"
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    Optional properties:
+    - interrupts : VTG interrupt number to the CPU.
+    - st,slave: phandle on a slave vtg
+
+  - sti-vtac: video timing advanced inter dye communication Rx and TX
+    Required properties:
+    - compatible: "st,vtac-main" or "st,vtac-aux"
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    - clocks: from common clock binding: handle hardware IP needed clocks, the
+      number of clocks may depend of the SoC type.
+      See ../clocks/clock-bindings.txt for details.
+    - clock-names: names of the clocks listed in clocks property in the same
+      order.
+
+  - sti-display-subsystem: Master device for DRM sub-components
+    This device must be the parent of all the sub-components and is responsible
+    of bind them.
+    Required properties:
+    - compatible: "st,sti-display-subsystem"
+    - ranges: to allow probing of subdevices
+
+  - sti-compositor: frame compositor engine
+    must be a child of sti-display-subsystem
+    Required properties:
+    - compatible: "st,stih<chip>-compositor"
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    - clocks: from common clock binding: handle hardware IP needed clocks, the
+      number of clocks may depend of the SoC type.
+      See ../clocks/clock-bindings.txt for details.
+    - clock-names: names of the clocks listed in clocks property in the same
+      order.
+    - resets: resets to be used by the device
+      See ../reset/reset.txt for details.
+    - reset-names: names of the resets listed in resets property in the same
+      order.
+    - st,vtg: phandle(s) on vtg device (main and aux) nodes.
+
+  - sti-tvout: video out hardware block
+    must be a child of sti-display-subsystem
+    Required properties:
+    - compatible: "st,stih<chip>-tvout"
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    - reg-names: names of the mapped memory regions listed in regs property in
+      the same order.
+    - resets: resets to be used by the device
+      See ../reset/reset.txt for details.
+    - reset-names: names of the resets listed in resets property in the same
+      order.
+
+  - sti-hdmi: hdmi output block
+    must be a child of sti-display-subsystem
+    Required properties:
+    - compatible: "st,stih<chip>-hdmi";
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    - reg-names: names of the mapped memory regions listed in regs property in
+      the same order.
+    - interrupts : HDMI interrupt number to the CPU.
+    - interrupt-names: names of the interrupts listed in interrupts property in
+      the same order
+    - clocks: from common clock binding: handle hardware IP needed clocks, the
+      number of clocks may depend of the SoC type.
+    - clock-names: names of the clocks listed in clocks property in the same
+      order.
+    - ddc: phandle of an I2C controller used for DDC EDID probing
+
+  sti-hda:
+    Required properties:
+    must be a child of sti-display-subsystem
+    - compatible: "st,stih<chip>-hda"
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    - reg-names: names of the mapped memory regions listed in regs property in
+      the same order.
+    - clocks: from common clock binding: handle hardware IP needed clocks, the
+      number of clocks may depend of the SoC type.
+      See ../clocks/clock-bindings.txt for details.
+    - clock-names: names of the clocks listed in clocks property in the same
+      order.
+
+  sti-dvo:
+    Required properties:
+    must be a child of sti-display-subsystem
+    - compatible: "st,stih<chip>-dvo"
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    - reg-names: names of the mapped memory regions listed in regs property in
+      the same order.
+    - clocks: from common clock binding: handle hardware IP needed clocks, the
+      number of clocks may depend of the SoC type.
+      See ../clocks/clock-bindings.txt for details.
+    - clock-names: names of the clocks listed in clocks property in the same
+      order.
+    - pinctrl-0: pin control handle
+    - pinctrl-names: names of the pin control states to use
+    - sti,panel: phandle of the panel connected to the DVO output
+
+  sti-hqvdp:
+    must be a child of sti-display-subsystem
+    Required properties:
+    - compatible: "st,stih<chip>-hqvdp"
+    - reg: Physical base address of the IP registers and length of memory mapped region.
+    - clocks: from common clock binding: handle hardware IP needed clocks, the
+      number of clocks may depend of the SoC type.
+      See ../clocks/clock-bindings.txt for details.
+    - clock-names: names of the clocks listed in clocks property in the same
+      order.
+    - resets: resets to be used by the device
+      See ../reset/reset.txt for details.
+    - reset-names: names of the resets listed in resets property in the same
+      order.
+    - st,vtg: phandle on vtg main device node.
+
+...

@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/dac/lpc1850-dac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC1850 DAC bindings
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NXP LPC1850 DAC bindings
+
+  Required properties:
+  - compatible: Should be "nxp,lpc1850-dac"
+  - reg: Offset and length of the register set for the ADC device
+  - interrupts: The interrupt number for the ADC device
+  - clocks: The root clock of the ADC controller
+  - vref-supply: The regulator supply ADC reference voltage
+  - resets: phandle to reset controller and line specifier
+
+...

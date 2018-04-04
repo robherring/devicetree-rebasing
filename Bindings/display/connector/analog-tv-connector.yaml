@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/connector/analog-tv-connector.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Analog TV Connector
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Analog TV Connector
+  ===================
+
+  Required properties:
+  - compatible: "composite-video-connector" or "svideo-connector"
+
+  Optional properties:
+  - label: a symbolic name for the connector
+
+  Required nodes:
+  - Video port for TV input
+
+...

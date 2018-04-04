@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/hsi/nokia-modem.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Nokia modem client bindings
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: |+
+  The Nokia modem HSI client follows the common HSI client binding
+  and inherits all required properties. The following additional
+  properties are needed by the Nokia modem HSI client:
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Nokia modem client bindings
+
+  The Nokia modem HSI client follows the common HSI client binding
+  and inherits all required properties. The following additional
+  properties are needed by the Nokia modem HSI client:
+
+  Required properties:
+  - compatible:		Should be one of
+        "nokia,n900-modem"
+        "nokia,n950-modem"
+        "nokia,n9-modem"
+  - hsi-channel-names:	Should contain the following strings
+        "mcsaab-control"
+        "speech-control"
+        "speech-data"
+        "mcsaab-data"
+  - gpios:		Should provide a GPIO handler for each GPIO listed in
+                          gpio-names
+  - gpio-names:		Should contain the following strings
+        "cmt_apeslpx" (for n900, n950, n9)
+        "cmt_rst_rq"  (for n900, n950, n9)
+        "cmt_en"      (for n900, n950, n9)
+        "cmt_rst"     (for n900)
+        "cmt_bsi"     (for n900)
+  - interrupts:		Should be IRQ handle for modem's reset indication
+
+...

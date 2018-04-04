@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/leds-ns2.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for dual-GPIO LED found on Network Space v2 (and parents).
+
+maintainers:
+  - Grant Likely <grant.likely@secretlab.ca>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for dual-GPIO LED found on Network Space v2 (and parents).
+
+  Required properties:
+  - compatible: "lacie,ns2-leds".
+
+  Each LED is represented as a sub-node of the ns2-leds device.
+
+  Required sub-node properties:
+  - cmd-gpio: Command LED GPIO. See OF device-tree GPIO specification.
+  - slow-gpio: Slow LED GPIO. See OF device-tree GPIO specification.
+  - modes-map: A mapping between LED modes (off, on or SATA activity blinking) and
+    the corresponding cmd-gpio/slow-gpio values. All the GPIO values combinations
+    should be given in order to avoid having an unknown mode at driver probe time.
+
+  Optional sub-node properties:
+  - label: Name for this LED. If omitted, the label is taken from the node name.
+  - linux,default-trigger: Trigger assigned to the LED.
+
+...

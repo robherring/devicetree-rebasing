@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/calxeda.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device Tree Clock bindings for Calxeda highbank platform
+
+maintainers:
+  - Rob Herring <rob.herring@calxeda.com>
+description: |+
+  This binding uses the common clock binding[1].
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Device Tree Clock bindings for Calxeda highbank platform
+
+  This binding uses the common clock binding[1].
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  Required properties:
+  - compatible : shall be one of the following:
+  	"calxeda,hb-pll-clock" - for a PLL clock
+  	"calxeda,hb-a9periph-clock" - The A9 peripheral clock divided from the
+  		A9 clock.
+  	"calxeda,hb-a9bus-clock" - The A9 bus clock divided from the A9 clock.
+  	"calxeda,hb-emmc-clock" - Divided clock for MMC/SD controller.
+  - reg : shall be the control register offset from SYSREGs base for the clock.
+  - clocks : shall be the input parent clock phandle for the clock. This is
+  	either an oscillator or a pll output.
+  - #clock-cells : from common clock binding; shall be set to 0.

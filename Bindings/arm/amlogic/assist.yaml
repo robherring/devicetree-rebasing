@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/amlogic/assist.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'Amlogic Meson6/Meson8/Meson8b assist registers:'
+
+maintainers:
+  - Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+description: |+
+  The assist registers contain basic information about the SoC,
+  for example the encoded SoC part number.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    assist: assist@7c00 {
+      compatible = "amlogic,meson-mx-assist", "syscon";
+      reg = <0x7c00 0x200>;
+    };
+historical: |+
+  Amlogic Meson6/Meson8/Meson8b assist registers:
+  -----------------------------------------------
+
+  The assist registers contain basic information about the SoC,
+  for example the encoded SoC part number.
+
+  Required properties:
+  - reg: the register range of the assist registers
+  - compatible: should be "amlogic,meson-mx-assist" along with "syscon"
+
+
+...

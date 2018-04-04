@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/brcm,iproc-cdru.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom iProc Chip Device Resource Unit (CDRU)
+
+maintainers:
+  - Ray Jui <ray.jui@broadcom.com>
+description: |+
+  Various Broadcom iProc SoCs have a set of registers that provide various
+  chip specific device and resource configurations. This node allows access to
+  these CDRU registers via syscon.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    cdru: syscon@6641d000 {
+      compatible = "brcm,sr-cdru", "syscon";
+      reg = <0 0x6641d000 0 0x400>;
+    };
+historical: |+
+  Broadcom iProc Chip Device Resource Unit (CDRU)
+
+  Various Broadcom iProc SoCs have a set of registers that provide various
+  chip specific device and resource configurations. This node allows access to
+  these CDRU registers via syscon.
+
+  Required properties:
+  - compatible: should contain:
+  		"brcm,sr-cdru", "syscon" for Stingray
+  - reg: base address and range of the CDRU registers
+
+...

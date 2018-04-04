@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/w1/fsl-imx-owire.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale i.MX One wire bus master controller
+
+maintainers:
+  - Martin Fuzzey <mfuzzey@parkeon.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale i.MX One wire bus master controller
+
+  Required properties:
+  - compatible : should be "fsl,imx21-owire"
+  - reg : Address and length of the register set for the device
+
+  Optional properties:
+  - clocks : phandle of clock that supplies the module (required if platform
+  		clock bindings use device tree)
+
+...

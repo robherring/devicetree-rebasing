@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/bcm/brcm,vulcan-soc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom Vulcan device tree bindings
+
+maintainers:
+  - Jayachandran C <jchandra@broadcom.com>
+description: |
+  Boards with Broadcom Vulcan shall have the following root property:
+
+  Broadcom Vulcan Evaluation Board:
+    compatible = "brcm,vulcan-eval", "brcm,vulcan-soc";
+
+  Generic Vulcan board:
+    compatible = "brcm,vulcan-soc";
+             
+
+properties:
+  compatible: {}
+historical: |
+  Broadcom Vulcan device tree bindings
+  ------------------------------------
+
+  Boards with Broadcom Vulcan shall have the following root property:
+
+  Broadcom Vulcan Evaluation Board:
+    compatible = "brcm,vulcan-eval", "brcm,vulcan-soc";
+
+  Generic Vulcan board:
+    compatible = "brcm,vulcan-soc";

@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/cadence,ttc-timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cadence TTC - Triple Timer Counter
+
+maintainers:
+  - Michal Simek <michal.simek@xilinx.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Cadence TTC - Triple Timer Counter
+
+  Required properties:
+  - compatible : Should be "cdns,ttc".
+  - reg : Specifies base physical address and size of the registers.
+  - interrupts : A list of 3 interrupts; one per timer channel.
+  - clocks: phandle to the source clock
+
+  Optional properties:
+  - timer-width: Bit width of the timer, necessary if not 16.
+
+...

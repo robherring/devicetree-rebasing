@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/s5p-cec.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung HDMI CEC driver
+
+maintainers:
+  - Hans Verkuil <hans.verkuil@cisco.com>
+  - Kamil Debski <kamil@wypas.org>
+description: |+
+  The HDMI CEC module is present is Samsung SoCs and its purpose is to
+  handle communication between HDMI connected devices over the CEC bus.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Samsung HDMI CEC driver
+
+  The HDMI CEC module is present is Samsung SoCs and its purpose is to
+  handle communication between HDMI connected devices over the CEC bus.
+
+  Required properties:
+    - compatible : value should be following
+  	"samsung,s5p-cec"
+
+    - reg : Physical base address of the IP registers and length of memory
+  	  mapped region.
+
+    - interrupts : HDMI CEC interrupt number to the CPU.
+    - clocks : from common clock binding: handle to HDMI CEC clock.
+    - clock-names : from common clock binding: must contain "hdmicec",
+  		  corresponding to entry in the clocks property.
+    - samsung,syscon-phandle - phandle to the PMU system controller
+    - hdmi-phandle - phandle to the HDMI controller, see also cec.txt.
+
+  Optional:
+    - needs-hpd : if present the CEC support is only available when the HPD
+  		is high. See cec.txt for more details.
+
+...

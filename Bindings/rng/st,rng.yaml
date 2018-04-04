@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rng/st,rng.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics HW Random Number Generator
+
+maintainers:
+  - Lee Jones <lee.jones@linaro.org>
+description: |
+  Required parameters:
+  compatible	: Should be "st,rng"
+  reg		: Base address and size of IP's register map.
+  clocks		: Phandle to device's clock (See: ../clocks/clock-bindings.txt)
+
+  Example:
+
+  rng@fee80000 {
+  	compatible      = "st,rng";
+  	reg		= <0xfee80000 0x1000>;
+  	clocks          = <&clk_sysin>;
+  }
+             
+
+properties:
+  compatible: {}
+historical: |+
+  STMicroelectronics HW Random Number Generator
+  ----------------------------------------------
+
+  Required parameters:
+  compatible	: Should be "st,rng"
+  reg		: Base address and size of IP's register map.
+  clocks		: Phandle to device's clock (See: ../clocks/clock-bindings.txt)
+
+...

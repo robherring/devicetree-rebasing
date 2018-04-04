@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/st,stmfts.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST-Microelectronics FingerTip touchscreen controller
+
+maintainers:
+  - Andi Shyti <andi.shyti@samsung.com>
+description: |+
+  The ST-Microelectronics FingerTip device provides a basic touchscreen
+  functionality. Along with it the user can enable the touchkey which can work as
+  a basic HOME and BACK key for phones.
+
+  The driver supports also hovering as an absolute single touch event with x, y, z
+  coordinates.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * ST-Microelectronics FingerTip touchscreen controller
+
+  The ST-Microelectronics FingerTip device provides a basic touchscreen
+  functionality. Along with it the user can enable the touchkey which can work as
+  a basic HOME and BACK key for phones.
+
+  The driver supports also hovering as an absolute single touch event with x, y, z
+  coordinates.
+
+  Required properties:
+  - compatible		: must be "st,stmfts"
+  - reg			: I2C slave address, (e.g. 0x49)
+  - interrupt-parent	: the phandle to the interrupt controller which provides
+  			  the interrupt
+  - interrupts		: interrupt specification
+  - avdd-supply		: analogic power supply
+  - vdd-supply		: power supply
+  - touchscreen-size-x	: see touchscreen.txt
+  - touchscreen-size-y	: see touchscreen.txt
+
+  Optional properties:
+  - touch-key-connected	: specifies whether the touchkey feature is connected
+  - ledvdd-supply		: power supply to the touch key leds
+
+...

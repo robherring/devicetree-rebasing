@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/img,pistachio-gptimer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Pistachio general-purpose timer based clocksource
+
+maintainers:
+  - Ezequiel Garcia <ezequiel.garcia@imgtec.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    timer: timer@18102000 {
+      compatible = "img,pistachio-gptimer";
+      reg = <0x18102000 0x100>;
+      interrupts = <GIC_SHARED 60 IRQ_TYPE_LEVEL_HIGH>,
+             <GIC_SHARED 61 IRQ_TYPE_LEVEL_HIGH>,
+             <GIC_SHARED 62 IRQ_TYPE_LEVEL_HIGH>,
+             <GIC_SHARED 63 IRQ_TYPE_LEVEL_HIGH>;
+      clocks = <&clk_periph PERIPH_CLK_COUNTER_FAST>,
+               <&clk_periph PERIPH_CLK_COUNTER_SLOW>,
+         <&cr_periph SYS_CLK_TIMER>;
+      clock-names = "fast", "slow", "sys";
+      img,cr-periph = <&cr_periph>;
+    };
+historical: |+
+  * Pistachio general-purpose timer based clocksource
+
+  Required properties:
+   - compatible: "img,pistachio-gptimer".
+   - reg: Address range of the timer registers.
+   - interrupts: An interrupt for each of the four timers
+   - clocks: Should contain a clock specifier for each entry in clock-names
+   - clock-names: Should contain the following entries:
+                  "sys", interface clock
+                  "slow", slow counter clock
+                  "fast", fast counter clock
+   - img,cr-periph: Must contain a phandle to the peripheral control
+  		  syscon node.
+
+...

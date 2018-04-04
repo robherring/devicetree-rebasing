@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/bu21013.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Rohm BU21013 Touch Screen
+
+maintainers:
+  - Lee Jones <lee.jones@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    i2c@80110000 {
+      bu21013_tp@5c {
+        compatible = "rohm,bu21013_tp";
+        reg = <0x5c>;
+        touch-gpio = <&gpio2 20 0x4>;
+        avdd-supply = <&ab8500_ldo_aux1_reg>;
+
+        rohm,touch-max-x = <384>;
+        rohm,touch-max-y = <704>;
+        rohm,flip-y;
+      };
+    };
+historical: |+
+  * Rohm BU21013 Touch Screen
+
+  Required properties:
+   - compatible              : "rohm,bu21013_tp"
+   - reg                     :  I2C device address
+
+  Optional properties:
+   - touch-gpio              : GPIO pin registering a touch event
+   - <supply_name>-supply    : Phandle to a regulator supply
+   - rohm,touch-max-x        : Maximum outward permitted limit in the X axis
+   - rohm,touch-max-y        : Maximum outward permitted limit in the Y axis
+   - rohm,flip-x             : Flip touch coordinates on the X axis
+   - rohm,flip-y             : Flip touch coordinates on the Y axis
+
+...

@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/nios2/timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera Timer
+
+maintainers:
+  - Ley Foon Tan <lftan@altera.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Altera Timer
+
+  Required properties:
+
+  - compatible : should be "altr,timer-1.0"
+  - reg : Specifies base physical address and size of the registers.
+  - interrupt-parent: phandle of the interrupt controller
+  - interrupts : Should contain the timer interrupt number
+  - clock-frequency : The frequency of the clock that drives the counter, in Hz.
+
+...

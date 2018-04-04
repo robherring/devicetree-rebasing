@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-mpc8xxx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale MPC512x/MPC8xxx/QorIQ/Layerscape GPIO controller
+
+maintainers:
+  - Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale MPC512x/MPC8xxx/QorIQ/Layerscape GPIO controller
+
+  Required properties:
+  - compatible : Should be "fsl,<soc>-gpio"
+    The following <soc>s are known to be supported:
+  	mpc5121, mpc5125, mpc8349, mpc8572, mpc8610, pq3, qoriq,
+  	ls1021a, ls1043a, ls2080a.
+  - reg : Address and length of the register set for the device
+  - interrupts : Should be the port interrupt shared by all 32 pins.
+  - #gpio-cells : Should be two.  The first cell is the pin number and
+    the second cell is used to specify the gpio polarity:
+        0 = active high
+        1 = active low
+
+  Optional properties:
+  - little-endian : GPIO registers are used as little endian. If not
+                    present registers are used as big endian by default.
+
+...

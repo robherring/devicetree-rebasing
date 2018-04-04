@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/misc/brcm,kona-smc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom Secure Monitor Bounce buffer
+
+maintainers:
+  - Scott Branden <sbranden@broadcom.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    smc@3404c000 {
+      compatible = "brcm,bcm11351-smc", "brcm,kona-smc";
+      reg = <0x3404c000 0x400>; //1 KiB in SRAM
+    };
+historical: |+
+  Broadcom Secure Monitor Bounce buffer
+  -----------------------------------------------------
+  This binding defines the location of the bounce buffer
+  used for non-secure to secure communications.
+
+  Required properties:
+  - compatible : "brcm,kona-smc"
+  - DEPRECATED: compatible : "bcm,kona-smc"
+  - reg : Location and size of bounce buffer
+
+...

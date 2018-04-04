@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/olimex.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Olimex Device Tree Bindings
+
+maintainers:
+  - Fabio Estevam <fabio.estevam@freescale.com>
+description: |
+  SAM9-L9260 Board
+             
+
+properties:
+  compatible: {}
+historical: |
+  Olimex Device Tree Bindings
+  ---------------------------
+
+  SAM9-L9260 Board
+  Required root node properties:
+      - compatible = "olimex,sam9-l9260", "atmel,at91sam9260";
+
+  i.MX23 Olinuxino Low Cost Board
+  Required root node properties:
+      - compatible = "olimex,imx23-olinuxino", "fsl,imx23";

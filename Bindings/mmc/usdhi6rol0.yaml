@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/usdhi6rol0.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas usdhi6rol0 SD/SDIO host controller
+
+maintainers:
+  - Guennadi Liakhovetski <g.liakhovetski@gmx.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Renesas usdhi6rol0 SD/SDIO host controller
+
+  Required properties:
+
+  - compatible:	must be
+  		"renesas,usdhi6rol0"
+  - interrupts:	3 interrupts, named "card detect", "data" and "SDIO" must be
+  		specified
+  - clocks:	a clock binding for the IMCLK input
+
+  Optional properties:
+
+  - vmmc-supply:	a phandle of a regulator, supplying Vcc to the card
+  - vqmmc-supply:	a phandle of a regulator, supplying VccQ to the card
+  - pinctrl-names: Can contain a "default" entry and a "state_uhs"
+                   entry. The state_uhs entry is used together with the default
+                   entry when the board requires distinct settings for UHS speeds.
+
+  - pinctrl-N: One property for each name listed in pinctrl-names, see
+               ../pinctrl/pinctrl-bindings.txt.
+
+  Additionally any standard mmc bindings from mmc.txt can be used.
+
+...

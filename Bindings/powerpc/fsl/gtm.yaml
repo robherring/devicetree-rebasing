@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/powerpc/fsl/gtm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale General-purpose Timers Module
+
+maintainers:
+  - Grant Likely <grant.likely@secretlab.ca>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale General-purpose Timers Module
+
+  Required properties:
+    - compatible : should be
+      "fsl,<chip>-gtm", "fsl,gtm" for SOC GTMs
+      "fsl,<chip>-qe-gtm", "fsl,qe-gtm", "fsl,gtm" for QE GTMs
+      "fsl,<chip>-cpm2-gtm", "fsl,cpm2-gtm", "fsl,gtm" for CPM2 GTMs
+    - reg : should contain gtm registers location and length (0x40).
+    - interrupts : should contain four interrupts.
+    - interrupt-parent : interrupt source phandle.
+    - clock-frequency : specifies the frequency driving the timer.
+
+...

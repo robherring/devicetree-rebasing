@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/adi,axi-dmac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Analog Device AXI-DMAC DMA controller
+
+maintainers:
+  - Lars-Peter Clausen <lars@metafoo.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Analog Device AXI-DMAC DMA controller
+
+  Required properties:
+   - compatible: Must be "adi,axi-dmac-1.00.a".
+   - reg: Specification for the controllers memory mapped register map.
+   - interrupts: Specification for the controllers interrupt.
+   - clocks: Phandle and specifier to the controllers AXI interface clock
+   - #dma-cells: Must be 1.
+
+  Required sub-nodes:
+   - adi,channels: This sub-node must contain a sub-node for each DMA channel. For
+     the channel sub-nodes the following bindings apply. They must match the
+     configuration options of the peripheral as it was instantiated.
+
+  Required properties for adi,channels sub-node:
+   - #size-cells: Must be 0
+   - #address-cells: Must be 1
+
+  Required channel sub-node properties:
+   - reg: Which channel this node refers to.
+   - adi,length-width: Width of the DMA transfer length register.
+   - adi,source-bus-width,
+     adi,destination-bus-width: Width of the source or destination bus in bits.
+   - adi,source-bus-type,
+     adi,destination-bus-type: Type of the source or destination bus. Must be one
+     of the following:
+  	0 (AXI_DMAC_TYPE_AXI_MM): Memory mapped AXI interface
+  	1 (AXI_DMAC_TYPE_AXI_STREAM): Streaming AXI interface
+  	2 (AXI_DMAC_TYPE_AXI_FIFO): FIFO interface
+
+  Optional channel properties:
+   - adi,cyclic: Must be set if the channel supports hardware cyclic DMA
+     transfers.
+   - adi,2d: Must be set if the channel supports hardware 2D DMA transfers.
+
+  DMA clients connected to the AXI-DMAC DMA controller must use the format
+  described in the dma.txt file using a one-cell specifier. The value of the
+  specifier refers to the DMA channel index.
+
+...

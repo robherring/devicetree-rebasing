@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/msm/gpu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm adreno/snapdragon GPU
+
+maintainers:
+  - Rob Clark <robdclark@gmail.com>
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Qualcomm adreno/snapdragon GPU
+
+  Required properties:
+  - compatible: "qcom,adreno-XYZ.W", "qcom,adreno"
+      for example: "qcom,adreno-306.0", "qcom,adreno"
+    Note that you need to list the less specific "qcom,adreno" (since this
+    is what the device is matched on), in addition to the more specific
+    with the chip-id.
+  - reg: Physical base address and length of the controller's registers.
+  - interrupts: The interrupt signal from the gpu.
+  - clocks: device clocks
+    See ../clocks/clock-bindings.txt for details.
+  - clock-names: the following clocks are required:
+    * "core"
+    * "iface"
+    * "mem_iface"
+
+...

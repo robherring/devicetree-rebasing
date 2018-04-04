@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/lpddr2/lpddr2.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: LPDDR2 SDRAM memories compliant to JEDEC JESD209-2
+
+maintainers:
+  - Aneesh V <aneesh@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * LPDDR2 SDRAM memories compliant to JEDEC JESD209-2
+
+  Required properties:
+  - compatible : Should be one of - "jedec,lpddr2-nvm", "jedec,lpddr2-s2",
+    "jedec,lpddr2-s4"
+
+    "ti,jedec-lpddr2-s2" should be listed if the memory part is LPDDR2-S2 type
+
+    "ti,jedec-lpddr2-s4" should be listed if the memory part is LPDDR2-S4 type
+
+    "ti,jedec-lpddr2-nvm" should be listed if the memory part is LPDDR2-NVM type
+
+  - density  : <u32> representing density in Mb (Mega bits)
+
+  - io-width : <u32> representing bus width. Possible values are 8, 16, and 32
+
+  Optional properties:
+
+  The following optional properties represent the minimum value of some AC
+  timing parameters of the DDR device in terms of number of clock cycles.
+  These values shall be obtained from the device data-sheet.
+  - tRRD-min-tck
+  - tWTR-min-tck
+  - tXP-min-tck
+  - tRTP-min-tck
+  - tCKE-min-tck
+  - tRPab-min-tck
+  - tRCD-min-tck
+  - tWR-min-tck
+  - tRASmin-min-tck
+  - tCKESR-min-tck
+  - tFAW-min-tck
+
+  Child nodes:
+  - The lpddr2 node may have one or more child nodes of type "lpddr2-timings".
+    "lpddr2-timings" provides AC timing parameters of the device for
+    a given speed-bin. The user may provide the timings for as many
+    speed-bins as is required. Please see Documentation/devicetree/
+    bindings/lpddr2/lpddr2-timings.txt for more information on "lpddr2-timings"
+
+...

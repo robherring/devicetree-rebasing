@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/reset/hisilicon,hi6220-reset.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Hisilicon System Reset Controller
+
+maintainers:
+  - Chen Feng <puck.chen@hisilicon.com>
+description: |+
+  Please also refer to reset.txt in this directory for common reset
+  controller binding usage.
+
+  The reset controller registers are part of the system-ctl block on
+  hi6220 SoC.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Hisilicon System Reset Controller
+  ======================================
+
+  Please also refer to reset.txt in this directory for common reset
+  controller binding usage.
+
+  The reset controller registers are part of the system-ctl block on
+  hi6220 SoC.
+
+  Required properties:
+  - compatible: should be one of the following:
+    - "hisilicon,hi6220-sysctrl", "syscon" : For peripheral reset controller.
+    - "hisilicon,hi6220-mediactrl", "syscon" : For media reset controller.
+  - reg: should be register base and length as documented in the
+    datasheet
+  - #reset-cells: 1, see below
+
+...

@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/renesas,r8a73a4-cpg-clocks.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas R8A73A4 Clock Pulse Generator (CPG)
+
+maintainers:
+  - Ulrich Hecht <ulrich.hecht+renesas@gmail.com>
+description: |+
+  The CPG generates core clocks for the R8A73A4 SoC. It includes five PLLs
+  and several fixed ratio dividers.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Renesas R8A73A4 Clock Pulse Generator (CPG)
+
+  The CPG generates core clocks for the R8A73A4 SoC. It includes five PLLs
+  and several fixed ratio dividers.
+
+  Required Properties:
+
+    - compatible: Must be "renesas,r8a73a4-cpg-clocks"
+
+    - reg: Base address and length of the memory resource used by the CPG
+
+    - clocks: Reference to the parent clocks ("extal1" and "extal2")
+
+    - #clock-cells: Must be 1
+
+    - clock-output-names: The names of the clocks. Supported clocks are "main",
+      "pll0", "pll1", "pll2", "pll2s", "pll2h", "z", "z2", "i", "m3", "b",
+      "m1", "m2", "zx", "zs", and "hp".
+
+
+...

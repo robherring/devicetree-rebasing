@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/plda,xpressrich3-axi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: PLDA XpressRICH3-AXI host controller
+
+maintainers:
+  - Liviu Dudau <Liviu.Dudau@arm.com>
+description: |+
+  The PLDA XpressRICH3-AXI host controller can be configured in a manner that
+  makes it compliant with the SBSA[1] standard published by ARM Ltd. For those
+  scenarios, the host-generic-pci.txt bindings apply with the following additions
+  to the compatible property:
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  * PLDA XpressRICH3-AXI host controller
+
+  The PLDA XpressRICH3-AXI host controller can be configured in a manner that
+  makes it compliant with the SBSA[1] standard published by ARM Ltd. For those
+  scenarios, the host-generic-pci.txt bindings apply with the following additions
+  to the compatible property:
+
+  Required properties:
+   - compatible: should contain "plda,xpressrich3-axi" to identify the IP used.
+
+
+  [1] http://infocenter.arm.com/help/topic/com.arm.doc.den0029a/

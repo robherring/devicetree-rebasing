@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mailbox/meson-mhu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson MHU Mailbox Driver
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  The Amlogic's Meson SoCs Message-Handling-Unit (MHU) is a mailbox controller
+  that has 3 independent channels/links to communicate with remote processor(s).
+  MHU links are hardwired on a platform. A link raises interrupt for any
+  received data. However, there is no specified way of knowing if the sent
+  data has been read by the remote. This driver assumes the sender polls
+  STAT register and the remote clears it after having read the data.
+
+  Mailbox Device Node:
+  ====================
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Amlogic Meson MHU Mailbox Driver
+  ================================
+
+  The Amlogic's Meson SoCs Message-Handling-Unit (MHU) is a mailbox controller
+  that has 3 independent channels/links to communicate with remote processor(s).
+  MHU links are hardwired on a platform. A link raises interrupt for any
+  received data. However, there is no specified way of knowing if the sent
+  data has been read by the remote. This driver assumes the sender polls
+  STAT register and the remote clears it after having read the data.
+
+  Mailbox Device Node:
+  ====================
+
+  Required properties:
+  --------------------
+  - compatible:		Shall be "amlogic,meson-gxbb-mhu"
+  - reg:			Contains the mailbox register address range (base
+  			address and length)
+  - #mbox-cells		Shall be 1 - the index of the channel needed.
+  - interrupts:		Contains the interrupt information corresponding to
+  			each of the 2 links of MHU.
+
+...

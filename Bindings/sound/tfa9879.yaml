@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/tfa9879.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP TFA9879 class-D audio amplifier
+
+maintainers:
+  - Fabio Estevam <fabio.estevam@nxp.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NXP TFA9879 class-D audio amplifier
+
+  Required properties:
+
+  - compatible : "nxp,tfa9879"
+
+  - reg : the I2C address of the device
+
+  - #sound-dai-cells : must be 0.
+
+...

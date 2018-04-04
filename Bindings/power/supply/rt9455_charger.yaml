@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/rt9455_charger.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for Richtek rt9455 battery charger
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for Richtek rt9455 battery charger
+
+  Required properties:
+  - compatible:				it should contain one of the following:
+  					"richtek,rt9455".
+  - reg:					integer, i2c address of the device.
+  - interrupt-parent:			the phandle for the interrupt controller that
+  					services interrupts for this device.
+  - interrupts:				interrupt mapping for GPIO IRQ, it should be
+  					configured with IRQ_TYPE_LEVEL_LOW flag.
+  - richtek,output-charge-current:	integer, output current from the charger to the
+  					battery, in uA.
+  - richtek,end-of-charge-percentage:	integer, percent of the output charge current.
+  					When the current in constant-voltage phase drops
+  					below output_charge_current x end-of-charge-percentage,
+  					charge is terminated.
+  - richtek,battery-regulation-voltage:	integer, maximum battery voltage in uV.
+  - richtek,boost-output-voltage:		integer, maximum voltage provided to consumer
+  					devices, when the charger is in boost mode, in uV.
+
+  Optional properties:
+  - richtek,min-input-voltage-regulation: integer, input voltage level in uV, used to
+  					decrease voltage level when the over current
+  					of the input power source occurs.
+  					This prevents input voltage drop due to insufficient
+  					current provided by the power source.
+  					Default: 4500000 uV (4.5V)
+  - richtek,avg-input-current-regulation: integer, input current value in uA drained by the
+  					charger from the power source.
+  					Default: 500000 uA (500mA)
+
+...

@@ -1,0 +1,78 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/marvell/marvell,berlin.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Berlin SoC Family Device Tree Bindings
+
+maintainers:
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+description: |
+  Work in progress statement:
+
+  Device tree files and bindings applying to Marvell Berlin SoCs and boards are
+  considered "unstable". Any Marvell Berlin device tree binding may change at any
+  time. Be sure to use a device tree binary and a kernel image generated from the
+  same source tree.
+
+  Please refer to Documentation/devicetree/bindings/ABI.txt for a definition of a
+  stable binding/ABI.
+
+  ---------------------------------------------------------------
+
+  Boards with a SoC of the Marvell Berlin family, e.g. Armada 1500
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Marvell Berlin SoC Family Device Tree Bindings
+  ---------------------------------------------------------------
+
+  Work in progress statement:
+
+  Device tree files and bindings applying to Marvell Berlin SoCs and boards are
+  considered "unstable". Any Marvell Berlin device tree binding may change at any
+  time. Be sure to use a device tree binary and a kernel image generated from the
+  same source tree.
+
+  Please refer to Documentation/devicetree/bindings/ABI.txt for a definition of a
+  stable binding/ABI.
+
+  ---------------------------------------------------------------
+
+  Boards with a SoC of the Marvell Berlin family, e.g. Armada 1500
+  shall have the following properties:
+
+  * Required root node properties:
+  compatible: must contain "marvell,berlin"
+
+  In addition, the above compatible shall be extended with the specific
+  SoC and board used. Currently known SoC compatibles are:
+      "marvell,berlin2"      for Marvell Armada 1500 (BG2, 88DE3100),
+      "marvell,berlin2cd"    for Marvell Armada 1500-mini (BG2CD, 88DE3005)
+      "marvell,berlin2ct"    for Marvell Armada ? (BG2CT, 88DE????)
+      "marvell,berlin2q"     for Marvell Armada 1500-pro (BG2Q, 88DE3114)
+      "marvell,berlin3"      for Marvell Armada ? (BG3, 88DE????)
+
+  * Example:
+
+  / {
+  	model = "Sony NSZ-GS7";
+  	compatible = "sony,nsz-gs7", "marvell,berlin2", "marvell,berlin";
+
+  	...
+  }
+
+  * Marvell Berlin CPU control bindings
+
+  CPU control register allows various operations on CPUs, like resetting them
+  independently.
+
+  Required properties:
+  - compatible: should be "marvell,berlin-cpu-ctrl"
+  - reg: address and length of the register set
+
+...

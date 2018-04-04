@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/innolux,p079zca.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Innolux P079ZCA 7.85" 768x1024 TFT LCD panel
+
+maintainers:
+  - Chris Zhong <zyw@rock-chips.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    &mipi_dsi {
+      panel {
+        compatible = "innolux,p079zca";
+        reg = <0>;
+        power-supply = <...>;
+        backlight = <&backlight>;
+        enable-gpios = <&gpio1 13 GPIO_ACTIVE_HIGH>;
+      };
+    };
+historical: |+
+  Innolux P079ZCA 7.85" 768x1024 TFT LCD panel
+
+  Required properties:
+  - compatible: should be "innolux,p079zca"
+  - reg: DSI virtual channel of the peripheral
+  - power-supply: phandle of the regulator that provides the supply voltage
+  - enable-gpios: panel enable gpio
+
+  Optional properties:
+  - backlight: phandle of the backlight device attached to the panel
+
+...

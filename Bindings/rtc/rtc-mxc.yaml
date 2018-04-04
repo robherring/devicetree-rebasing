@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/rtc-mxc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Real Time Clock of the i.MX SoCs
+
+maintainers:
+  - Philippe Reynes <tremyfr@gmail.com>
+description: |+
+  RTC controller for the i.MX SoCs
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Real Time Clock of the i.MX SoCs
+
+  RTC controller for the i.MX SoCs
+
+  Required properties:
+  - compatible: Should be "fsl,imx1-rtc" or "fsl,imx21-rtc".
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: IRQ line for the RTC.
+  - clocks: should contain two entries:
+    * one for the input reference
+    * one for the the SoC RTC
+  - clock-names: should contain:
+    * "ref" for the input reference clock
+    * "ipg" for the SoC RTC clock
+
+...

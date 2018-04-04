@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/pwm-tiehrpwm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI SOC EHRPWM based PWM controller
+
+maintainers:
+  - Philip, Avinash <avinashphilip@ti.com>
+  - Franklin S Cooper Jr <fcooper@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI SOC EHRPWM based PWM controller
+
+  Required properties:
+  - compatible: Must be "ti,<soc>-ehrpwm".
+    for am33xx  - compatible = "ti,am3352-ehrpwm", "ti,am33xx-ehrpwm";
+    for am4372  - compatible = "ti,am4372-ehrpwm", "ti-am3352-ehrpwm", "ti,am33xx-ehrpwm";
+    for da850   - compatible = "ti,da850-ehrpwm", "ti-am3352-ehrpwm", "ti,am33xx-ehrpwm";
+    for dra746 - compatible = "ti,dra746-ehrpwm", "ti-am3352-ehrpwm";
+  - #pwm-cells: should be 3. See pwm.txt in this directory for a description of
+    the cells format. The only third cell flag supported by this binding is
+    PWM_POLARITY_INVERTED.
+  - reg: physical base address and size of the registers map.
+
+  Optional properties:
+  - clocks: Handle to the PWM's time-base and functional clock.
+  - clock-names: Must be set to "tbclk" and "fck".
+
+...

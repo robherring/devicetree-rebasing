@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serio/olpc,ap-sp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OLPC AP-SP serio interface
+
+maintainers:
+  - Daniel Drake <dsd@laptop.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  OLPC AP-SP serio interface
+
+  Required properties:
+  - compatible : "olpc,ap-sp"
+  - reg : base address and length of SoC's WTM registers
+  - interrupts : SP-AP interrupt
+
+...

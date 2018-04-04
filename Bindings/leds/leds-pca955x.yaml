@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/leds-pca955x.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP - pca955x LED driver
+
+maintainers:
+  - Cédric Le Goater <clg@kaod.org>
+description: |+
+  The PCA955x family of chips are I2C LED blinkers whose pins not used
+  to control LEDs can be used as general purpose I/Os. The GPIO pins can
+  be input or output, and output pins can also be pulse-width controlled.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * NXP - pca955x LED driver
+
+  The PCA955x family of chips are I2C LED blinkers whose pins not used
+  to control LEDs can be used as general purpose I/Os. The GPIO pins can
+  be input or output, and output pins can also be pulse-width controlled.
+
+  Required properties:
+  - compatible : should be one of :
+  	"nxp,pca9550"
+  	"nxp,pca9551"
+  	"nxp,pca9552"
+  	"nxp,pca9553"
+  - #address-cells: must be 1
+  - #size-cells: must be 0
+  - reg: I2C slave address. depends on the model.
+
+  Optional properties:
+  - gpio-controller: allows pins to be used as GPIOs.
+  - #gpio-cells: must be 2.
+  - gpio-line-names: define the names of the GPIO lines
+
+  LED sub-node properties:
+  - reg : number of LED line.
+  		from 0 to  1 for the pca9550
+  		from 0 to  7 for the pca9551
+  		from 0 to 15 for the pca9552
+  		from 0 to  3 for the pca9553
+  - type: (optional) either
+  	PCA9532_TYPE_NONE
+  	PCA9532_TYPE_LED
+  	PCA9532_TYPE_GPIO
+  	see dt-bindings/leds/leds-pca955x.h (default to LED)
+  - label : (optional)
+  	see Documentation/devicetree/bindings/leds/common.txt
+  - linux,default-trigger : (optional)
+  	see Documentation/devicetree/bindings/leds/common.txt
+
+...

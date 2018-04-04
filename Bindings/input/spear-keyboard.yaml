@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/spear-keyboard.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SPEAr keyboard controller
+
+maintainers:
+  - Viresh Kumar <viresh.kumar@st.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * SPEAr keyboard controller
+
+  Required properties:
+  - compatible: "st,spear300-kbd"
+
+  Optional properties, in addition to those specified by the shared
+  matrix-keyboard bindings:
+  - autorepeat: bool: enables key autorepeat
+  - st,mode: keyboard mode: 0 - 9x9, 1 - 6x6, 2 - 2x2
+
+...

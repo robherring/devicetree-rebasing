@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/marvell-orion-mdio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell MDIO Ethernet Controller interface
+
+maintainers:
+  - Russell King <rmk+kernel@armlinux.org.uk>
+  - Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
+description: |+
+  The Ethernet controllers of the Marvel Kirkwood, Dove, Orion5x,
+  MV78xx0, Armada 370, Armada XP, Armada 7k and Armada 8k have an
+  identical unit that provides an interface with the MDIO bus.
+  Additionally, Armada 7k and Armada 8k has a second unit which
+  provides an interface with the xMDIO bus. This driver handles
+  these interfaces.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Marvell MDIO Ethernet Controller interface
+
+  The Ethernet controllers of the Marvel Kirkwood, Dove, Orion5x,
+  MV78xx0, Armada 370, Armada XP, Armada 7k and Armada 8k have an
+  identical unit that provides an interface with the MDIO bus.
+  Additionally, Armada 7k and Armada 8k has a second unit which
+  provides an interface with the xMDIO bus. This driver handles
+  these interfaces.
+
+  Required properties:
+  - compatible: "marvell,orion-mdio" or "marvell,xmdio"
+  - reg: address and length of the MDIO registers.  When an interrupt is
+    not present, the length is the size of the SMI register (4 bytes)
+    otherwise it must be 0x84 bytes to cover the interrupt control
+    registers.
+
+  Optional properties:
+  - interrupts: interrupt line number for the SMI error/done interrupt
+  - clocks: phandle for up to three required clocks for the MDIO instance
+
+  The child nodes of the MDIO driver are the individual PHY devices
+  connected to this MDIO bus. They must have a "reg" property given the
+  PHY address on the MDIO bus.
+
+...

@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/nvmem/lpc1850-otp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC18xx OTP memory
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: |+
+  Internal OTP (One Time Programmable) memory for NXP LPC18xx/43xx devices.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * NXP LPC18xx OTP memory
+
+  Internal OTP (One Time Programmable) memory for NXP LPC18xx/43xx devices.
+
+  Required properties:
+    - compatible: Should be "nxp,lpc1850-otp"
+    - reg: Must contain an entry with the physical base address and length
+      for each entry in reg-names.
+    - address-cells: must be set to 1.
+    - size-cells: must be set to 1.
+
+  See nvmem.txt for more information.
+
+...

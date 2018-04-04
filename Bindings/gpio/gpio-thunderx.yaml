@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-thunderx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cavium ThunderX/OCTEON-TX GPIO controller bindings
+
+maintainers:
+  - David Daney <david.daney@cavium.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Cavium ThunderX/OCTEON-TX GPIO controller bindings
+
+  Required Properties:
+  - reg: The controller bus address.
+  - gpio-controller: Marks the device node as a GPIO controller.
+  - #gpio-cells: Must be 2.
+    - First cell is the GPIO pin number relative to the controller.
+    - Second cell is a standard generic flag bitfield as described in gpio.txt.
+
+  Optional Properties:
+  - compatible: "cavium,thunder-8890-gpio", unused as PCI driver binding is used.
+  - interrupt-controller: Marks the device node as an interrupt controller.
+  - #interrupt-cells: Must be present and have value of 2 if
+                      "interrupt-controller" is present.
+    - First cell is the GPIO pin number relative to the controller.
+    - Second cell is triggering flags as defined in interrupts.txt.
+
+...

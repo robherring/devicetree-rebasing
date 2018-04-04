@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/sdhci-atmel.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel SDHCI controller
+
+maintainers:
+  - ludovic.desroches@atmel.com <ludovic.desroches@atmel.com>
+description: |+
+  This file documents the differences between the core properties in
+  Documentation/devicetree/bindings/mmc/mmc.txt and the properties used by the
+  sdhci-of-at91 driver.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Atmel SDHCI controller
+
+  This file documents the differences between the core properties in
+  Documentation/devicetree/bindings/mmc/mmc.txt and the properties used by the
+  sdhci-of-at91 driver.
+
+  Required properties:
+  - compatible:		Must be "atmel,sama5d2-sdhci".
+  - clocks:		Phandlers to the clocks.
+  - clock-names:		Must be "hclock", "multclk", "baseclk";
+
+
+...

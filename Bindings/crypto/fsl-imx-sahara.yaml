@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/crypto/fsl-imx-sahara.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale SAHARA Cryptographic Accelerator included in some i.MX chips.
+
+maintainers:
+  - Javier Martin <javier.martin@vista-silicon.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale SAHARA Cryptographic Accelerator included in some i.MX chips.
+  Currently only i.MX27 and i.MX53 are supported.
+
+  Required properties:
+  - compatible : Should be "fsl,<soc>-sahara"
+  - reg : Should contain SAHARA registers location and length
+  - interrupts : Should contain SAHARA interrupt number
+
+...

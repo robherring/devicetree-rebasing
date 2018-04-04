@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/staging/iio/adc/lpc32xx-adc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC32xx SoC ADC controller
+
+maintainers:
+  - Roland Stigge <stigge@antcom.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    adc@40048000 {
+      compatible = "nxp,lpc3220-adc";
+      reg = <0x40048000 0x1000>;
+      interrupt-parent = <&mic>;
+      interrupts = <39 0>;
+    };
+historical: |+
+  * NXP LPC32xx SoC ADC controller
+
+  Required properties:
+  - compatible: must be "nxp,lpc3220-adc"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: The ADC interrupt
+
+...

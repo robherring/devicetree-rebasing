@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/rockchip-rga.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: device-tree bindings for rockchip 2D raster graphic acceleration controller
+  (RGA)
+
+maintainers:
+  - Jacob Chen <jacob-chen@iotwrt.com>
+description: |+
+  RGA is a standalone 2D raster graphic acceleration unit. It accelerates 2D
+  graphics operations, such as point/line drawing, image scaling, rotation,
+  BitBLT, alpha blending and image blur/sharpness.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  device-tree bindings for rockchip 2D raster graphic acceleration controller (RGA)
+
+  RGA is a standalone 2D raster graphic acceleration unit. It accelerates 2D
+  graphics operations, such as point/line drawing, image scaling, rotation,
+  BitBLT, alpha blending and image blur/sharpness.
+
+  Required properties:
+  - compatible: value should be one of the following
+  		"rockchip,rk3288-rga";
+  		"rockchip,rk3399-rga";
+
+  - interrupts: RGA interrupt specifier.
+
+  - clocks: phandle to RGA sclk/hclk/aclk clocks
+
+  - clock-names: should be "aclk", "hclk" and "sclk"
+
+  - resets: Must contain an entry for each entry in reset-names.
+    See ../reset/reset.txt for details.
+  - reset-names: should be "core", "axi" and "ahb"
+
+...

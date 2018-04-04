@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/lg,ld070wx3-sl01.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: LG Corporation 7" WXGA TFT LCD panel
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  LG Corporation 7" WXGA TFT LCD panel
+
+  Required properties:
+  - compatible: should be "lg,ld070wx3-sl01"
+
+  This binding is compatible with the simple-panel binding, which is specified
+  in simple-panel.txt in this directory.

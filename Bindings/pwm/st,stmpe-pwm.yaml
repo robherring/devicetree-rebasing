@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/st,stmpe-pwm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST STMPE PWM controller
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: |+
+  This is a PWM block embedded in the ST Microelectronics STMPE
+  (ST Multi-Purpose Expander) chips. The PWM is registered as a
+  subdevices of the STMPE MFD device.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  == ST STMPE PWM controller ==
+
+  This is a PWM block embedded in the ST Microelectronics STMPE
+  (ST Multi-Purpose Expander) chips. The PWM is registered as a
+  subdevices of the STMPE MFD device.
+
+  Required properties:
+  - compatible: should be:
+    - "st,stmpe-pwm"
+  - #pwm-cells: should be 2. See pwm.txt in this directory for a description of
+    the cells format.
+
+...

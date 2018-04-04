@@ -1,0 +1,153 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/host-generic-pci.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Generic PCI host controller
+
+maintainers:
+  - Will Deacon <will.deacon@arm.com>
+description: |
+  Firmware-initialised PCI host controllers and PCI emulations, such as the
+  virtio-pci implementations found in kvmtool and other para-virtualised
+  systems, do not require driver support for complexities such as regulator
+  and clock management. In fact, the controller may not even require the
+  configuration of a control interface by the operating system, instead
+  presenting a set of fixed windows describing a subset of IO, Memory and
+  Configuration Spaces.
+
+  Such a controller can be described purely in terms of the standardized device
+  tree bindings communicated in pci.txt:
+
+
+  Properties of the host controller node:
+
+  - compatible     : Must be "pci-host-cam-generic" or "pci-host-ecam-generic"
+                     depending on the layout of configuration space (CAM vs
+                     ECAM respectively).
+
+  - device_type    : Must be "pci".
+
+  - ranges         : As described in IEEE Std 1275-1994, but must provide
+                     at least a definition of non-prefetchable memory. One
+                     or both of prefetchable Memory and IO Space may also
+                     be provided.
+
+  - bus-range      : Optional property (also described in IEEE Std 1275-1994)
+                     to indicate the range of bus numbers for this controller.
+                     If absent, defaults to <0 255> (i.e. all buses).
+
+  - #address-cells : Must be 3.
+
+  - #size-cells    : Must be 2.
+
+  - reg            : The Configuration Space base address and size, as accessed
+                     from the parent bus.  The base address corresponds to
+                     the first bus in the "bus-range" property.  If no
+                     "bus-range" is specified, this will be bus 0 (the default).
+
+  Properties of the /chosen node:
+
+  - linux,pci-probe-only
+                   : Optional property which takes a single-cell argument.
+                     If '0', then Linux will assign devices in its usual manner,
+                     otherwise it will not try to assign devices and instead use
+                     them as they are configured already.
+
+  Configuration Space is assumed to be memory-mapped (as opposed to being
+  accessed via an ioport) and laid out with a direct correspondence to the
+  geography of a PCI bus address by concatenating the various components to
+  form an offset.
+
+  For CAM, this 24-bit offset is:
+
+          cfg_offset(bus, device, function, register) =
+                     bus << 16 | device << 11 | function << 8 | register
+
+  Whilst ECAM extends this by 4 bits to accommodate 4k of function space:
+
+          cfg_offset(bus, device, function, register) =
+                     bus << 20 | device << 15 | function << 12 | register
+
+  Interrupt mapping is exactly as described in `Open Firmware Recommended
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Generic PCI host controller
+
+  Firmware-initialised PCI host controllers and PCI emulations, such as the
+  virtio-pci implementations found in kvmtool and other para-virtualised
+  systems, do not require driver support for complexities such as regulator
+  and clock management. In fact, the controller may not even require the
+  configuration of a control interface by the operating system, instead
+  presenting a set of fixed windows describing a subset of IO, Memory and
+  Configuration Spaces.
+
+  Such a controller can be described purely in terms of the standardized device
+  tree bindings communicated in pci.txt:
+
+
+  Properties of the host controller node:
+
+  - compatible     : Must be "pci-host-cam-generic" or "pci-host-ecam-generic"
+                     depending on the layout of configuration space (CAM vs
+                     ECAM respectively).
+
+  - device_type    : Must be "pci".
+
+  - ranges         : As described in IEEE Std 1275-1994, but must provide
+                     at least a definition of non-prefetchable memory. One
+                     or both of prefetchable Memory and IO Space may also
+                     be provided.
+
+  - bus-range      : Optional property (also described in IEEE Std 1275-1994)
+                     to indicate the range of bus numbers for this controller.
+                     If absent, defaults to <0 255> (i.e. all buses).
+
+  - #address-cells : Must be 3.
+
+  - #size-cells    : Must be 2.
+
+  - reg            : The Configuration Space base address and size, as accessed
+                     from the parent bus.  The base address corresponds to
+                     the first bus in the "bus-range" property.  If no
+                     "bus-range" is specified, this will be bus 0 (the default).
+
+  Properties of the /chosen node:
+
+  - linux,pci-probe-only
+                   : Optional property which takes a single-cell argument.
+                     If '0', then Linux will assign devices in its usual manner,
+                     otherwise it will not try to assign devices and instead use
+                     them as they are configured already.
+
+  Configuration Space is assumed to be memory-mapped (as opposed to being
+  accessed via an ioport) and laid out with a direct correspondence to the
+  geography of a PCI bus address by concatenating the various components to
+  form an offset.
+
+  For CAM, this 24-bit offset is:
+
+          cfg_offset(bus, device, function, register) =
+                     bus << 16 | device << 11 | function << 8 | register
+
+  Whilst ECAM extends this by 4 bits to accommodate 4k of function space:
+
+          cfg_offset(bus, device, function, register) =
+                     bus << 20 | device << 15 | function << 12 | register
+
+  Interrupt mapping is exactly as described in `Open Firmware Recommended
+  Practice: Interrupt Mapping' and requires the following properties:
+
+  - #interrupt-cells   : Must be 1
+
+  - interrupt-map      : <see aforementioned specification>
+
+  - interrupt-map-mask : <see aforementioned specification>
+
+
+...

@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/lpc1850-ccu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC1850 Clock Control Unit (CCU)
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: |+
+  Each CGU base clock has several clock branches which can be turned on
+  or off independently by the Clock Control Units CCU1 or CCU2. The
+  branch clocks are distributed between CCU1 and CCU2.
+
+   - Above text taken from NXP LPC1850 User Manual.
+
+  This binding uses the common clock binding:
+      Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * NXP LPC1850 Clock Control Unit (CCU)
+
+  Each CGU base clock has several clock branches which can be turned on
+  or off independently by the Clock Control Units CCU1 or CCU2. The
+  branch clocks are distributed between CCU1 and CCU2.
+
+   - Above text taken from NXP LPC1850 User Manual.
+
+  This binding uses the common clock binding:
+      Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  Required properties:
+  - compatible:
+  	Should be "nxp,lpc1850-ccu"
+  - reg:
+  	Shall define the base and range of the address space
+  	containing clock control registers
+  - #clock-cells:
+  	Shall have value <1>.  The permitted clock-specifier values
+  	are the branch clock names defined in table below.
+  - clocks:
+  	Shall contain a list of phandles for the base clocks routed
+  	from the CGU to the specific CCU. See mapping of base clocks
+  	and CCU in table below.
+  - clock-names:
+  	Shall contain a list of names for the base clock routed
+  	from the CGU to the specific CCU. Valid CCU clock names:
+  	"base_usb0_clk",  "base_periph_clk", "base_usb1_clk",
+  	"base_cpu_clk",   "base_spifi_clk",  "base_spi_clk",
+  	"base_apb1_clk",  "base_apb3_clk",   "base_adchs_clk",
+  	"base_sdio_clk",  "base_ssp0_clk",   "base_ssp1_clk",
+  	"base_uart0_clk", "base_uart1_clk",  "base_uart2_clk",
+  	"base_uart3_clk", "base_audio_clk"
+
+  Which branch clocks that are available on the CCU depends on the
+  specific LPC part. Check the user manual for your specific part.
+
+  A list of CCU clocks can be found in dt-bindings/clock/lpc18xx-ccu.h.
+
+...

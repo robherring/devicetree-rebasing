@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/twl4030-power.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments TWL family (twl4030) reset and power management module
+
+maintainers:
+  - Tony Lindgren <tony@atomide.com>
+  - Florian Vaussard <florian.vaussard@epfl.ch>
+description: |+
+  The power management module inside the TWL family provides several facilities
+  to control the power resources, including power scripts. For now, the
+  binding only supports the complete shutdown of the system after poweroff.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments TWL family (twl4030) reset and power management module
+
+  The power management module inside the TWL family provides several facilities
+  to control the power resources, including power scripts. For now, the
+  binding only supports the complete shutdown of the system after poweroff.
+
+  Required properties:
+  - compatible : must be one of the following
+  	"ti,twl4030-power"
+  	"ti,twl4030-power-reset"
+  	"ti,twl4030-power-idle"
+  	"ti,twl4030-power-idle-osc-off"
+
+  The use of ti,twl4030-power-reset is recommended at least on
+  3530 that needs a special configuration for warm reset to work.
+
+  When using ti,twl4030-power-idle, the TI recommended configuration
+  for idle modes is loaded to the tlw4030 PMIC.
+
+  When using ti,twl4030-power-idle-osc-off, the TI recommended
+  configuration is used with the external oscillator being shut
+  down during off-idle. Note that this does not work on all boards
+  depending on how the external oscillator is wired.
+
+  Optional properties:
+
+  - ti,system-power-controller: This indicates that TWL4030 is the
+    power supply master of the system. With this flag, the chip will
+    initiate an ACTIVE-to-OFF or SLEEP-to-OFF transition when the
+    system poweroffs.
+
+  - ti,use_poweroff: Deprecated name for ti,system-power-controller
+
+...

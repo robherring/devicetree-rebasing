@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/allwinner,sun5i-a13-hstimer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Allwinner SoCs High Speed Timer Controller
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Allwinner SoCs High Speed Timer Controller
+
+  Required properties:
+
+  - compatible :	should be "allwinner,sun5i-a13-hstimer" or
+  		"allwinner,sun7i-a20-hstimer"
+  - reg : Specifies base physical address and size of the registers.
+  - interrupts :	The interrupts of these timers (2 for the sun5i IP, 4 for the sun7i
+  		one)
+  - clocks: phandle to the source clock (usually the AHB clock)
+
+  Optional properties:
+  - resets: phandle to a reset controller asserting the timer
+
+...

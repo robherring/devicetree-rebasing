@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/spi-sun6i.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Allwinner A31/H3 SPI controller
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Allwinner A31/H3 SPI controller
+
+  Required properties:
+  - compatible: Should be "allwinner,sun6i-a31-spi" or "allwinner,sun8i-h3-spi".
+  - reg: Should contain register location and length.
+  - interrupts: Should contain interrupt.
+  - clocks: phandle to the clocks feeding the SPI controller. Two are
+            needed:
+    - "ahb": the gated AHB parent clock
+    - "mod": the parent module clock
+  - clock-names: Must contain the clock names described just above
+  - resets: phandle to the reset controller asserting this device in
+            reset
+
+  Optional properties:
+  - dmas: DMA specifiers for rx and tx dma. See the DMA client binding,
+  	Documentation/devicetree/bindings/dma/dma.txt
+  - dma-names: DMA request names should include "rx" and "tx" if present.
+
+...

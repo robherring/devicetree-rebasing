@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Raspberry Pi VideoCore firmware driver
+
+maintainers:
+  - Eric Anholt <eric@anholt.net>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Raspberry Pi VideoCore firmware driver
+
+  Required properties:
+
+  - compatible:		Should be "raspberrypi,bcm2835-firmware"
+  - mboxes:		Phandle to the firmware device's Mailbox.
+  			  (See: ../mailbox/mailbox.txt for more information)
+
+...

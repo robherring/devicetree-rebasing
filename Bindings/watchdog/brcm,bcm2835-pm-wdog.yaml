@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/brcm,bcm2835-pm-wdog.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: BCM2835 Watchdog timer
+
+maintainers:
+  - Stephen Warren <swarren@wwwdotorg.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  BCM2835 Watchdog timer
+
+  Required properties:
+
+  - compatible : should be "brcm,bcm2835-pm-wdt"
+  - reg : Specifies base physical address and size of the registers.
+
+  Optional properties:
+
+  - timeout-sec   : Contains the watchdog timeout in seconds
+
+...

@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/tsc2005.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments tsc2004 and tsc2005 touchscreen controllers
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Texas Instruments tsc2004 and tsc2005 touchscreen controllers
+
+  Required properties:
+   - compatible		      : "ti,tsc2004" or "ti,tsc2005"
+   - reg			      : Device address
+   - interrupts		      : IRQ specifier
+   - spi-max-frequency	      : Maximum SPI clocking speed of the device
+  			        (for tsc2005)
+
+  Optional properties:
+   - vio-supply		      : Regulator specifier
+   - reset-gpios		      : GPIO specifier for the controller reset line
+   - ti,x-plate-ohms	      : integer, resistance of the touchscreen's X plates
+  				in ohm (defaults to 280)
+   - ti,esd-recovery-timeout-ms : integer, if the touchscreen does not respond after
+  				the configured time (in milli seconds), the driver
+  				will reset it. This is disabled by default.
+   - properties defined in touchscreen.txt
+
+...

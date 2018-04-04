@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/ti,omap-pinctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OMAP Pinctrl definitions
+
+maintainers:
+  - Nishanth Menon <nm@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  OMAP Pinctrl definitions
+
+  Required properties:
+  - compatible : Should be one of:
+    "ti,omap2420-padconf" - OMAP2420 compatible pinctrl
+    "ti,omap2430-padconf" - OMAP2430 compatible pinctrl
+    "ti,omap3-padconf" - OMAP3 compatible pinctrl
+    "ti,omap4-padconf" - OMAP4 compatible pinctrl
+    "ti,omap5-padconf" - OMAP5 compatible pinctrl
+    "ti,dra7-padconf" - DRA7 compatible pinctrl
+    "ti,am437-padconf" - AM437x compatible pinctrl
+
+  See Documentation/devicetree/bindings/pinctrl/pinctrl-single.txt for further details.

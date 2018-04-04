@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/xgene-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: APM X-Gene Real Time Clock
+
+maintainers:
+  - Loc Ho <lho@apm.com>
+description: |+
+  RTC controller for the APM X-Gene Real Time Clock
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * APM X-Gene Real Time Clock
+
+  RTC controller for the APM X-Gene Real Time Clock
+
+  Required properties:
+  - compatible : Should be "apm,xgene-rtc"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: IRQ line for the RTC.
+  - #clock-cells: Should be 1.
+  - clocks: Reference to the clock entry.
+
+...

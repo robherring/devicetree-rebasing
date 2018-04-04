@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/hisilicon,hi655x.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Hisilicon Hi655x Power Management Integrated Circuit (PMIC)
+
+maintainers:
+  - Chen Feng <puck.chen@hisilicon.com>
+description: |+
+  The hardware layout for access PMIC Hi655x from AP SoC Hi6220.
+  Between PMIC Hi655x and Hi6220, the physical signal channel is SSI.
+  We can use memory-mapped I/O to communicate.
+
+  +----------------+             +-------------+
+  |                |             |             |
+  |    Hi6220      |   SSI bus   |   Hi655x    |
+  |                |-------------|             |
+  |                |(REGMAP_MMIO)|             |
+  +----------------+             +-------------+
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Hisilicon Hi655x Power Management Integrated Circuit (PMIC)
+
+  The hardware layout for access PMIC Hi655x from AP SoC Hi6220.
+  Between PMIC Hi655x and Hi6220, the physical signal channel is SSI.
+  We can use memory-mapped I/O to communicate.
+
+  +----------------+             +-------------+
+  |                |             |             |
+  |    Hi6220      |   SSI bus   |   Hi655x    |
+  |                |-------------|             |
+  |                |(REGMAP_MMIO)|             |
+  +----------------+             +-------------+
+
+  Required properties:
+  - compatible:           Should be "hisilicon,hi655x-pmic".
+  - reg:                  Base address of PMIC on Hi6220 SoC.
+  - interrupt-controller: Hi655x has internal IRQs (has own IRQ domain).
+  - pmic-gpios:           The GPIO used by PMIC IRQ.
+  - #clock-cells:		From common clock binding; shall be set to 0
+
+  Optional properties:
+  - clock-output-names: From common clock binding to override the
+    default output clock name
+
+...

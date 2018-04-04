@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/samsung,s6sy761.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung S6SY761 touchscreen controller
+
+maintainers:
+  - Andi Shyti <andi.shyti@samsung.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Samsung S6SY761 touchscreen controller
+
+  Required properties:
+  - compatible		: must be "samsung,s6sy761"
+  - reg			: I2C slave address, (e.g. 0x48)
+  - interrupt-parent	: the phandle to the interrupt controller which provides
+  			  the interrupt
+  - interrupts		: interrupt specification
+  - avdd-supply		: analogic power supply
+  - vdd-supply		: power supply
+
+  Optional properties:
+  - touchscreen-size-x	: see touchscreen.txt. This property is embedded in the
+  			  device. If defined it forces a different x resolution.
+  - touchscreen-size-y	: see touchscreen.txt. This property is embedded in the
+  			  device. If defined it forces a different y resolution.
+
+...

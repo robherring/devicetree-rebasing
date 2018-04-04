@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/uniphier-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: UniPhier watchdog timer controller
+
+maintainers:
+  - Keiji Hayashibara <hayashibara.keiji@socionext.com>
+description: |+
+  This UniPhier watchdog timer controller must be under sysctrl node.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sysctrl@61840000 {
+      compatible = "socionext,uniphier-ld11-sysctrl",
+             "simple-mfd", "syscon";
+      reg = <0x61840000 0x4000>;
+
+      watchdog {
+        compatible = "socionext,uniphier-wdt";
+      }
+
+      other nodes ...
+    };
+historical: |+
+  UniPhier watchdog timer controller
+
+  This UniPhier watchdog timer controller must be under sysctrl node.
+
+  Required properties:
+  - compatible: should be "socionext,uniphier-wdt"
+
+...

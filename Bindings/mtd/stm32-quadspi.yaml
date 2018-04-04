@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/stm32-quadspi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics Quad Serial Peripheral Interface(QuadSPI)
+
+maintainers:
+  - Ludovic Barre <ludovic.barre@st.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * STMicroelectronics Quad Serial Peripheral Interface(QuadSPI)
+
+  Required properties:
+  - compatible: should be "st,stm32f469-qspi"
+  - reg: the first contains the register location and length.
+         the second contains the memory mapping address and length
+  - reg-names: should contain the reg names "qspi" "qspi_mm"
+  - interrupts: should contain the interrupt for the device
+  - clocks: the phandle of the clock needed by the QSPI controller
+  - A pinctrl must be defined to set pins in mode of operation for QSPI transfer
+
+  Optional properties:
+  - resets: must contain the phandle to the reset controller.
+
+  A spi flash must be a child of the nor_flash node and could have some
+  properties. Also see jedec,spi-nor.txt.
+
+  Required properties:
+  - reg: chip-Select number (QSPI controller may connect 2 nor flashes)
+  - spi-max-frequency: max frequency of spi bus
+
+  Optional property:
+  - spi-rx-bus-width: see ../spi/spi-bus.txt for the description
+
+...

@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-zx2967.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ZTE zx2967 I2C controller
+
+maintainers:
+  - Baoyou Xie <baoyou.xie@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    i2c@112000 {
+      compatible = "zte,zx296718-i2c";
+      reg = <0x00112000 0x1000>;
+      interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
+      clocks = <&osc24m>;
+      #address-cells = <1>
+      #size-cells = <0>;
+      clock-frequency = <1600000>;
+    };
+historical: |+
+  ZTE zx2967 I2C controller
+
+  Required properties:
+   - compatible: must be "zte,zx296718-i2c"
+   - reg: physical address and length of the device registers
+   - interrupts: a single interrupt specifier
+   - clocks: clock for the device
+   - #address-cells: should be <1>
+   - #size-cells: should be <0>
+   - clock-frequency: the desired I2C bus clock frequency.
+
+...

@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/spi-img-spfi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: IMG Synchronous Peripheral Flash Interface (SPFI) controller
+
+maintainers:
+  - Andrew Bresticker <abrestic@chromium.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  IMG Synchronous Peripheral Flash Interface (SPFI) controller
+
+  Required properties:
+  - compatible: Must be "img,spfi".
+  - reg: Must contain the base address and length of the SPFI registers.
+  - interrupts: Must contain the SPFI interrupt.
+  - clocks: Must contain an entry for each entry in clock-names.
+    See ../clock/clock-bindings.txt for details.
+  - clock-names: Must include the following entries:
+    - spfi: SPI operating clock
+    - sys: SPI system interface clock
+  - dmas: Must contain an entry for each entry in dma-names.
+    See ../dma/dma.txt for details.
+  - dma-names: Must include the following entries:
+    - rx
+    - tx
+  - cs-gpios: Must specify the GPIOs used for chipselect lines.
+  - #address-cells: Must be 1.
+  - #size-cells: Must be 0.
+
+  Optional properties:
+  - img,supports-quad-mode: Should be set if the interface supports quad mode
+    SPI transfers.
+  - spfi-max-frequency: Maximum speed supported by the spfi block.
+
+...

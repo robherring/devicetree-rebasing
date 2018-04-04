@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/berlin2_adc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Berlin Analog to Digital Converter (ADC)
+
+maintainers:
+  - Antoine Tenart <antoine.tenart@free-electrons.com>
+description: |+
+  The Berlin ADC has 8 channels, with one connected to a temperature sensor.
+  It is part of the system controller register set. The ADC node should be a
+  sub-node of the system controller node.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Berlin Analog to Digital Converter (ADC)
+
+  The Berlin ADC has 8 channels, with one connected to a temperature sensor.
+  It is part of the system controller register set. The ADC node should be a
+  sub-node of the system controller node.
+
+  Required properties:
+  - compatible: must be "marvell,berlin2-adc"
+  - interrupts: the interrupts for the ADC and the temperature sensor
+  - interrupt-names: should be "adc" and "tsen"
+
+...

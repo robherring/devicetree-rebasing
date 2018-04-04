@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/emev2-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree Clock bindings for Renesas EMMA Mobile EV2
+
+maintainers:
+  - Takashi Yoshii <takasi-y@ops.dti.ne.jp>
+description: |+
+  This binding uses the common clock binding.
+
+  * SMU
+  System Management Unit described in user's manual R19UH0037EJ1000_SMU.
+  This is not a clock provider, but clocks under SMU depend on it.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Device tree Clock bindings for Renesas EMMA Mobile EV2
+
+  This binding uses the common clock binding.
+
+  * SMU
+  System Management Unit described in user's manual R19UH0037EJ1000_SMU.
+  This is not a clock provider, but clocks under SMU depend on it.
+
+  Required properties:
+  - compatible: Should be "renesas,emev2-smu"
+  - reg: Address and Size of SMU registers
+
+  * SMU_CLKDIV
+  Function block with an input mux and a divider, which corresponds to
+  "Serial clock generator" in fig."Clock System Overview" of the manual,
+  and "xxx frequency division setting register" (XXXCLKDIV) registers.
+  This makes internal (neither input nor output) clock that is provided
+  to input of xxxGCLK block.
+
+  Required properties:
+  - compatible: Should be "renesas,emev2-smu-clkdiv"
+  - reg: Byte offset from SMU base and Bit position in the register
+  - clocks: Parent clocks. Input clocks as described in clock-bindings.txt
+  - #clock-cells: Should be <0>
+
+  * SMU_GCLK
+  Clock gating node shown as "Clock stop processing block" in the
+  fig."Clock System Overview" of the manual.
+  Registers are "xxx clock gate control register" (XXXGCLKCTRL).
+
+  Required properties:
+  - compatible: Should be "renesas,emev2-smu-gclk"
+  - reg: Byte offset from SMU base and Bit position in the register
+  - clocks: Input clock as described in clock-bindings.txt
+  - #clock-cells: Should be <0>
+
+...

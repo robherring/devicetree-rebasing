@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/memory-controllers/fsl/ddr.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale DDR memory controller
+
+maintainers:
+  - York Sun <york.sun@nxp.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    memory-controller@2000 {
+      compatible = "fsl,bsc9132-memory-controller";
+      reg = <0x2000 0x1000>;
+      interrupts = <16 2 1 8>;
+    };
+
+
+    Example 2:
+
+    ddr1: memory-controller@8000 {
+      compatible = "fsl,qoriq-memory-controller-v4.7",
+          "fsl,qoriq-memory-controller";
+      reg = <0x8000 0x1000>;
+      interrupts = <16 2 1 23>;
+    };
+historical: |+
+  Freescale DDR memory controller
+
+  Properties:
+
+  - compatible	: Should include "fsl,chip-memory-controller" where
+  		  chip is the processor (bsc9132, mpc8572 etc.), or
+  		  "fsl,qoriq-memory-controller".
+  - reg		: Address and size of DDR controller registers
+  - interrupts	: Error interrupt of DDR controller
+  - little-endian	: Specifies little-endian access to registers
+  		  If omitted, big-endian will be used.
+
+...

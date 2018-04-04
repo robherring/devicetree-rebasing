@@ -1,0 +1,164 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/fsl/qman-portals.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: QorIQ DPAA Queue Manager Portals Device Tree Binding
+
+maintainers:
+  - Emil Medve <Emilian.Medve@freescale.com>
+description: |+
+  Copyright (C) 2008 - 2014 Freescale Semiconductor Inc.
+
+  CONTENTS
+
+  	- QMan Portal
+  	- Example
+
+  QMan Portal Node
+
+  Portals are memory mapped interfaces to QMan that allow low-latency, lock-less
+  interaction by software running on processor cores, accelerators and network
+  interfaces with the QMan
+
+  PROPERTIES
+
+  - compatible
+  	Usage:		Required
+  	Value type:	<stringlist>
+  	Definition:	Must include "fsl,qman-portal-<hardware revision>"
+  			May include "fsl,<SoC>-qman-portal" or "fsl,qman-portal"
+
+  - reg
+  	Usage:		Required
+  	Value type:	<prop-encoded-array>
+  	Definition:	Two regions. The first is the cache-enabled region of
+  			the portal. The second is the cache-inhibited region of
+  			the portal
+
+  - interrupts
+  	Usage:		Required
+  	Value type:	<prop-encoded-array>
+  	Definition:	Standard property
+
+  - fsl,liodn
+  	Usage:		See pamu.txt
+  	Value type:	<prop-encoded-array>
+  	Definition:	Two LIODN(s). DQRR LIODN (DLIODN) and Frame LIODN
+  			(FLIODN)
+
+  - fsl,iommu-parent
+  	Usage:		See pamu.txt
+  	Value type:	<phandle>
+  	Definition:	PAMU property used for dynamic LIODN assignment
+
+  	For additional details about the PAMU/LIODN binding(s) see pamu.txt
+
+  - cell-index
+  	Usage:		Required
+  	Value type:	<u32>
+  	Definition:	The hardware index of the channel. This can also be
+  			determined by dividing any of the channel's 8 work queue
+  			IDs by 8
+
+  In addition to these properties the qman-portals should have sub-nodes to
+  represent the HW devices/portals that are connected to the software portal
+  described here
+
+  The currently supported sub-nodes are:
+  	* fman0
+  	* fman1
+  	* pme
+  	* crypto
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  QorIQ DPAA Queue Manager Portals Device Tree Binding
+
+  Copyright (C) 2008 - 2014 Freescale Semiconductor Inc.
+
+  CONTENTS
+
+  	- QMan Portal
+  	- Example
+
+  QMan Portal Node
+
+  Portals are memory mapped interfaces to QMan that allow low-latency, lock-less
+  interaction by software running on processor cores, accelerators and network
+  interfaces with the QMan
+
+  PROPERTIES
+
+  - compatible
+  	Usage:		Required
+  	Value type:	<stringlist>
+  	Definition:	Must include "fsl,qman-portal-<hardware revision>"
+  			May include "fsl,<SoC>-qman-portal" or "fsl,qman-portal"
+
+  - reg
+  	Usage:		Required
+  	Value type:	<prop-encoded-array>
+  	Definition:	Two regions. The first is the cache-enabled region of
+  			the portal. The second is the cache-inhibited region of
+  			the portal
+
+  - interrupts
+  	Usage:		Required
+  	Value type:	<prop-encoded-array>
+  	Definition:	Standard property
+
+  - fsl,liodn
+  	Usage:		See pamu.txt
+  	Value type:	<prop-encoded-array>
+  	Definition:	Two LIODN(s). DQRR LIODN (DLIODN) and Frame LIODN
+  			(FLIODN)
+
+  - fsl,iommu-parent
+  	Usage:		See pamu.txt
+  	Value type:	<phandle>
+  	Definition:	PAMU property used for dynamic LIODN assignment
+
+  	For additional details about the PAMU/LIODN binding(s) see pamu.txt
+
+  - cell-index
+  	Usage:		Required
+  	Value type:	<u32>
+  	Definition:	The hardware index of the channel. This can also be
+  			determined by dividing any of the channel's 8 work queue
+  			IDs by 8
+
+  In addition to these properties the qman-portals should have sub-nodes to
+  represent the HW devices/portals that are connected to the software portal
+  described here
+
+  The currently supported sub-nodes are:
+  	* fman0
+  	* fman1
+  	* pme
+  	* crypto
+
+  These subnodes should have the following properties:
+
+  - fsl,liodn
+  	Usage:		See pamu.txt
+  	Value type:	<prop-encoded-array>
+  	Definition:	PAMU property used for static LIODN assignment
+
+  - fsl,iommu-parent
+  	Usage:		See pamu.txt
+  	Value type:	<phandle>
+  	Definition:	PAMU property used for dynamic LIODN assignment
+
+  - dev-handle
+  	Usage:		Required
+  	Value type:	<phandle>
+  	Definition:	The phandle to the particular hardware device that this
+  			portal is connected to.
+
+...

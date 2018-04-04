@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/twl4030-madc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TWL4030 Monitoring Analog to Digital Converter (MADC)
+
+maintainers:
+  - Sebastian Reichel <sre@debian.org>
+description: |+
+  The MADC subsystem in the TWL4030 consists of a 10-bit ADC
+  combined with a 16-input analog multiplexer.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * TWL4030 Monitoring Analog to Digital Converter (MADC)
+
+  The MADC subsystem in the TWL4030 consists of a 10-bit ADC
+  combined with a 16-input analog multiplexer.
+
+  Required properties:
+    - compatible: Should contain "ti,twl4030-madc".
+    - interrupts: IRQ line for the MADC submodule.
+    - #io-channel-cells: Should be set to <1>.
+
+  Optional properties:
+    - ti,system-uses-second-madc-irq: boolean, set if the second madc irq register
+  				    should be used, which is intended to be used
+  				    by Co-Processors (e.g. a modem).
+
+...

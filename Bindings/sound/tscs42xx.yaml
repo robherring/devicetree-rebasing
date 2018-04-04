@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/tscs42xx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TSCS42XX Audio CODEC
+
+maintainers:
+  - Steven Eckhoff <steven.eckhoff.opensource@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TSCS42XX Audio CODEC
+
+  Required Properties:
+
+  	- compatible :	"tempo,tscs42A1" for analog mic
+  			"tempo,tscs42A2" for digital mic
+
+  	- reg : 	<0x71> for analog mic
+  			<0x69> for digital mic
+
+...

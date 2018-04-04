@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/marvell-bt-8xxx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell 8897/8997 (sd8897/sd8997) bluetooth devices (SDIO or USB based)
+
+maintainers:
+  - Rajat Jain <rajatja@google.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Marvell 8897/8997 (sd8897/sd8997) bluetooth devices (SDIO or USB based)
+  ------
+  The 8997 devices supports multiple interfaces. When used on SDIO interfaces,
+  the btmrvl driver is used and when used on USB interface, the btusb driver is
+  used.
+
+  Required properties:
+
+    - compatible : should be one of the following:
+  	* "marvell,sd8897-bt" (for SDIO)
+  	* "marvell,sd8997-bt" (for SDIO)
+  	* "usb1286,204e"      (for USB)
+
+  Optional properties:
+
+    - marvell,cal-data: Calibration data downloaded to the device during
+  		      initialization. This is an array of 28 values(u8).
+  		      This is only applicable to SDIO devices.
+
+    - marvell,wakeup-pin: It represents wakeup pin number of the bluetooth chip.
+  		        firmware will use the pin to wakeup host system (u16).
+    - marvell,wakeup-gap-ms: wakeup gap represents wakeup latency of the host
+  		      platform. The value will be configured to firmware. This
+  		      is needed to work chip's sleep feature as expected (u16).
+    - interrupt-parent: phandle of the parent interrupt controller
+    - interrupt-names: Used only for USB based devices (See below)
+    - interrupts : specifies the interrupt pin number to the cpu. For SDIO, the
+  		 driver will use the first interrupt specified in the interrupt
+  		 array. For USB based devices, the driver will use the interrupt
+  		 named "wakeup" from the interrupt-names and interrupt arrays.
+  		 The driver will request an irq based on this interrupt number.
+  		 During system suspend, the irq will be enabled so that the
+  		 bluetooth chip can wakeup host platform under certain
+  		 conditions. During system resume, the irq will be disabled
+  		 to make sure unnecessary interrupt is not received.
+
+...

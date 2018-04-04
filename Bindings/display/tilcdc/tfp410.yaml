@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/tilcdc/tfp410.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for tilcdc DRM TFP410 output driver
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    dvicape {
+      compatible = "ti,tilcdc,tfp410";
+      i2c = <&i2c2>;
+      pinctrl-names = "default";
+      pinctrl-0 = <&bone_dvi_cape_dvi_00A1_pins>;
+      powerdn-gpio = <&gpio2 31 0>;
+    };
+historical: |+
+  Device-Tree bindings for tilcdc DRM TFP410 output driver
+
+  Required properties:
+   - compatible: value should be "ti,tilcdc,tfp410".
+   - i2c: the phandle for the i2c device to use for DDC
+
+  Recommended properties:
+   - pinctrl-names, pinctrl-0: the pincontrol settings to configure
+     muxing properly for pins that connect to TFP410 device
+   - powerdn-gpio: the powerdown GPIO, pulled low to power down the
+     TFP410 device (for DPMS_OFF)
+
+...

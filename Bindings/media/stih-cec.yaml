@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/stih-cec.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics STIH4xx HDMI CEC driver
+
+maintainers:
+  - Benjamin Gaignard <benjamin.gaignard@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  STMicroelectronics STIH4xx HDMI CEC driver
+
+  Required properties:
+   - compatible : value should be "st,stih-cec"
+   - reg : Physical base address of the IP registers and length of memory
+  	 mapped region.
+   - clocks : from common clock binding: handle to HDMI CEC clock
+   - interrupts : HDMI CEC interrupt number to the CPU.
+   - pinctrl-names: Contains only one value - "default"
+   - pinctrl-0: Specifies the pin control groups used for CEC hardware.
+   - resets: Reference to a reset controller
+   - hdmi-phandle: Phandle to the HDMI controller, see also cec.txt.
+
+...

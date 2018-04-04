@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/adapteva.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Adapteva Platforms Device Tree Bindings
+
+maintainers:
+  - Andreas Färber <afaerber@suse.de>
+description: |+
+  Parallella board
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Adapteva Platforms Device Tree Bindings
+  ---------------------------------------
+
+  Parallella board
+
+  Required root node properties:
+      - compatible = "adapteva,parallella";

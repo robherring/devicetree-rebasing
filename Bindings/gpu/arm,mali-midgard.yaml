@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpu/arm,mali-midgard.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM Mali Midgard GPU
+
+maintainers:
+  - Guillaume Tucker <guillaume.tucker@collabora.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ARM Mali Midgard GPU
+  ====================
+
+  Required properties:
+
+  - compatible :
+    * Must contain one of the following:
+      + "arm,mali-t604"
+      + "arm,mali-t624"
+      + "arm,mali-t628"
+      + "arm,mali-t720"
+      + "arm,mali-t760"
+      + "arm,mali-t820"
+      + "arm,mali-t830"
+      + "arm,mali-t860"
+      + "arm,mali-t880"
+    * which must be preceded by one of the following vendor specifics:
+      + "amlogic,meson-gxm-mali"
+      + "rockchip,rk3288-mali"
+      + "rockchip,rk3399-mali"
+
+  - reg : Physical base address of the device and length of the register area.
+
+  - interrupts : Contains the three IRQ lines required by Mali Midgard devices.
+
+  - interrupt-names : Contains the names of IRQ resources in the order they were
+    provided in the interrupts property. Must contain: "job", "mmu", "gpu".
+
+
+  Optional properties:
+
+  - clocks : Phandle to clock for the Mali Midgard device.
+
+  - mali-supply : Phandle to regulator for the Mali device. Refer to
+    Documentation/devicetree/bindings/regulator/regulator.txt for details.
+
+  - operating-points-v2 : Refer to Documentation/devicetree/bindings/power/opp.txt
+    for details.
+
+
+...

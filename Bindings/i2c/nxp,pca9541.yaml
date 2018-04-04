@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/nxp,pca9541.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP PCA9541 I2C bus master selector
+
+maintainers:
+  - Peter Rosin <peda@axentia.se>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    i2c-arbitrator@74 {
+      compatible = "nxp,pca9541";
+      reg = <0x74>;
+
+      i2c-arb {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        eeprom@54 {
+          compatible = "at,24c08";
+          reg = <0x54>;
+        };
+      };
+    };
+historical: |+
+  * NXP PCA9541 I2C bus master selector
+
+  Required Properties:
+
+    - compatible: Must be "nxp,pca9541"
+
+    - reg: The I2C address of the device.
+
+    The following required properties are defined externally:
+
+    - I2C arbitration bus node. See i2c-arb.txt in this directory.
+
+
+...

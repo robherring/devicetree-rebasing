@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/berlin-usb-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Berlin USB PHY
+
+maintainers:
+  - Antoine Tenart <antoine.tenart@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    usb-phy@f774000 {
+      compatible = "marvell,berlin2-usb-phy";
+      reg = <0xf774000 0x128>;
+      #phy-cells = <0>;
+      resets = <&chip 0x104 14>;
+    };
+historical: |+
+  * Marvell Berlin USB PHY
+
+  Required properties:
+  - compatible: "marvell,berlin2-usb-phy" or "marvell,berlin2cd-usb-phy"
+  - reg: base address and length of the registers
+  - #phys-cells: should be 0
+  - resets: reference to the reset controller
+
+...

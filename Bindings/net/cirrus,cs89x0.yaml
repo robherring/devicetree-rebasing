@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/cirrus,cs89x0.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cirrus Logic CS8900/CS8920 Network Controller
+
+maintainers:
+  - Alexander Shiyan <shc_work@mail.ru>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    eth0: eth@10000000 {
+      compatible = "cirrus,cs8900";
+      reg = <0x10000000 0x400>;
+      interrupts = <10>;
+    };
+historical: |+
+  * Cirrus Logic CS8900/CS8920 Network Controller
+
+  Required properties:
+  - compatible	: Should be "cirrus,cs8900" or "cirrus,cs8920".
+  - reg		: Address and length of the IO space.
+  - interrupts	: Should contain the controller interrupt line.
+
+...

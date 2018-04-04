@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/cs42xx8.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: CS42448/CS42888 audio CODEC
+
+maintainers:
+  - Nicolin Chen <Guangyu.Chen@freescale.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  CS42448/CS42888 audio CODEC
+
+  Required properties:
+
+    - compatible : must contain one of "cirrus,cs42448" and "cirrus,cs42888"
+
+    - reg : the I2C address of the device for I2C
+
+    - clocks : a list of phandles + clock-specifiers, one for each entry in
+      clock-names
+
+    - clock-names : must contain "mclk"
+
+    - VA-supply, VD-supply, VLS-supply, VLC-supply: power supplies for the device,
+      as covered in Documentation/devicetree/bindings/regulator/regulator.txt
+
+...

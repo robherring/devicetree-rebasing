@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/brcm,spi-bcm-qspi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom SPI controller
+
+maintainers:
+  - Kamal Dasu <kdasu.kdev@gmail.com>
+description: |+
+  The Broadcom SPI controller is a SPI master found on various SOCs, including
+  BRCMSTB (BCM7XXX), Cygnus, NSP and NS2. The Broadcom Master SPI hw IP consits
+  of :
+   MSPI : SPI master controller can read and write to a SPI slave device
+   BSPI : Broadcom SPI in combination with the MSPI hw IP provides acceleration
+  	for flash reads and be configured to do single, double, quad lane
+  	io with 3-byte and 4-byte addressing support.
+
+   Supported Broadcom SoCs have one instance of MSPI+BSPI controller IP.
+   MSPI master can be used wihout BSPI. BRCMSTB SoCs have an additional instance
+   of a MSPI master without the BSPI to use with non flash slave devices that
+   use SPI protocol.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom SPI controller
+
+  The Broadcom SPI controller is a SPI master found on various SOCs, including
+  BRCMSTB (BCM7XXX), Cygnus, NSP and NS2. The Broadcom Master SPI hw IP consits
+  of :
+   MSPI : SPI master controller can read and write to a SPI slave device
+   BSPI : Broadcom SPI in combination with the MSPI hw IP provides acceleration
+  	for flash reads and be configured to do single, double, quad lane
+  	io with 3-byte and 4-byte addressing support.
+
+   Supported Broadcom SoCs have one instance of MSPI+BSPI controller IP.
+   MSPI master can be used wihout BSPI. BRCMSTB SoCs have an additional instance
+   of a MSPI master without the BSPI to use with non flash slave devices that
+   use SPI protocol.
+
+  Required properties:
+
+  - #address-cells:
+      Must be <1>, as required by generic SPI binding.
+
+  - #size-cells:
+      Must be <0>, also as required by generic SPI binding.
+
+  - compatible:
+      Must be one of :
+      "brcm,spi-bcm-qspi", "brcm,spi-brcmstb-qspi" : MSPI+BSPI on BRCMSTB SoCs
+      "brcm,spi-bcm-qspi", "brcm,spi-brcmstb-mspi" : Second Instance of MSPI
+  						   BRCMSTB  SoCs
+      "brcm,spi-bcm-qspi", "brcm,spi-nsp-qspi"     : MSPI+BSPI on Cygnus, NSP
+      "brcm,spi-bcm-qspi", "brcm,spi-ns2-qspi"     : NS2 SoCs
+
+  - reg:
+      Define the bases and ranges of the associated I/O address spaces.
+      The required range is MSPI controller registers.
+
+  - reg-names:
+      First name does not matter, but must be reserved for the MSPI controller
+      register range as mentioned in 'reg' above, and will typically contain
+      - "bspi_regs": BSPI register range, not required with compatible
+  		   "spi-brcmstb-mspi"
+      - "mspi_regs": MSPI register range is required for compatible strings
+      - "intr_regs", "intr_status_reg" : Interrupt and status register for
+        NSP, NS2, Cygnus SoC
+
+  - interrupts
+      The interrupts used by the MSPI and/or BSPI controller.
+
+  - interrupt-names:
+      Names of interrupts associated with MSPI
+      - "mspi_halted" :
+      - "mspi_done": Indicates that the requested SPI operation is complete.
+      - "spi_lr_fullness_reached" : Linear read BSPI pipe full
+      - "spi_lr_session_aborted"  : Linear read BSPI pipe aborted
+      - "spi_lr_impatient" : Linear read BSPI requested when pipe empty
+      - "spi_lr_session_done" : Linear read BSPI session done
+
+  - clocks:
+      A phandle to the reference clock for this block.
+
+  Optional properties:
+
+
+  - native-endian
+      Defined when using BE SoC and device uses BE register read/write
+
+  Recommended optional m25p80 properties:
+  - spi-rx-bus-width: Definition as per
+                      Documentation/devicetree/bindings/spi/spi-bus.txt
+
+...

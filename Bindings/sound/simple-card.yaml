@@ -1,0 +1,113 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/simple-card.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'Simple-Card:'
+
+maintainers:
+  - Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+  - Xiubo Li <Li.Xiubo@freescale.com>
+description: |+
+  Simple-Card specifies audio DAI connections of SoC <-> codec.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Simple-Card:
+
+  Simple-Card specifies audio DAI connections of SoC <-> codec.
+
+  Required properties:
+
+  - compatible				: "simple-audio-card"
+
+  Optional properties:
+
+  - simple-audio-card,name		: User specified audio sound card name, one string
+  					  property.
+  - simple-audio-card,widgets		: Please refer to widgets.txt.
+  - simple-audio-card,routing		: A list of the connections between audio components.
+  					  Each entry is a pair of strings, the first being the
+  					  connection's sink, the second being the connection's
+  					  source.
+  - simple-audio-card,mclk-fs             : Multiplication factor between stream rate and codec
+  					  mclk. When defined, mclk-fs property defined in
+  					  dai-link sub nodes are ignored.
+  - simple-audio-card,hp-det-gpio		: Reference to GPIO that signals when
+  					  headphones are attached.
+  - simple-audio-card,mic-det-gpio	: Reference to GPIO that signals when
+  					  a microphone is attached.
+  - simple-audio-card,aux-devs		: List of phandles pointing to auxiliary devices, such
+  					  as amplifiers, to be added to the sound card.
+
+  Optional subnodes:
+
+  - simple-audio-card,dai-link		: Container for dai-link level
+  					  properties and the CPU and CODEC
+  					  sub-nodes. This container may be
+  					  omitted when the card has only one
+  					  DAI link. See the examples and the
+  					  section below.
+
+  Dai-link subnode properties and subnodes:
+
+  If dai-link subnode is omitted and the subnode properties are directly
+  under "sound"-node the subnode property and subnode names have to be
+  prefixed with "simple-audio-card,"-prefix.
+
+  Required dai-link subnodes:
+
+  - cpu					: CPU   sub-node
+  - codec					: CODEC sub-node
+
+  Optional dai-link subnode properties:
+
+  - format				: CPU/CODEC common audio format.
+  					  "i2s", "right_j", "left_j" , "dsp_a"
+  					  "dsp_b", "ac97", "pdm", "msb", "lsb"
+  - frame-master				: Indicates dai-link frame master.
+  					  phandle to a cpu or codec subnode.
+  - bitclock-master			: Indicates dai-link bit clock master.
+  					  phandle to a cpu or codec subnode.
+  - bitclock-inversion			: bool property. Add this if the
+  					  dai-link uses bit clock inversion.
+  - frame-inversion			: bool property. Add this if the
+  					  dai-link uses frame clock inversion.
+  - mclk-fs             			: Multiplication factor between stream
+  					  rate and codec mclk, applied only for
+  					  the dai-link.
+
+  For backward compatibility the frame-master and bitclock-master
+  properties can be used as booleans in codec subnode to indicate if the
+  codec is the dai-link frame or bit clock master. In this case there
+  should be no dai-link node, the same properties should not be present
+  at sound-node level, and the bitclock-inversion and frame-inversion
+  properties should also be placed in the codec node if needed.
+
+  Required CPU/CODEC subnodes properties:
+
+  - sound-dai				: phandle and port of CPU/CODEC
+
+  Optional CPU/CODEC subnodes properties:
+
+  - dai-tdm-slot-num			: Please refer to tdm-slot.txt.
+  - dai-tdm-slot-width			: Please refer to tdm-slot.txt.
+  - clocks / system-clock-frequency	: specify subnode's clock if needed.
+  					  it can be specified via "clocks" if system has
+  					  clock node (= common clock), or "system-clock-frequency"
+  					  (if system doens't support common clock)
+  					  If a clock is specified, it is
+  					  enabled with clk_prepare_enable()
+  					  in dai startup() and disabled with
+  					  clk_disable_unprepare() in dai
+  					  shutdown().
+  - system-clock-direction-out		: specifies clock direction as 'out' on
+  					  initialization. It is useful for some aCPUs with
+  					  fixed clocks.
+
+...

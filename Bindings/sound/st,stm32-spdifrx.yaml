@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/st,stm32-spdifrx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicroelectronics STM32 S/PDIF receiver (SPDIFRX).
+
+maintainers:
+  - olivier moysan <olivier.moysan@st.com>
+description: |+
+  The SPDIFRX peripheral, is designed to receive an S/PDIF flow compliant with
+  IEC-60958 and IEC-61937.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  STMicroelectronics STM32 S/PDIF receiver (SPDIFRX).
+
+  The SPDIFRX peripheral, is designed to receive an S/PDIF flow compliant with
+  IEC-60958 and IEC-61937.
+
+  Required properties:
+    - compatible: should be "st,stm32h7-spdifrx"
+    - reg: cpu DAI IP base address and size
+    - clocks: must contain an entry for kclk (used as S/PDIF signal reference)
+    - clock-names: must contain "kclk"
+    - interrupts: cpu DAI interrupt line
+    - dmas: DMA specifiers for audio data DMA and iec control flow DMA
+      See STM32 DMA bindings, Documentation/devicetree/bindings/dma/stm32-dma.txt
+    - dma-names: two dmas have to be defined, "rx" and "rx-ctrl"
+
+  Optional properties:
+    - resets: Reference to a reset controller asserting the SPDIFRX
+
+  The device node should contain one 'port' child node with one child 'endpoint'
+  node, according to the bindings defined in Documentation/devicetree/bindings/
+  graph.txt.
+
+...

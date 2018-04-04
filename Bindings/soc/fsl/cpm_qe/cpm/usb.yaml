@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/fsl/cpm_qe/cpm/usb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: USB (Universal Serial Bus Controller)
+
+maintainers:
+  - Zhao Qiang <qiang.zhao@nxp.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    usb@11bc0 {
+      #address-cells = <1>;
+      #size-cells = <0>;
+      compatible = "fsl,cpm2-usb";
+      reg = <11b60 18 8b00 100>;
+      interrupts = <b 8>;
+      interrupt-parent = <&PIC>;
+      fsl,cpm-command = <2e600000>;
+    };
+historical: |+
+  * USB (Universal Serial Bus Controller)
+
+  Properties:
+  - compatible : "fsl,cpm1-usb", "fsl,cpm2-usb", "fsl,qe-usb"
+
+...

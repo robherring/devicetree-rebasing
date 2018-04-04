@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/renesas,rcar-gen2-cpg-clocks.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas R-Car Gen2 Clock Pulse Generator (CPG)
+
+maintainers:
+  - Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+  - Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+description: |+
+  The CPG generates core clocks for the R-Car Gen2 SoCs. It includes three PLLs
+  and several fixed ratio dividers.
+  The CPG also provides a Clock Domain for SoC devices, in combination with the
+  CPG Module Stop (MSTP) Clocks.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Renesas R-Car Gen2 Clock Pulse Generator (CPG)
+
+  The CPG generates core clocks for the R-Car Gen2 SoCs. It includes three PLLs
+  and several fixed ratio dividers.
+  The CPG also provides a Clock Domain for SoC devices, in combination with the
+  CPG Module Stop (MSTP) Clocks.
+
+  Required Properties:
+
+    - compatible: Must be one of
+      - "renesas,r8a7790-cpg-clocks" for the r8a7790 CPG
+      - "renesas,r8a7791-cpg-clocks" for the r8a7791 CPG
+      - "renesas,r8a7792-cpg-clocks" for the r8a7792 CPG
+      - "renesas,r8a7793-cpg-clocks" for the r8a7793 CPG
+      - "renesas,r8a7794-cpg-clocks" for the r8a7794 CPG
+      and "renesas,rcar-gen2-cpg-clocks" as a fallback.
+
+    - reg: Base address and length of the memory resource used by the CPG
+
+    - clocks: References to the parent clocks: first to the EXTAL clock, second
+      to the USB_EXTAL clock
+    - #clock-cells: Must be 1
+    - clock-output-names: The names of the clocks. Supported clocks are "main",
+      "pll0", "pll1", "pll3", "lb", "qspi", "sdh", "sd0", "sd1", "z", "rcan", and
+      "adsp"
+    - #power-domain-cells: Must be 0
+
+  SoC devices that are part of the CPG/MSTP Clock Domain and can be power-managed
+  through an MSTP clock should refer to the CPG device node in their
+  "power-domains" property, as documented by the generic PM domain bindings in
+  Documentation/devicetree/bindings/power/power_domain.txt.
+
+
+...

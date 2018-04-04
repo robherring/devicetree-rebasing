@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/qcom/qcom,gsbi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: QCOM GSBI (General Serial Bus Interface) Driver
+
+maintainers:
+  - Andy Gross <agross@codeaurora.org>
+description: |+
+  The GSBI controller is modeled as a node with zero or more child nodes, each
+  representing a serial sub-node device that is mux'd as part of the GSBI
+  configuration settings.  The mode setting will govern the input/output mode of
+  the 4 GSBI IOs.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  QCOM GSBI (General Serial Bus Interface) Driver
+
+  The GSBI controller is modeled as a node with zero or more child nodes, each
+  representing a serial sub-node device that is mux'd as part of the GSBI
+  configuration settings.  The mode setting will govern the input/output mode of
+  the 4 GSBI IOs.
+
+  Required properties:
+  - compatible:	Should contain "qcom,gsbi-v1.0.0"
+  - cell-index:	Should contain the GSBI index
+  - reg: Address range for GSBI registers
+  - clocks: required clock
+  - clock-names: must contain "iface" entry
+  - qcom,mode : indicates MUX value for configuration of the serial interface.
+    Please reference dt-bindings/soc/qcom,gsbi.h for valid mux values.
+
+  Optional properties:
+  - qcom,crci : indicates CRCI MUX value for QUP CRCI ports.  Please reference
+    dt-bindings/soc/qcom,gsbi.h for valid CRCI mux values.
+  - syscon-tcsr: indicates phandle of TCSR syscon node.  Required if child uses
+    dma.
+
+  Required properties if child node exists:
+  - #address-cells: Must be 1
+  - #size-cells: Must be 1
+  - ranges: Must be present
+
+  Properties for children:
+
+  A GSBI controller node can contain 0 or more child nodes representing serial
+  devices.  These serial devices can be a QCOM UART, I2C controller, spi
+  controller, or some combination of aforementioned devices.
+
+  See the following for child node definitions:
+  Documentation/devicetree/bindings/i2c/qcom,i2c-qup.txt
+  Documentation/devicetree/bindings/spi/qcom,spi-qup.txt
+  Documentation/devicetree/bindings/serial/qcom,msm-uartdm.txt
+
+...

@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pps/pps-gpio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree Bindings for a PPS Signal on GPIO
+
+maintainers:
+  - Jan Luebbe <jlu@pengutronix.de>
+description: |+
+  These properties describe a PPS (pulse-per-second) signal connected to
+  a GPIO pin.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    pps {
+      pinctrl-names = "default";
+      pinctrl-0 = <&pinctrl_pps>;
+
+      gpios = <&gpio1 26 GPIO_ACTIVE_HIGH>;
+      assert-falling-edge;
+
+      compatible = "pps-gpio";
+      status = "okay";
+    };
+historical: |+
+  Device-Tree Bindings for a PPS Signal on GPIO
+
+  These properties describe a PPS (pulse-per-second) signal connected to
+  a GPIO pin.
+
+  Required properties:
+  - compatible: should be "pps-gpio"
+  - gpios: one PPS GPIO in the format described by ../gpio/gpio.txt
+
+  Optional properties:
+  - assert-falling-edge: when present, assert is indicated by a falling edge
+                         (instead of by a rising edge)
+
+...

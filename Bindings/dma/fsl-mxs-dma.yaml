@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/fsl-mxs-dma.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale MXS DMA
+
+maintainers:
+  - Dong Aisheng <dong.aisheng@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale MXS DMA
+
+  Required properties:
+  - compatible : Should be "fsl,<chip>-dma-apbh" or "fsl,<chip>-dma-apbx"
+  - reg : Should contain registers location and length
+  - interrupts : Should contain the interrupt numbers of DMA channels.
+    If a channel is empty/reserved, 0 should be filled in place.
+  - #dma-cells : Must be <1>.  The number cell specifies the channel ID.
+  - dma-channels : Number of channels supported by the DMA controller
+
+  Optional properties:
+  - interrupt-names : Name of DMA channel interrupts
+
+  Supported chips:
+  imx23, imx28.
+
+...

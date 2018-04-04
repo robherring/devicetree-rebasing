@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/renesas,rz-cpg-clocks.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas RZ/A1 Clock Pulse Generator (CPG)
+
+maintainers:
+  - Geert Uytterhoeven <geert+renesas@glider.be>
+  - Wolfram Sang <wsa@sang-engineering.com>
+description: |+
+  The CPG generates core clocks for the RZ/A1 SoCs. It includes the PLL, variable
+  CPU and GPU clocks, and several fixed ratio dividers.
+  The CPG also provides a Clock Domain for SoC devices, in combination with the
+  CPG Module Stop (MSTP) Clocks.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Renesas RZ/A1 Clock Pulse Generator (CPG)
+
+  The CPG generates core clocks for the RZ/A1 SoCs. It includes the PLL, variable
+  CPU and GPU clocks, and several fixed ratio dividers.
+  The CPG also provides a Clock Domain for SoC devices, in combination with the
+  CPG Module Stop (MSTP) Clocks.
+
+  Required Properties:
+
+    - compatible: Must be one of
+      - "renesas,r7s72100-cpg-clocks" for the r7s72100 CPG
+      and "renesas,rz-cpg-clocks" as a fallback.
+    - reg: Base address and length of the memory resource used by the CPG
+    - clocks: References to possible parent clocks. Order must match clock modes
+      in the datasheet. For the r7s72100, this is extal, usb_x1.
+    - #clock-cells: Must be 1
+    - clock-output-names: The names of the clocks. Supported clocks are "pll",
+      "i", and "g"
+    - #power-domain-cells: Must be 0
+
+  SoC devices that are part of the CPG/MSTP Clock Domain and can be power-managed
+  through an MSTP clock should refer to the CPG device node in their
+  "power-domains" property, as documented by the generic PM domain bindings in
+  Documentation/devicetree/bindings/power/power_domain.txt.
+
+
+...

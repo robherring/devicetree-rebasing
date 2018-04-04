@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/cdns,cdns-pcie-host.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cadence PCIe host controller
+
+maintainers:
+  - Scott Telford <stelford@cadence.com>
+description: |+
+  This PCIe controller inherits the base properties defined in
+  host-generic-pci.txt.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Cadence PCIe host controller
+
+  This PCIe controller inherits the base properties defined in
+  host-generic-pci.txt.
+
+  Required properties:
+  - compatible: Should contain "cdns,cdns-pcie-host" to identify the IP used.
+  - reg: Should contain the controller register base address, PCIe configuration
+    window base address, and AXI interface region base address respectively.
+  - reg-names: Must be "reg", "cfg" and "mem" respectively.
+  - #address-cells: Set to <3>
+  - #size-cells: Set to <2>
+  - device_type: Set to "pci"
+  - ranges: Ranges for the PCI memory and I/O regions
+  - #interrupt-cells: Set to <1>
+  - interrupt-map-mask and interrupt-map: Standard PCI properties to define the
+    mapping of the PCIe interface to interrupt numbers.
+
+  Optional properties:
+  - cdns,max-outbound-regions: Set to maximum number of outbound regions
+    (default 32)
+  - cdns,no-bar-match-nbits: Set into the no BAR match register to configure the
+    number of least significant bits kept during inbound (PCIe -> AXI) address
+    translations (default 32)
+  - vendor-id: The PCI vendor ID (16 bits, default is design dependent)
+  - device-id: The PCI device ID (16 bits, default is design dependent)
+
+...

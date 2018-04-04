@@ -1,0 +1,83 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/memory-controllers/nvidia,tegra30-mc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NVIDIA Tegra Memory Controller device tree bindings
+
+maintainers:
+  - Thierry Reding <treding@nvidia.com>
+description: |+
+  memory-controller node
+  ----------------------
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  NVIDIA Tegra Memory Controller device tree bindings
+  ===================================================
+
+  memory-controller node
+  ----------------------
+
+  Required properties:
+  - compatible: Should be "nvidia,tegra<chip>-mc"
+  - reg: Physical base address and length of the controller's registers.
+  - clocks: Must contain an entry for each entry in clock-names.
+    See ../clocks/clock-bindings.txt for details.
+  - clock-names: Must include the following entries:
+    - mc: the module's clock input
+  - interrupts: The interrupt outputs from the controller.
+
+  Required properties for Tegra30, Tegra114, Tegra124, Tegra132 and Tegra210:
+  - #iommu-cells: Should be 1. The single cell of the IOMMU specifier defines
+    the SWGROUP of the master.
+
+  This device implements an IOMMU that complies with the generic IOMMU binding.
+  See ../iommu/iommu.txt for details.
+
+  emc-timings subnode
+  -------------------
+
+  The node should contain a "emc-timings" subnode for each supported RAM type (see field RAM_CODE in
+  register PMC_STRAPPING_OPT_A).
+
+  Required properties for "emc-timings" nodes :
+  - nvidia,ram-code : Should contain the value of RAM_CODE this timing set is used for.
+
+  timing subnode
+  --------------
+
+  Each "emc-timings" node should contain a subnode for every supported EMC clock rate.
+
+  Required properties for timing nodes :
+  - clock-frequency : Should contain the memory clock rate in Hz.
+  - nvidia,emem-configuration : Values to be written to the EMEM register block. For the Tegra124 SoC
+  (see section "15.6.1 MC Registers" in the TRM), these are the registers whose values need to be
+  specified, according to the board documentation:
+
+  	MC_EMEM_ARB_CFG
+  	MC_EMEM_ARB_OUTSTANDING_REQ
+  	MC_EMEM_ARB_TIMING_RCD
+  	MC_EMEM_ARB_TIMING_RP
+  	MC_EMEM_ARB_TIMING_RC
+  	MC_EMEM_ARB_TIMING_RAS
+  	MC_EMEM_ARB_TIMING_FAW
+  	MC_EMEM_ARB_TIMING_RRD
+  	MC_EMEM_ARB_TIMING_RAP2PRE
+  	MC_EMEM_ARB_TIMING_WAP2PRE
+  	MC_EMEM_ARB_TIMING_R2R
+  	MC_EMEM_ARB_TIMING_W2W
+  	MC_EMEM_ARB_TIMING_R2W
+  	MC_EMEM_ARB_TIMING_W2R
+  	MC_EMEM_ARB_DA_TURNS
+  	MC_EMEM_ARB_DA_COVERS
+  	MC_EMEM_ARB_MISC0
+  	MC_EMEM_ARB_MISC1
+  	MC_EMEM_ARB_RING1_THROTTLE
+
+...

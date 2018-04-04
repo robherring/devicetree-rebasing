@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/starry,kr122ea0sra.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Starry 12.2" (1920x1200 pixels) TFT LCD panel
+
+maintainers:
+  - Douglas Anderson <dianders@chromium.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Starry 12.2" (1920x1200 pixels) TFT LCD panel
+
+  Required properties:
+  - compatible: should be "starry,kr122ea0sra"
+
+  This binding is compatible with the simple-panel binding, which is specified
+  in simple-panel.txt in this directory.

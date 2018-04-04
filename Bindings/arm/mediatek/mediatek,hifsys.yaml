@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,hifsys.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek hifsys controller
+
+maintainers:
+  - James Liao <jamesjj.liao@mediatek.com>
+description: |+
+  The Mediatek hifsys controller provides various clocks and reset
+  outputs to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek hifsys controller
+  ============================
+
+  The Mediatek hifsys controller provides various clocks and reset
+  outputs to the system.
+
+  Required Properties:
+
+  - compatible: Should be:
+  	- "mediatek,mt2701-hifsys", "syscon"
+  	- "mediatek,mt7622-hifsys", "syscon"
+  - #clock-cells: Must be 1
+
+  The hifsys controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

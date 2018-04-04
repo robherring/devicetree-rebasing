@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/max1118.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MAX1117/MAX1118/MAX1119 8-bit, dual-channel ADCs
+
+maintainers:
+  - Akinobu Mita <akinobu.mita@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * MAX1117/MAX1118/MAX1119 8-bit, dual-channel ADCs
+
+  Required properties:
+   - compatible: Should be one of
+  	* "maxim,max1117"
+  	* "maxim,max1118"
+  	* "maxim,max1119"
+   - reg: spi chip select number for the device
+   - (max1118 only) vref-supply: The regulator supply for ADC reference voltage
+
+  Recommended properties:
+   - spi-max-frequency: Definition as per
+  		Documentation/devicetree/bindings/spi/spi-bus.txt
+
+...

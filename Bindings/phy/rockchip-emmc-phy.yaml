@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/rockchip-emmc-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Rockchip EMMC PHY
+
+maintainers:
+  - Heiko Stuebner <heiko@sntech.de>
+  - Shawn Lin <shawn.lin@rock-chips.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Rockchip EMMC PHY
+  -----------------------
+
+  Required properties:
+   - compatible: rockchip,rk3399-emmc-phy
+   - #phy-cells: must be 0
+   - reg: PHY register address offset and length in "general
+     register files"
+
+  Optional clocks using the clock bindings (see ../clock/clock-bindings.txt),
+  specified by name:
+   - clock-names: Should contain "emmcclk".  Although this is listed as optional
+  		(because most boards can get basic functionality without having
+  		access to it), it is strongly suggested.
+   - clocks: Should have a phandle to the card clock exported by the SDHCI driver.
+
+...

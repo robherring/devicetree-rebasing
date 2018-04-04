@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/jcore,spi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: J-Core SPI master
+
+maintainers:
+  - Rich Felker <dalias@libc.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  J-Core SPI master
+
+  Required properties:
+
+  - compatible: Must be "jcore,spi2".
+
+  - reg: Memory region for registers.
+
+  - #address-cells: Must be 1.
+
+  - #size-cells: Must be 0.
+
+  Optional properties:
+
+  - clocks: If a phandle named "ref_clk" is present, SPI clock speed
+    programming is relative to the frequency of the indicated clock.
+    Necessary only if the input clock rate is something other than a
+    fixed 50 MHz.
+
+  - clock-names: Clock names, one for each phandle in clocks.
+
+  See spi-bus.txt for additional properties not specific to this device.
+
+...

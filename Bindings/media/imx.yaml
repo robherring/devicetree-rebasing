@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/imx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale i.MX Media Video Device
+
+maintainers:
+  - Steve Longerbeam <slongerbeam@gmail.com>
+description: |+
+  Video Media Controller node
+  ---------------------------
+
+  This is the media controller node for video capture support. It is a
+  virtual device that lists the camera serial interface nodes that the
+  media device will control.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale i.MX Media Video Device
+  =================================
+
+  Video Media Controller node
+  ---------------------------
+
+  This is the media controller node for video capture support. It is a
+  virtual device that lists the camera serial interface nodes that the
+  media device will control.
+
+  Required properties:
+  - compatible : "fsl,imx-capture-subsystem";
+  - ports      : Should contain a list of phandles pointing to camera
+  		sensor interface ports of IPU devices
+
+...

@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/cirrus,clps711x-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cirrus Logic CLPS711X Universal Asynchronous Receiver/Transmitter (UART)
+
+maintainers:
+  - Alexander Shiyan <shc_work@mail.ru>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    aliases {
+      serial0 = &uart1;
+    };
+
+    uart1: uart@80000480 {
+      compatible = "cirrus,ep7312-uart","cirrus,ep7209-uart";
+      reg = <0x80000480 0x80>;
+      interrupts = <12 13>;
+      clocks = <&clks 11>;
+      syscon = <&syscon1>;
+      cts-gpios = <&sysgpio 0 GPIO_ACTIVE_LOW>;
+      dsr-gpios = <&sysgpio 1 GPIO_ACTIVE_LOW>;
+      dcd-gpios = <&sysgpio 2 GPIO_ACTIVE_LOW>;
+    };
+historical: |+
+  * Cirrus Logic CLPS711X Universal Asynchronous Receiver/Transmitter (UART)
+
+  Required properties:
+  - compatible: Should be "cirrus,ep7209-uart".
+  - reg: Address and length of the register set for the device.
+  - interrupts: Should contain UART TX and RX interrupt.
+  - clocks: Should contain UART core clock number.
+  - syscon: Phandle to SYSCON node, which contain UART control bits.
+
+  Optional properties:
+  - {rts,cts,dtr,dsr,rng,dcd}-gpios: specify a GPIO for RTS/CTS/DTR/DSR/RI/DCD
+    line respectively.
+
+  Note: Each UART port should have an alias correctly numbered
+  in "aliases" node.
+
+...

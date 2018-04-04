@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/nxp,lpc1850-dwmac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC1850 GMAC ethernet controller
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: |+
+  This device is a platform glue layer for stmmac.
+  Please see stmmac.txt for the other unchanged properties.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * NXP LPC1850 GMAC ethernet controller
+
+  This device is a platform glue layer for stmmac.
+  Please see stmmac.txt for the other unchanged properties.
+
+  Required properties:
+   - compatible:  Should contain "nxp,lpc1850-dwmac"
+
+...

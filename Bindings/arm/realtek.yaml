@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/realtek.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Realtek platforms device tree bindings
+
+maintainers:
+  - Andreas Färber <afaerber@suse.de>
+description: |+
+  RTD1295 SoC
+  ===========
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Realtek platforms device tree bindings
+  --------------------------------------
+
+
+  RTD1295 SoC
+  ===========
+
+  Required root node properties:
+
+   - compatible :  must contain "realtek,rtd1295"
+
+
+  Root node property compatible must contain, depending on board:
+
+   - MeLE V9: "mele,v9"
+   - ProBox2 AVA: "probox2,ava"
+   - Zidoo X9S: "zidoo,x9s"
+
+
+...

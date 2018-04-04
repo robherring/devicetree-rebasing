@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/maxim,max310x.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim MAX310X advanced Universal Asynchronous Receiver-Transmitter (UART)
+
+maintainers:
+  - Alexander Shiyan <shc_work@mail.ru>
+  - Jan Kundrát <jan.kundrat@cesnet.cz>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Maxim MAX310X advanced Universal Asynchronous Receiver-Transmitter (UART)
+
+  Required properties:
+  - compatible: Should be one of the following:
+    - "maxim,max3107" for Maxim MAX3107,
+    - "maxim,max3108" for Maxim MAX3108,
+    - "maxim,max3109" for Maxim MAX3109,
+    - "maxim,max14830" for Maxim MAX14830.
+  - reg: SPI chip select number.
+  - interrupt-parent: The phandle for the interrupt controller that
+    services interrupts for this IC.
+  - interrupts: Specifies the interrupt source of the parent interrupt
+    controller. The format of the interrupt specifier depends on the
+    parent interrupt controller.
+  - clocks: phandle to the IC source clock.
+  - clock-names: Should be "xtal" if clock is an external crystal or
+    "osc" if an external clock source is used.
+
+  Optional properties:
+  - gpio-controller: Marks the device node as a GPIO controller.
+  - #gpio-cells: Should be two. The first cell is the GPIO number and
+    the second cell is used to specify the GPIO polarity:
+      0 = active high,
+      1 = active low.
+
+...

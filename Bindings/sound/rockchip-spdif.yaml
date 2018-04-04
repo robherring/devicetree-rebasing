@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/rockchip-spdif.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Rockchip SPDIF transceiver
+
+maintainers:
+  - Sugar Zhang <sugar.zhang@rock-chips.com>
+  - Sjoerd Simons <sjoerd.simons@collabora.co.uk>
+description: |+
+  The S/PDIF audio block is a stereo transceiver that allows the
+  processor to receive and transmit digital audio via an coaxial cable or
+  a fibre cable.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Rockchip SPDIF transceiver
+
+  The S/PDIF audio block is a stereo transceiver that allows the
+  processor to receive and transmit digital audio via an coaxial cable or
+  a fibre cable.
+
+  Required properties:
+
+  - compatible: should be one of the following:
+     - "rockchip,rk3066-spdif"
+     - "rockchip,rk3188-spdif"
+     - "rockchip,rk3228-spdif"
+     - "rockchip,rk3288-spdif"
+     - "rockchip,rk3328-spdif"
+     - "rockchip,rk3366-spdif"
+     - "rockchip,rk3368-spdif"
+     - "rockchip,rk3399-spdif"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: should contain the SPDIF interrupt.
+  - dmas: DMA specifiers for tx dma. See the DMA client binding,
+    Documentation/devicetree/bindings/dma/dma.txt
+  - dma-names: should be "tx"
+  - clocks: a list of phandle + clock-specifier pairs, one for each entry
+    in clock-names.
+  - clock-names: should contain following:
+     - "hclk": clock for SPDIF controller
+     - "mclk" : clock for SPDIF bus
+
+  Required properties on RK3288:
+    - rockchip,grf: the phandle of the syscon node for the general register
+                     file (GRF)
+
+...

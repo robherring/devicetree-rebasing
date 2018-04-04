@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/sitronix,st7789v.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Sitronix ST7789V RGB panel with SPI control bus
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Sitronix ST7789V RGB panel with SPI control bus
+
+  Required properties:
+    - compatible: "sitronix,st7789v"
+    - reg: Chip select of the panel on the SPI bus
+    - reset-gpios: a GPIO phandle for the reset pin
+    - power-supply: phandle of the regulator that provides the supply voltage
+
+  Optional properties:
+    - backlight: phandle to the backlight used
+
+  The generic bindings for the SPI slaves documented in [1] also applies
+
+  The device node can contain one 'port' child node with one child
+  'endpoint' node, according to the bindings defined in [2]. This
+  node should describe panel's video bus.
+
+  [1]: Documentation/devicetree/bindings/spi/spi-bus.txt
+  [2]: Documentation/devicetree/bindings/graph.txt
+
+...

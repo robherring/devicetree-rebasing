@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rng/brcm,bcm2835.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: BCM2835/6368 Random number generator
+
+maintainers:
+  - Florian Fainelli <f.fainelli@gmail.com>
+  - Lubomir Rintel <lkundrak@v3.sk>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  BCM2835/6368 Random number generator
+
+  Required properties:
+
+  - compatible : should be one of
+  	"brcm,bcm2835-rng"
+  	"brcm,bcm-nsp-rng"
+  	"brcm,bcm5301x-rng" or
+  	"brcm,bcm6368-rng"
+  - reg : Specifies base physical address and size of the registers.
+
+  Optional properties:
+
+  - clocks : phandle to clock-controller plus clock-specifier pair
+  - clock-names : "ipsec" as a clock name
+
+...

@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/mmc-pwrseq-sd8787.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell SD8787 power sequence provider
+
+maintainers:
+  - Matt Ranostay <matt@ranostay.consulting>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Marvell SD8787 power sequence provider
+
+  Required properties:
+  - compatible: must be "mmc-pwrseq-sd8787".
+  - powerdown-gpios: contains a power down GPIO specifier with the
+  		   default active state
+  - reset-gpios: contains a reset GPIO specifier with the default
+  		   active state
+
+...

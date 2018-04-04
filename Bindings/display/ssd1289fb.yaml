@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/ssd1289fb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Solomon SSD1289 Framebuffer Driver
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Solomon SSD1289 Framebuffer Driver
+
+  Required properties:
+    - compatible: Should be "solomon,ssd1289fb". The only supported bus for
+      now is lbc.
+    - reg: Should contain address of the controller on the LBC bus. The detail
+      was described in Documentation/devicetree/bindings/powerpc/fsl/lbc.txt
+
+...

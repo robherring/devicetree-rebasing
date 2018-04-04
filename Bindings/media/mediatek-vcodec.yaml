@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/mediatek-vcodec.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek Video Codec
+
+maintainers:
+  - Tiffany Lin <tiffany.lin@mediatek.com>
+description: |+
+  Mediatek Video Codec is the video codec hw present in Mediatek SoCs which
+  supports high resolution encoding and decoding functionalities.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek Video Codec
+
+  Mediatek Video Codec is the video codec hw present in Mediatek SoCs which
+  supports high resolution encoding and decoding functionalities.
+
+  Required properties:
+  - compatible : "mediatek,mt8173-vcodec-enc" for encoder
+    "mediatek,mt8173-vcodec-dec" for decoder.
+  - reg : Physical base address of the video codec registers and length of
+    memory mapped region.
+  - interrupts : interrupt number to the cpu.
+  - mediatek,larb : must contain the local arbiters in the current Socs.
+  - clocks : list of clock specifiers, corresponding to entries in
+    the clock-names property.
+  - clock-names: encoder must contain "venc_sel_src", "venc_sel",,
+    "venc_lt_sel_src", "venc_lt_sel", decoder must contain "vcodecpll",
+    "univpll_d2", "clk_cci400_sel", "vdec_sel", "vdecpll", "vencpll",
+    "venc_lt_sel", "vdec_bus_clk_src".
+  - iommus : should point to the respective IOMMU block with master port as
+    argument, see Documentation/devicetree/bindings/iommu/mediatek,iommu.txt
+    for details.
+  - mediatek,vpu : the node of video processor unit
+
+
+...

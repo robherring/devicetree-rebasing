@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/marvell-neta-bm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Armada 380/XP Buffer Manager driver (BM)
+
+maintainers:
+  - Marcin Wojtas <mw@semihalf.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Marvell Armada 380/XP Buffer Manager driver (BM)
+
+  Required properties:
+
+  - compatible: should be "marvell,armada-380-neta-bm".
+  - reg: address and length of the register set for the device.
+  - clocks: a pointer to the reference clock for this device.
+  - internal-mem: a phandle to BM internal SRAM definition.
+
+  Optional properties (port):
+
+  - pool<0 : 3>,capacity: size of external buffer pointers' ring maintained
+    in DRAM. Can be set for each pool (id 0 : 3) separately. The value has
+    to be chosen between 128 and 16352 and it also has to be aligned to 32.
+    Otherwise the driver would adjust a given number or choose default if
+    not set.
+  - pool<0 : 3>,pkt-size: maximum size of a packet accepted by a given buffer
+    pointers' pool (id 0 : 3). It will be taken into consideration only when pool
+    type is 'short'. For 'long' ones it would be overridden by port's MTU.
+    If not set a driver will choose a default value.
+
+  In order to see how to hook the BM to a given ethernet port, please
+  refer to Documentation/devicetree/bindings/net/marvell-armada-370-neta.txt.
+
+...

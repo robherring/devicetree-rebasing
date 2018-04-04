@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/xillybus/xillybus.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Xillybus driver for generic FPGA interface
+
+maintainers:
+  - Eli Billauer <eli.billauer@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Xillybus driver for generic FPGA interface
+
+  Required properties:
+  - compatible: Should be "xillybus,xillybus-1.00.a"
+  - reg: Address and length of the register set for the device
+  - interrupts: Contains one interrupt node, typically consisting of three cells.
+  - interrupt-parent: the phandle for the interrupt controller that
+                      services interrupts for this device.
+
+  Optional properties:
+  - dma-coherent: Present if DMA operations are coherent
+
+...

@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/meson-ao-cec.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson AO-CEC driver
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  The Amlogic Meson AO-CEC module is present is Amlogic SoCs and its purpose is
+  to handle communication between HDMI connected devices over the CEC bus.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Amlogic Meson AO-CEC driver
+
+  The Amlogic Meson AO-CEC module is present is Amlogic SoCs and its purpose is
+  to handle communication between HDMI connected devices over the CEC bus.
+
+  Required properties:
+    - compatible : value should be following
+  	"amlogic,meson-gx-ao-cec"
+
+    - reg : Physical base address of the IP registers and length of memory
+  	  mapped region.
+
+    - interrupts : AO-CEC interrupt number to the CPU.
+    - clocks : from common clock binding: handle to AO-CEC clock.
+    - clock-names : from common clock binding: must contain "core",
+  		  corresponding to entry in the clocks property.
+    - hdmi-phandle: phandle to the HDMI controller
+
+...

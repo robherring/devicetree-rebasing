@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/ti,pcm3168a.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments pcm3168a DT bindings
+
+maintainers:
+  - Damien.Horsley <Damien.Horsley@imgtec.com>
+description: |+
+  This driver supports both SPI and I2C bus access for this codec
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments pcm3168a DT bindings
+
+  This driver supports both SPI and I2C bus access for this codec
+
+  Required properties:
+
+    - compatible: "ti,pcm3168a"
+
+    - clocks : Contains an entry for each entry in clock-names
+
+    - clock-names : Includes the following entries:
+  	"scki"	The system clock
+
+    - VDD1-supply : Digital power supply regulator 1 (+3.3V)
+
+    - VDD2-supply : Digital power supply regulator 2 (+3.3V)
+
+    - VCCAD1-supply : ADC power supply regulator 1 (+5V)
+
+    - VCCAD2-supply : ADC power supply regulator 2 (+5V)
+
+    - VCCDA1-supply : DAC power supply regulator 1 (+5V)
+
+    - VCCDA2-supply : DAC power supply regulator 2 (+5V)
+
+  For required properties on SPI/I2C, consult SPI/I2C device tree documentation
+
+...

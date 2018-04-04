@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/brcm,iproc-mhb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom iProc Multi Host Bridge (MHB)
+
+maintainers:
+  - Ray Jui <ray.jui@broadcom.com>
+description: |+
+  Certain Broadcom iProc SoCs have a multi host bridge (MHB) block that controls
+  the connection and configuration of 1) internal PCIe serdes; 2) PCIe endpoint
+  interface; 3) access to the Nitro (network processing) engine
+
+  This node allows access to these MHB registers via syscon.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    mhb: syscon@60401000 {
+      compatible = "brcm,sr-mhb", "syscon";
+      reg = <0 0x60401000 0 0x38c>;
+    };
+historical: |+
+  Broadcom iProc Multi Host Bridge (MHB)
+
+  Certain Broadcom iProc SoCs have a multi host bridge (MHB) block that controls
+  the connection and configuration of 1) internal PCIe serdes; 2) PCIe endpoint
+  interface; 3) access to the Nitro (network processing) engine
+
+  This node allows access to these MHB registers via syscon.
+
+  Required properties:
+  - compatible: should contain:
+  		"brcm,sr-mhb", "syscon" for Stingray
+  - reg: base address and range of the MHB registers
+
+...

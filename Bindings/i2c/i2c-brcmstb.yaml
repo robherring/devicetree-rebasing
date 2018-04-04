@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-brcmstb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom stb bsc iic master controller
+
+maintainers:
+  - Kamal Dasu <kdasu.kdev@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom stb bsc iic master controller
+
+  Required properties:
+
+  - compatible: should be "brcm,brcmstb-i2c" or "brcm,brcmper-i2c"
+  - clock-frequency: 32-bit decimal value of iic master clock freqency in Hz
+  		   valid values are 375000, 390000, 187500, 200000
+  		   93750, 97500, 46875 and 50000
+  - reg: specifies the base physical address and size of the registers
+
+  Optional properties :
+
+  - interrupt-parent: specifies the phandle to the parent interrupt controller
+    this one is cascaded from
+  - interrupts: specifies the interrupt number, the irq line to be used
+  - interrupt-names: Interrupt name string
+
+...

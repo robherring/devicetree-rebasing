@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mips/lantiq/rcu-gphy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Lantiq XWAY SoC GPHY binding
+
+maintainers:
+  - Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+description: |
+  This binding describes a software-defined ethernet PHY, provided by the RCU
+  module on newer Lantiq XWAY SoCs (xRX200 and newer).
+
+  -------------------------------------------------------------------------------
+             
+
+properties:
+  compatible: {}
+historical: |
+  Lantiq XWAY SoC GPHY binding
+  ============================
+
+  This binding describes a software-defined ethernet PHY, provided by the RCU
+  module on newer Lantiq XWAY SoCs (xRX200 and newer).
+
+  -------------------------------------------------------------------------------
+  Required properties:
+  - compatible		: Should be one of
+  				"lantiq,xrx200a1x-gphy"
+  				"lantiq,xrx200a2x-gphy"
+  				"lantiq,xrx300-gphy"
+  				"lantiq,xrx330-gphy"
+  - reg			: Addrress of the GPHY FW load address register
+  - resets		: Must reference the RCU GPHY reset bit
+  - reset-names		: One entry, value must be "gphy" or optional "gphy2"
+  - clocks		: A reference to the (PMU) GPHY clock gate
+
+  Optional properties:
+  - lantiq,gphy-mode	: GPHY_MODE_GE (default) or GPHY_MODE_FE as defined in
+  			  <dt-bindings/mips/lantiq_xway_gphy.h>
+
+
+  -------------------------------------------------------------------------------

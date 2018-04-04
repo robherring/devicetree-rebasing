@@ -1,0 +1,126 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/reserved-memory/reserved-memory.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Reserved memory regions
+
+maintainers:
+  - Grant Likely <grant.likely@linaro.org>
+description: |+
+  Reserved memory is specified as a node under the /reserved-memory node.
+  The operating system shall exclude reserved memory from normal usage
+  one can create child nodes describing particular reserved (excluded from
+  normal use) memory regions. Such memory regions are usually designed for
+  the special usage by various device drivers.
+
+  Parameters for each memory region can be encoded into the device tree
+  with the following nodes:
+
+  /reserved-memory node
+  ---------------------
+  #address-cells, #size-cells (required) - standard definition
+      - Should use the same values as the root node
+  ranges (required) - standard definition
+      - Should be empty
+
+  /reserved-memory/ child nodes
+  -----------------------------
+  Each child of the reserved-memory node specifies one or more regions of
+  reserved memory. Each child node may either use a 'reg' property to
+  specify a specific range of reserved memory, or a 'size' property with
+  optional constraints to request a dynamically allocated block of memory.
+
+  Following the generic-names recommended practice, node names should
+  reflect the purpose of the node (ie. "framebuffer" or "dma-pool"). Unit
+  address (@<address>) should be appended to the name if the node is a
+  static allocation.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  *** Reserved memory regions ***
+
+  Reserved memory is specified as a node under the /reserved-memory node.
+  The operating system shall exclude reserved memory from normal usage
+  one can create child nodes describing particular reserved (excluded from
+  normal use) memory regions. Such memory regions are usually designed for
+  the special usage by various device drivers.
+
+  Parameters for each memory region can be encoded into the device tree
+  with the following nodes:
+
+  /reserved-memory node
+  ---------------------
+  #address-cells, #size-cells (required) - standard definition
+      - Should use the same values as the root node
+  ranges (required) - standard definition
+      - Should be empty
+
+  /reserved-memory/ child nodes
+  -----------------------------
+  Each child of the reserved-memory node specifies one or more regions of
+  reserved memory. Each child node may either use a 'reg' property to
+  specify a specific range of reserved memory, or a 'size' property with
+  optional constraints to request a dynamically allocated block of memory.
+
+  Following the generic-names recommended practice, node names should
+  reflect the purpose of the node (ie. "framebuffer" or "dma-pool"). Unit
+  address (@<address>) should be appended to the name if the node is a
+  static allocation.
+
+  Properties:
+  Requires either a) or b) below.
+  a) static allocation
+     reg (required) - standard definition
+  b) dynamic allocation
+     size (required) - length based on parent's #size-cells
+                     - Size in bytes of memory to reserve.
+     alignment (optional) - length based on parent's #size-cells
+                          - Address boundary for alignment of allocation.
+     alloc-ranges (optional) - prop-encoded-array (address, length pairs).
+                             - Specifies regions of memory that are
+                               acceptable to allocate from.
+
+  If both reg and size are present, then the reg property takes precedence
+  and size is ignored.
+
+  Additional properties:
+  compatible (optional) - standard definition
+      - may contain the following strings:
+          - shared-dma-pool: This indicates a region of memory meant to be
+            used as a shared pool of DMA buffers for a set of devices. It can
+            be used by an operating system to instanciate the necessary pool
+            management subsystem if necessary.
+          - vendor specific string in the form <vendor>,[<device>-]<usage>
+  no-map (optional) - empty property
+      - Indicates the operating system must not create a virtual mapping
+        of the region as part of its standard mapping of system memory,
+        nor permit speculative access to it under any circumstances other
+        than under the control of the device driver using the region.
+  reusable (optional) - empty property
+      - The operating system can use the memory in this region with the
+        limitation that the device driver(s) owning the region need to be
+        able to reclaim it back. Typically that means that the operating
+        system can use that region to store volatile or cached data that
+        can be otherwise regenerated or migrated elsewhere.
+
+  Linux implementation note:
+  - If a "linux,cma-default" property is present, then Linux will use the
+    region for the default pool of the contiguous memory allocator.
+
+  - If a "linux,dma-default" property is present, then Linux will use the
+    region for the default pool of the consistent DMA allocator.
+
+  Device node references to reserved memory
+  -----------------------------------------
+  Regions in the /reserved-memory node may be referenced by other device
+  nodes by adding a memory-region property to the device node.
+
+  memory-region (optional) - phandle, specifier pairs to children of /reserved-memory
+
+...

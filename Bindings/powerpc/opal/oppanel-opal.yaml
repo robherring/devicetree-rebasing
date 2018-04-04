@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/powerpc/opal/oppanel-opal.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: IBM OPAL Operator Panel Binding
+
+maintainers:
+  - Suraj Jitindar Singh <sjitindarsingh@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    oppanel {
+      compatible = "ibm,opal-oppanel";
+      #lines = <0x2>;
+      #length = <0x10>;
+    };
+historical: |+
+  IBM OPAL Operator Panel Binding
+  -------------------------------
+
+  Required properties:
+  - compatible : Should be "ibm,opal-oppanel".
+  - #lines     : Number of lines on the operator panel e.g. <0x2>.
+  - #length    : Number of characters per line of the operator panel e.g. <0x10>.
+
+...

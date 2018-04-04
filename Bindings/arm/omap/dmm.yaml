@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/omap/dmm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OMAP Dynamic Memory Manager (DMM) bindings
+
+maintainers:
+  - Archit Taneja <archit@ti.com>
+description: |+
+  The dynamic memory manager (DMM) is a module located immediately in front of the
+  SDRAM controllers (called EMIFs on OMAP). DMM manages various aspects of memory
+  accesses such as priority generation amongst initiators, configuration of SDRAM
+  interleaving, optimizing transfer of 2D block objects, and provide MMU-like page
+  translation for initiators which need contiguous dma bus addresses.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  OMAP Dynamic Memory Manager (DMM) bindings
+
+  The dynamic memory manager (DMM) is a module located immediately in front of the
+  SDRAM controllers (called EMIFs on OMAP). DMM manages various aspects of memory
+  accesses such as priority generation amongst initiators, configuration of SDRAM
+  interleaving, optimizing transfer of 2D block objects, and provide MMU-like page
+  translation for initiators which need contiguous dma bus addresses.
+
+  Required properties:
+  - compatible:	Should contain "ti,omap4-dmm" for OMAP4 family
+  		Should contain "ti,omap5-dmm" for OMAP5 and DRA7x family
+  - reg:		Contains DMM register address range (base address and length)
+  - interrupts:	Should contain an interrupt-specifier for DMM_IRQ.
+  - ti,hwmods:	Name of the hwmod associated to DMM, which is typically "dmm"
+
+...

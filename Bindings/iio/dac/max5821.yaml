@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/dac/max5821.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim max5821 DAC device driver
+
+maintainers:
+  - Philippe Reynes <tremyfr@yahoo.fr>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    max5821@38 {
+      compatible = "maxim,max5821";
+      reg = <0x38>;
+      vref-supply = <&reg_max5821>;
+    };
+historical: |+
+  Maxim max5821 DAC device driver
+
+  Required properties:
+  	- compatible: Must be "maxim,max5821"
+  	- reg: Should contain the DAC I2C address
+  	- vref-supply: Phandle to the vref power supply
+
+...

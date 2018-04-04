@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/memory-controllers/synopsys.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for Synopsys IntelliDDR Multi Protocol Memory Controller
+
+maintainers:
+  - Soren Brinkmann <soren.brinkmann@xilinx.com>
+description: |+
+  This controller has an optional ECC support in half-bus width (16-bit)
+  configuration. The ECC controller corrects one bit error and detects
+  two bit errors.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    memory-controller@f8006000 {
+      compatible = "xlnx,zynq-ddrc-a05";
+      reg = <0xf8006000 0x1000>;
+    };
+historical: |+
+  Binding for Synopsys IntelliDDR Multi Protocol Memory Controller
+
+  This controller has an optional ECC support in half-bus width (16-bit)
+  configuration. The ECC controller corrects one bit error and detects
+  two bit errors.
+
+  Required properties:
+   - compatible: Should be 'xlnx,zynq-ddrc-a05'
+   - reg: Base address and size of the controllers memory area
+
+...

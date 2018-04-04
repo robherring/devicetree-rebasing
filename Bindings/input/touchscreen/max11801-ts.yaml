@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/max11801-ts.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MAXI MAX11801 Resistive touch screen controller with i2c interface
+
+maintainers:
+  - Jagan Teki <jagan@amarulasolutions.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * MAXI MAX11801 Resistive touch screen controller with i2c interface
+
+  Required properties:
+  - compatible: must be "maxim,max11801"
+  - reg: i2c slave address
+  - interrupt-parent: the phandle for the interrupt controller
+  - interrupts: touch controller interrupt
+
+...

@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/silabs,si514.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for Silicon Labs 514 programmable I2C clock generator.
+
+maintainers:
+  - Mike Looijmans <mike.looijmans@topic.nl>
+description: |+
+  Reference
+  This binding uses the common clock binding[1]. Details about the device can be
+  found in the datasheet[2].
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+  [2] Si514 datasheet
+      http://www.silabs.com/Support%20Documents/TechnicalDocs/si514.pdf
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    si514: clock-generator@55 {
+      reg = <0x55>;
+      #clock-cells = <0>;
+      compatible = "silabs,si514";
+    };
+historical: |+
+  Binding for Silicon Labs 514 programmable I2C clock generator.
+
+  Reference
+  This binding uses the common clock binding[1]. Details about the device can be
+  found in the datasheet[2].
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+  [2] Si514 datasheet
+      http://www.silabs.com/Support%20Documents/TechnicalDocs/si514.pdf
+
+  Required properties:
+   - compatible: Shall be "silabs,si514"
+   - reg: I2C device address.
+   - #clock-cells: From common clock bindings: Shall be 0.
+
+  Optional properties:
+   - clock-output-names: From common clock bindings. Recommended to be "si514".
+
+...

@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/sgd,gktw70sdae4se.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Solomon Goldentek Display GKTW70SDAE4SE LVDS Display Panel
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  The GKTW70SDAE4SE is a 7" WVGA TFT-LCD display panel.
+
+  These DT bindings follow the LVDS panel bindings defined in panel-lvds.txt
+  with the following device-specific properties.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Solomon Goldentek Display GKTW70SDAE4SE LVDS Display Panel
+  ==========================================================
+
+  The GKTW70SDAE4SE is a 7" WVGA TFT-LCD display panel.
+
+  These DT bindings follow the LVDS panel bindings defined in panel-lvds.txt
+  with the following device-specific properties.
+
+  Required properties:
+
+  - compatible: Shall contain "sgd,gktw70sdae4se" and "panel-lvds", in that order.
+
+...

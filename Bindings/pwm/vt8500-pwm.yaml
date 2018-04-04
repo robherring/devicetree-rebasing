@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/vt8500-pwm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: VIA/Wondermedia VT8500/WM8xxx series SoC PWM controller
+
+maintainers:
+  - Tony Prisk <linux@prisktech.co.nz>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  VIA/Wondermedia VT8500/WM8xxx series SoC PWM controller
+
+  Required properties:
+  - compatible: should be "via,vt8500-pwm"
+  - reg: physical base address and length of the controller's registers
+  - #pwm-cells: should be 3. See pwm.txt in this directory for a description of
+    the cells format. The only third cell flag supported by this binding is
+    PWM_POLARITY_INVERTED.
+  - clocks: phandle to the PWM source clock
+
+...

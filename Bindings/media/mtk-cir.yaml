@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/mtk-cir.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for Mediatek consumer IR controller
+
+maintainers:
+  - Sean Wang <sean.wang@mediatek.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Device-Tree bindings for Mediatek consumer IR controller
+  found in Mediatek SoC family
+
+  Required properties:
+  - compatible	    : Should be
+  			"mediatek,mt7623-cir": for MT7623 SoC
+  			"mediatek,mt7622-cir": for MT7622 SoC
+  - clocks	    : list of clock specifiers, corresponding to
+  		      entries in clock-names property;
+  - clock-names	    : should contain
+  			- "clk" entries: for MT7623 SoC
+  			- "clk", "bus" entries: for MT7622 SoC
+  - interrupts	    : should contain IR IRQ number;
+  - reg		    : should contain IO map address for IR.
+
+  Optional properties:
+  - linux,rc-map-name : see rc.txt file in the same directory.
+
+...

@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/fsl-lpuart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale low power universal asynchronous receiver/transmitter (lpuart)
+
+maintainers:
+  - Kumar Gala <galak@codeaurora.org>
+  - Yuan Yao <yao.yuan@freescale.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale low power universal asynchronous receiver/transmitter (lpuart)
+
+  Required properties:
+  - compatible :
+    - "fsl,vf610-lpuart" for lpuart compatible with the one integrated
+      on Vybrid vf610 SoC with 8-bit register organization
+    - "fsl,ls1021a-lpuart" for lpuart compatible with the one integrated
+      on LS1021A SoC with 32-bit big-endian register organization
+    - "fsl,imx7ulp-lpuart" for lpuart compatible with the one integrated
+      on i.MX7ULP SoC with 32-bit little-endian register organization
+  - reg : Address and length of the register set for the device
+  - interrupts : Should contain uart interrupt
+  - clocks : phandle + clock specifier pairs, one for each entry in clock-names
+  - clock-names : should contain: "ipg" - the uart clock
+
+  Optional properties:
+  - dmas: A list of two dma specifiers, one for each entry in dma-names.
+  - dma-names: should contain "tx" and "rx".
+  - rs485-rts-delay, rs485-rts-active-low, rs485-rx-during-tx,
+    linux,rs485-enabled-at-boot-time: see rs485.txt
+
+  Note: Optional properties for DMA support. Write them both or both not.
+
+...

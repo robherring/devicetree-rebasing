@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/can/rcar_canfd.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas R-Car CAN FD controller Device Tree Bindings
+
+maintainers:
+  - Ramesh Shanmugasundaram <ramesh.shanmugasundaram@bp.renesas.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Renesas R-Car CAN FD controller Device Tree Bindings
+  ----------------------------------------------------
+
+  Required properties:
+  - compatible: Must contain one or more of the following:
+    - "renesas,rcar-gen3-canfd" for R-Car Gen3 compatible controller.
+    - "renesas,r8a7795-canfd" for R8A7795 (R-Car H3) compatible controller.
+    - "renesas,r8a7796-canfd" for R8A7796 (R-Car M3) compatible controller.
+
+    When compatible with the generic version, nodes must list the
+    SoC-specific version corresponding to the platform first, followed by the
+    family-specific and/or generic versions.
+
+  - reg: physical base address and size of the R-Car CAN FD register map.
+  - interrupts: interrupt specifiers for the Channel & Global interrupts
+  - clocks: phandles and clock specifiers for 3 clock inputs.
+  - clock-names: 3 clock input name strings: "fck", "canfd", "can_clk".
+  - pinctrl-0: pin control group to be used for this controller.
+  - pinctrl-names: must be "default".
+
+  Required child nodes:
+  The controller supports two channels and each is represented as a child node.
+  The name of the child nodes are "channel0" and "channel1" respectively. Each
+  child node supports the "status" property only, which is used to
+  enable/disable the respective channel.
+
+  Required properties for "renesas,r8a7795-canfd" and "renesas,r8a7796-canfd"
+  compatible:
+  In R8A7795 and R8A7796 SoCs, canfd clock is a div6 clock and can be used by both
+  CAN and CAN FD controller at the same time. It needs to be scaled to maximum
+  frequency if any of these controllers use it. This is done using the below
+  properties:
+
+  - assigned-clocks: phandle of canfd clock.
+  - assigned-clock-rates: maximum frequency of this clock.
+
+  Optional property:
+  The controller can operate in either CAN FD only mode (default) or
+  Classical CAN only mode. The mode is global to both the channels. In order to
+  enable the later, define the following optional property.
+   - renesas,no-can-fd: puts the controller in Classical CAN only mode.
+
+...

@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/slave-device.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Serial Slave Device DT binding
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |+
+  This documents the binding structure and common properties for serial
+  attached devices. Common examples include Bluetooth, WiFi, NFC and GPS
+  devices.
+
+  Serial attached devices shall be a child node of the host UART device the
+  slave device is attached to. It is expected that the attached device is
+  the only child node of the UART device. The slave device node name shall
+  reflect the generic type of device for the node.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Serial Slave Device DT binding
+
+  This documents the binding structure and common properties for serial
+  attached devices. Common examples include Bluetooth, WiFi, NFC and GPS
+  devices.
+
+  Serial attached devices shall be a child node of the host UART device the
+  slave device is attached to. It is expected that the attached device is
+  the only child node of the UART device. The slave device node name shall
+  reflect the generic type of device for the node.
+
+  Required Properties:
+
+  - compatible 	: A string reflecting the vendor and specific device the node
+  		  represents.
+
+  Optional Properties:
+
+  - max-speed	: The maximum baud rate the device operates at. This should
+  		  only be present if the maximum is less than the slave device
+  		  can support. For example, a particular board has some signal
+  		  quality issue or the host processor can't support higher
+  		  baud rates.
+  - current-speed	: The current baud rate the device operates at. This should
+  		  only be present in case a driver has no chance to know
+  		  the baud rate of the slave device.
+  		  Examples:
+  		    * device supports auto-baud
+  		    * the rate is setup by a bootloader and there is no
+  		      way to reset the device
+  		    * device baud rate is configured by its firmware but
+  		      there is no way to request the actual settings
+
+...

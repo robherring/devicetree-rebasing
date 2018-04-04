@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/sky81452.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SKY81452 bindings
+
+maintainers:
+  - Gyungoh Yoo <jack.yoo@skyworksinc.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sky81452@2c {
+      compatible = "skyworks,sky81452";
+      reg = <0x2c>;
+
+      backlight {
+        compatible = "skyworks,sky81452-backlight";
+        name = "pwm-backlight";
+        led-sources = <0 1 2 3 6>;
+        skyworks,ignore-pwm;
+        skyworks,phase-shift;
+        skyworks,current-limit = <2300>;
+      };
+
+      regulator {
+        lout {
+          regulator-name = "sky81452-lout";
+          regulator-min-microvolt = <4500000>;
+          regulator-max-microvolt = <8000000>;
+        };
+      };
+    };
+historical: |+
+  SKY81452 bindings
+
+  Required properties:
+  - compatible	: Must be "skyworks,sky81452"
+  - reg		: I2C slave address
+
+  Required child nodes:
+  - backlight	: container node for backlight following the binding
+  		in leds/backlight/sky81452-backlight.txt
+  - regulator	: container node for regulators following the binding
+  		in regulator/sky81452-regulator.txt
+
+...

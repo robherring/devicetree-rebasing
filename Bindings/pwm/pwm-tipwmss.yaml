@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/pwm-tipwmss.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI SOC based PWM Subsystem
+
+maintainers:
+  - Philip, Avinash <avinashphilip@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI SOC based PWM Subsystem
+
+  Required properties:
+  - compatible: Must be "ti,<soc>-pwmss".
+    for am33xx  - compatible = "ti,am33xx-pwmss";
+    for am4372  - compatible = "ti,am4372-pwmss","ti,am33xx-pwmss";
+    for dra746 - compatible = "ti,dra746-pwmss", "ti,am33xx-pwmss"
+
+  - reg: physical base address and size of the registers map.
+  - address-cells: Specify the number of u32 entries needed in child nodes.
+  		  Should set to 1.
+  - size-cells: specify number of u32 entries needed to specify child nodes size
+  		in reg property. Should set to 1.
+  - ranges: describes the address mapping of a memory-mapped bus. Should set to
+  	   physical address map of child's base address, physical address within
+  	   parent's address  space and length of the address map. For am33xx,
+  	   3 set of child register maps present, ECAP register space, EQEP
+  	   register space, EHRPWM register space.
+
+  Also child nodes should also populated under PWMSS DT node.
+
+...

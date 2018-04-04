@@ -1,0 +1,92 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/brcm,bcm-keypad.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom Keypad Controller device tree bindings
+
+maintainers:
+  - Scott Branden <sbranden@broadcom.com>
+description: |+
+  Broadcom Keypad controller is used to interface a SoC with a matrix-type
+  keypad device. The keypad controller supports multiple row and column lines.
+  A key can be placed at each intersection of a unique row and a unique column.
+  The keypad controller can sense a key-press and key-release and report the
+  event using a interrupt to the cpu.
+
+  This binding is based on the matrix-keymap binding with the following
+  changes:
+
+  keypad,num-rows and keypad,num-columns are required.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Broadcom Keypad Controller device tree bindings
+
+  Broadcom Keypad controller is used to interface a SoC with a matrix-type
+  keypad device. The keypad controller supports multiple row and column lines.
+  A key can be placed at each intersection of a unique row and a unique column.
+  The keypad controller can sense a key-press and key-release and report the
+  event using a interrupt to the cpu.
+
+  This binding is based on the matrix-keymap binding with the following
+  changes:
+
+  keypad,num-rows and keypad,num-columns are required.
+
+  Required SoC Specific Properties:
+  - compatible: should be "brcm,bcm-keypad"
+
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+
+  - interrupts: The interrupt number to the cpu.
+
+  Board Specific Properties:
+  - keypad,num-rows: Number of row lines connected to the keypad
+    controller.
+
+  - keypad,num-columns: Number of column lines connected to the
+    keypad controller.
+
+  - col-debounce-filter-period: The debounce period for the Column filter.
+
+  	KEYPAD_DEBOUNCE_1_ms	=	0
+  	KEYPAD_DEBOUNCE_2_ms	=	1
+  	KEYPAD_DEBOUNCE_4_ms	=	2
+  	KEYPAD_DEBOUNCE_8_ms	=	3
+  	KEYPAD_DEBOUNCE_16_ms	=	4
+  	KEYPAD_DEBOUNCE_32_ms	=	5
+  	KEYPAD_DEBOUNCE_64_ms	=	6
+  	KEYPAD_DEBOUNCE_128_ms	=	7
+
+  - status-debounce-filter-period: The debounce period for the Status filter.
+
+  	KEYPAD_DEBOUNCE_1_ms	=	0
+  	KEYPAD_DEBOUNCE_2_ms	=	1
+  	KEYPAD_DEBOUNCE_4_ms	=	2
+  	KEYPAD_DEBOUNCE_8_ms	=	3
+  	KEYPAD_DEBOUNCE_16_ms	=	4
+  	KEYPAD_DEBOUNCE_32_ms	=	5
+  	KEYPAD_DEBOUNCE_64_ms	=	6
+  	KEYPAD_DEBOUNCE_128_ms	=	7
+
+  - row-output-enabled: An optional property indicating whether the row or
+    column is being used as output. If specified the row is being used
+    as the output. Else defaults to column.
+
+  - pull-up-enabled: An optional property indicating the Keypad scan mode.
+    If specified implies the keypad scan pull-up has been enabled.
+
+  - autorepeat: Boolean, Enable auto repeat feature of Linux input
+  	  subsystem (optional).
+
+  - linux,keymap: The keymap for keys as described in the binding document
+    devicetree/bindings/input/matrix-keymap.txt.
+
+...

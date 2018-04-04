@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/jz4780-dma.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Ingenic JZ4780 DMA Controller
+
+maintainers:
+  - Alex Smith <alex.smith@imgtec.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Ingenic JZ4780 DMA Controller
+
+  Required properties:
+
+  - compatible: Should be "ingenic,jz4780-dma"
+  - reg: Should contain the DMA controller registers location and length.
+  - interrupts: Should contain the interrupt specifier of the DMA controller.
+  - interrupt-parent: Should be the phandle of the interrupt controller that
+  - clocks: Should contain a clock specifier for the JZ4780 PDMA clock.
+  - #dma-cells: Must be <2>. Number of integer cells in the dmas property of
+    DMA clients (see below).
+
+  Optional properties:
+
+  - ingenic,reserved-channels: Bitmask of channels to reserve for devices that
+    need a specific channel. These channels will only be assigned when explicitly
+    requested by a client. The primary use for this is channels 0 and 1, which
+    can be configured to have special behaviour for NAND/BCH when using
+    programmable firmware.
+
+...

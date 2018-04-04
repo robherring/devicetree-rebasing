@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/sun6i-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: sun6i Real Time Clock
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+  - Chen-Yu Tsai <wens@csie.org>
+description: |+
+  RTC controller for the Allwinner A31
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * sun6i Real Time Clock
+
+  RTC controller for the Allwinner A31
+
+  Required properties:
+  - compatible	: Should be "allwinner,sun6i-a31-rtc"
+  - reg		: physical base address of the controller and length of
+  		  memory mapped region.
+  - interrupts	: IRQ lines for the RTC alarm 0 and alarm 1, in that order.
+
+  Required properties for new device trees
+  - clocks	: phandle to the 32kHz external oscillator
+  - clock-output-names : names of the LOSC and its external output clocks created
+  - #clock-cells  : must be equals to 1. The RTC provides two clocks: the
+  		  LOSC and its external output, with index 0 and 1
+  		  respectively.
+
+...

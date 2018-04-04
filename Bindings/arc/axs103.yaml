@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arc/axs103.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Synopsys DesignWare ARC Software Development Platforms Device Tree Bindings
+
+maintainers:
+  - Vineet Gupta <vgupta@synopsys.com>
+description: |+
+  SDP Main Board with an AXC003 FPGA Card which can contain various flavours of
+  HS38x cores.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Synopsys DesignWare ARC Software Development Platforms Device Tree Bindings
+  ---------------------------------------------------------------------------
+
+  SDP Main Board with an AXC003 FPGA Card which can contain various flavours of
+  HS38x cores.
+
+  Required root node properties:
+      - compatible = "snps,axs103", "snps,arc-sdp";

@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/fsl/cpm_qe/qe/usb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale QUICC Engine USB Controller
+
+maintainers:
+  - Zhao Qiang <qiang.zhao@nxp.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale QUICC Engine USB Controller
+
+  Required properties:
+  - compatible : should be "fsl,<chip>-qe-usb", "fsl,mpc8323-qe-usb".
+  - reg : the first two cells should contain usb registers location and
+    length, the next two two cells should contain PRAM location and
+    length.
+  - interrupts : should contain USB interrupt.
+  - interrupt-parent : interrupt source phandle.
+  - fsl,fullspeed-clock : specifies the full speed USB clock source:
+    "none": clock source is disabled
+    "brg1" through "brg16": clock source is BRG1-BRG16, respectively
+    "clk1" through "clk24": clock source is CLK1-CLK24, respectively
+  - fsl,lowspeed-clock : specifies the low speed USB clock source:
+    "none": clock source is disabled
+    "brg1" through "brg16": clock source is BRG1-BRG16, respectively
+    "clk1" through "clk24": clock source is CLK1-CLK24, respectively
+  - hub-power-budget : USB power budget for the root hub, in mA.
+  - gpios : should specify GPIOs in this order: USBOE, USBTP, USBTN, USBRP,
+    USBRN, SPEED (optional), and POWER (optional).
+
+...

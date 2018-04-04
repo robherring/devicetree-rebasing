@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/img,i2s-in.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Imagination Technologies I2S Input Controller
+
+maintainers:
+  - Damien.Horsley <Damien.Horsley@imgtec.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Imagination Technologies I2S Input Controller
+
+  Required Properties:
+
+    - compatible : Compatible list, must contain "img,i2s-in"
+
+    - #sound-dai-cells : Must be equal to 0
+
+    - reg : Offset and length of the register set for the device
+
+    - clocks : Contains an entry for each entry in clock-names
+
+    - clock-names : Must include the following entry:
+  	"sys"	The system clock
+
+    - dmas: Contains an entry for each entry in dma-names.
+
+    - dma-names: Must include the following entry:
+  	"rx"	Single DMA channel used by all active I2S channels
+
+    - img,i2s-channels : Number of I2S channels instantiated in the I2S in block
+
+  Optional Properties:
+
+    - interrupts : Contains the I2S in interrupts. Depending on
+  	the configuration, there may be no interrupts, one interrupt,
+  	or an interrupt per I2S channel. For the case where there is
+  	one interrupt per channel, the interrupts should be listed
+  	in ascending channel order
+
+    - resets: Contains a phandle to the I2S in reset signal
+
+    - reset-names: Contains the reset signal name "rst"
+
+...

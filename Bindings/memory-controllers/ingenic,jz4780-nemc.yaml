@@ -1,0 +1,65 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/memory-controllers/ingenic,jz4780-nemc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Ingenic JZ4780 NAND/external memory controller (NEMC)
+
+maintainers:
+  - Alex Smith <alex.smith@imgtec.com>
+description: |+
+  This file documents the device tree bindings for the NEMC external memory
+  controller in Ingenic JZ4780
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Ingenic JZ4780 NAND/external memory controller (NEMC)
+
+  This file documents the device tree bindings for the NEMC external memory
+  controller in Ingenic JZ4780
+
+  Required properties:
+  - compatible: Should be set to one of:
+      "ingenic,jz4780-nemc" (JZ4780)
+  - reg: Should specify the NEMC controller registers location and length.
+  - clocks: Clock for the NEMC controller.
+  - #address-cells: Must be set to 2.
+  - #size-cells: Must be set to 1.
+  - ranges: A set of ranges for each bank describing the physical memory layout.
+    Each should specify the following 4 integer values:
+
+      <cs number> 0 <physical address of mapping> <size of mapping>
+
+  Each child of the NEMC node describes a device connected to the NEMC.
+
+  Required child node properties:
+  - reg: Should contain at least one register specifier, given in the following
+    format:
+
+      <cs number> <offset> <size>
+
+    Multiple registers can be specified across multiple banks. This is needed,
+    for example, for packaged NAND devices with multiple dies. Such devices
+    should be grouped into a single node.
+
+  Optional child node properties:
+  - ingenic,nemc-bus-width: Specifies the bus width in bits. Defaults to 8 bits.
+  - ingenic,nemc-tAS: Address setup time in nanoseconds.
+  - ingenic,nemc-tAH: Address hold time in nanoseconds.
+  - ingenic,nemc-tBP: Burst pitch time in nanoseconds.
+  - ingenic,nemc-tAW: Access wait time in nanoseconds.
+  - ingenic,nemc-tSTRV: Static memory recovery time in nanoseconds.
+
+  If a child node references multiple banks in its "reg" property, the same value
+  for all optional parameters will be configured for all banks. If any optional
+  parameters are omitted, they will be left unchanged from whatever they are
+  configured to when the NEMC device is probed (which may be the reset value as
+  given in the hardware reference manual, or a value configured by the boot
+  loader).
+
+...

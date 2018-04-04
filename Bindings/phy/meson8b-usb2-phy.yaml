@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/meson8b-usb2-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson8, Meson8b and GXBB USB2 PHY
+
+maintainers:
+  - Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Amlogic Meson8, Meson8b and GXBB USB2 PHY
+
+  Required properties:
+  - compatible:	Depending on the platform this should be one of:
+  	"amlogic,meson8-usb2-phy"
+  	"amlogic,meson8b-usb2-phy"
+  	"amlogic,meson-gxbb-usb2-phy"
+  - reg:		The base address and length of the registers
+  - #phys-cells:	should be 0 (see phy-bindings.txt in this directory)
+  - clocks:	phandle and clock identifier for the phy clocks
+  - clock-names:	"usb_general" and "usb"
+
+  Optional properties:
+  - resets:	reference to the reset controller
+  - phy-supply:	see phy-bindings.txt in this directory
+
+
+...

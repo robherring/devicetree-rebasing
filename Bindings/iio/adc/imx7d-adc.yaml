@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/imx7d-adc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale imx7d ADC bindings
+
+maintainers:
+  - Haibo Chen <haibo.chen@freescale.com>
+description: |+
+  The devicetree bindings are for the ADC driver written for
+  imx7d SoC.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale imx7d ADC bindings
+
+  The devicetree bindings are for the ADC driver written for
+  imx7d SoC.
+
+  Required properties:
+  - compatible: Should be "fsl,imx7d-adc"
+  - reg: Offset and length of the register set for the ADC device
+  - interrupts: The interrupt number for the ADC device
+  - clocks: The root clock of the ADC controller
+  - clock-names: Must contain "adc", matching entry in the clocks property
+  - vref-supply: The regulator supply ADC reference voltage
+
+...

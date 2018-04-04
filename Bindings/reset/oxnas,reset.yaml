@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/reset/oxnas,reset.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Oxford Semiconductor OXNAS SoC Family RESET Controller
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  Please also refer to reset.txt in this directory for common reset
+  controller binding usage.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Oxford Semiconductor OXNAS SoC Family RESET Controller
+  ================================================
+
+  Please also refer to reset.txt in this directory for common reset
+  controller binding usage.
+
+  Required properties:
+  - compatible: For OX810SE, should be "oxsemi,ox810se-reset"
+  	      For OX820, should be "oxsemi,ox820-reset"
+  - #reset-cells: 1, see below
+
+  Parent node should have the following properties :
+  - compatible: For OX810SE, should be :
+  			"oxsemi,ox810se-sys-ctrl", "syscon", "simple-mfd"
+  	      For OX820, should be :
+  			"oxsemi,ox820-sys-ctrl", "syscon", "simple-mfd"
+
+  Reset indices are in dt-bindings include files :
+  - For OX810SE: include/dt-bindings/reset/oxsemi,ox810se.h
+  - For OX820: include/dt-bindings/reset/oxsemi,ox820.h
+
+...

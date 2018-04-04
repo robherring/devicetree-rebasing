@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/aspeed,ast2400-i2c-ic.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree configuration for the I2C Interrupt Controller on the AST24XX and
+
+maintainers:
+  - Brendan Higgins <brendanhiggins@google.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Device tree configuration for the I2C Interrupt Controller on the AST24XX and
+  AST25XX SoCs.
+
+  Required Properties:
+  - #address-cells	: should be 1
+  - #size-cells 		: should be 1
+  - #interrupt-cells 	: should be 1
+  - compatible 		: should be "aspeed,ast2400-i2c-ic"
+  			  or "aspeed,ast2500-i2c-ic"
+  - reg			: address start and range of controller
+  - interrupts		: interrupt number
+  - interrupt-controller	: denotes that the controller receives and fires
+  			  new interrupts for child busses
+
+...

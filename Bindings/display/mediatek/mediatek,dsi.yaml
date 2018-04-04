@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/mediatek/mediatek,dsi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek DSI Device
+
+maintainers:
+  - CK Hu <ck.hu@mediatek.com>
+description: |+
+  The Mediatek DSI function block is a sink of the display subsystem and can
+  drive up to 4-lane MIPI DSI output. Two DSIs can be synchronized for dual-
+  channel output.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek DSI Device
+  ===================
+
+  The Mediatek DSI function block is a sink of the display subsystem and can
+  drive up to 4-lane MIPI DSI output. Two DSIs can be synchronized for dual-
+  channel output.
+
+  Required properties:
+  - compatible: "mediatek,<chip>-dsi"
+    the supported chips are mt2701 and mt8173.
+  - reg: Physical base address and length of the controller's registers
+  - interrupts: The interrupt signal from the function block.
+  - clocks: device clocks
+    See Documentation/devicetree/bindings/clock/clock-bindings.txt for details.
+  - clock-names: must contain "engine", "digital", and "hs"
+  - phys: phandle link to the MIPI D-PHY controller.
+  - phy-names: must contain "dphy"
+  - port: Output port node with endpoint definitions as described in
+    Documentation/devicetree/bindings/graph.txt. This port should be connected
+    to the input port of an attached DSI panel or DSI-to-eDP encoder chip.
+
+  MIPI TX Configuration Module
+  ============================
+
+  The MIPI TX configuration module controls the MIPI D-PHY.
+
+  Required properties:
+  - compatible: "mediatek,<chip>-mipi-tx"
+    the supported chips are mt2701 and mt8173.
+  - reg: Physical base address and length of the controller's registers
+  - clocks: PLL reference clock
+  - clock-output-names: name of the output clock line to the DSI encoder
+  - #clock-cells: must be <0>;
+  - #phy-cells: must be <0>.
+
+...

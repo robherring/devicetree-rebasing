@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,vencltsys.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek vencltsys controller
+
+maintainers:
+  - James Liao <jamesjj.liao@mediatek.com>
+description: |+
+  The Mediatek vencltsys controller provides various clocks to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek vencltsys controller
+  ============================
+
+  The Mediatek vencltsys controller provides various clocks to the system.
+
+  Required Properties:
+
+  - compatible: Should be:
+  	- "mediatek,mt8173-vencltsys", "syscon"
+  - #clock-cells: Must be 1
+
+  The vencltsys controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

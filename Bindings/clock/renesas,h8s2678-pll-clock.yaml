@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/renesas,h8s2678-pll-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas H8S2678 PLL clock
+
+maintainers:
+  - Yoshinori Sato <ysato@users.sourceforge.jp>
+description: |+
+  This device is Clock multiplyer
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Renesas H8S2678 PLL clock
+
+  This device is Clock multiplyer
+
+  Required Properties:
+
+    - compatible: Must be "renesas,h8s2678-pll-clock"
+
+    - clocks: Reference to the parent clocks
+
+    - #clock-cells: Must be 0
+
+    - reg: Two rate selector (Multiply / Divide) register address
+
+...

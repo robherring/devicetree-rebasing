@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/axp20x_battery.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AXP20x and AXP22x battery power supply
+
+maintainers:
+  - Quentin Schulz <quentin.schulz@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  AXP20x and AXP22x battery power supply
+
+  Required Properties:
+   - compatible, one of:
+  			"x-powers,axp209-battery-power-supply"
+  			"x-powers,axp221-battery-power-supply"
+
+  This node is a subnode of the axp20x/axp22x PMIC.
+
+  The AXP20X and AXP22X can read the battery voltage, charge and discharge
+  currents of the battery by reading ADC channels from the AXP20X/AXP22X
+  ADC.
+
+...

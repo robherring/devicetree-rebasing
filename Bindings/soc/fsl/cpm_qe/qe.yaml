@@ -1,0 +1,65 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/fsl/cpm_qe/qe.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale QUICC Engine module (QE)
+
+maintainers:
+  - Zhao Qiang <qiang.zhao@nxp.com>
+description: |+
+  NOTE:  This is an interim binding; it should be updated to fit
+  in with the CPM binding later in this document.
+
+  Basically, it is a bus of devices, that could act more or less
+  as a complete entity (UCC, USB etc ). All of them should be siblings on
+  the "root" qe node, using the common properties from there.
+  The description below applies to the qe of MPC8360 and
+  more nodes and properties would be extended in the future.
+
+  i) Root QE device
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale QUICC Engine module (QE)
+  This represents qe module that is installed on PowerQUICC II Pro.
+
+  NOTE:  This is an interim binding; it should be updated to fit
+  in with the CPM binding later in this document.
+
+  Basically, it is a bus of devices, that could act more or less
+  as a complete entity (UCC, USB etc ). All of them should be siblings on
+  the "root" qe node, using the common properties from there.
+  The description below applies to the qe of MPC8360 and
+  more nodes and properties would be extended in the future.
+
+  i) Root QE device
+
+  Required properties:
+  - compatible : should be "fsl,qe";
+  - model : precise model of the QE, Can be "QE", "CPM", or "CPM2"
+  - reg : offset and length of the device registers.
+  - bus-frequency : the clock frequency for QUICC Engine.
+  - fsl,qe-num-riscs: define how many RISC engines the QE has.
+  - fsl,qe-num-snums: define how many serial number(SNUM) the QE can use for the
+    threads.
+
+  Optional properties:
+  - fsl,firmware-phandle:
+      Usage: required only if there is no fsl,qe-firmware child node
+      Value type: <phandle>
+      Definition: Points to a firmware node (see "QE Firmware Node" below)
+          that contains the firmware that should be uploaded for this QE.
+          The compatible property for the firmware node should say,
+          "fsl,qe-firmware".
+
+  Recommended properties
+  - brg-frequency : the internal clock source frequency for baud-rate
+    generators in Hz.
+
+...

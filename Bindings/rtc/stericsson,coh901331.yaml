@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/stericsson,coh901331.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST-Ericsson COH 901 331 Real Time Clock
+
+maintainers:
+  - Alexandre Belloni <alexandre.belloni@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    rtc: rtc@c0017000 {
+      compatible = "stericsson,coh901331";
+      reg = <0xc0017000 0x1000>;
+      interrupt-parent = <&vicb>;
+      interrupts = <10>;
+      clocks = <&rtc_clk>;
+    };
+historical: |+
+  ST-Ericsson COH 901 331 Real Time Clock
+
+  Required properties:
+  - compatible: must be "stericsson,coh901331"
+  - reg: address range of rtc register set.
+  - interrupt-parent: phandle for the interrupt controller.
+  - interrupts: rtc alarm interrupt.
+  - clocks: phandle to the rtc clock source
+
+...

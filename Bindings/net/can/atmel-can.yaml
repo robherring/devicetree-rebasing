@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/can/atmel-can.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AT91 CAN
+
+maintainers:
+  - Ludovic Desroches <ludovic.desroches@atmel.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    can0: can@f000c000 {
+      compatible = "atmel,at91sam9x5-can";
+      reg = <0xf000c000 0x300>;
+      interrupts = <40 4 5>
+    };
+historical: |+
+  * AT91 CAN *
+
+  Required properties:
+    - compatible: Should be "atmel,at91sam9263-can" or "atmel,at91sam9x5-can"
+    - reg: Should contain CAN controller registers location and length
+    - interrupts: Should contain IRQ line for the CAN controller
+
+...

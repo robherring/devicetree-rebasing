@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/usb/ohci-nxp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OHCI controller, NXP ohci-nxp variant
+
+maintainers:
+  - Roland Stigge <stigge@antcom.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    isp1301: usb-transceiver@2c {
+      compatible = "nxp,isp1301";
+      reg = <0x2c>;
+    };
+
+    ohci@31020000 {
+      compatible = "nxp,ohci-nxp";
+      reg = <0x31020000 0x300>;
+      interrupt-parent = <&mic>;
+      interrupts = <0x3b 0>;
+      transceiver = <&isp1301>;
+    };
+historical: |+
+  * OHCI controller, NXP ohci-nxp variant
+
+  Required properties:
+  - compatible: must be "nxp,ohci-nxp"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: The OHCI interrupt
+  - transceiver: phandle of the associated ISP1301 device - this is necessary for
+                 the UDC controller for connecting to the USB physical layer
+
+...

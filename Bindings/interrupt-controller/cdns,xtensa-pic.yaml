@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/cdns,xtensa-pic.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Xtensa built-in Programmable Interrupt Controller (PIC)
+
+maintainers:
+  - Max Filippov <jcmvbkbc@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    pic: pic {
+      compatible = "cdns,xtensa-pic";
+      /* one cell: internal irq number,
+       * two cells: second cell == 0: internal irq number
+       *            second cell == 1: external irq number
+       */
+      #interrupt-cells = <2>;
+      interrupt-controller;
+    };
+historical: |+
+  * Xtensa built-in Programmable Interrupt Controller (PIC)
+
+  Required properties:
+  - compatible: Should be "cdns,xtensa-pic".
+  - interrupt-controller: Identifies the node as an interrupt controller.
+  - #interrupt-cells: The number of cells to define the interrupts.
+    It may be either 1 or 2.
+    When it's 1, the first cell is the internal IRQ number.
+    When it's 2, the first cell is the IRQ number, and the second cell
+    specifies whether it's internal (0) or external (1).
+    Periferals are usually connected to a fixed external IRQ, but for different
+    core variants it may be mapped to different internal IRQ.
+    IRQ sensitivity and priority are fixed for each core variant and may not be
+    changed at runtime.
+
+...

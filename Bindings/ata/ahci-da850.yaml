@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/ata/ahci-da850.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree binding for the TI DA850 AHCI SATA Controller
+
+maintainers:
+  - Bartosz Golaszewski <bgolaszewski@baylibre.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sata: sata@218000 {
+      compatible = "ti,da850-ahci";
+      reg = <0x218000 0x2000>, <0x22c018 0x4>;
+      interrupts = <67>;
+    };
+historical: |+
+  Device tree binding for the TI DA850 AHCI SATA Controller
+  ---------------------------------------------------------
+
+  Required properties:
+    - compatible: must be "ti,da850-ahci"
+    - reg: physical base addresses and sizes of the two register regions
+           used by the controller: the register map as defined by the
+           AHCI 1.1 standard and the Power Down Control Register (PWRDN)
+           for enabling/disabling the SATA clock receiver
+    - interrupts: interrupt specifier (refer to the interrupt binding)
+
+...

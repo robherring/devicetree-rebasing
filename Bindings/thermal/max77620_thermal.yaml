@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/thermal/max77620_thermal.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Thermal driver for MAX77620 Power management IC from Maxim Semiconductor.
+
+maintainers:
+  - Laxman Dewangan <ldewangan@nvidia.com>
+description: |+
+  Maxim Semiconductor MAX77620 supports alarm interrupts when its
+  die temperature crosses 120C and 140C. These threshold temperatures
+  are not configurable. Device does not provide the real temperature
+  of die other than just indicating whether temperature is above or
+  below threshold level.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Thermal driver for MAX77620 Power management IC from Maxim Semiconductor.
+
+  Maxim Semiconductor MAX77620 supports alarm interrupts when its
+  die temperature crosses 120C and 140C. These threshold temperatures
+  are not configurable. Device does not provide the real temperature
+  of die other than just indicating whether temperature is above or
+  below threshold level.
+
+  Required properties:
+  -------------------
+  #thermal-sensor-cells:	Please refer <devicetree/bindings/thermal/thermal.txt>
+  			for more details.
+  			The value must be 0.
+
+  For more details, please refer generic thermal DT binding document
+  <devicetree/bindings/thermal/thermal.txt>.
+
+  Please refer <devicetree/bindings/mfd/max77620.txt> for mfd DT binding
+  document for the MAX77620.
+
+...

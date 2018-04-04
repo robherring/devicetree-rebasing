@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/sharp,ls037v7dw01.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SHARP LS037V7DW01 TFT-LCD panel
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  SHARP LS037V7DW01 TFT-LCD panel
+  ===================================
+
+  Required properties:
+  - compatible: "sharp,ls037v7dw01"
+
+  Optional properties:
+  - label: a symbolic name for the panel
+  - enable-gpios: a GPIO spec for the optional enable pin.
+    This pin is the INI pin as specified in the LS037V7DW01.pdf file.
+  - reset-gpios: a GPIO spec for the optional reset pin.
+    This pin is the RESB pin as specified in the LS037V7DW01.pdf file.
+  - mode-gpios: a GPIO
+    ordered MO, LR, and UD as specified in the LS037V7DW01.pdf file.
+
+  Required nodes:
+  - Video port for DPI input
+
+  This panel can have zero to five GPIOs to configure to change configuration
+  between QVGA and VGA mode and the scan direction. As these pins can be also
+  configured with external pulls, all the GPIOs are considered optional with holes
+  in the array.
+
+...

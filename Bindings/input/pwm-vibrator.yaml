@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/pwm-vibrator.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: PWM vibrator device tree bindings
+
+maintainers:
+  - Sebastian Reichel <sebastian.reichel@collabora.co.uk>
+description: |+
+  Registers a PWM device as vibrator. It is expected, that the vibrator's
+  strength increases based on the duty cycle of the enable PWM channel
+  (100% duty cycle meaning strongest vibration, 0% meaning no vibration).
+
+  The binding supports an optional direction PWM channel, that can be
+  driven at fixed duty cycle. If available this is can be used to increase
+  the vibration effect of some devices.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * PWM vibrator device tree bindings
+
+  Registers a PWM device as vibrator. It is expected, that the vibrator's
+  strength increases based on the duty cycle of the enable PWM channel
+  (100% duty cycle meaning strongest vibration, 0% meaning no vibration).
+
+  The binding supports an optional direction PWM channel, that can be
+  driven at fixed duty cycle. If available this is can be used to increase
+  the vibration effect of some devices.
+
+  Required properties:
+  - compatible: should contain "pwm-vibrator"
+  - pwm-names: Should contain "enable" and optionally "direction"
+  - pwms: Should contain a PWM handle for each entry in pwm-names
+
+  Optional properties:
+  - vcc-supply: Phandle for the regulator supplying power
+  - direction-duty-cycle-ns: Duty cycle of the direction PWM channel in
+                             nanoseconds, defaults to 50% of the channel's
+  			   period.
+
+...

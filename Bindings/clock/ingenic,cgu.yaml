@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/ingenic,cgu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Ingenic SoC CGU binding
+
+maintainers:
+  - Paul Burton <paul.burton@imgtec.com>
+description: |+
+  The CGU in an Ingenic SoC provides all the clocks generated on-chip. It
+  typically includes a variety of PLLs, multiplexers, dividers & gates in order
+  to provide many different clock signals derived from only 2 external source
+  clocks.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Ingenic SoC CGU binding
+
+  The CGU in an Ingenic SoC provides all the clocks generated on-chip. It
+  typically includes a variety of PLLs, multiplexers, dividers & gates in order
+  to provide many different clock signals derived from only 2 external source
+  clocks.
+
+  Required properties:
+  - compatible : Should be "ingenic,<soctype>-cgu".
+    For example "ingenic,jz4740-cgu" or "ingenic,jz4780-cgu".
+  - reg : The address & length of the CGU registers.
+  - clocks : List of phandle & clock specifiers for clocks external to the CGU.
+    Two such external clocks should be specified - first the external crystal
+    "ext" and second the RTC clock source "rtc".
+  - clock-names : List of name strings for the external clocks.
+  - #clock-cells: Should be 1.
+    Clock consumers specify this argument to identify a clock. The valid values
+    may be found in <dt-bindings/clock/<soctype>-cgu.h>.
+
+...

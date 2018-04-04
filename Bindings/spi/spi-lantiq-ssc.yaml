@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/spi-lantiq-ssc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Lantiq Synchronous Serial Controller (SSC) SPI master driver
+
+maintainers:
+  - Hauke Mehrtens <hauke@hauke-m.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Lantiq Synchronous Serial Controller (SSC) SPI master driver
+
+  Required properties:
+  - compatible: "lantiq,ase-spi", "lantiq,falcon-spi", "lantiq,xrx100-spi"
+  - #address-cells: see spi-bus.txt
+  - #size-cells: see spi-bus.txt
+  - reg: address and length of the spi master registers
+  - interrupts: should contain the "spi_rx", "spi_tx" and "spi_err" interrupt.
+
+
+  Optional properties:
+  - clocks: spi clock phandle
+  - num-cs: see spi-bus.txt, set to 8 if unset
+  - base-cs: the number of the first chip select, set to 1 if unset.
+
+...

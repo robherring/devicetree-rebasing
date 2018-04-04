@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/exynos/exynos_hdmiphy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for hdmiphy driver
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    hdmiphy {
+      compatible = "samsung,exynos4210-hdmiphy";
+      reg = <0x38>;
+    };
+historical: |+
+  Device-Tree bindings for hdmiphy driver
+
+  Required properties:
+  - compatible: value should be one of the following:
+  	1) "samsung,exynos5-hdmiphy" <DEPRECATED>
+  	2) "samsung,exynos4210-hdmiphy".
+  	3) "samsung,exynos4212-hdmiphy".
+  - reg: I2C address of the hdmiphy device.
+
+...

@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/ti-adc084s021.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments' ADC084S021
+
+maintainers:
+  - Mårten Lindahl <martenli@axis.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Texas Instruments' ADC084S021
+
+  Required properties:
+   - compatible        : Must be "ti,adc084s021"
+   - reg               : SPI chip select number for the device
+   - vref-supply       : The regulator supply for ADC reference voltage
+   - spi-cpol          : Per spi-bus bindings
+   - spi-cpha          : Per spi-bus bindings
+   - spi-max-frequency : Per spi-bus bindings
+
+...

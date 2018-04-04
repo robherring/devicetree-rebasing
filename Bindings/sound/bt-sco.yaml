@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/bt-sco.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Bluetooth-SCO audio CODEC
+
+maintainers:
+  - Marek Belisko <marek@goldelico.com>
+description: |+
+  This device support generic Bluetooth SCO link.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Bluetooth-SCO audio CODEC
+
+  This device support generic Bluetooth SCO link.
+
+  Required properties:
+
+    - compatible : "delta,dfbmcs320" or "linux,bt-sco"
+
+...

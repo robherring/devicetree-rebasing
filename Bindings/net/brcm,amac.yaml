@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/brcm,amac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom AMAC Ethernet Controller Device Tree Bindings
+
+maintainers:
+  - Jon Mason <jon.mason@broadcom.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom AMAC Ethernet Controller Device Tree Bindings
+  -------------------------------------------------------------
+
+  Required properties:
+   - compatible:	"brcm,amac"
+  		"brcm,nsp-amac"
+  		"brcm,ns2-amac"
+   - reg:		Address and length of the register set for the device. It
+  		contains the information of registers in the same order as
+  		described by reg-names
+   - reg-names:	Names of the registers.
+  		"amac_base":	Address and length of the GMAC registers
+  		"idm_base":	Address and length of the GMAC IDM registers
+  				(required for NSP and Northstar2)
+  		"nicpm_base":	Address and length of the NIC Port Manager
+  				registers (required for Northstar2)
+   - interrupts:	Interrupt number
+
+  Optional properties:
+  - mac-address:	See ethernet.txt file in the same directory
+
+...

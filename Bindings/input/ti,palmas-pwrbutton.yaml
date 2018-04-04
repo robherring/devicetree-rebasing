@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/ti,palmas-pwrbutton.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments Palmas family power button module
+
+maintainers:
+  - Nishanth Menon <nm@ti.com>
+description: |+
+  This module is part of the Palmas family of PMICs. For more details
+  about the whole chip see:
+  Documentation/devicetree/bindings/mfd/palmas.txt.
+
+  This module provides a simple power button event via an Interrupt.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments Palmas family power button module
+
+  This module is part of the Palmas family of PMICs. For more details
+  about the whole chip see:
+  Documentation/devicetree/bindings/mfd/palmas.txt.
+
+  This module provides a simple power button event via an Interrupt.
+
+  Required properties:
+  - compatible: should be one of the following
+     - "ti,palmas-pwrbutton": For Palmas compatible power on button
+  - interrupt-parent: Parent interrupt device, must be handle of palmas node.
+  - interrupts: Interrupt number of power button submodule on device.
+
+  Optional Properties:
+
+  - ti,palmas-long-press-seconds: Duration in seconds which the power
+    button should be kept pressed for Palmas to power off automatically.
+    NOTE: This depends on OTP support and POWERHOLD signal configuration
+    on platform. Valid values are 6, 8, 10 and 12.
+  - ti,palmas-pwron-debounce-milli-seconds: Duration in milliseconds
+    which the power button should be kept pressed for Palmas to register
+    a press for debouncing purposes. NOTE: This depends on specific
+    Palmas variation capability. Valid values are 15, 100, 500 and 1000.
+
+...

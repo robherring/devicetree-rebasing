@@ -1,0 +1,99 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/zte,vou.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ZTE VOU Display Controller
+
+maintainers:
+  - Shawn Guo <shawn.guo@linaro.org>
+description: |+
+  This is a display controller found on ZTE ZX296718 SoC.  It includes multiple
+  Graphic Layer (GL) and Video Layer (VL), two Mixers/Channels, and a few blocks
+  handling scaling, color space conversion etc.  VOU also integrates the support
+  for typical output devices, like HDMI, TV Encoder, VGA, and RGB LCD.
+
+  * Master VOU node
+
+  It must be the parent node of all the sub-device nodes.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ZTE VOU Display Controller
+
+  This is a display controller found on ZTE ZX296718 SoC.  It includes multiple
+  Graphic Layer (GL) and Video Layer (VL), two Mixers/Channels, and a few blocks
+  handling scaling, color space conversion etc.  VOU also integrates the support
+  for typical output devices, like HDMI, TV Encoder, VGA, and RGB LCD.
+
+  * Master VOU node
+
+  It must be the parent node of all the sub-device nodes.
+
+  Required properties:
+   - compatible: should be "zte,zx296718-vou"
+   - #address-cells: should be <1>
+   - #size-cells: should be <1>
+   - ranges: list of address translations between VOU and sub-devices
+
+  * VOU DPC device
+
+  Required properties:
+   - compatible: should be "zte,zx296718-dpc"
+   - reg: Physical base address and length of DPC register regions, one for each
+     entry in 'reg-names'
+   - reg-names: The names of register regions. The following regions are required:
+  	"osd"
+  	"timing_ctrl"
+  	"dtrc"
+  	"vou_ctrl"
+  	"otfppu"
+   - interrupts: VOU DPC interrupt number to CPU
+   - clocks: A list of phandle + clock-specifier pairs, one for each entry
+     in 'clock-names'
+   - clock-names: A list of clock names.  The following clocks are required:
+  	"aclk"
+  	"ppu_wclk"
+  	"main_wclk"
+  	"aux_wclk"
+
+  * HDMI output device
+
+  Required properties:
+   - compatible: should be "zte,zx296718-hdmi"
+   - reg: Physical base address and length of the HDMI device IO region
+   - interrupts : HDMI interrupt number to CPU
+   - clocks: A list of phandle + clock-specifier pairs, one for each entry
+     in 'clock-names'
+   - clock-names: A list of clock names.  The following clocks are required:
+  	"osc_cec"
+  	"osc_clk"
+  	"xclk"
+
+  * TV Encoder output device
+
+  Required properties:
+   - compatible: should be "zte,zx296718-tvenc"
+   - reg: Physical base address and length of the TVENC device IO region
+   - zte,tvenc-power-control: the phandle to SYSCTRL block followed by two
+     integer cells.  The first cell is the offset of SYSCTRL register used
+     to control TV Encoder DAC power, and the second cell is the bit mask.
+
+  * VGA output device
+
+  Required properties:
+   - compatible: should be "zte,zx296718-vga"
+   - reg: Physical base address and length of the VGA device IO region
+   - interrupts : VGA interrupt number to CPU
+   - clocks: Phandle with clock-specifier pointing to VGA I2C clock.
+   - clock-names: Must be "i2c_wclk".
+   - zte,vga-power-control: the phandle to SYSCTRL block followed by two
+     integer cells.  The first cell is the offset of SYSCTRL register used
+     to control VGA DAC power, and the second cell is the bit mask.
+
+...

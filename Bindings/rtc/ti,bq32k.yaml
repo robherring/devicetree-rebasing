@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/ti,bq32k.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI BQ32000                I2C Serial Real-Time Clock
+
+maintainers:
+  - Wolfram Sang <wsa@the-dreams.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  * TI BQ32000                I2C Serial Real-Time Clock
+
+  Required properties:
+  - compatible: Should contain "ti,bq32000".
+  - reg: I2C address for chip
+
+  Optional properties:
+  - trickle-resistor-ohms : Selected resistor for trickle charger
+         Values usable are 1120 and 20180
+         Should be given if trickle charger should be enabled
+  - trickle-diode-disable : Do not use internal trickle charger diode
+         Should be given if internal trickle charger diode should be disabled

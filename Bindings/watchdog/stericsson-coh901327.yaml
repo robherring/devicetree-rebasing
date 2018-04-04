@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/stericsson-coh901327.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST-Ericsson COH 901 327 Watchdog timer
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ST-Ericsson COH 901 327 Watchdog timer
+
+  Required properties:
+  - compatible: must be "stericsson,coh901327".
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: the interrupt used for the watchdog timeout warning.
+
+  Optional properties:
+  - timeout-sec: contains the watchdog timeout in seconds.
+
+...

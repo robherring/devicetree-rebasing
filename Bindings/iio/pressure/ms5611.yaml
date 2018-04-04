@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/pressure/ms5611.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MEAS ms5611 family pressure sensors
+
+maintainers:
+  - Grégor Boirie <gregor.boirie@parrot.com>
+description: |+
+  Pressure sensors from MEAS Switzerland with SPI and I2C bus interfaces.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  MEAS ms5611 family pressure sensors
+
+  Pressure sensors from MEAS Switzerland with SPI and I2C bus interfaces.
+
+  Required properties:
+  - compatible: "meas,ms5611" or "meas,ms5607"
+  - reg: the I2C address or SPI chip select the device will respond to
+
+  Optional properties:
+  - vdd-supply: an optional regulator that needs to be on to provide VDD
+    power to the sensor.
+
+...

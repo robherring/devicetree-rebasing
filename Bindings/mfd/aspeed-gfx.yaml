@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/aspeed-gfx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for Aspeed SoC Display Controller (GFX)
+
+maintainers:
+  - Andrew Jeffery <andrew@aj.id.au>
+description: |+
+  The Aspeed SoC Display Controller primarily does as its name suggests, but also
+  participates in pinmux requests on the g5 SoCs. It is therefore considered a
+  syscon device.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Device tree bindings for Aspeed SoC Display Controller (GFX)
+
+  The Aspeed SoC Display Controller primarily does as its name suggests, but also
+  participates in pinmux requests on the g5 SoCs. It is therefore considered a
+  syscon device.
+
+  Required properties:
+  - compatible:		"aspeed,ast2500-gfx", "syscon"
+  - reg:			contains offset/length value of the GFX memory
+  			region.
+
+...

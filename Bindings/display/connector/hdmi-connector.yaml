@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/connector/hdmi-connector.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: HDMI Connector
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  HDMI Connector
+  ==============
+
+  Required properties:
+  - compatible: "hdmi-connector"
+  - type: the HDMI connector type: "a", "b", "c", "d" or "e"
+
+  Optional properties:
+  - label: a symbolic name for the connector
+  - hpd-gpios: HPD GPIO number
+  - ddc-i2c-bus: phandle link to the I2C controller used for DDC EDID probing
+
+  Required nodes:
+  - Video port for HDMI input
+
+...

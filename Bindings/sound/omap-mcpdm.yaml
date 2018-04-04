@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/omap-mcpdm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments OMAP4+ McPDM
+
+maintainers:
+  - Peter Ujfalusi <peter.ujfalusi@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Texas Instruments OMAP4+ McPDM
+
+  Required properties:
+  - compatible: "ti,omap4-mcpdm"
+  - reg: Register location and size as an array:
+         <MPU access base address, size>,
+         <L3 interconnect address, size>;
+  - interrupts: Interrupt number for McPDM
+  - interrupt-parent: The parent interrupt controller
+  - ti,hwmods: Name of the hwmod associated to the McPDM
+
+...

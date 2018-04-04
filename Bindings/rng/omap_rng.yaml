@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rng/omap_rng.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OMAP SoC and Inside-Secure HWRNG Module
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  OMAP SoC and Inside-Secure HWRNG Module
+
+  Required properties:
+
+  - compatible : Should contain entries for this and backward compatible
+    RNG versions:
+    - "ti,omap2-rng" for OMAP2.
+    - "ti,omap4-rng" for OMAP4, OMAP5 and AM33XX.
+    - "inside-secure,safexcel-eip76" for SoCs with EIP76 IP block
+    Note that these two versions are incompatible.
+  - ti,hwmods: Name of the hwmod associated with the RNG module
+  - reg : Offset and length of the register set for the module
+  - interrupts : the interrupt number for the RNG module.
+  		Used for "ti,omap4-rng" and "inside-secure,safexcel-eip76"
+  - clocks: the trng clock source. Only mandatory for the
+    "inside-secure,safexcel-eip76" compatible.
+
+...

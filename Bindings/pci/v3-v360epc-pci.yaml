@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/v3-v360epc-pci.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: V3 Semiconductor V360 EPC PCI bridge
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: |+
+  This bridge is found in the ARM Integrator/AP (Application Platform)
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  V3 Semiconductor V360 EPC PCI bridge
+
+  This bridge is found in the ARM Integrator/AP (Application Platform)
+
+  Required properties:
+  - compatible: should be one of:
+    "v3,v360epc-pci"
+    "arm,integrator-ap-pci", "v3,v360epc-pci"
+  - reg: should contain two register areas:
+    first the base address of the V3 host bridge controller, 64KB
+    second the configuration area register space, 16MB
+  - interrupts: should contain a reference to the V3 error interrupt
+    as routed on the system.
+  - bus-range: see pci.txt
+  - ranges: this follows the standard PCI bindings in the IEEE Std
+    1275-1994 (see pci.txt) with the following restriction:
+    - The non-prefetchable and prefetchable memory windows must
+      each be exactly 256MB (0x10000000) in size.
+    - The prefetchable memory window must be immediately adjacent
+      to the non-prefetcable memory window
+  - dma-ranges: three ranges for the inbound memory region. The ranges must
+    be aligned to a 1MB boundary, and may be 1MB, 2MB, 4MB, 8MB, 16MB, 32MB,
+    64MB, 128MB, 256MB, 512MB, 1GB or 2GB in size. The memory should be marked
+    as pre-fetchable. Two ranges are supported by the hardware.
+
+  Integrator-specific required properties:
+  - syscon: should contain a link to the syscon device node, since
+    on the Integrator, some registers in the syscon are required to
+    operate the V3 host bridge.
+
+...

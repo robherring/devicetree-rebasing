@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/ti-adc161s626.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments ADC141S626 and ADC161S626 chips
+
+maintainers:
+  - Matt Ranostay <mranostay@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Texas Instruments ADC141S626 and ADC161S626 chips
+
+  Required properties:
+   - compatible: Should be "ti,adc141s626" or "ti,adc161s626"
+   - reg: spi chip select number for the device
+   - vdda-supply: supply voltage to VDDA pin
+
+  Recommended properties:
+   - spi-max-frequency: Definition as per
+  		Documentation/devicetree/bindings/spi/spi-bus.txt
+
+...

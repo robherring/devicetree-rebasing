@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/rt2880-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Ralink Watchdog Timers
+
+maintainers:
+  - John Crispin <blogic@openwrt.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    watchdog@120 {
+      compatible = "ralink,rt2880-wdt";
+      reg = <0x120 0x10>;
+
+      interrupt-parent = <&intc>;
+      interrupts = <1>;
+    };
+historical: |+
+  Ralink Watchdog Timers
+
+  Required properties:
+  - compatible: must be "ralink,rt2880-wdt"
+  - reg: physical base address of the controller and length of the register range
+
+  Optional properties:
+  - interrupt-parent: phandle to the INTC device node
+  - interrupts: Specify the INTC interrupt number
+
+...

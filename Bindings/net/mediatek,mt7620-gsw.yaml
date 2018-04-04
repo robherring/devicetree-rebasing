@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/mediatek,mt7620-gsw.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek Gigabit Switch
+
+maintainers:
+  - John Crispin <blogic@openwrt.org>
+description: |+
+  The mediatek gigabit switch can be found on Mediatek SoCs (mt7620, mt7621).
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek Gigabit Switch
+  =======================
+
+  The mediatek gigabit switch can be found on Mediatek SoCs (mt7620, mt7621).
+
+  Required properties:
+  - compatible: Should be "mediatek,mt7620-gsw" or "mediatek,mt7621-gsw"
+  - reg: Address and length of the register set for the device
+  - interrupt-parent: Should be the phandle for the interrupt controller
+    that services interrupts for this device
+  - interrupts: Should contain the gigabit switches interrupt
+  - resets: Should contain the gigabit switches resets
+  - reset-names: Should contain the reset names "gsw"
+
+...

@@ -1,0 +1,92 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/pinctrl-mt65xx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek MT65XX Pin Controller
+
+maintainers:
+  - Hongzhou Yang <hongzhou.yang@mediatek.com>
+description: |+
+  The Mediatek's Pin controller is used to control SoC pins.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Mediatek MT65XX Pin Controller
+
+  The Mediatek's Pin controller is used to control SoC pins.
+
+  Required properties:
+  - compatible: value should be one of the following.
+  	"mediatek,mt2701-pinctrl", compatible with mt2701 pinctrl.
+  	"mediatek,mt2712-pinctrl", compatible with mt2712 pinctrl.
+  	"mediatek,mt6397-pinctrl", compatible with mt6397 pinctrl.
+  	"mediatek,mt7623-pinctrl", compatible with mt7623 pinctrl.
+  	"mediatek,mt8127-pinctrl", compatible with mt8127 pinctrl.
+  	"mediatek,mt8135-pinctrl", compatible with mt8135 pinctrl.
+  	"mediatek,mt8173-pinctrl", compatible with mt8173 pinctrl.
+  - pins-are-numbered: Specify the subnodes are using numbered pinmux to
+    specify pins.
+  - gpio-controller : Marks the device node as a gpio controller.
+  - #gpio-cells: number of cells in GPIO specifier. Since the generic GPIO
+    binding is used, the amount of cells must be specified as 2. See the below
+    mentioned gpio binding representation for description of particular cells.
+
+  	Eg: <&pio 6 0>
+  	<[phandle of the gpio controller node]
+  	[line number within the gpio controller]
+  	[flags]>
+
+  	Values for gpio specifier:
+  	- Line number: is a value between 0 to 202.
+  	- Flags:  bit field of flags, as defined in <dt-bindings/gpio/gpio.h>.
+              Only the following flags are supported:
+              0 - GPIO_ACTIVE_HIGH
+              1 - GPIO_ACTIVE_LOW
+
+  Optional properties:
+  - mediatek,pctl-regmap: Should be a phandle of the syscfg node.
+  - reg: physicall address base for EINT registers
+  - interrupt-controller: Marks the device node as an interrupt controller
+  - #interrupt-cells: Should be two.
+  - interrupts : The interrupt outputs from the controller.
+
+  Please refer to pinctrl-bindings.txt in this directory for details of the
+  common pinctrl bindings used by client devices.
+
+  Subnode format
+  A pinctrl node should contain at least one subnodes representing the
+  pinctrl groups available on the machine. Each subnode will list the
+  pins it needs, and how they should be configured, with regard to muxer
+  configuration, pullups, drive strength, input enable/disable and input schmitt.
+
+      node {
+  	pinmux = <PIN_NUMBER_PINMUX>;
+  	GENERIC_PINCONFIG;
+      };
+
+  Required properties:
+  - pinmux: integer array, represents gpio pin number and mux setting.
+      Supported pin number and mux varies for different SoCs, and are defined
+      as macros in boot/dts/<soc>-pinfunc.h directly.
+
+  Optional properties:
+  - GENERIC_PINCONFIG: is the generic pinconfig options to use, bias-disable,
+      bias-pull-down, bias-pull-up, input-enable, input-disable, output-low, output-high,
+      input-schmitt-enable, input-schmitt-disable and drive-strength are valid.
+
+      Some special pins have extra pull up strength, there are R0 and R1 pull-up
+      resistors available, but for user, it's only need to set R1R0 as 00, 01, 10 or 11.
+      So when config bias-pull-up, it support arguments for those special pins.
+      Some macros have been defined for this usage, such as MTK_PUPD_SET_R1R0_00.
+      See dt-bindings/pinctrl/mt65xx.h.
+
+      When config drive-strength, it can support some arguments, such as
+      MTK_DRIVE_4mA, MTK_DRIVE_6mA, etc. See dt-bindings/pinctrl/mt65xx.h.
+
+...

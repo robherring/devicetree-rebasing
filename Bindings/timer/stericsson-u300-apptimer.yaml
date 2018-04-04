@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/stericsson-u300-apptimer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST-Ericsson U300 apptimer
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ST-Ericsson U300 apptimer
+
+  Required properties:
+
+  - compatible : should be "stericsson,u300-apptimer"
+  - reg : Specifies base physical address and size of the registers.
+  - interrupts : A list of 4 interrupts; one for each subtimer. These
+    are, in order: OS (operating system), DD (device driver) both
+    adopted for EPOC/Symbian with two specific IRQs for these tasks,
+    then GP1 and GP2, which are general-purpose timers.
+
+...

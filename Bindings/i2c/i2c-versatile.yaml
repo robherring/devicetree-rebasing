@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-versatile.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'i2c Controller on ARM Versatile platform:'
+
+maintainers:
+  - Wolfram Sang <wolfram@the-dreams.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  i2c Controller on ARM Versatile platform:
+
+  Required properties:
+  - compatible : Must be "arm,versatile-i2c";
+  - reg
+  - #address-cells = <1>;
+  - #size-cells = <0>;
+
+  Optional properties:
+  - Child nodes conforming to i2c bus binding

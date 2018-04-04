@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/boe,nv101wxmn51.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: BOE OPTOELECTRONICS TECHNOLOGY 10.1" WXGA TFT LCD panel
+
+maintainers:
+  - Caesar Wang <wxt@rock-chips.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  BOE OPTOELECTRONICS TECHNOLOGY 10.1" WXGA TFT LCD panel
+
+  Required properties:
+  - compatible: should be "boe,nv101wxmn51"
+
+  This binding is compatible with the simple-panel binding, which is specified
+  in simple-panel.txt in this directory.

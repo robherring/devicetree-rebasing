@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/xen.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Xen hypervisor device tree bindings
+
+maintainers:
+  - Stefano Stabellini <stefano.stabellini@eu.citrix.com>
+description: |
+  Xen ARM virtual platforms shall have a top-level "hypervisor" node with
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Xen hypervisor device tree bindings
+
+  Xen ARM virtual platforms shall have a top-level "hypervisor" node with
+  the following properties:
+
+  - compatible:
+  	compatible = "xen,xen-<version>", "xen,xen";
+    where <version> is the version of the Xen ABI of the platform.
+
+  - reg: specifies the base physical address and size of a region in
+    memory where the grant table should be mapped to, using an
+    HYPERVISOR_memory_op hypercall. The memory region is large enough to map
+    the whole grant table (it is larger or equal to gnttab_max_grant_frames()).
+    This property is unnecessary when booting Dom0 using ACPI.
+
+  - interrupts: the interrupt used by Xen to inject event notifications.
+    A GIC node is also required.
+    This property is unnecessary when booting Dom0 using ACPI.
+
+  To support UEFI on Xen ARM virtual platforms, Xen populates the FDT "uefi" node
+  under /hypervisor with following parameters:
+
+  ________________________________________________________________________________
+  Name                      | Size   | Description
+  ================================================================================
+  xen,uefi-system-table     | 64-bit | Guest physical address of the UEFI System
+  			  |	   | Table.
+  --------------------------------------------------------------------------------
+  xen,uefi-mmap-start       | 64-bit | Guest physical address of the UEFI memory
+  			  |	   | map.
+  --------------------------------------------------------------------------------
+  xen,uefi-mmap-size        | 32-bit | Size in bytes of the UEFI memory map
+                            |        | pointed to in previous entry.
+  --------------------------------------------------------------------------------
+  xen,uefi-mmap-desc-size   | 32-bit | Size in bytes of each entry in the UEFI
+                            |        | memory map.
+  --------------------------------------------------------------------------------
+  xen,uefi-mmap-desc-ver    | 32-bit | Version of the mmap descriptor format.
+  --------------------------------------------------------------------------------
+
+...

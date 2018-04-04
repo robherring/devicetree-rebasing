@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/fsl/cpm_qe/uqe_serial.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Serial
+
+maintainers:
+  - Zhao Qiang <qiang.zhao@nxp.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    ucc_serial: ucc@2200 {
+      compatible = "fsl,t1040-ucc-uart";
+      port-number = <0>;
+      rx-clock-name = "brg2";
+      tx-clock-name = "brg2";
+    };
+historical: |+
+  * Serial
+
+  Required Properties:
+  compatible : must be "fsl,<chip>-ucc-uart". For t1040, must be
+  "fsl,t1040-ucc-uart".
+  port-number : port number of UCC-UART
+  tx/rx-clock-name : should be "brg1"-"brg16" for internal clock source,
+  		   should be "clk1"-"clk28" for external clock source.
+
+...

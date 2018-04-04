@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,ethsys.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek ethsys controller
+
+maintainers:
+  - James Liao <jamesjj.liao@mediatek.com>
+description: |+
+  The Mediatek ethsys controller provides various clocks to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek ethsys controller
+  ============================
+
+  The Mediatek ethsys controller provides various clocks to the system.
+
+  Required Properties:
+
+  - compatible: Should be:
+  	- "mediatek,mt2701-ethsys", "syscon"
+  	- "mediatek,mt7622-ethsys", "syscon"
+  - #clock-cells: Must be 1
+
+  The ethsys controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

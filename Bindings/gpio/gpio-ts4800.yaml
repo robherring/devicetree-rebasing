@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-ts4800.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TS-4800 FPGA's GPIO controller bindings
+
+maintainers:
+  - Julien Grossholtz <julien.grossholtz@savoirfairelinux.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * TS-4800 FPGA's GPIO controller bindings
+
+  Required properties:
+  - compatible: Must be "technologic,ts4800-gpio".
+  - #gpio-cells: Should be two. The first cell is the pin number.
+  - reg: Physical base address of the controller and length
+         of memory mapped region.
+
+  Optional property:
+  - ngpios: See "gpio.txt"
+
+...

@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/hisilicon/hi3519-sysctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Hisilicon Hi3519 System Controller Block
+
+maintainers:
+  - Jiancheng Xue <xuejiancheng@huawei.com>
+description: |+
+  This bindings use the following binding:
+  Documentation/devicetree/bindings/mfd/syscon.txt
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Hisilicon Hi3519 System Controller Block
+
+  This bindings use the following binding:
+  Documentation/devicetree/bindings/mfd/syscon.txt
+
+  Required properties:
+  - compatible: "hisilicon,hi3519-sysctrl".
+  - reg: the register region of this block
+
+...

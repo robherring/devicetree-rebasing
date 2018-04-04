@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/snps,dw-apb-ssi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Synopsys DesignWare AMBA 2.0 Synchronous Serial Interface.
+
+maintainers:
+  - Steffen Trumtrar <s.trumtrar@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    spi@fff00000 {
+      compatible = "snps,dw-apb-ssi";
+      reg = <0xfff00000 0x1000>;
+      interrupts = <0 154 4>;
+      #address-cells = <1>;
+      #size-cells = <0>;
+      num-cs = <2>;
+      cs-gpios = <&gpio0 13 0>,
+           <&gpio0 14 0>;
+    };
+historical: |+
+  Synopsys DesignWare AMBA 2.0 Synchronous Serial Interface.
+
+  Required properties:
+  - compatible : "snps,dw-apb-ssi"
+  - reg : The register base for the controller.
+  - interrupts : One interrupt, used by the controller.
+  - #address-cells : <1>, as required by generic SPI binding.
+  - #size-cells : <0>, also as required by generic SPI binding.
+
+  Optional properties:
+  - cs-gpios : Specifies the gpio pis to be used for chipselects.
+  - num-cs : The number of chipselects. If omitted, this will default to 4.
+  - reg-io-width : The I/O register width (in bytes) implemented by this
+    device.  Supported values are 2 or 4 (the default).
+
+  Child nodes as per the generic SPI binding.
+
+...

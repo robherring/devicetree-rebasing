@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/versatile.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM Versatile Platform Baseboard PCI interface
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |+
+  PCI host controller found on the ARM Versatile PB board's FPGA.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * ARM Versatile Platform Baseboard PCI interface
+
+  PCI host controller found on the ARM Versatile PB board's FPGA.
+
+  Required properties:
+  - compatible: should contain "arm,versatile-pci" to identify the Versatile PCI
+    controller.
+  - reg: base addresses and lengths of the PCI controller. There must be 3
+    entries:
+  	- Versatile-specific registers
+  	- Self Config space
+  	- Config space
+  - #address-cells: set to <3>
+  - #size-cells: set to <2>
+  - device_type: set to "pci"
+  - bus-range: set to <0 0xff>
+  - ranges: ranges for the PCI memory and I/O regions
+  - #interrupt-cells: set to <1>
+  - interrupt-map-mask and interrupt-map: standard PCI properties to define
+  	the mapping of the PCI interface to interrupt numbers.
+
+...

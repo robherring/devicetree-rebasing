@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/primecell.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM Primecell Peripherals
+
+maintainers:
+  - Grant Likely <grant.likely@secretlab.ca>
+description: |+
+  ARM, Ltd. Primecell peripherals have a standard id register that can be used to
+  identify the peripheral type, vendor, and revision. This value can be used for
+  driver matching.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * ARM Primecell Peripherals
+
+  ARM, Ltd. Primecell peripherals have a standard id register that can be used to
+  identify the peripheral type, vendor, and revision. This value can be used for
+  driver matching.
+
+  Required properties:
+
+  - compatible : should be a specific name for the peripheral and
+                 "arm,primecell".  The specific name will match the ARM
+                 engineering name for the logic block in the form: "arm,pl???"
+
+  Optional properties:
+
+  - arm,primecell-periphid : Value to override the h/w value with
+  - clocks : From common clock binding. First clock is phandle to clock for apb
+  	pclk. Additional clocks are optional and specific to those peripherals.
+  - clock-names : From common clock binding. Shall be "apb_pclk" for first clock.
+  - dmas : From common DMA binding. If present, refers to one or more dma channels.
+  - dma-names : From common DMA binding, needs to match the 'dmas' property.
+                Devices with exactly one receive and transmit channel shall name
+                these "rx" and "tx", respectively.
+  - pinctrl-<n> : Pinctrl states as described in bindings/pinctrl/pinctrl-bindings.txt
+  - pinctrl-names : Names corresponding to the numbered pinctrl states
+  - interrupts : one or more interrupt specifiers
+  - interrupt-names : names corresponding to the interrupts properties
+
+...

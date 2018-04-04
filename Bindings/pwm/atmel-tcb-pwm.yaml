@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/atmel-tcb-pwm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel TCB PWM controller
+
+maintainers:
+  - Boris BREZILLON <linux-arm@overkiz.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Atmel TCB PWM controller
+
+  Required properties:
+  - compatible: should be "atmel,tcb-pwm"
+  - #pwm-cells: should be 3. See pwm.txt in this directory for a description of
+    the cells format. The only third cell flag supported by this binding is
+    PWM_POLARITY_INVERTED.
+  - tc-block: The Timer Counter block to use as a PWM chip.
+
+...

@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/brcm,mdio-mux-bus-pci.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom NS2 PCIe PHY binding document
+
+maintainers:
+  - Pramod Kumar <pramod.kumar@broadcom.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Broadcom NS2 PCIe PHY binding document
+
+  Required bus properties:
+  - reg: MDIO Bus number for the MDIO interface
+  - #address-cells: must be 1
+  - #size-cells: must be 0
+
+  Required PHY properties:
+  - compatible: should be "brcm,ns2-pcie-phy"
+  - reg: MDIO Phy ID for the MDIO interface
+  - #phy-cells: must be 0
+
+  This is a child bus node of "brcm,mdio-mux-iproc" node.
+
+...

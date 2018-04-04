@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/sirfsoc_wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SiRFSoC Timer and Watchdog Timer(WDT) Controller
+
+maintainers:
+  - Xianglong Du <Xianglong.Du@csr.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  SiRFSoC Timer and Watchdog Timer(WDT) Controller
+
+  Required properties:
+  - compatible: "sirf,prima2-tick"
+  - reg: Address range of tick timer/WDT register set
+  - interrupts: interrupt number to the cpu
+
+...

@@ -1,0 +1,67 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/fujitsu,mb86s70-crg11.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Fujitsu CRG11 clock driver bindings
+
+maintainers:
+  - Jassi Brar <jaswinder.singh@linaro.org>
+description: |
+  Required properties :
+  - compatible : Shall contain "fujitsu,mb86s70-crg11"
+  - #clock-cells : Shall be 3 {cntrlr domain port}
+
+  The consumer specifies the desired clock pointing to its phandle.
+
+  Example:
+
+  	clock: crg11 {
+  		compatible = "fujitsu,mb86s70-crg11";
+  		#clock-cells = <3>;
+  	};
+
+  	mhu: mhu0@2b1f0000 {
+  		#mbox-cells = <1>;
+  		compatible = "arm,mhu";
+  		reg = <0 0x2B1F0000 0x1000>;
+  		interrupts = <0 36 4>, /* LP Non-Sec */
+  			     <0 35 4>, /* HP Non-Sec */
+  			     <0 37 4>; /* Secure */
+  		clocks = <&clock 0 2 1>; /* Cntrlr:0 Domain:2 Port:1 */
+  		clock-names = "clk";
+  	};
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    clock: crg11 {
+      compatible = "fujitsu,mb86s70-crg11";
+      #clock-cells = <3>;
+    };
+
+    mhu: mhu0@2b1f0000 {
+      #mbox-cells = <1>;
+      compatible = "arm,mhu";
+      reg = <0 0x2B1F0000 0x1000>;
+      interrupts = <0 36 4>, /* LP Non-Sec */
+             <0 35 4>, /* HP Non-Sec */
+             <0 37 4>; /* Secure */
+      clocks = <&clock 0 2 1>; /* Cntrlr:0 Domain:2 Port:1 */
+      clock-names = "clk";
+    };
+historical: |+
+  Fujitsu CRG11 clock driver bindings
+  -----------------------------------
+
+  Required properties :
+  - compatible : Shall contain "fujitsu,mb86s70-crg11"
+  - #clock-cells : Shall be 3 {cntrlr domain port}
+
+  The consumer specifies the desired clock pointing to its phandle.
+
+...

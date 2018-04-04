@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/spear-misc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SPEAr Misc configuration
+
+maintainers:
+  - Pratyush Anand <pratyush.anand@st.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  SPEAr Misc configuration
+  ===========================
+  SPEAr SOCs have some miscellaneous registers which are used to configure
+  few properties of different peripheral controllers.
+
+  misc node required properties:
+
+  - compatible Should be	"st,spear1340-misc", "syscon".
+  - reg: Address range of misc space up to 8K

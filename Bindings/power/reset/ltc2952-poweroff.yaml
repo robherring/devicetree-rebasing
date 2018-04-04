@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/reset/ltc2952-poweroff.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for the LTC2952 PowerPath controller
+
+maintainers:
+  - René Moll <Rene.Moll@xsens.com>
+description: |+
+  This chip is used to externally trigger a system shut down. Once the trigger has
+  been sent, the chip's watchdog has to be reset to gracefully shut down.
+  A full powerdown can be triggered via the kill signal.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for the LTC2952 PowerPath controller
+
+  This chip is used to externally trigger a system shut down. Once the trigger has
+  been sent, the chip's watchdog has to be reset to gracefully shut down.
+  A full powerdown can be triggered via the kill signal.
+
+  Required properties:
+
+  - compatible:		Must contain: "lltc,ltc2952"
+  - watchdog-gpios:	phandle + gpio-specifier for the GPIO connected to the
+  			chip's watchdog line
+  - kill-gpios:		phandle + gpio-specifier for the GPIO connected to the
+  			chip's kill line
+
+  Optional properties:
+  - trigger-gpios:	phandle + gpio-specifier for the GPIO connected to the
+  			chip's trigger line. If this property is not set, the
+  			trigger function is ignored and the chip is kept alive
+  			until an explicit kill signal is received
+
+...

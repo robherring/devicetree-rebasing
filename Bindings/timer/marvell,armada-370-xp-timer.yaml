@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/marvell,armada-370-xp-timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Armada 370 and Armada XP Timers
+
+maintainers:
+  - Ezequiel Garcia <ezequiel.garcia@free-electrons.com>
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Marvell Armada 370 and Armada XP Timers
+  ---------------------------------------
+
+  Required properties:
+  - compatible: Should be one of the following
+                "marvell,armada-370-timer",
+  	      "marvell,armada-375-timer",
+  	      "marvell,armada-xp-timer".
+  - interrupts: Should contain the list of Global Timer interrupts and
+    then local timer interrupts
+  - reg: Should contain location and length for timers register. First
+    pair for the Global Timer registers, second pair for the
+    local/private timers.
+
+  Clocks required for compatible = "marvell,armada-370-timer":
+  - clocks : Must contain a single entry describing the clock input
+
+  Clocks required for compatibles = "marvell,armada-xp-timer",
+  				  "marvell,armada-375-timer":
+  - clocks : Must contain an entry for each entry in clock-names.
+  - clock-names : Must include the following entries:
+    "nbclk" (L2/coherency fabric clock),
+    "fixed" (Reference 25 MHz fixed-clock).
+
+...

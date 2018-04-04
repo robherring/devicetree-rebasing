@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/bridge/thine,thc63lvdm83d.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: THine Electronics THC63LVDM83D LVDS serializer
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |+
+  The THC63LVDM83D is an LVDS serializer designed to support pixel data
+  transmission between a host and a flat panel.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  THine Electronics THC63LVDM83D LVDS serializer
+  ----------------------------------------------
+
+  The THC63LVDM83D is an LVDS serializer designed to support pixel data
+  transmission between a host and a flat panel.
+
+  Required properties:
+
+  - compatible: Should be "thine,thc63lvdm83d"
+
+  Optional properties:
+
+  - pwdn-gpios: Power down control GPIO
+
+  Required nodes:
+
+  The THC63LVDM83D has two video ports. Their connections are modeled using the
+  OFgraph bindings specified in Documentation/devicetree/bindings/graph.txt.
+
+  - Video port 0 for CMOS/TTL input
+  - Video port 1 for LVDS output
+
+
+...

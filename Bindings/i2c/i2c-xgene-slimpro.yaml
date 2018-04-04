@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-xgene-slimpro.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: APM X-Gene SLIMpro Mailbox I2C Driver
+
+maintainers:
+  - Feng Kan <fkan@apm.com>
+description: |
+  An I2C controller accessed over the "SLIMpro" mailbox.
+
+  Required properties :
+
+   - compatible : should be "apm,xgene-slimpro-i2c"
+   - mboxes : use the label reference for the mailbox as the first parameter.
+  	    The second parameter is the channel number.
+
+  Example :
+  	i2cslimpro {
+  		compatible = "apm,xgene-slimpro-i2c";
+  		mboxes = <&mailbox 0>;
+  	};
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    i2cslimpro {
+      compatible = "apm,xgene-slimpro-i2c";
+      mboxes = <&mailbox 0>;
+    };
+historical: |+
+  APM X-Gene SLIMpro Mailbox I2C Driver
+
+  An I2C controller accessed over the "SLIMpro" mailbox.
+
+  Required properties :
+
+   - compatible : should be "apm,xgene-slimpro-i2c"
+   - mboxes : use the label reference for the mailbox as the first parameter.
+  	    The second parameter is the channel number.
+
+...

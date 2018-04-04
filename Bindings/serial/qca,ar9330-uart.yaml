@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/qca,ar9330-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm Atheros AR9330 High-Speed UART
+
+maintainers:
+  - Gabor Juhos <juhosg@openwrt.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    aliases {
+      serial0 = &uart0;
+    };
+
+    uart0: uart@18020000 {
+      compatible = "qca,ar9330-uart";
+      reg = <0x18020000 0x14>;
+
+      interrupt-parent = <&intc>;
+      interrupts = <3>;
+    };
+historical: |+
+  * Qualcomm Atheros AR9330 High-Speed UART
+
+  Required properties:
+
+  - compatible: Must be "qca,ar9330-uart"
+
+  - reg: Specifies the physical base address of the controller and
+    the length of the memory mapped region.
+
+  - interrupt-parent: The phandle for the interrupt controller that
+    services interrupts for this device.
+
+  - interrupts: Specifies the interrupt source of the parent interrupt
+    controller. The format of the interrupt specifier depends on the
+    parent interrupt controller.
+
+  Additional requirements:
+
+    Each UART port must have an alias correctly numbered in "aliases"
+    node.
+
+...

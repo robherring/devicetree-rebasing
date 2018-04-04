@@ -1,0 +1,76 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/qcom,spmi-pmic.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: '          Qualcomm SPMI PMICs multi-function device bindings'
+
+maintainers:
+  - Stanimir Varbanov <svarbanov@mm-sol.com>
+description: |+
+  The Qualcomm SPMI series presently includes PM8941, PM8841 and PMA8084
+  PMICs.  These PMICs use a QPNP scheme through SPMI interface.
+  QPNP is effectively a partitioning scheme for dividing the SPMI extended
+  register space up into logical pieces, and set of fixed register
+  locations/definitions within these regions, with some of these regions
+  specifically used for interrupt handling.
+
+  The QPNP PMICs are used with the Qualcomm Snapdragon series SoCs, and are
+  interfaced to the chip via the SPMI (System Power Management Interface) bus.
+  Support for multiple independent functions are implemented by splitting the
+  16-bit SPMI slave address space into 256 smaller fixed-size regions, 256 bytes
+  each. A function can consume one or more of these fixed-size register regions.
+
+             
+
+properties:
+  compatible: {}
+historical: |4
+            Qualcomm SPMI PMICs multi-function device bindings
+
+  The Qualcomm SPMI series presently includes PM8941, PM8841 and PMA8084
+  PMICs.  These PMICs use a QPNP scheme through SPMI interface.
+  QPNP is effectively a partitioning scheme for dividing the SPMI extended
+  register space up into logical pieces, and set of fixed register
+  locations/definitions within these regions, with some of these regions
+  specifically used for interrupt handling.
+
+  The QPNP PMICs are used with the Qualcomm Snapdragon series SoCs, and are
+  interfaced to the chip via the SPMI (System Power Management Interface) bus.
+  Support for multiple independent functions are implemented by splitting the
+  16-bit SPMI slave address space into 256 smaller fixed-size regions, 256 bytes
+  each. A function can consume one or more of these fixed-size register regions.
+
+  Required properties:
+  - compatible:      Should contain one of:
+                     "qcom,pm8941",
+                     "qcom,pm8841",
+                     "qcom,pma8084",
+                     "qcom,pm8019",
+                     "qcom,pm8226",
+                     "qcom,pm8110",
+                     "qcom,pma8084",
+                     "qcom,pmi8962",
+                     "qcom,pmd9635",
+                     "qcom,pm8994",
+                     "qcom,pmi8994",
+                     "qcom,pm8916",
+                     "qcom,pm8004",
+                     "qcom,pm8909",
+                     or generalized "qcom,spmi-pmic".
+  - reg:             Specifies the SPMI USID slave address for this device.
+                     For more information see:
+                     Documentation/devicetree/bindings/spmi/spmi.txt
+
+  Required properties for peripheral child nodes:
+  - compatible:      Should contain "qcom,xxx", where "xxx" is a peripheral name.
+
+  Optional properties for peripheral child nodes:
+  - interrupts:      Interrupts are specified as a 4-tuple. For more information
+                     see:
+                     Documentation/devicetree/bindings/spmi/qcom,spmi-pmic-arb.txt
+  - interrupt-names: Corresponding interrupt name to the interrupts property
+
+  Each child node of SPMI slave id represents a function of the PMIC. In the

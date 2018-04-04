@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/dac/vf610-dac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale vf610 Digital to Analog Converter bindings
+
+maintainers:
+  - Sanchayan Maity <maitysanchayan@gmail.com>
+description: |+
+  The devicetree bindings are for the new DAC driver written for
+  vf610 SoCs from Freescale.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale vf610 Digital to Analog Converter bindings
+
+  The devicetree bindings are for the new DAC driver written for
+  vf610 SoCs from Freescale.
+
+  Required properties:
+  - compatible: Should contain "fsl,vf610-dac"
+  - reg: Offset and length of the register set for the device
+  - interrupts: Should contain the interrupt for the device
+  - clocks: The clock is needed by the DAC controller
+  - clock-names: Must contain "dac" matching entry in the clocks property.
+
+...

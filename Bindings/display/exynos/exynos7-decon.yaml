@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/exynos/exynos7-decon.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for Samsung Exynos7 SoC display controller (DECON)
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |+
+  DECON (Display and Enhancement Controller) is the Display Controller for the
+  Exynos7 series of SoCs which transfers the image data from a video memory
+  buffer to an external LCD interface.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Device-Tree bindings for Samsung Exynos7 SoC display controller (DECON)
+
+  DECON (Display and Enhancement Controller) is the Display Controller for the
+  Exynos7 series of SoCs which transfers the image data from a video memory
+  buffer to an external LCD interface.
+
+  Required properties:
+  - compatible: value should be "samsung,exynos7-decon";
+
+  - reg: physical base address and length of the DECON registers set.
+
+  - interrupt-parent: should be the phandle of the decon controller's
+  		parent interrupt controller.
+
+  - interrupts: should contain a list of all DECON IP block interrupts in the
+  		 order: FIFO Level, VSYNC, LCD_SYSTEM. The interrupt specifier
+  		 format depends on the interrupt controller used.
+
+  - interrupt-names: should contain the interrupt names: "fifo", "vsync",
+  	"lcd_sys", in the same order as they were listed in the interrupts
+          property.
+
+  - pinctrl-0: pin control group to be used for this controller.
+
+  - pinctrl-names: must contain a "default" entry.
+
+  - clocks: must include clock specifiers corresponding to entries in the
+           clock-names property.
+
+  - clock-names: list of clock names sorted in the same order as the clocks
+                 property. Must contain "pclk_decon0", "aclk_decon0",
+  	       "decon0_eclk", "decon0_vclk".
+  - i80-if-timings: timing configuration for lcd i80 interface support.
+
+  Optional Properties:
+  - power-domains: a phandle to DECON power domain node.
+  - display-timings: timing settings for DECON, as described in document [1].
+  		Can be used in case timings cannot be provided otherwise
+  		or to override timings provided by the panel.
+
+  [1]: Documentation/devicetree/bindings/display/panel/display-timing.txt
+
+...

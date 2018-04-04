@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/renesas-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas Watchdog Timer (WDT) Controller
+
+maintainers:
+  - Wolfram Sang <wsa+renesas@sang-engineering.com>
+  - Geert Uytterhoeven <geert+renesas@glider.be>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    wdt0: watchdog@e6020000 {
+      compatible = "renesas,r8a7795-wdt", "renesas,rcar-gen3-wdt";
+      reg = <0 0xe6020000 0 0x0c>;
+      clocks = <&cpg CPG_MOD 402>;
+      power-domains = <&cpg>;
+      timeout-sec = <60>;
+    };
+historical: |+
+  Renesas Watchdog Timer (WDT) Controller
+
+  Required properties:
+  - compatible : Should be "renesas,<soctype>-wdt", and
+  	       "renesas,rcar-gen3-wdt" or "renesas,rza-wdt" as fallback.
+  	       Examples with soctypes are:
+  	         - "renesas,r7s72100-wdt" (RZ/A1)
+  	         - "renesas,r8a7795-wdt" (R-Car H3)
+  	         - "renesas,r8a7796-wdt" (R-Car M3-W)
+  	         - "renesas,r8a77970-wdt" (R-Car V3M)
+  	         - "renesas,r8a77995-wdt" (R-Car D3)
+
+    When compatible with the generic version, nodes must list the SoC-specific
+    version corresponding to the platform first, followed by the generic
+    version.
+
+  - reg : Should contain WDT registers location and length
+  - clocks : the clock feeding the watchdog timer.
+
+  Optional properties:
+  - timeout-sec : Contains the watchdog timeout in seconds
+  - power-domains : the power domain the WDT belongs to
+  - interrupts: Some WDTs have an interrupt when used in interval timer mode
+
+...

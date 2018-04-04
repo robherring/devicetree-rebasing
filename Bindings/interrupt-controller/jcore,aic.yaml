@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/jcore,aic.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: J-Core Advanced Interrupt Controller
+
+maintainers:
+  - Rich Felker <dalias@libc.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  J-Core Advanced Interrupt Controller
+
+  Required properties:
+
+  - compatible: Should be "jcore,aic1" for the (obsolete) first-generation aic
+    with 8 interrupt lines with programmable priorities, or "jcore,aic2" for
+    the "aic2" core with 64 interrupts.
+
+  - reg: Memory region(s) for configuration. For SMP, there should be one
+    region per cpu, indexed by the sequential, zero-based hardware cpu
+    number.
+
+  - interrupt-controller: Identifies the node as an interrupt controller
+
+  - #interrupt-cells: Specifies the number of cells needed to encode an
+    interrupt source. The value shall be 1.
+
+
+...

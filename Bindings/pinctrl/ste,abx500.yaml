@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/ste,abx500.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST Ericsson abx500 pinmux controller
+
+maintainers:
+  - Patrice Chotard <patrice.chotard@st.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ST Ericsson abx500 pinmux controller
+
+  Required properties:
+  - compatible: "stericsson,ab8500-gpio",  "stericsson,ab8540-gpio",
+  	      "stericsson,ab8505-gpio", "stericsson,ab9540-gpio",
+
+  Please refer to pinctrl-bindings.txt in this directory for details of the
+  common pinctrl bindings used by client devices, including the meaning of the
+  phrase "pin configuration node".
+
+  ST Ericsson's pin configuration nodes use the generic pin multiplexing
+  and pin configuration bindings, see pinctrl-bindings.txt
+
+...

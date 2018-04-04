@@ -1,0 +1,118 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/misc/fsl,qoriq-mc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale Management Complex
+
+maintainers:
+  - Bhupesh Sharma <bhupesh.sharma@freescale.com>
+description: |+
+  The Freescale Management Complex (fsl-mc) is a hardware resource
+  manager that manages specialized hardware objects used in
+  network-oriented packet processing applications. After the fsl-mc
+  block is enabled, pools of hardware resources are available, such as
+  queues, buffer pools, I/O interfaces. These resources are building
+  blocks that can be used to create functional hardware objects/devices
+  such as network interfaces, crypto accelerator instances, L2 switches,
+  etc.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale Management Complex
+
+  The Freescale Management Complex (fsl-mc) is a hardware resource
+  manager that manages specialized hardware objects used in
+  network-oriented packet processing applications. After the fsl-mc
+  block is enabled, pools of hardware resources are available, such as
+  queues, buffer pools, I/O interfaces. These resources are building
+  blocks that can be used to create functional hardware objects/devices
+  such as network interfaces, crypto accelerator instances, L2 switches,
+  etc.
+
+  Required properties:
+
+      - compatible
+          Value type: <string>
+          Definition: Must be "fsl,qoriq-mc".  A Freescale Management Complex
+                      compatible with this binding must have Block Revision
+                      Registers BRR1 and BRR2 at offset 0x0BF8 and 0x0BFC in
+                      the MC control register region.
+
+      - reg
+          Value type: <prop-encoded-array>
+          Definition: A standard property.  Specifies one or two regions
+                      defining the MC's registers:
+
+                         -the first region is the command portal for the
+                          this machine and must always be present
+
+                         -the second region is the MC control registers. This
+                          region may not be present in some scenarios, such
+                          as in the device tree presented to a virtual machine.
+
+      - msi-parent
+          Value type: <phandle>
+          Definition: Must be present and point to the MSI controller node
+                      handling message interrupts for the MC.
+
+      - ranges
+          Value type: <prop-encoded-array>
+          Definition: A standard property.  Defines the mapping between the child
+                      MC address space and the parent system address space.
+
+                      The MC address space is defined by 3 components:
+                         <region type> <offset hi> <offset lo>
+
+                      Valid values for region type are
+                         0x0 - MC portals
+                         0x1 - QBMAN portals
+
+      - #address-cells
+          Value type: <u32>
+          Definition: Must be 3.  (see definition in 'ranges' property)
+
+      - #size-cells
+          Value type: <u32>
+          Definition: Must be 1.
+
+  Sub-nodes:
+
+          The fsl-mc node may optionally have dpmac sub-nodes that describe
+          the relationship between the Ethernet MACs which belong to the MC
+          and the Ethernet PHYs on the system board.
+
+          The dpmac nodes must be under a node named "dpmacs" which contains
+          the following properties:
+
+              - #address-cells
+                Value type: <u32>
+                Definition: Must be present if dpmac sub-nodes are defined and must
+                            have a value of 1.
+
+              - #size-cells
+                Value type: <u32>
+                Definition: Must be present if dpmac sub-nodes are defined and must
+                            have a value of 0.
+
+          These nodes must have the following properties:
+
+              - compatible
+                Value type: <string>
+                Definition: Must be "fsl,qoriq-mc-dpmac".
+
+              - reg
+                Value type: <prop-encoded-array>
+                Definition: Specifies the id of the dpmac.
+
+              - phy-handle
+                Value type: <phandle>
+                Definition: Specifies the phandle to the PHY device node associated
+                            with the this dpmac.
+
+...

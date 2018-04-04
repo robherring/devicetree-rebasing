@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/marvell/armada-8kp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Armada 8KPlus Platforms Device Tree Bindings
+
+maintainers:
+  - Hanna Hawa <hannah@marvell.com>
+description: |
+  Boards using a SoC of the Marvell Armada 8KP families must carry
+  the following root node property:
+
+   - compatible, with one of the following values:
+
+     - "marvell,armada-8080", "marvell,armada-ap810-octa", "marvell,armada-ap810"
+       when the SoC being used is the Armada 8080
+
+  Example:
+
+  compatible = "marvell,armada-8080-db", "marvell,armada-8080",
+  	     "marvell,armada-ap810-octa", "marvell,armada-ap810"
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Marvell Armada 8KPlus Platforms Device Tree Bindings
+  ----------------------------------------------------
+
+  Boards using a SoC of the Marvell Armada 8KP families must carry
+  the following root node property:
+
+   - compatible, with one of the following values:
+
+     - "marvell,armada-8080", "marvell,armada-ap810-octa", "marvell,armada-ap810"
+       when the SoC being used is the Armada 8080
+
+...

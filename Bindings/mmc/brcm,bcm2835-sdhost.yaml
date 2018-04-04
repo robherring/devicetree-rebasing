@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/brcm,bcm2835-sdhost.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom BCM2835 SDHOST controller
+
+maintainers:
+  - Eric Anholt <eric@anholt.net>
+description: |+
+  This file documents differences between the core properties described
+  by mmc.txt and the properties that represent the BCM2835 controller.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom BCM2835 SDHOST controller
+
+  This file documents differences between the core properties described
+  by mmc.txt and the properties that represent the BCM2835 controller.
+
+  Required properties:
+  - compatible: Should be "brcm,bcm2835-sdhost".
+  - clocks: The clock feeding the SDHOST controller.
+
+  Optional properties:
+  - dmas: DMA channel for read and write.
+            See Documentation/devicetree/bindings/dma/dma.txt for details
+
+...

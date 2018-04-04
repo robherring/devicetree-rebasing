@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/samsung-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung's Watchdog Timer Controller
+
+maintainers:
+  - Thomas Abraham <thomas.abraham@linaro.org>
+description: |+
+  The Samsung's Watchdog controller is used for resuming system operation
+  after a preset amount of time during which the WDT reset event has not
+  occurred.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Samsung's Watchdog Timer Controller
+
+  The Samsung's Watchdog controller is used for resuming system operation
+  after a preset amount of time during which the WDT reset event has not
+  occurred.
+
+  Required properties:
+  - compatible : should be one among the following
+  	- "samsung,s3c2410-wdt" for S3C2410
+  	- "samsung,s3c6410-wdt" for S3C6410, S5PV210 and Exynos4
+  	- "samsung,exynos5250-wdt" for Exynos5250
+  	- "samsung,exynos5420-wdt" for Exynos5420
+  	- "samsung,exynos7-wdt" for Exynos7
+
+  - reg : base physical address of the controller and length of memory mapped
+  	region.
+  - interrupts : interrupt number to the cpu.
+  - samsung,syscon-phandle : reference to syscon node (This property required only
+  	in case of compatible being "samsung,exynos5250-wdt" or "samsung,exynos5420-wdt".
+  	In case of Exynos5250 and 5420 this property points to syscon node holding the PMU
+  	base address)
+
+  Optional properties:
+  - timeout-sec : contains the watchdog timeout in seconds.
+
+...

@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/stmp3xxx-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMP3xxx/i.MX28 Time Clock controller
+
+maintainers:
+  - Marek Vasut <marex@denx.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * STMP3xxx/i.MX28 Time Clock controller
+
+  Required properties:
+  - compatible: should be one of the following.
+      * "fsl,stmp3xxx-rtc"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: rtc alarm interrupt
+
+  Optional properties:
+  - stmp,crystal-freq: override crystal frequency as determined from fuse bits.
+    Only <32000> and <32768> are possible for the hardware.  Use <0> for
+    "no crystal".
+
+...

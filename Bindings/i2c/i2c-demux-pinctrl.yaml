@@ -1,0 +1,70 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-demux-pinctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Pinctrl-based I2C Bus DeMux
+
+maintainers:
+  - Wolfram Sang <wsa+renesas@sang-engineering.com>
+description: |+
+  This binding describes an I2C bus demultiplexer that uses pin multiplexing to
+  route the I2C signals, and represents the pin multiplexing configuration using
+  the pinctrl device tree bindings. This may be used to select one I2C IP core at
+  runtime which may have a better feature set for a given task than another I2C
+  IP core on the SoC. The most simple example is to fall back to GPIO bitbanging
+  if your current runtime configuration hits an errata of the internal IP core.
+
+      +-------------------------------+
+      | SoC                           |
+      |                               |   +-----+  +-----+
+      |   +------------+              |   | dev |  | dev |
+      |   |I2C IP Core1|--\           |   +-----+  +-----+
+      |   +------------+   \-------+  |      |        |
+      |                    |Pinctrl|--|------+--------+
+      |   +------------+   +-------+  |
+      |   |I2C IP Core2|--/           |
+      |   +------------+              |
+      |                               |
+      +-------------------------------+
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Pinctrl-based I2C Bus DeMux
+
+  This binding describes an I2C bus demultiplexer that uses pin multiplexing to
+  route the I2C signals, and represents the pin multiplexing configuration using
+  the pinctrl device tree bindings. This may be used to select one I2C IP core at
+  runtime which may have a better feature set for a given task than another I2C
+  IP core on the SoC. The most simple example is to fall back to GPIO bitbanging
+  if your current runtime configuration hits an errata of the internal IP core.
+
+      +-------------------------------+
+      | SoC                           |
+      |                               |   +-----+  +-----+
+      |   +------------+              |   | dev |  | dev |
+      |   |I2C IP Core1|--\           |   +-----+  +-----+
+      |   +------------+   \-------+  |      |        |
+      |                    |Pinctrl|--|------+--------+
+      |   +------------+   +-------+  |
+      |   |I2C IP Core2|--/           |
+      |   +------------+              |
+      |                               |
+      +-------------------------------+
+
+  Required properties:
+  - compatible: "i2c-demux-pinctrl"
+  - i2c-parent: List of phandles of I2C masters available for selection. The first
+  	      one will be used as default.
+  - i2c-bus-name: The name of this bus. Also needed as pinctrl-name for the I2C
+  		parents.
+
+  Furthermore, I2C mux properties and child nodes. See i2c-mux.txt in this
+  directory.
+
+...

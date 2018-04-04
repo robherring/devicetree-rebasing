@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/tas2552.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments - tas2552 Codec module
+
+maintainers:
+  - Fabio Estevam <fabio.estevam@nxp.com>
+  - Dan Murphy <dmurphy@ti.com>
+description: |+
+  The tas2552 serial control bus communicates through I2C protocols
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments - tas2552 Codec module
+
+  The tas2552 serial control bus communicates through I2C protocols
+
+  Required properties:
+  	- compatible - One of:
+  		"ti,tas2552" - TAS2552
+  	- reg -  I2C slave address: it can be 0x40 if ADDR pin is 0
+  				    or 0x41 if ADDR pin is 1.
+  	- supply-*: Required supply regulators are:
+  		"vbat"		battery voltage
+  		"iovdd"		I/O Voltage
+  		"avdd"		Analog DAC Voltage
+
+  Optional properties:
+  	- enable-gpio - gpio pin to enable/disable the device
+
+  tas2552 can receive its reference clock via MCLK, BCLK, IVCLKIN pin or use the
+  internal 1.8MHz. This CLKIN is used by the PLL. In addition to PLL, the PDM
+  reference clock is also selectable: PLL, IVCLKIN, BCLK or MCLK.
+  For system integration the dt-bindings/sound/tas2552.h header file provides
+  defined values to select and configure the PLL and PDM reference clocks.
+
+...

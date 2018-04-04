@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/palmas.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: palmas device tree bindings
+
+maintainers:
+  - J Keerthy <j-keerthy@ti.com>
+description: |+
+  The TI palmas family current members :-
+  twl6035 (palmas)
+  twl6037 (palmas)
+  tps65913 (palmas)
+  tps65914 (palmas)
+  tps659038
+  tps65917
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * palmas device tree bindings
+
+  The TI palmas family current members :-
+  twl6035 (palmas)
+  twl6037 (palmas)
+  tps65913 (palmas)
+  tps65914 (palmas)
+  tps659038
+  tps65917
+
+  Required properties:
+  - compatible : Should be from the list
+    ti,twl6035
+    ti,twl6036
+    ti,twl6037
+    ti,tps65913
+    ti,tps65914
+    ti,tps80036
+    ti,tps659038
+    ti,tps65917
+  and also the generic series names
+    ti,palmas
+  - interrupt-controller : palmas has its own internal IRQs
+  - #interrupt-cells : should be set to 2 for IRQ number and flags
+    The first cell is the IRQ number.
+    The second cell is the flags, encoded as the trigger masks from
+    Documentation/devicetree/bindings/interrupt-controller/interrupts.txt
+  - interrupt-parent : The parent interrupt controller.
+
+  Optional properties:
+    ti,mux-padX : set the pad register X (1-2) to the correct muxing for the
+  		hardware, if not set will use muxing in OTP.
+
+...

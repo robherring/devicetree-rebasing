@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/panel-dpi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Generic MIPI DPI Panel
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Generic MIPI DPI Panel
+  ======================
+
+  Required properties:
+  - compatible: "panel-dpi"
+
+  Optional properties:
+  - label: a symbolic name for the panel
+  - enable-gpios: panel enable gpio
+  - reset-gpios: GPIO to control the RESET pin
+  - vcc-supply: phandle of regulator that will be used to enable power to the display
+  - backlight: phandle of the backlight device
+
+  Required nodes:
+  - "panel-timing" containing video timings
+    (Documentation/devicetree/bindings/display/panel/display-timing.txt)
+  - Video port for DPI input
+
+...

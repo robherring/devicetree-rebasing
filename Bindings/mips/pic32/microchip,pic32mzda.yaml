@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mips/pic32/microchip,pic32mzda.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Microchip PIC32MZDA Platforms
+
+maintainers:
+  - Joshua Henderson <joshua.henderson@microchip.com>
+description: |
+  PIC32MZDA Starter Kit
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    cpus {
+      #address-cells = <1>;
+      #size-cells = <0>;
+
+      cpu0: cpu@0 {
+        device_type = "cpu";
+        compatible = "mti,mips14KEc";
+      };
+    };
+historical: |
+  * Microchip PIC32MZDA Platforms
+
+  PIC32MZDA Starter Kit
+  Required root node properties:
+      - compatible = "microchip,pic32mzda-sk", "microchip,pic32mzda"
+
+  CPU nodes:
+  ----------
+  A "cpus" node is required.  Required properties:
+   - #address-cells: Must be 1.
+   - #size-cells: Must be 0.
+  A CPU sub-node is also required.  Required properties:
+   - device_type: Must be "cpu".
+   - compatible: Must be "mti,mips14KEc".

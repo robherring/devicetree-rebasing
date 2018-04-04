@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/wireless/ti,wlcore.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI Wilink 6/7/8 (wl12xx/wl18xx) SDIO devices
+
+maintainers:
+  - Eliad Peller <eliad@wizery.com>
+description: |+
+  This node provides properties for controlling the wilink wireless device. The
+  node is expected to be specified as a child node to the SDIO controller that
+  connects the device to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  TI Wilink 6/7/8 (wl12xx/wl18xx) SDIO devices
+
+  This node provides properties for controlling the wilink wireless device. The
+  node is expected to be specified as a child node to the SDIO controller that
+  connects the device to the system.
+
+  Required properties:
+   - compatible: should be one of the following:
+      * "ti,wl1271"
+      * "ti,wl1273"
+      * "ti,wl1281"
+      * "ti,wl1283"
+      * "ti,wl1285"
+      * "ti,wl1801"
+      * "ti,wl1805"
+      * "ti,wl1807"
+      * "ti,wl1831"
+      * "ti,wl1835"
+      * "ti,wl1837"
+   - interrupts : specifies attributes for the out-of-band interrupt.
+
+  Optional properties:
+   - interrupt-parent : the phandle for the interrupt controller to which the
+  	device interrupts are connected.
+   - ref-clock-frequency : ref clock frequency in Hz
+   - tcxo-clock-frequency : tcxo clock frequency in Hz
+
+  Note: the *-clock-frequency properties assume internal clocks. In case of external
+  clock, new bindings (for parsing the clock nodes) have to be added.
+
+...

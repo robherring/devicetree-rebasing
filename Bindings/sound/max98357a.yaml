@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/max98357a.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim MAX98357A audio DAC
+
+maintainers:
+  - Kenneth Westfield <kwestfie@codeaurora.org>
+description: |+
+  This node models the Maxim MAX98357A DAC.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Maxim MAX98357A audio DAC
+
+  This node models the Maxim MAX98357A DAC.
+
+  Required properties:
+  - compatible   : "maxim,max98357a"
+
+  Optional properties:
+  - sdmode-gpios : GPIO specifier for the chip's SD_MODE pin.
+          If this option is not specified then driver does not manage
+          the pin state (e.g. chip is always on).
+
+...

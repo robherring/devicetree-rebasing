@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/axis.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Axis Communications AB
+
+maintainers:
+  - Lars Persson <lars.persson@axis.com>
+description: |+
+  ARTPEC-6 ARM SoC
+  ================
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    syscon {
+      compatible = "axis,artpec6-syscon", "syscon";
+      reg = <0xf8000000 0x48>;
+    };
+historical: |+
+  Axis Communications AB
+  ARTPEC series SoC Device Tree Bindings
+
+  ARTPEC-6 ARM SoC
+  ================
+
+  Required root node properties:
+  - compatible = "axis,artpec6";
+
+  ARTPEC-6 System Controller
+  --------------------------
+
+  The ARTPEC-6 has a system controller with mixed functions controlling DMA, PCIe
+  and resets.
+
+  Required properties:
+  - compatible: "axis,artpec6-syscon", "syscon"
+  - reg: Address and length of the register bank.
+
+...

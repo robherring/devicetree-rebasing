@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/maxim,ds3231.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim DS3231 Real Time Clock
+
+maintainers:
+  - Akinobu Mita <akinobu.mita@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Maxim DS3231 Real Time Clock
+
+  Required properties:
+  - compatible: Should contain "maxim,ds3231".
+  - reg: I2C address for chip.
+
+  Optional property:
+  - #clock-cells: Should be 1.
+  - clock-output-names:
+    overwrite the default clock names "ds3231_clk_sqw" and "ds3231_clk_32khz".
+
+  Each clock is assigned an identifier and client nodes can use this identifier
+  to specify the clock which they consume. Following indices are allowed:
+      - 0: square-wave output on the SQW pin
+      - 1: square-wave output on the 32kHz pin
+
+  - interrupts: rtc alarm/event interrupt. When this property is selected,
+    clock on the SQW pin cannot be used.
+
+...

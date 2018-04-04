@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/crypto/atmel-crypto.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel HW cryptographic accelerators
+
+maintainers:
+  - Nicolas Ferre <nicolas.ferre@atmel.com>
+description: |+
+  These are the HW cryptographic accelerators found on some Atmel products.
+
+  * Advanced Encryption Standard (AES)
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Atmel HW cryptographic accelerators
+
+  These are the HW cryptographic accelerators found on some Atmel products.
+
+  * Advanced Encryption Standard (AES)
+
+  Required properties:
+  - compatible : Should be "atmel,at91sam9g46-aes".
+  - reg: Should contain AES registers location and length.
+  - interrupts: Should contain the IRQ line for the AES.
+  - dmas: List of two DMA specifiers as described in
+          atmel-dma.txt and dma.txt files.
+  - dma-names: Contains one identifier string for each DMA specifier
+               in the dmas property.
+
+...

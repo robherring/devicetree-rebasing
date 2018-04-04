@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/samsung/exynos-chipid.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SAMSUNG Exynos SoCs Chipid driver.
+
+maintainers:
+  - Pankaj Dubey <pankaj.dubey@samsung.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    chipid@10000000 {
+      compatible = "samsung,exynos4210-chipid";
+      reg = <0x10000000 0x100>;
+    };
+historical: |+
+  SAMSUNG Exynos SoCs Chipid driver.
+
+  Required properties:
+  - compatible : Should at least contain "samsung,exynos4210-chipid".
+
+  - reg: offset and length of the register set
+
+...

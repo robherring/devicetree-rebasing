@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/sirf-audio-codec.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SiRF internal audio CODEC
+
+maintainers:
+  - Rongjun Ying <rongjun.ying@csr.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  SiRF internal audio CODEC
+
+  Required properties:
+
+    - compatible : "sirf,atlas6-audio-codec" or "sirf,prima2-audio-codec"
+
+    - reg : the register address of the device.
+
+    - clocks: the clock of SiRF internal audio codec
+
+...

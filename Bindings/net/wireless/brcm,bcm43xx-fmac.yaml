@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/wireless/brcm,bcm43xx-fmac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom BCM43xx Fullmac wireless SDIO devices
+
+maintainers:
+  - Arend van Spriel <arend@broadcom.com>
+description: |+
+  This node provides properties for controlling the Broadcom wireless device. The
+  node is expected to be specified as a child node to the SDIO controller that
+  connects the device to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom BCM43xx Fullmac wireless SDIO devices
+
+  This node provides properties for controlling the Broadcom wireless device. The
+  node is expected to be specified as a child node to the SDIO controller that
+  connects the device to the system.
+
+  Required properties:
+
+   - compatible : Should be "brcm,bcm4329-fmac".
+
+  Optional properties:
+   - brcm,drive-strength : drive strength used for SDIO pins on device in mA
+  	(default = 6).
+   - interrupt-parent : the phandle for the interrupt controller to which the
+  	device interrupts are connected.
+   - interrupts : specifies attributes for the out-of-band interrupt (host-wake).
+  	When not specified the device will use in-band SDIO interrupts.
+   - interrupt-names : name of the out-of-band interrupt, which must be set
+  	to "host-wake".
+
+...

@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/light/vl6180.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STMicro VL6180 -  ALS, range and proximity sensor
+
+maintainers:
+  - Manivannan Sadhasivam <manivannanece23@gmail.com>
+description: |+
+  Link to datasheet: http://www.st.com/resource/en/datasheet/vl6180x.pdf
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  STMicro VL6180 -  ALS, range and proximity sensor
+
+  Link to datasheet: http://www.st.com/resource/en/datasheet/vl6180x.pdf
+
+  Required properties:
+
+  	-compatible: should be "st,vl6180"
+  	-reg: the I2C address of the sensor
+
+...

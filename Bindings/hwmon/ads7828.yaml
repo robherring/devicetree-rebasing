@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/hwmon/ads7828.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ads7828 properties
+
+maintainers:
+  - Sam Povilus <kernel.development@povil.us>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  ads7828 properties
+
+  Required properties:
+  - compatible: Should be one of
+  	       ti,ads7828
+  	       ti,ads7830
+  - reg: I2C address
+
+  Optional properties:
+
+  - ti,differential-input
+    Set to use the device in differential mode.
+  - vref-supply
+    The external reference on the device is set to this regulators output. If it
+    does not exists the internal reference will be used and output by the ads78xx
+    on the "external vref" pin.
+
+    Example ADS7828 node:
+
+    ads7828: ads@48 {
+  	   comatible = "ti,ads7828";
+  	   reg = <0x48>;
+  	   vref-supply = <&vref>;
+  	   ti,differential-input;
+    };

@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/cs2000-cp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: CIRRUS LOGIC Fractional-N Clock Synthesizer & Clock Multiplier
+
+maintainers:
+  - Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  CIRRUS LOGIC Fractional-N Clock Synthesizer & Clock Multiplier
+
+  Required properties:
+
+  - compatible:		"cirrus,cs2000-cp"
+  - reg:			The chip select number on the I2C bus
+  - clocks:		common clock binding for CLK_IN, XTI/REF_CLK
+  - clock-names:		CLK_IN : clk_in, XTI/REF_CLK : ref_clk
+  - #clock-cells:		must be <0>
+
+...

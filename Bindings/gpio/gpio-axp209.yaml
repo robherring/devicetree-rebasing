@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-axp209.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AXP209 GPIO & pinctrl controller
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+  - Quentin Schulz <quentin.schulz@free-electrons.com>
+description: |+
+  This driver follows the usual GPIO bindings found in
+  Documentation/devicetree/bindings/gpio/gpio.txt
+
+  This driver follows the usual pinctrl bindings found in
+  Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
+
+  This driver employs the per-pin muxing pattern.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  AXP209 GPIO & pinctrl controller
+
+  This driver follows the usual GPIO bindings found in
+  Documentation/devicetree/bindings/gpio/gpio.txt
+
+  This driver follows the usual pinctrl bindings found in
+  Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
+
+  This driver employs the per-pin muxing pattern.
+
+  Required properties:
+  - compatible: Should be one of:
+  	- "x-powers,axp209-gpio"
+  	- "x-powers,axp813-gpio"
+  - #gpio-cells: Should be two. The first cell is the pin number and the
+    second is the GPIO flags.
+  - gpio-controller: Marks the device node as a GPIO controller.
+
+  This node must be a subnode of the axp20x PMIC, documented in
+  Documentation/devicetree/bindings/mfd/axp20x.txt
+
+...

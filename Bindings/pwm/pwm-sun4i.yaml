@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/pwm-sun4i.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Allwinner sun4i and sun7i SoC PWM controller
+
+maintainers:
+  - Alexandre Belloni <alexandre.belloni@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    pwm: pwm@1c20e00 {
+      compatible = "allwinner,sun7i-a20-pwm";
+      reg = <0x01c20e00 0xc>;
+      clocks = <&osc24M>;
+      #pwm-cells = <3>;
+    };
+historical: |+
+  Allwinner sun4i and sun7i SoC PWM controller
+
+  Required properties:
+    - compatible: should be one of:
+      - "allwinner,sun4i-a10-pwm"
+      - "allwinner,sun5i-a10s-pwm"
+      - "allwinner,sun5i-a13-pwm"
+      - "allwinner,sun7i-a20-pwm"
+      - "allwinner,sun8i-h3-pwm"
+    - reg: physical base address and length of the controller's registers
+    - #pwm-cells: should be 3. See pwm.txt in this directory for a description of
+      the cells format.
+    - clocks: From common clock binding, handle to the parent clock.
+
+...

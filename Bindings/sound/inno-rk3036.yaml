@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/inno-rk3036.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Inno audio codec for RK3036
+
+maintainers:
+  - ZhengShunQian <zhengsq@rock-chips.com>
+description: |+
+  Inno audio codec is integrated inside RK3036 SoC.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    acodec: acodec-ana@20030000 {
+      compatible = "rk3036-codec";
+      reg = <0x20030000 0x4000>;
+      rockchip,grf = <&grf>;
+      clock-names = "acodec_pclk";
+      clocks = <&cru ACLK_VCODEC>;
+    };
+historical: |+
+  Inno audio codec for RK3036
+
+  Inno audio codec is integrated inside RK3036 SoC.
+
+  Required properties:
+  - compatible : Should be "rockchip,rk3036-codec".
+  - reg : The registers of codec.
+  - clock-names : Should be "acodec_pclk".
+  - clocks : The clock of codec.
+  - rockchip,grf : The phandle of grf device node.
+
+...

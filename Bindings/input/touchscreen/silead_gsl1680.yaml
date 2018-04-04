@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/silead_gsl1680.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: GSL 1680 touchscreen controller
+
+maintainers:
+  - Hans de Goede <hdegoede@redhat.com>
+  - Robert Dolca <robert.dolca@intel.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * GSL 1680 touchscreen controller
+
+  Required properties:
+  - compatible		  : Must be one of the following, depending on the model:
+  			    "silead,gsl1680"
+  			    "silead,gsl1688"
+  			    "silead,gsl3670"
+  			    "silead,gsl3675"
+  			    "silead,gsl3692"
+  - reg			  : I2C slave address of the chip (0x40)
+  - interrupt-parent	  : a phandle pointing to the interrupt controller
+  			    serving the interrupt for this chip
+  - interrupts		  : interrupt specification for the gsl1680 interrupt
+  - power-gpios		  : Specification for the pin connected to the gsl1680's
+  			    shutdown input. This needs to be driven high to take the
+  			    gsl1680 out of its low power state
+  - touchscreen-size-x	  : See touchscreen.txt
+  - touchscreen-size-y	  : See touchscreen.txt
+
+  Optional properties:
+  - firmware-name		  : File basename (string) for board specific firmware
+  - touchscreen-inverted-x  : See touchscreen.txt
+  - touchscreen-inverted-y  : See touchscreen.txt
+  - touchscreen-swapped-x-y : See touchscreen.txt
+  - silead,max-fingers	  : maximum number of fingers the touchscreen can detect
+  - silead,home-button	  : Boolean, set to true on devices which have a
+  			    capacitive home-button build into the touchscreen
+  - vddio-supply		  : regulator phandle for controller VDDIO
+  - avdd-supply		  : regulator phandle for controller AVDD
+
+...

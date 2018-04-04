@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/altera/socfpga-sdram-edac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera SOCFPGA SDRAM Error Detection & Correction [EDAC]
+
+maintainers:
+  - Thor Thayer <tthayer@opensource.altera.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sdramedac {
+      compatible = "altr,sdram-edac";
+      altr,sdr-syscon = <&sdr>;
+      interrupts = <0 39 4>;
+    };
+historical: |+
+  Altera SOCFPGA SDRAM Error Detection & Correction [EDAC]
+  The EDAC accesses a range of registers in the SDRAM controller.
+
+  Required properties:
+  - compatible : should contain "altr,sdram-edac" or "altr,sdram-edac-a10"
+  - altr,sdr-syscon : phandle of the sdr module
+  - interrupts : Should contain the SDRAM ECC IRQ in the
+  	appropriate format for the IRQ controller.
+
+...

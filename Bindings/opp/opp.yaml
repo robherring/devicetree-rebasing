@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/opp/opp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Generic OPP (Operating Performance Points) Bindings
+
+maintainers:
+  - Viresh Kumar <viresh.kumar@linaro.org>
+description: |+
+  Devices work at voltage-current-frequency combinations and some implementations
+  have the liberty of choosing these. These combinations are called Operating
+  Performance Points aka OPPs. This document defines bindings for these OPPs
+  applicable across wide range of devices. For illustration purpose, this document
+  uses CPU as a device.
+
+  This document contain multiple versions of OPP binding and only one of them
+  should be used per device.
+
+  Binding 1: operating-points
+  ============================
+
+  This binding only supports voltage-frequency pairs.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Generic OPP (Operating Performance Points) Bindings
+  ----------------------------------------------------
+
+  Devices work at voltage-current-frequency combinations and some implementations
+  have the liberty of choosing these. These combinations are called Operating
+  Performance Points aka OPPs. This document defines bindings for these OPPs
+  applicable across wide range of devices. For illustration purpose, this document
+  uses CPU as a device.
+
+  This document contain multiple versions of OPP binding and only one of them
+  should be used per device.
+
+  Binding 1: operating-points
+  ============================
+
+  This binding only supports voltage-frequency pairs.
+
+  Properties:
+  - operating-points: An array of 2-tuples items, and each item consists
+    of frequency and voltage like <freq-kHz vol-uV>.
+  	freq: clock frequency in kHz
+  	vol: voltage in microvolt
+
+...

@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/leds-aat1290.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Skyworks Solutions, Inc. AAT1290 Current Regulator for Flash LEDs
+
+maintainers:
+  - Jacek Anaszewski <j.anaszewski@samsung.com>
+description: |+
+  The device is controlled through two pins: FL_EN and EN_SET. The pins when,
+  asserted high, enable flash strobe and movie mode (max 1/2 of flash current)
+  respectively. In order to add a capability of selecting the strobe signal source
+  (e.g. CPU or camera sensor) there is an additional switch required, independent
+  of the flash chip. The switch is controlled with pin control.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Skyworks Solutions, Inc. AAT1290 Current Regulator for Flash LEDs
+
+  The device is controlled through two pins: FL_EN and EN_SET. The pins when,
+  asserted high, enable flash strobe and movie mode (max 1/2 of flash current)
+  respectively. In order to add a capability of selecting the strobe signal source
+  (e.g. CPU or camera sensor) there is an additional switch required, independent
+  of the flash chip. The switch is controlled with pin control.
+
+  Required properties:
+
+  - compatible : Must be "skyworks,aat1290".
+  - flen-gpios : Must be device tree identifier of the flash device FL_EN pin.
+  - enset-gpios : Must be device tree identifier of the flash device EN_SET pin.
+
+  Optional properties:
+  - pinctrl-names : Must contain entries: "default", "host", "isp". Entries
+  		"default" and "host" must refer to the same pin configuration
+  		node, which sets the host as a strobe signal provider. Entry
+  		"isp" must refer to the pin configuration node, which sets the
+  		ISP as a strobe signal provider.
+
+  A discrete LED element connected to the device must be represented by a child
+  node - see Documentation/devicetree/bindings/leds/common.txt.
+
+  Required properties of the LED child node:
+  - led-max-microamp : see Documentation/devicetree/bindings/leds/common.txt
+  - flash-max-microamp : see Documentation/devicetree/bindings/leds/common.txt
+                         Maximum flash LED supply current can be calculated using
+                         following formula: I = 1A * 162kohm / Rset.
+  - flash-max-timeout-us : see Documentation/devicetree/bindings/leds/common.txt
+                           Maximum flash timeout can be calculated using following
+                           formula: T = 8.82 * 10^9 * Ct.
+
+  Optional properties of the LED child node:
+  - label : see Documentation/devicetree/bindings/leds/common.txt
+
+...

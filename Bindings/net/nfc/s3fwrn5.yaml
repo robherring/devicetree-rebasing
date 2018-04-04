@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/nfc/s3fwrn5.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung S3FWRN5 NCI NFC Controller
+
+maintainers:
+  - Robert Baldyga <r.baldyga@samsung.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Samsung S3FWRN5 NCI NFC Controller
+
+  Required properties:
+  - compatible: Should be "samsung,s3fwrn5-i2c".
+  - reg: address on the bus
+  - interrupt-parent: phandle for the interrupt gpio controller
+  - interrupts: GPIO interrupt to which the chip is connected
+  - s3fwrn5,en-gpios: Output GPIO pin used for enabling/disabling the chip
+  - s3fwrn5,fw-gpios: Output GPIO pin used to enter firmware mode and
+    sleep/wakeup control
+
+...

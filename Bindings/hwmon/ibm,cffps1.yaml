@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/hwmon/ibm,cffps1.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-tree bindings for IBM Common Form Factor Power Supply Version 1
+
+maintainers:
+  - Edward A. James <eajames@us.ibm.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Device-tree bindings for IBM Common Form Factor Power Supply Version 1
+  ----------------------------------------------------------------------
+
+  Required properties:
+   - compatible = "ibm,cffps1";
+   - reg = < I2C bus address >;		: Address of the power supply on the
+  					  I2C bus.
+
+...

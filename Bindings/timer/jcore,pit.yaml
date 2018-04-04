@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/jcore,pit.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: J-Core Programmable Interval Timer and Clocksource
+
+maintainers:
+  - Rich Felker <dalias@libc.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  J-Core Programmable Interval Timer and Clocksource
+
+  Required properties:
+
+  - compatible: Must be "jcore,pit".
+
+  - reg: Memory region(s) for timer/clocksource registers. For SMP,
+    there should be one region per cpu, indexed by the sequential,
+    zero-based hardware cpu number.
+
+  - interrupts: An interrupt to assign for the timer. The actual pit
+    core is integrated with the aic and allows the timer interrupt
+    assignment to be programmed by software, but this property is
+    required in order to reserve an interrupt number that doesn't
+    conflict with other devices.
+
+
+...

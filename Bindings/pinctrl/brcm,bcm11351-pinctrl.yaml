@@ -1,0 +1,141 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/brcm,bcm11351-pinctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom BCM281xx Pin Controller
+
+maintainers:
+  - Sherman Yin <syin@broadcom.com>
+description: |+
+  This is a pin controller for the Broadcom BCM281xx SoC family, which includes
+  BCM11130, BCM11140, BCM11351, BCM28145, and BCM28155 SoCs.
+
+  === Pin Controller Node ===
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom BCM281xx Pin Controller
+
+  This is a pin controller for the Broadcom BCM281xx SoC family, which includes
+  BCM11130, BCM11140, BCM11351, BCM28145, and BCM28155 SoCs.
+
+  === Pin Controller Node ===
+
+  Required Properties:
+
+  - compatible:	Must be "brcm,bcm11351-pinctrl"
+  - reg:		Base address of the PAD Controller register block and the size
+  		of the block.
+
+  For example, the following is the bare minimum node:
+
+  	pinctrl@35004800 {
+  		compatible = "brcm,bcm11351-pinctrl";
+  		reg = <0x35004800 0x430>;
+  	};
+
+  As a pin controller device, in addition to the required properties, this node
+  should also contain the pin configuration nodes that client devices reference,
+  if any.
+
+  === Pin Configuration Node ===
+
+  Each pin configuration node is a sub-node of the pin controller node and is a
+  container of an arbitrary number of subnodes, called pin group nodes in this
+  document.
+
+  Please refer to the pinctrl-bindings.txt in this directory for details of the
+  common pinctrl bindings used by client devices, including the definition of a
+  "pin configuration node".
+
+  === Pin Group Node ===
+
+  A pin group node specifies the desired pin mux and/or pin configuration for an
+  arbitrary number of pins.  The name of the pin group node is optional and not
+  used.
+
+  A pin group node only affects the properties specified in the node, and has no
+  effect on any properties that are omitted.
+
+  The pin group node accepts a subset of the generic pin config properties. For
+  details generic pin config properties, please refer to pinctrl-bindings.txt
+  and <include/linux/pinctrl/pinconfig-generic.h>.
+
+  Each pin controlled by this pin controller belong to one of three types:
+  Standard, I2C, and HDMI.  Each type accepts a different set of pin config
+  properties.  A list of pins and their types is provided below.
+
+  Required Properties (applicable to all pins):
+
+  - pins:		Multiple strings.  Specifies the name(s) of one or more pins to
+  		be configured by this node.
+
+  Optional Properties (for standard pins):
+
+  - function:			String. Specifies the pin mux selection. Values
+  				must be one of: "alt1", "alt2", "alt3", "alt4"
+  - input-schmitt-enable:		No arguments. Enable schmitt-trigger mode.
+  - input-schmitt-disable:	No arguments. Disable schmitt-trigger mode.
+  - bias-pull-up:			No arguments. Pull up on pin.
+  - bias-pull-down:		No arguments. Pull down on pin.
+  - bias-disable:			No arguments. Disable pin bias.
+  - slew-rate:			Integer. Meaning depends on configured pin mux:
+  				*_SCL or *_SDA:
+  					0: Standard(100kbps)& Fast(400kbps) mode
+  					1: Highspeed (3.4Mbps) mode
+  				IC_DM or IC_DP:
+  					0: normal slew rate
+  					1: fast slew rate
+  				Otherwise:
+  					0: fast slew rate
+  					1: normal slew rate
+  - input-enable:			No arguments. Enable input (does not affect
+  				output.)
+  - input-disable:		No arguments. Disable input (does not affect
+  				output.)
+  - drive-strength:		Integer. Drive strength in mA.  Valid values are
+  				2, 4, 6, 8, 10, 12, 14, 16 mA.
+
+  Optional Properties (for I2C pins):
+
+  - function:			String. Specifies the pin mux selection. Values
+  				must be one of: "alt1", "alt2", "alt3", "alt4"
+  - bias-pull-up:			Integer. Pull up strength in Ohm. There are 3
+  				pull-up resisitors (1.2k, 1.8k, 2.7k) available
+  				in parallel for I2C pins, so the valid values
+  				are: 568, 720, 831, 1080, 1200, 1800, 2700 Ohm.
+  - bias-disable:			No arguments. Disable pin bias.
+  - slew-rate:			Integer. Meaning depends on configured pin mux:
+  				*_SCL or *_SDA:
+  					0: Standard(100kbps)& Fast(400kbps) mode
+  					1: Highspeed (3.4Mbps) mode
+  				IC_DM or IC_DP:
+  					0: normal slew rate
+  					1: fast slew rate
+  				Otherwise:
+  					0: fast slew rate
+  					1: normal slew rate
+  - input-enable:			No arguments. Enable input (does not affect
+  				output.)
+  - input-disable:		No arguments. Disable input (does not affect
+  				output.)
+
+  Optional Properties (for HDMI pins):
+
+  - function:			String. Specifies the pin mux selection. Values
+  				must be one of: "alt1", "alt2", "alt3", "alt4"
+  - slew-rate:			Integer. Controls slew rate.
+  					0: Standard(100kbps)& Fast(400kbps) mode
+  					1: Highspeed (3.4Mbps) mode
+  - input-enable:			No arguments. Enable input (does not affect
+  				output.)
+  - input-disable:		No arguments. Disable input (does not affect
+  				output.)
+
+...

@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/dmic.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for Digital microphone (DMIC) codec
+
+maintainers:
+  - Arnaud Pouliquen <arnaud.pouliquen@st.com>
+description: |+
+  This device support generic PDM digital microphone.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    dmic_codec: dmic@0 {
+      compatible = "dmic-codec";
+      dmicen-gpios = <&gpio4 3 GPIO_ACTIVE_HIGH>;
+      num-channels = <1>;
+    };
+historical: |+
+  Device-Tree bindings for Digital microphone (DMIC) codec
+
+  This device support generic PDM digital microphone.
+
+  Required properties:
+  	- compatible: should be "dmic-codec".
+
+  Optional properties:
+  	- dmicen-gpios: GPIO specifier for dmic to control start and stop
+  	- num-channels: Number of microphones on this DAI
+
+...

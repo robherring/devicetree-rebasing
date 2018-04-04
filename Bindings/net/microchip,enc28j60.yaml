@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/microchip,enc28j60.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Microchip ENC28J60
+
+maintainers:
+  - Michael Heimpold <mhei@heimpold.de>
+description: |+
+  This is a standalone 10 MBit ethernet controller with SPI interface.
+
+  For each device connected to a SPI bus, define a child node within
+  the SPI master node.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Microchip ENC28J60
+
+  This is a standalone 10 MBit ethernet controller with SPI interface.
+
+  For each device connected to a SPI bus, define a child node within
+  the SPI master node.
+
+  Required properties:
+  - compatible: Should be "microchip,enc28j60"
+  - reg: Specify the SPI chip select the ENC28J60 is wired to
+  - interrupt-parent: Specify the phandle of the source interrupt, see interrupt
+                      binding documentation for details. Usually this is the GPIO bank
+                      the interrupt line is wired to.
+  - interrupts: Specify the interrupt index within the interrupt controller (referred
+                to above in interrupt-parent) and interrupt type. The ENC28J60 natively
+                generates falling edge interrupts, however, additional board logic
+                might invert the signal.
+  - pinctrl-names: List of assigned state names, see pinctrl binding documentation.
+  - pinctrl-0: List of phandles to configure the GPIO pin used as interrupt line,
+               see also generic and your platform specific pinctrl binding
+               documentation.
+
+  Optional properties:
+  - spi-max-frequency: Maximum frequency of the SPI bus when accessing the ENC28J60.
+    According to the ENC28J80 datasheet, the chip allows a maximum of 20 MHz, however,
+    board designs may need to limit this value.
+  - local-mac-address: See ethernet.txt in the same directory.
+
+
+...

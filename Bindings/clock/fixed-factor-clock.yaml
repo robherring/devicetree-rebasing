@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/fixed-factor-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for simple fixed factor rate clock sources.
+
+maintainers:
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+description: |+
+  This binding uses the common clock binding[1].
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    clock {
+      compatible = "fixed-factor-clock";
+      clocks = <&parentclk>;
+      #clock-cells = <0>;
+      clock-div = <2>;
+      clock-mult = <1>;
+    };
+historical: |+
+  Binding for simple fixed factor rate clock sources.
+
+  This binding uses the common clock binding[1].
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  Required properties:
+  - compatible : shall be "fixed-factor-clock".
+  - #clock-cells : from common clock binding; shall be set to 0.
+  - clock-div: fixed divider.
+  - clock-mult: fixed multiplier.
+  - clocks: parent clock.
+
+  Optional properties:
+  - clock-output-names : From common clock binding.
+
+  Some clocks that require special treatments are also handled by that
+  driver, with the compatibles:
+    - allwinner,sun4i-a10-pll3-2x-clk
+
+...

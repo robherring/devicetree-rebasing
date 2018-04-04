@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/gpio-mouse.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for GPIO attached mice
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: |+
+  This simply uses standard GPIO handles to define a simple mouse connected
+  to 5-7 GPIO lines.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Device-Tree bindings for GPIO attached mice
+
+  This simply uses standard GPIO handles to define a simple mouse connected
+  to 5-7 GPIO lines.
+
+  Required properties:
+  	- compatible: must be "gpio-mouse"
+  	- scan-interval-ms: The scanning interval in milliseconds
+  	- up-gpios: GPIO line phandle to the line indicating "up"
+  	- down-gpios: GPIO line phandle to the line indicating "down"
+  	- left-gpios: GPIO line phandle to the line indicating "left"
+  	- right-gpios: GPIO line phandle to the line indicating "right"
+
+  Optional properties:
+  	- button-left-gpios: GPIO line handle to the left mouse button
+  	- button-middle-gpios: GPIO line handle to the middle mouse button
+  	- button-right-gpios: GPIO line handle to the right mouse button

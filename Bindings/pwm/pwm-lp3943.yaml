@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/pwm-lp3943.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI/National Semiconductor LP3943 PWM controller
+
+maintainers:
+  - Milo Kim <milo.kim@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI/National Semiconductor LP3943 PWM controller
+
+  Required properties:
+    - compatible: "ti,lp3943-pwm"
+    - #pwm-cells: Should be 2. See pwm.txt in this directory for a
+                  description of the cells format.
+                  Note that this hardware limits the period length to the
+                  range 6250~1600000.
+    - ti,pwm0 or ti,pwm1: Output pin number(s) for PWM channel 0 or 1.
+      0 = output 0
+      1 = output 1
+      .
+      .
+      15 = output 15
+
+...

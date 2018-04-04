@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/atmel-usart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel Universal Synchronous Asynchronous Receiver/Transmitter (USART)
+
+maintainers:
+  - Richard Genoud <richard.genoud@gmail.com>
+  - Kumar Gala <galak@codeaurora.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Atmel Universal Synchronous Asynchronous Receiver/Transmitter (USART)
+
+  Required properties:
+  - compatible: Should be "atmel,<chip>-usart" or "atmel,<chip>-dbgu"
+    The compatible <chip> indicated will be the first SoC to support an
+    additional mode or an USART new feature.
+    For the dbgu UART, use "atmel,<chip>-dbgu", "atmel,<chip>-usart"
+  - reg: Should contain registers location and length
+  - interrupts: Should contain interrupt
+  - clock-names: tuple listing input clock names.
+  	Required elements: "usart"
+  - clocks: phandles to input clocks.
+
+  Optional properties:
+  - atmel,use-dma-rx: use of PDC or DMA for receiving data
+  - atmel,use-dma-tx: use of PDC or DMA for transmitting data
+  - {rts,cts,dtr,dsr,rng,dcd}-gpios: specify a GPIO for RTS/CTS/DTR/DSR/RI/DCD line respectively.
+    It will use specified PIO instead of the peripheral function pin for the USART feature.
+    If unsure, don't specify this property.
+  - add dma bindings for dma transfer:
+  	- dmas: DMA specifier, consisting of a phandle to DMA controller node,
+  		memory peripheral interface and USART DMA channel ID, FIFO configuration.
+  		Refer to dma.txt and atmel-dma.txt for details.
+  	- dma-names: "rx" for RX channel, "tx" for TX channel.
+  - atmel,fifo-size: maximum number of data the RX and TX FIFOs can store for FIFO
+    capable USARTs.
+  - rs485-rts-delay, rs485-rx-during-tx, linux,rs485-enabled-at-boot-time: see rs485.txt
+
+  <chip> compatible description:
+  - at91rm9200:  legacy USART support
+  - at91sam9260: generic USART implementation for SAM9 SoCs
+
+...

@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/ti-keystone-devctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for Texas Instruments keystone device state control
+
+maintainers:
+  - Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>
+description: |+
+  The Keystone II devices have a set of registers that are used to control
+  the status of its peripherals. This node is intended to allow access to
+  this functionality.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Device tree bindings for Texas Instruments keystone device state control
+
+  The Keystone II devices have a set of registers that are used to control
+  the status of its peripherals. This node is intended to allow access to
+  this functionality.
+
+  Required properties:
+
+  - compatible:		"ti,keystone-devctrl", "syscon"
+
+  - reg:			contains offset/length value for device state control
+  			registers space.
+
+...

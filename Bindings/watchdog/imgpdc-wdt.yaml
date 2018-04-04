@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/imgpdc-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: '*ImgTec PowerDown Controller (PDC) Watchdog Timer (WDT)'
+
+maintainers:
+  - Naidu Tellapati <naidu.tellapati@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  *ImgTec PowerDown Controller (PDC) Watchdog Timer (WDT)
+
+  Required properties:
+  - compatible : Should be "img,pdc-wdt"
+  - reg : Should contain WDT registers location and length
+  - clocks: Must contain an entry for each entry in clock-names.
+  - clock-names: Should contain "wdt" and "sys"; the watchdog counter
+                 clock and register interface clock respectively.
+  - interrupts : Should contain WDT interrupt
+
+...

@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/broadcom-bluetooth.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom Bluetooth Chips
+
+maintainers:
+  - Loic Poulain <loic.poulain@gmail.com>
+description: |+
+  This documents the binding structure and common properties for serial
+  attached Broadcom devices.
+
+  Serial attached Broadcom devices shall be a child node of the host UART
+  device the slave device is attached to.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom Bluetooth Chips
+  ---------------------
+
+  This documents the binding structure and common properties for serial
+  attached Broadcom devices.
+
+  Serial attached Broadcom devices shall be a child node of the host UART
+  device the slave device is attached to.
+
+  Required properties:
+
+   - compatible: should contain one of the following:
+     * "brcm,bcm43438-bt"
+
+  Optional properties:
+
+   - max-speed: see Documentation/devicetree/bindings/serial/slave-device.txt
+   - shutdown-gpios: GPIO specifier, used to enable the BT module
+   - device-wakeup-gpios: GPIO specifier, used to wakeup the controller
+   - host-wakeup-gpios: GPIO specifier, used to wakeup the host processor
+   - clocks: clock specifier if external clock provided to the controller
+   - clock-names: should be "extclk"
+
+
+...

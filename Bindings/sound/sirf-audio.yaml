@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/sirf-audio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SiRF atlas6 and prima2 internal audio codec and port based audio setups
+
+maintainers:
+  - Rongjun Ying <rongjun.ying@csr.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * SiRF atlas6 and prima2 internal audio codec and port based audio setups
+
+  Required properties:
+  - compatible: "sirf,sirf-audio-card"
+  - sirf,audio-platform: phandle for the platform node
+  - sirf,audio-codec: phandle for the SiRF internal codec node
+
+  Optional properties:
+  - hp-pa-gpios: Need to be present if the board need control external
+    headphone amplifier.
+  - spk-pa-gpios: Need to be present if the board need control external
+    speaker amplifier.
+  - hp-switch-gpios: Need to be present if the board capable to detect jack
+    insertion, removal.
+
+  Available audio endpoints for the audio-routing table:
+
+  Board connectors:
+   * Headset Stereophone
+   * Ext Spk
+   * Line In
+   * Mic
+
+  SiRF internal audio codec pins:
+   * HPOUTL
+   * HPOUTR
+   * SPKOUT
+   * Ext Mic
+   * Mic Bias
+
+...

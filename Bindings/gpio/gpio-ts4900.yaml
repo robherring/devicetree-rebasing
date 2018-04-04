@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-ts4900.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Technologic Systems I2C-FPGA's GPIO controller bindings
+
+maintainers:
+  - Lucile Quirion <lucile.quirion@savoirfairelinux.com>
+description: |+
+  This bindings describes the GPIO controller for Technologic's FPGA core.
+  TS-4900's FPGA encodes the GPIO state on 3 bits, whereas the TS-7970's FPGA
+  uses 2 bits: it doesn't use a dedicated input bit.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Technologic Systems I2C-FPGA's GPIO controller bindings
+
+  This bindings describes the GPIO controller for Technologic's FPGA core.
+  TS-4900's FPGA encodes the GPIO state on 3 bits, whereas the TS-7970's FPGA
+  uses 2 bits: it doesn't use a dedicated input bit.
+
+  Required properties:
+  - compatible: Should be one of the following
+  		"technologic,ts4900-gpio"
+  		"technologic,ts7970-gpio"
+  - reg: Physical base address of the controller and length
+         of memory mapped region.
+  - #gpio-cells: Should be two. The first cell is the pin number.
+  - gpio-controller: Marks the device node as a gpio controller.
+
+  Optional property:
+  - ngpios: Number of GPIOs this controller is instantiated with,
+    the default is 32. See gpio.txt for more details.
+
+...

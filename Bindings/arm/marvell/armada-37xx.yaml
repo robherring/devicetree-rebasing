@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/marvell/armada-37xx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Armada 37xx Platforms Device Tree Bindings
+
+maintainers:
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+description: |+
+  Boards using a SoC of the Marvell Armada 37xx family must carry the
+  following root node property:
+
+   - compatible: must contain "marvell,armada3710"
+
+  In addition, boards using the Marvell Armada 3720 SoC shall have the
+  following property before the previous one:
+
+   - compatible: must contain "marvell,armada3720"
+
+  Example:
+
+  compatible = "marvell,armada-3720-db", "marvell,armada3720", "marvell,armada3710";
+
+
+  Power management
+  ----------------
+
+  For power management (particularly DVFS and AVS), the North Bridge
+  Power Management component is needed:
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Marvell Armada 37xx Platforms Device Tree Bindings
+  --------------------------------------------------
+
+  Boards using a SoC of the Marvell Armada 37xx family must carry the
+  following root node property:
+
+   - compatible: must contain "marvell,armada3710"
+
+  In addition, boards using the Marvell Armada 3720 SoC shall have the
+  following property before the previous one:
+
+   - compatible: must contain "marvell,armada3720"
+
+...

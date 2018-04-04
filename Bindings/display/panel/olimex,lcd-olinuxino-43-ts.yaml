@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/olimex,lcd-olinuxino-43-ts.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Olimex 4.3" TFT LCD panel
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Olimex 4.3" TFT LCD panel
+
+  Required properties:
+  - compatible: should be "olimex,lcd-olinuxino-43-ts"
+
+  This binding is compatible with the simple-panel binding, which is specified
+  in simple-panel.txt in this directory.

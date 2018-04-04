@@ -1,0 +1,84 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/regulator/ti-abb-regulator.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Adaptive Body Bias(ABB) SoC internal LDO regulator for Texas Instruments SoCs
+
+maintainers:
+  - Andrii.Tseglytskyi <andrii.tseglytskyi@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Adaptive Body Bias(ABB) SoC internal LDO regulator for Texas Instruments SoCs
+
+  Required Properties:
+  - compatible: Should be one of:
+    - "ti,abb-v1" for older SoCs like OMAP3
+    - "ti,abb-v2" for newer SoCs like OMAP4, OMAP5
+    - "ti,abb-v3" for a generic definition where setup and control registers are
+       provided (example: DRA7)
+  - reg: Address and length of the register set for the device. It contains
+    the information of registers in the same order as described by reg-names
+  - reg-names: Should contain the reg names
+    - "base-address"	- contains base address of ABB module (ti,abb-v1,ti,abb-v2)
+    - "control-address"	- contains control register address of ABB module (ti,abb-v3)
+    - "setup-address"	- contains setup register address of ABB module (ti,abb-v3)
+    - "int-address"	- contains address of interrupt register for ABB module
+    (also see Optional properties)
+  - #address-cells: should be 0
+  - #size-cells: should be 0
+  - clocks: should point to the clock node used by ABB module
+  - ti,settling-time: Settling time in uSecs from SoC documentation for ABB module
+  	to settle down(target time for SR2_WTCNT_VALUE).
+  - ti,clock-cycles: SoC specific data about count of system ti,clock-cycles used for
+  	computing settling time from SoC Documentation for ABB module(clock
+  	cycles for SR2_WTCNT_VALUE).
+  - ti,tranxdone-status-mask: Mask to the int-register to write-to-clear mask
+  	indicating LDO tranxdone (operation complete).
+  - ti,abb_info: An array of 6-tuples u32 items providing information about ABB
+  	configuration needed per operational voltage of the device.
+  	Each item consists of the following in the same order:
+  	volt: voltage in uV - Only used to index ABB information.
+  	ABB mode: one of the following:
+  		0-bypass
+  		1-Forward Body Bias(FBB)
+  		3-Reverse Body Bias(RBB)
+  	efuse:	(see Optional properties)
+  	RBB enable efuse Mask:	(See Optional properties)
+  	FBB enable efuse Mask:	(See Optional properties)
+  	Vset value efuse Mask:	(See Optional properties)
+
+  	NOTE: If more than 1 entry is present, then regulator is setup to change
+  	      voltage, allowing for various modes to be selected indexed off
+  	      the regulator. Further, ABB LDOs are considered always-on by
+  	      default.
+
+  Optional Properties:
+  - reg-names: In addition to the required properties, the following are optional
+    - "efuse-address"	- Contains efuse base address used to pick up ABB info.
+    - "ldo-address"	- Contains address of ABB LDO override register.
+  	"efuse-address" is required for this.
+  - ti,ldovbb-vset-mask	- Required if ldo-address is set, mask for LDO override
+  	register to provide override vset value.
+  - ti,ldovbb-override-mask - Required if ldo-address is set, mask for LDO
+  	override register to enable override vset value.
+  - ti,abb_opp_sel: Addendum to the description in required properties
+  	efuse: Mandatory if 'efuse-address' register is defined. Provides offset
+  	       from efuse-address to pick up ABB characteristics. Set to 0 if
+  	       'efuse-address' is not defined.
+  	RBB enable efuse Mask:	Optional if 'efuse-address' register is defined.
+  		'ABB mode' is force set to RBB mode if value at "efuse-address"
+  		+ efuse maps to RBB mask. Set to 0 to ignore this.
+  	FBB enable efuse Mask:	Optional if 'efuse-address' register is defined.
+  		'ABB mode' is force set to FBB mode if value at "efuse-address"
+  		+ efuse maps to FBB mask (valid only if RBB mask does not match)
+  		Set to 0 to ignore this.
+  	Vset value efuse Mask:	Mandatory if ldo-address is set. Picks up from
+  		efuse the value to set in 'ti,ldovbb-vset-mask' at ldo-address.
+
+...

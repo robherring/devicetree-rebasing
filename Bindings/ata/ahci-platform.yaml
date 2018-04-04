@@ -1,0 +1,77 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/ata/ahci-platform.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AHCI SATA Controller
+
+maintainers:
+  - Viresh Kumar <viresh.linux@gmail.com>
+  - Hans de Goede <hdegoede@redhat.com>
+description: |+
+  SATA nodes are defined to describe on-chip Serial ATA controllers.
+  Each SATA controller should have its own node.
+
+  It is possible, but not required, to represent each port as a sub-node.
+  It allows to enable each port independently when dealing with multiple
+  PHYs.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * AHCI SATA Controller
+
+  SATA nodes are defined to describe on-chip Serial ATA controllers.
+  Each SATA controller should have its own node.
+
+  It is possible, but not required, to represent each port as a sub-node.
+  It allows to enable each port independently when dealing with multiple
+  PHYs.
+
+  Required properties:
+  - compatible        : compatible string, one of:
+    - "allwinner,sun4i-a10-ahci"
+    - "brcm,iproc-ahci"
+    - "hisilicon,hisi-ahci"
+    - "cavium,octeon-7130-ahci"
+    - "ibm,476gtr-ahci"
+    - "marvell,armada-380-ahci"
+    - "marvell,armada-3700-ahci"
+    - "snps,dwc-ahci"
+    - "snps,exynos5440-ahci"
+    - "snps,spear-ahci"
+    - "generic-ahci"
+  - interrupts        : <interrupt mapping for SATA IRQ>
+  - reg               : <registers mapping>
+
+  Please note that when using "generic-ahci" you must also specify a SoC specific
+  compatible:
+  	compatible = "manufacturer,soc-model-ahci", "generic-ahci";
+
+  Optional properties:
+  - dma-coherent      : Present if dma operations are coherent
+  - clocks            : a list of phandle + clock specifier pairs
+  - target-supply     : regulator for SATA target power
+  - phys              : reference to the SATA PHY node
+  - phy-names         : must be "sata-phy"
+  - ports-implemented : Mask that indicates which ports that the HBA supports
+  		      are available for software to use. Useful if PORTS_IMPL
+  		      is not programmed by the BIOS, which is true with
+  		      some embedded SOC's.
+
+  Required properties when using sub-nodes:
+  - #address-cells    : number of cells to encode an address
+  - #size-cells       : number of cells representing the size of an address
+
+
+  Sub-nodes required properties:
+  - reg		    : the port number
+  And at least one of the following properties:
+  - phys		    : reference to the SATA PHY node
+  - target-supply    : regulator for SATA target power
+
+...

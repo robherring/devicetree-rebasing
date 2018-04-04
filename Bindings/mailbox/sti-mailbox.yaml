@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mailbox/sti-mailbox.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ST Microelectronics Mailbox Driver
+
+maintainers:
+  - Lee Jones <lee.jones@linaro.org>
+description: |+
+  Each ST Mailbox IP currently consists of 4 instances of 32 channels.  Messages
+  are passed between Application and Remote processors using shared memory.
+
+  Controller
+  ----------
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ST Microelectronics Mailbox Driver
+
+  Each ST Mailbox IP currently consists of 4 instances of 32 channels.  Messages
+  are passed between Application and Remote processors using shared memory.
+
+  Controller
+  ----------
+
+  Required properties:
+  - compatible		: Should be "st,stih407-mailbox"
+  - reg			: Offset and length of the device's register set
+  - mbox-name		: Name of the mailbox
+  - #mbox-cells:		: Must be 2
+  			  <&phandle instance channel direction>
+  			    phandle   : Label name of controller
+  			    instance  : Instance number
+  			    channel   : Channel number
+
+  Optional properties
+  - interrupts		: Contains the IRQ line for a Rx mailbox
+
+...

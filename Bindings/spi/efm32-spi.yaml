@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/efm32-spi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Energy Micro EFM32 SPI
+
+maintainers:
+  - Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Energy Micro EFM32 SPI
+
+  Required properties:
+  - #address-cells: see spi-bus.txt
+  - #size-cells: see spi-bus.txt
+  - compatible: should be "energymicro,efm32-spi"
+  - reg: Offset and length of the register set for the controller
+  - interrupts: pair specifying rx and tx irq
+  - clocks: phandle to the spi clock
+  - cs-gpios: see spi-bus.txt
+
+  Recommended properties :
+  - energymicro,location: Value to write to the ROUTE register's LOCATION
+                          bitfield to configure the pinmux for the device, see
+                          datasheet for values.
+                          If this property is not provided, keeping what is
+                          already configured in the hardware, so its either the
+                          reset default 0 or whatever the bootloader did.
+
+...

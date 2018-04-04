@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/ht16k33.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Holtek ht16k33 RAM mapping 16*8 LED controller driver with keyscan
+
+maintainers:
+  - Robin van der Gracht <robin@protonic.nl>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Holtek ht16k33 RAM mapping 16*8 LED controller driver with keyscan
+  -------------------------------------------------------------------------------
+
+  Required properties:
+  - compatible:		"holtek,ht16k33"
+  - reg:			I2C slave address of the chip.
+  - interrupt-parent:	A phandle pointing to the interrupt controller
+  			serving the interrupt for this chip.
+  - interrupts:		Interrupt specification for the key pressed interrupt.
+  - refresh-rate-hz:	Display update interval in HZ.
+  - debounce-delay-ms:	Debouncing interval time in milliseconds.
+  - linux,keymap: 	The keymap for keys as described in the binding
+  			document (devicetree/bindings/input/matrix-keymap.txt).
+
+  Optional properties:
+  - linux,no-autorepeat:	Disable keyrepeat.
+  - default-brightness-level: Initial brightness level [0-15] (default: 15).
+
+...

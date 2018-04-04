@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/simple-framebuffer-sunxi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Sunxi specific Simple Framebuffer bindings
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |+
+  This binding documents sunxi specific extensions to the simple-framebuffer
+  bindings. The sunxi simplefb u-boot code relies on the devicetree containing
+  pre-populated simplefb nodes.
+
+  These extensions are intended so that u-boot can select the right node based
+  on which pipeline is being used. As such they are solely intended for
+  firmware / bootloader use, and the OS should ignore them.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Sunxi specific Simple Framebuffer bindings
+
+  This binding documents sunxi specific extensions to the simple-framebuffer
+  bindings. The sunxi simplefb u-boot code relies on the devicetree containing
+  pre-populated simplefb nodes.
+
+  These extensions are intended so that u-boot can select the right node based
+  on which pipeline is being used. As such they are solely intended for
+  firmware / bootloader use, and the OS should ignore them.
+
+  Required properties:
+  - compatible: "allwinner,simple-framebuffer"
+  - allwinner,pipeline, one of:
+    "de_be0-lcd0"
+    "de_be1-lcd1"
+    "de_be0-lcd0-hdmi"
+    "de_be1-lcd1-hdmi"
+    "mixer0-lcd0"
+    "mixer0-lcd0-hdmi"
+    "mixer1-lcd1-hdmi"
+    "mixer1-lcd1-tve"
+
+...

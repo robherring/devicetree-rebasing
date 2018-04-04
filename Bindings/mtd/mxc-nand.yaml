@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/mxc-nand.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale's mxc_nand
+
+maintainers:
+  - Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    nand@d8000000 {
+      compatible = "fsl,imx27-nand";
+      reg = <0xd8000000 0x1000>;
+      interrupts = <29>;
+      nand-bus-width = <8>;
+      nand-ecc-mode = "hw";
+    };
+historical: |+
+  * Freescale's mxc_nand
+
+  Required properties:
+  - compatible: "fsl,imxXX-nand"
+  - reg: address range of the nfc block
+  - interrupts: irq to be used
+  - nand-bus-width: see nand.txt
+  - nand-ecc-mode: see nand.txt
+  - nand-on-flash-bbt: see nand.txt
+
+...

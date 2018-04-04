@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/brcm,bcm53573-ilp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom BCM53573 ILP clock
+
+maintainers:
+  - Rafał Miłecki <rafal@milecki.pl>
+description: |+
+  This binding uses the common clock binding:
+      Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  This binding is used for ILP clock (sometimes referred as "slow clock")
+  on Broadcom BCM53573 devices using Cortex-A7 CPU.
+
+  ILP's rate has to be calculated on runtime and it depends on ALP clock
+  which has to be referenced.
+
+  This clock is part of PMU (Power Management Unit), a Broadcom's device
+  handing power-related aspects. Its node must be sub-node of the PMU
+  device.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom BCM53573 ILP clock
+  ===========================
+
+  This binding uses the common clock binding:
+      Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  This binding is used for ILP clock (sometimes referred as "slow clock")
+  on Broadcom BCM53573 devices using Cortex-A7 CPU.
+
+  ILP's rate has to be calculated on runtime and it depends on ALP clock
+  which has to be referenced.
+
+  This clock is part of PMU (Power Management Unit), a Broadcom's device
+  handing power-related aspects. Its node must be sub-node of the PMU
+  device.
+
+  Required properties:
+  - compatible: "brcm,bcm53573-ilp"
+  - clocks: has to reference an ALP clock
+  - #clock-cells: should be <0>
+  - clock-output-names: from common clock bindings, should contain clock
+  		      name
+
+...

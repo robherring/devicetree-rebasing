@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/atmel-quadspi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel Quad Serial Peripheral Interface (QSPI)
+
+maintainers:
+  - Cyrille Pitchen <cyrille.pitchen@atmel.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Atmel Quad Serial Peripheral Interface (QSPI)
+
+  Required properties:
+  - compatible:     Should be "atmel,sama5d2-qspi".
+  - reg:            Should contain the locations and lengths of the base registers
+                    and the mapped memory.
+  - reg-names:      Should contain the resource reg names:
+                    - qspi_base: configuration register address space
+                    - qspi_mmap: memory mapped address space
+  - interrupts:     Should contain the interrupt for the device.
+  - clocks:         The phandle of the clock needed by the QSPI controller.
+  - #address-cells: Should be <1>.
+  - #size-cells:    Should be <0>.
+
+...

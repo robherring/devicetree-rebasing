@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/ts4800-ts.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TS-4800 Touchscreen bindings
+
+maintainers:
+  - Damien Riegel <damien.riegel@savoirfairelinux.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  * TS-4800 Touchscreen bindings
+
+  Required properties:
+  - compatible: must be "technologic,ts4800-ts"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - syscon: phandle / integers array that points to the syscon node which
+            describes the FPGA's syscon registers.
+            - phandle to FPGA's syscon
+            - offset to the touchscreen register
+            - offset to the touchscreen enable bit

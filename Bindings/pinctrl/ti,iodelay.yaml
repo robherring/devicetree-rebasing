@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/ti,iodelay.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Pin configuration for TI IODELAY controller
+
+maintainers:
+  - Nishanth Menon <nm@ti.com>
+description: |+
+  TI dra7 based SoCs such as am57xx have a controller for setting the IO delay
+  for each pin. For most part the IO delay values are programmed by the bootloader,
+  but some pins need to be configured dynamically by the kernel such as the
+  MMC pins.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Pin configuration for TI IODELAY controller
+
+  TI dra7 based SoCs such as am57xx have a controller for setting the IO delay
+  for each pin. For most part the IO delay values are programmed by the bootloader,
+  but some pins need to be configured dynamically by the kernel such as the
+  MMC pins.
+
+  Required Properties:
+
+    - compatible: Must be "ti,dra7-iodelay"
+    - reg: Base address and length of the memory resource used
+    - #address-cells: Number of address cells
+    - #size-cells: Size of cells
+    - #pinctrl-cells: Number of pinctrl cells, must be 2. See also
+      Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
+
+...

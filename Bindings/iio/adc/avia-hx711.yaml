@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/avia-hx711.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AVIA HX711 ADC chip for weight cells
+
+maintainers:
+  - Andreas Klinger <ak@it-klinger.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * AVIA HX711 ADC chip for weight cells
+    Bit-banging driver
+
+  Required properties:
+   - compatible:	Should be "avia,hx711"
+   - sck-gpios:	Definition of the GPIO for the clock
+   - dout-gpios:	Definition of the GPIO for data-out
+  		See Documentation/devicetree/bindings/gpio/gpio.txt
+   - avdd-supply:	Definition of the regulator used as analog supply
+
+...

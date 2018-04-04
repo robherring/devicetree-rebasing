@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/fsl/cpm_qe/cpm/pic.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Interrupt Controllers
+
+maintainers:
+  - Zhao Qiang <qiang.zhao@nxp.com>
+description: |
+  Currently defined compatibles:
+  - fsl,cpm1-pic
+    - only one interrupt cell
+  - fsl,pq1-pic
+  - fsl,cpm2-pic
+    - second interrupt cell is level/sense:
+      - 2 is falling edge
+      - 8 is active low
+
+  Example:
+  	interrupt-controller@10c00 {
+  		#interrupt-cells = <2>;
+  		interrupt-controller;
+  		reg = <10c00 80>;
+  		compatible = "mpc8272-pic", "fsl,cpm2-pic";
+  	};
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    interrupt-controller@10c00 {
+      #interrupt-cells = <2>;
+      interrupt-controller;
+      reg = <10c00 80>;
+      compatible = "mpc8272-pic", "fsl,cpm2-pic";
+    };
+historical: |+
+  * Interrupt Controllers
+
+  Currently defined compatibles:
+  - fsl,cpm1-pic
+    - only one interrupt cell
+  - fsl,pq1-pic
+  - fsl,cpm2-pic
+    - second interrupt cell is level/sense:
+      - 2 is falling edge
+      - 8 is active low
+
+...

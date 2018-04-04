@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/fsl,imxgpt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale i.MX General Purpose Timer (GPT)
+
+maintainers:
+  - Sascha Hauer <s.hauer@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale i.MX General Purpose Timer (GPT)
+
+  Required properties:
+
+  - compatible : should be "fsl,<soc>-gpt"
+  - reg : Specifies base physical address and size of the registers.
+  - interrupts : A list of 4 interrupts; one per timer channel.
+  - clocks : The clocks provided by the SoC to drive the timer.
+
+...

@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/zx-irdec.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: IR Decoder (IRDEC) on ZTE ZX family SoCs
+
+maintainers:
+  - Shawn Guo <shawn.guo@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  IR Decoder (IRDEC) on ZTE ZX family SoCs
+
+  Required properties:
+   - compatible: Should be "zte,zx296718-irdec".
+   - reg: Physical base address and length of IRDEC registers.
+   - interrupts: Interrupt number of IRDEC.
+
+  Exmaples:
+
+  	irdec: ir-decoder@111000 {
+  		compatible = "zte,zx296718-irdec";
+  		reg = <0x111000 0x1000>;
+  		interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>;
+  	};

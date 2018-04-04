@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/memory-controllers/mvebu-sdram-controller.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device Tree bindings for MVEBU SDRAM controllers
+
+maintainers:
+  - Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
+description: |+
+  The Marvell EBU SoCs all have a SDRAM controller. The SDRAM controller
+  differs from one SoC variant to another, but they also share a number
+  of commonalities.
+
+  For now, this Device Tree binding documentation only documents the
+  Armada XP SDRAM controller.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Device Tree bindings for MVEBU SDRAM controllers
+
+  The Marvell EBU SoCs all have a SDRAM controller. The SDRAM controller
+  differs from one SoC variant to another, but they also share a number
+  of commonalities.
+
+  For now, this Device Tree binding documentation only documents the
+  Armada XP SDRAM controller.
+
+  Required properties:
+
+   - compatible: for Armada XP, "marvell,armada-xp-sdram-controller"
+   - reg: a resource specifier for the register space, which should
+     include all SDRAM controller registers as per the datasheet.
+
+...

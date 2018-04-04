@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/rockchip,rk3399-gru-sound.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ROCKCHIP with MAX98357A/RT5514/DA7219 codecs on GRU boards
+
+maintainers:
+  - Xing Zheng <zhengxing@rock-chips.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ROCKCHIP with MAX98357A/RT5514/DA7219 codecs on GRU boards
+
+  Required properties:
+  - compatible: "rockchip,rk3399-gru-sound"
+  - rockchip,cpu: The phandle of the Rockchip I2S controller that's
+    connected to the codecs
+  - rockchip,codec: The phandle of the audio codecs
+
+  Optional properties:
+  - dmic-wakeup-delay-ms : specify delay time (ms) for DMIC ready.
+    If this option is specified, which means it's required dmic need
+    delay for DMIC to ready so that rt5514 can avoid recording before
+    DMIC send valid data
+
+...

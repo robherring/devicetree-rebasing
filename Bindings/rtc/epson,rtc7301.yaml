@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/epson,rtc7301.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: EPSON TOYOCOM RTC-7301SF/DG
+
+maintainers:
+  - Akinobu Mita <akinobu.mita@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  EPSON TOYOCOM RTC-7301SF/DG
+
+  Required properties:
+
+  - compatible: Should be "epson,rtc7301sf" or "epson,rtc7301dg"
+  - reg: Specifies base physical address and size of the registers.
+  - interrupts: A single interrupt specifier.
+
+...

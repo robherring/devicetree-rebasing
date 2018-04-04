@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/allwinner,sun4i-emac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Allwinner EMAC ethernet controller
+
+maintainers:
+  - Stefan Roese <sr@denx.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Allwinner EMAC ethernet controller
+
+  Required properties:
+  - compatible: should be "allwinner,sun4i-a10-emac" (Deprecated:
+                "allwinner,sun4i-emac")
+  - reg: address and length of the register set for the device.
+  - interrupts: interrupt for the device
+  - phy: see ethernet.txt file in the same directory.
+  - clocks: A phandle to the reference clock for this device
+
+...

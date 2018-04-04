@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/sprd-dma.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Spreadtrum DMA controller
+
+maintainers:
+  - Baolin Wang <baolin.wang@spreadtrum.com>
+description: |+
+  This binding follows the generic DMA bindings defined in dma.txt.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Spreadtrum DMA controller
+
+  This binding follows the generic DMA bindings defined in dma.txt.
+
+  Required properties:
+  - compatible: Should be "sprd,sc9860-dma".
+  - reg: Should contain DMA registers location and length.
+  - interrupts: Should contain one interrupt shared by all channel.
+  - #dma-cells: must be <1>. Used to represent the number of integer
+  	cells in the dmas property of client device.
+  - #dma-channels : Number of DMA channels supported. Should be 32.
+  - clock-names: Should contain the clock of the DMA controller.
+  - clocks: Should contain a clock specifier for each entry in clock-names.
+
+...

@@ -1,0 +1,65 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/fsl-mxs-auart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale MXS Application UART (AUART)
+
+maintainers:
+  - Kumar Gala <galak@codeaurora.org>
+description: |+
+  Required properties for all SoCs:
+  - compatible : Should be one of fallowing variants:
+  	"fsl,imx23-auart" - Freescale i.MX23
+  	"fsl,imx28-auart" - Freescale i.MX28
+  	"alphascale,asm9260-auart" - Alphascale ASM9260
+  - reg : Address and length of the register set for the device
+  - interrupts : Should contain the auart interrupt numbers
+  - dmas: DMA specifier, consisting of a phandle to DMA controller node
+    and AUART DMA channel ID.
+    Refer to dma.txt and fsl-mxs-dma.txt for details.
+  - dma-names: "rx" for RX channel, "tx" for TX channel.
+
+  Required properties for "alphascale,asm9260-auart":
+  - clocks : the clocks feeding the watchdog timer. See clock-bindings.txt
+  - clock-names : should be set to
+  	"mod" - source for tick counter.
+  	"ahb" - ahb gate.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale MXS Application UART (AUART)
+
+  Required properties for all SoCs:
+  - compatible : Should be one of fallowing variants:
+  	"fsl,imx23-auart" - Freescale i.MX23
+  	"fsl,imx28-auart" - Freescale i.MX28
+  	"alphascale,asm9260-auart" - Alphascale ASM9260
+  - reg : Address and length of the register set for the device
+  - interrupts : Should contain the auart interrupt numbers
+  - dmas: DMA specifier, consisting of a phandle to DMA controller node
+    and AUART DMA channel ID.
+    Refer to dma.txt and fsl-mxs-dma.txt for details.
+  - dma-names: "rx" for RX channel, "tx" for TX channel.
+
+  Required properties for "alphascale,asm9260-auart":
+  - clocks : the clocks feeding the watchdog timer. See clock-bindings.txt
+  - clock-names : should be set to
+  	"mod" - source for tick counter.
+  	"ahb" - ahb gate.
+
+  Optional properties:
+  - uart-has-rtscts : Indicate the UART has RTS and CTS lines
+    for hardware flow control,
+  	it also means you enable the DMA support for this UART.
+  - {rts,cts,dtr,dsr,rng,dcd}-gpios: specify a GPIO for RTS/CTS/DTR/DSR/RI/DCD
+    line respectively. It will use specified PIO instead of the peripheral
+    function pin for the USART feature.
+    If unsure, don't specify this property.
+
+...

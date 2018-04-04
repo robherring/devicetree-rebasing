@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/exynos5-gsc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung Exynos5 G-Scaler device
+
+maintainers:
+  - Shaik Ameer Basha <shaik.ameer@samsung.com>
+description: |+
+  G-Scaler is used for scaling and color space conversion on EXYNOS5 SoCs.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Samsung Exynos5 G-Scaler device
+
+  G-Scaler is used for scaling and color space conversion on EXYNOS5 SoCs.
+
+  Required properties:
+  - compatible: should be one of
+  	      "samsung,exynos5250-gsc"
+  	      "samsung,exynos5420-gsc"
+  	      "samsung,exynos5433-gsc"
+  	      "samsung,exynos5-gsc" (deprecated)
+  - reg: should contain G-Scaler physical address location and length.
+  - interrupts: should contain G-Scaler interrupt number
+
+  Optional properties:
+  - samsung,sysreg: handle to syscon used to control the system registers to
+    set writeback input and destination
+
+...

@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/dsa/ksz.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Microchip KSZ Series Ethernet switches
+
+maintainers:
+  - Woojung Huh <Woojung.Huh@microchip.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Microchip KSZ Series Ethernet switches
+  ==================================
+
+  Required properties:
+
+  - compatible: For external switch chips, compatible string must be exactly one
+    of: "microchip,ksz9477"
+
+  See Documentation/devicetree/bindings/dsa/dsa.txt for a list of additional
+  required and optional properties.
+
+...

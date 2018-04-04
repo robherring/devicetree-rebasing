@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/w1/w1-gpio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: w1-gpio devicetree bindings
+
+maintainers:
+  - Daniel Mack <zonque@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    onewire@0 {
+      compatible = "w1-gpio";
+      gpios = <&gpio 126 0>, <&gpio 105 0>;
+    };
+historical: |+
+  w1-gpio devicetree bindings
+
+  Required properties:
+
+   - compatible: "w1-gpio"
+   - gpios: one or two GPIO specs:
+  		- the first one is used as data I/O pin
+  		- the second one is optional. If specified, it is used as
+  		  enable pin for an external pin pullup.
+
+  Optional properties:
+
+   - linux,open-drain: if specified, the data pin is considered in
+  		     open-drain mode.
+
+...

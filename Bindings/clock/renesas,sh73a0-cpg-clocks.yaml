@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/renesas,sh73a0-cpg-clocks.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: These bindings should be considered EXPERIMENTAL for now.
+
+maintainers:
+  - Ulrich Hecht <ulrich.hecht+renesas@gmail.com>
+description: |+
+  * Renesas SH73A0 Clock Pulse Generator (CPG)
+
+  The CPG generates core clocks for the SH73A0 SoC. It includes four PLLs
+  and several fixed ratio dividers.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  These bindings should be considered EXPERIMENTAL for now.
+
+  * Renesas SH73A0 Clock Pulse Generator (CPG)
+
+  The CPG generates core clocks for the SH73A0 SoC. It includes four PLLs
+  and several fixed ratio dividers.
+
+  Required Properties:
+
+    - compatible: Must be "renesas,sh73a0-cpg-clocks"
+
+    - reg: Base address and length of the memory resource used by the CPG
+
+    - clocks: Reference to the parent clocks ("extal1" and "extal2")
+
+    - #clock-cells: Must be 1
+
+    - clock-output-names: The names of the clocks. Supported clocks are "main",
+      "pll0", "pll1", "pll2", "pll3", "dsi0phy", "dsi1phy", "zg", "m3", "b",
+      "m1", "m2", "z", "zx", and "hp".
+
+
+...

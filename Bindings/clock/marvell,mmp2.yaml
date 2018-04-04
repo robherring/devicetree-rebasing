@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/marvell,mmp2.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell MMP2 Clock Controller
+
+maintainers:
+  - Chao Xie <chao.xie@marvell.com>
+description: |+
+  The MMP2 clock subsystem generates and supplies clock to various
+  controllers within the MMP2 SoC.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  * Marvell MMP2 Clock Controller
+
+  The MMP2 clock subsystem generates and supplies clock to various
+  controllers within the MMP2 SoC.
+
+  Required Properties:
+
+  - compatible: should be one of the following.
+    - "marvell,mmp2-clock" - controller compatible with MMP2 SoC.
+
+  - reg: physical base address of the clock subsystem and length of memory mapped
+    region. There are 3 places in SOC has clock control logic:
+    "mpmu", "apmu", "apbc". So three reg spaces need to be defined.
+
+  - #clock-cells: should be 1.
+  - #reset-cells: should be 1.
+
+  Each clock is assigned an identifier and client nodes use this identifier
+  to specify the clock which they consume.
+
+  All these identifier could be found in <dt-bindings/clock/marvell-mmp2.h>.

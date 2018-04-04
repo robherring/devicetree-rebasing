@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/stm32-dmamux.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STM32 DMA MUX (DMA request router)
+
+maintainers:
+  - Pierre-Yves MORDRET <pierre-yves.mordret@st.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  STM32 DMA MUX (DMA request router)
+
+  Required properties:
+  - compatible:	"st,stm32h7-dmamux"
+  - reg:		Memory map for accessing module
+  - #dma-cells:	Should be set to <3>.
+  		First parameter is request line number.
+  		Second is DMA channel configuration
+  		Third is Fifo threshold
+  		For more details about the three cells, please see
+  		stm32-dma.txt documentation binding file
+  - dma-masters:	Phandle pointing to the DMA controllers.
+  		Several controllers are allowed. Only "st,stm32-dma" DMA
+  		compatible are supported.
+
+  Optional properties:
+  - dma-channels : Number of DMA requests supported.
+  - dma-requests : Number of DMAMUX requests supported.
+  - resets: Reference to a reset controller asserting the DMA controller
+  - clocks: Input clock of the DMAMUX instance.
+
+...

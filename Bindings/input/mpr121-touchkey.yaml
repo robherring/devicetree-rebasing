@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/mpr121-touchkey.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale MPR121 Controllor
+
+maintainers:
+  - Akinobu Mita <akinobu.mita@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale MPR121 Controllor
+
+  Required Properties:
+  - compatible:		Should be "fsl,mpr121-touchkey"
+  - reg:			The I2C slave address of the device.
+  - interrupts:		The interrupt number to the cpu.
+  - vdd-supply:		Phandle to the Vdd power supply.
+  - linux,keycodes:	Specifies an array of numeric keycode values to
+  			be used for reporting button presses. The array can
+  			contain up to 12 entries.
+
+  Optional Properties:
+  - wakeup-source:	Use any event on keypad as wakeup event.
+  - autorepeat:		Enable autorepeat feature.
+
+...

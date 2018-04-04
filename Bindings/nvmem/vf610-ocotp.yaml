@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/nvmem/vf610-ocotp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: On-Chip OTP Memory for Freescale Vybrid
+
+maintainers:
+  - Sanchayan Maity <maitysanchayan@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    ocotp: ocotp@400a5000 {
+      compatible = "fsl,vf610-ocotp";
+      #address-cells = <1>;
+      #size-cells = <1>;
+      reg = <0x400a5000 0xCF0>;
+      clocks = <&clks VF610_CLK_OCOTP>;
+    };
+historical: |+
+  On-Chip OTP Memory for Freescale Vybrid
+
+  Required Properties:
+    compatible:
+    - "fsl,vf610-ocotp" for VF5xx/VF6xx
+    #address-cells : Should be 1
+    #size-cells : Should be 1
+    reg : Address and length of OTP controller and fuse map registers
+    clocks : ipg clock we associate with the OCOTP peripheral
+
+...

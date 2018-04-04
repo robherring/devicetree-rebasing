@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/backlight/gpio-backlight.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: gpio-backlight bindings
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    backlight {
+      compatible = "gpio-backlight";
+      gpios = <&gpio3 4 GPIO_ACTIVE_HIGH>;
+      default-on;
+    };
+historical: |+
+  gpio-backlight bindings
+
+  Required properties:
+    - compatible: "gpio-backlight"
+    - gpios: describes the gpio that is used for enabling/disabling the backlight.
+      refer to bindings/gpio/gpio.txt for more details.
+
+  Optional properties:
+    - default-on: enable the backlight at boot.
+
+...

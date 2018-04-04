@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/rockchip-max98090.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ROCKCHIP with MAX98090 CODEC
+
+maintainers:
+  - zhengxing <zhengxing@rock-chips.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ROCKCHIP with MAX98090 CODEC
+
+  Required properties:
+  - compatible: "rockchip,rockchip-audio-max98090"
+  - rockchip,model: The user-visible name of this sound complex
+  - rockchip,i2s-controller: The phandle of the Rockchip I2S controller that's
+    connected to the CODEC
+  - rockchip,audio-codec: The phandle of the MAX98090 audio codec
+  - rockchip,headset-codec: The phandle of Ext chip for jack detection
+
+...

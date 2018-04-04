@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mips/brcm/brcm,bmips.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom MIPS (BMIPS) CPUs
+
+maintainers:
+  - Scott Branden <sbranden@broadcom.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  * Broadcom MIPS (BMIPS) CPUs
+
+  Required properties:
+  - compatible: "brcm,bmips3300", "brcm,bmips4350", "brcm,bmips4380",
+    "brcm,bmips5000"
+
+  - mips-hpt-frequency: This is common to all CPUs in the system so it lives
+    under the "cpus" node.

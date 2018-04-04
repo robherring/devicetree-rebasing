@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/siox/eckelmann,siox-gpio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Eckelmann SIOX GPIO bus
+
+maintainers:
+  - Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Eckelmann SIOX GPIO bus
+
+  Required properties:
+  - compatible : "eckelmann,siox-gpio"
+  - din-gpios, dout-gpios, dclk-gpios, dld-gpios: references gpios for the
+      corresponding bus signals.
+
+...

@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/designware-pcie-ecam.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Synopsys DesignWare PCIe root complex in ECAM shift mode
+
+maintainers:
+  - Ard Biesheuvel <ard.biesheuvel@linaro.org>
+description: |+
+  In some cases, firmware may already have configured the Synopsys DesignWare
+  PCIe controller in RC mode with static ATU window mappings that cover all
+  config, MMIO and I/O spaces in a [mostly] ECAM compatible fashion.
+  In this case, there is no need for the OS to perform any low level setup
+  of clocks, PHYs or device registers, nor is there any reason for the driver
+  to reconfigure ATU windows for config and/or IO space accesses at runtime.
+
+  In cases where the IP was synthesized with a minimum ATU window size of
+  64 KB, it cannot be supported by the generic ECAM driver, because it
+  requires special config space accessors that filter accesses to device #1
+  and beyond on the first bus.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Synopsys DesignWare PCIe root complex in ECAM shift mode
+
+  In some cases, firmware may already have configured the Synopsys DesignWare
+  PCIe controller in RC mode with static ATU window mappings that cover all
+  config, MMIO and I/O spaces in a [mostly] ECAM compatible fashion.
+  In this case, there is no need for the OS to perform any low level setup
+  of clocks, PHYs or device registers, nor is there any reason for the driver
+  to reconfigure ATU windows for config and/or IO space accesses at runtime.
+
+  In cases where the IP was synthesized with a minimum ATU window size of
+  64 KB, it cannot be supported by the generic ECAM driver, because it
+  requires special config space accessors that filter accesses to device #1
+  and beyond on the first bus.
+
+  Required properties:
+  - compatible: "marvell,armada8k-pcie-ecam" or
+                "socionext,synquacer-pcie-ecam" or
+                "snps,dw-pcie-ecam" (must be preceded by a more specific match)
+
+  Please refer to the binding document of "pci-host-ecam-generic" in the
+  file host-generic-pci.txt for a description of the remaining required
+  and optional properties.
+
+...

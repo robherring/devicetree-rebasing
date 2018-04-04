@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/nxp,lpc1850-gpio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC18xx/43xx GPIO controller Device Tree Bindings
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NXP LPC18xx/43xx GPIO controller Device Tree Bindings
+  -----------------------------------------------------
+
+  Required properties:
+  - compatible		: Should be "nxp,lpc1850-gpio"
+  - reg			: Address and length of the register set for the device
+  - clocks		: Clock specifier (see clock bindings for details)
+  - gpio-controller	: Marks the device node as a GPIO controller.
+  - #gpio-cells 		: Should be two
+  			  - First cell is the GPIO line number
+  			  - Second cell is used to specify polarity
+
+  Optional properties:
+  - gpio-ranges		: Mapping between GPIO and pinctrl
+
+...

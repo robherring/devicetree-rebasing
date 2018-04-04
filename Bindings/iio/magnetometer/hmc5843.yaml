@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/magnetometer/hmc5843.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Honeywell HMC5843 magnetometer sensor
+
+maintainers:
+  - NeilBrown <neilb@suse.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Honeywell HMC5843 magnetometer sensor
+
+  Required properties:
+
+    - compatible : should be "honeywell,hmc5843"
+    Other models which are supported with driver are:
+  	"honeywell,hmc5883"
+  	"honeywell,hmc5883l"
+  	"honeywell,hmc5983"
+    - reg : the I2C address of the magnetometer - typically 0x1e
+
+  Optional properties:
+
+    - gpios : should be device tree identifier of the magnetometer DRDY pin
+
+...

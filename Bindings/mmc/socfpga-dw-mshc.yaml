@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/socfpga-dw-mshc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera SOCFPGA specific extensions to the Synopsys Designware Mobile
+
+maintainers:
+  - Dinh Nguyen <dinguyen@altera.com>
+description: |+
+  The Synopsys designware mobile storage host controller is used to interface
+  a SoC with storage medium such as eMMC or SD/MMC cards. This file documents
+  differences between the core Synopsys dw mshc controller properties described
+  by synopsys-dw-mshc.txt and the properties used by the Altera SOCFPGA specific
+  extensions to the Synopsys Designware Mobile Storage Host Controller.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    mmc: dwmmc0@ff704000 {
+      compatible = "altr,socfpga-dw-mshc";
+      reg = <0xff704000 0x1000>;
+      interrupts = <0 129 4>;
+      #address-cells = <1>;
+      #size-cells = <0>;
+    };
+historical: |+
+  * Altera SOCFPGA specific extensions to the Synopsys Designware Mobile
+    Storage Host Controller
+
+  The Synopsys designware mobile storage host controller is used to interface
+  a SoC with storage medium such as eMMC or SD/MMC cards. This file documents
+  differences between the core Synopsys dw mshc controller properties described
+  by synopsys-dw-mshc.txt and the properties used by the Altera SOCFPGA specific
+  extensions to the Synopsys Designware Mobile Storage Host Controller.
+
+  Required Properties:
+
+  * compatible: should be
+  	- "altr,socfpga-dw-mshc": for Altera's SOCFPGA platform
+
+...

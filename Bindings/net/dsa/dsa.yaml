@@ -1,0 +1,104 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/dsa/dsa.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Distributed Switch Architecture Device Tree Bindings
+
+maintainers:
+  - Florian Fainelli <florian@openwrt.org>
+  - Andrew Lunn <andrew@lunn.ch>
+description: |+
+  Two bindings exist, one of which has been deprecated due to
+  limitations.
+
+  Current Binding
+  ---------------
+
+  Switches are true Linux devices and can be probes by any means. Once
+  probed, they register to the DSA framework, passing a node
+  pointer. This node is expected to fulfil the following binding, and
+  may contain additional properties as required by the device it is
+  embedded within.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Distributed Switch Architecture Device Tree Bindings
+  ----------------------------------------------------
+
+  Two bindings exist, one of which has been deprecated due to
+  limitations.
+
+  Current Binding
+  ---------------
+
+  Switches are true Linux devices and can be probes by any means. Once
+  probed, they register to the DSA framework, passing a node
+  pointer. This node is expected to fulfil the following binding, and
+  may contain additional properties as required by the device it is
+  embedded within.
+
+  Required properties:
+
+  - ports		: A container for child nodes representing switch ports.
+
+  Optional properties:
+
+  - dsa,member	: A two element list indicates which DSA cluster, and position
+  		  within the cluster a switch takes. <0 0> is cluster 0,
+  		  switch 0. <0 1> is cluster 0, switch 1. <1 0> is cluster 1,
+  		  switch 0. A switch not part of any cluster (single device
+  		  hanging off a CPU port) must not specify this property
+
+  The ports container has the following properties
+
+  Required properties:
+
+  - #address-cells	: Must be 1
+  - #size-cells		: Must be 0
+
+  Each port children node must have the following mandatory properties:
+  - reg			: Describes the port address in the switch
+
+  An uplink/downlink port between switches in the cluster has the following
+  mandatory property:
+
+  - link			: Should be a list of phandles to other switch's DSA
+  			  port. This port is used as the outgoing port
+  			  towards the phandle ports. The full routing
+  			  information must be given, not just the one hop
+  			  routes to neighbouring switches.
+
+  A CPU port has the following mandatory property:
+
+  - ethernet		: Should be a phandle to a valid Ethernet device node.
+                            This host device is what the switch port is
+  			  connected to.
+
+  A user port has the following optional property:
+
+  - label			: Describes the label associated with this port, which
+                            will become the netdev name.
+
+  Port child nodes may also contain the following optional standardised
+  properties, described in binding documents:
+
+  - phy-handle		: Phandle to a PHY on an MDIO bus. See
+  			  Documentation/devicetree/bindings/net/ethernet.txt
+  			  for details.
+
+  - phy-mode		: See
+  			  Documentation/devicetree/bindings/net/ethernet.txt
+  			  for details.
+
+  - fixed-link		: Fixed-link subnode describing a link to a non-MDIO
+  			  managed entity. See
+  			  Documentation/devicetree/bindings/net/fixed-link.txt
+  			  for details.
+
+...

@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/rockchip,pdm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Rockchip PDM controller
+
+maintainers:
+  - Sugar Zhang <sugar.zhang@rock-chips.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Rockchip PDM controller
+
+  Required properties:
+
+  - compatible: "rockchip,pdm"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - dmas: DMA specifiers for rx dma. See the DMA client binding,
+  	Documentation/devicetree/bindings/dma/dma.txt
+  - dma-names: should include "rx".
+  - clocks: a list of phandle + clock-specifer pairs, one for each entry in clock-names.
+  - clock-names: should contain following:
+     - "pdm_hclk": clock for PDM BUS
+     - "pdm_clk" : clock for PDM controller
+  - pinctrl-names: Must contain a "default" entry.
+  - pinctrl-N: One property must exist for each entry in
+  	     pinctrl-names. See ../pinctrl/pinctrl-bindings.txt
+  	     for details of the property values.
+
+...

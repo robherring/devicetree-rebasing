@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/lantiq_asc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Lantiq SoC ASC serial controller
+
+maintainers:
+  - John Crispin <blogic@openwrt.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Lantiq SoC ASC serial controller
+
+  Required properties:
+  - compatible : Should be "lantiq,asc"
+  - reg : Address and length of the register set for the device
+  - interrupts: the 3 (tx rx err) interrupt numbers. The interrupt specifier
+    depends on the interrupt-parent interrupt controller.
+
+...

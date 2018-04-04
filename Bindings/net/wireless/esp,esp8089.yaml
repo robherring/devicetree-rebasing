@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/wireless/esp,esp8089.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Espressif ESP8089 wireless SDIO devices
+
+maintainers:
+  - Hans de Goede <hdegoede@redhat.com>
+description: |+
+  This node provides properties for controlling the ESP8089 wireless device.
+  The node is expected to be specified as a child node to the SDIO controller
+  that connects the device to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Espressif ESP8089 wireless SDIO devices
+
+  This node provides properties for controlling the ESP8089 wireless device.
+  The node is expected to be specified as a child node to the SDIO controller
+  that connects the device to the system.
+
+  Required properties:
+
+   - compatible : Should be "esp,esp8089".
+
+  Optional properties:
+   - esp,crystal-26M-en: Integer value for the crystal_26M_en firmware parameter
+
+...

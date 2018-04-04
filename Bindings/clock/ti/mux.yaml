@@ -1,0 +1,104 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/ti/mux.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for TI mux clock.
+
+maintainers:
+  - Tero Kristo <t-kristo@ti.com>
+description: |+
+  Binding status: Unstable - ABI compatibility may be broken in the future
+
+  This binding uses the common clock binding[1].  It assumes a
+  register-mapped multiplexer with multiple input clock signals or
+  parents, one of which can be selected as output.  This clock does not
+  gate or adjust the parent rate via a divider or multiplier.
+
+  By default the "clocks" property lists the parents in the same order
+  as they are programmed into the regster.  E.g:
+
+  	clocks = <&foo_clock>, <&bar_clock>, <&baz_clock>;
+
+  results in programming the register as follows:
+
+  register value		selected parent clock
+  0			foo_clock
+  1			bar_clock
+  2			baz_clock
+
+  Some clock controller IPs do not allow a value of zero to be programmed
+  into the register, instead indexing begins at 1.  The optional property
+  "index-starts-at-one" modified the scheme as follows:
+
+  register value		selected clock parent
+  1			foo_clock
+  2			bar_clock
+  3			baz_clock
+
+  The binding must provide the register to control the mux. Optionally
+  the number of bits to shift the control field in the register can be
+  supplied. If the shift value is missing it is the same as supplying
+  a zero shift.
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for TI mux clock.
+
+  Binding status: Unstable - ABI compatibility may be broken in the future
+
+  This binding uses the common clock binding[1].  It assumes a
+  register-mapped multiplexer with multiple input clock signals or
+  parents, one of which can be selected as output.  This clock does not
+  gate or adjust the parent rate via a divider or multiplier.
+
+  By default the "clocks" property lists the parents in the same order
+  as they are programmed into the regster.  E.g:
+
+  	clocks = <&foo_clock>, <&bar_clock>, <&baz_clock>;
+
+  results in programming the register as follows:
+
+  register value		selected parent clock
+  0			foo_clock
+  1			bar_clock
+  2			baz_clock
+
+  Some clock controller IPs do not allow a value of zero to be programmed
+  into the register, instead indexing begins at 1.  The optional property
+  "index-starts-at-one" modified the scheme as follows:
+
+  register value		selected clock parent
+  1			foo_clock
+  2			bar_clock
+  3			baz_clock
+
+  The binding must provide the register to control the mux. Optionally
+  the number of bits to shift the control field in the register can be
+  supplied. If the shift value is missing it is the same as supplying
+  a zero shift.
+
+  [1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  Required properties:
+  - compatible : shall be "ti,mux-clock" or "ti,composite-mux-clock".
+  - #clock-cells : from common clock binding; shall be set to 0.
+  - clocks : link phandles of parent clocks
+  - reg : register offset for register controlling adjustable mux
+
+  Optional properties:
+  - ti,bit-shift : number of bits to shift the bit-mask, defaults to
+    0 if not present
+  - ti,index-starts-at-one : valid input select programming starts at 1, not
+    zero
+  - ti,set-rate-parent : clk_set_rate is propagated to parent clock,
+    not supported by the composite-mux-clock subtype
+
+...

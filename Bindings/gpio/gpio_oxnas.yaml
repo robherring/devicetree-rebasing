@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio_oxnas.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Oxford Semiconductor OXNAS SoC GPIO Controller
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  Please refer to gpio.txt for generic information regarding GPIO bindings.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Oxford Semiconductor OXNAS SoC GPIO Controller
+
+  Please refer to gpio.txt for generic information regarding GPIO bindings.
+
+  Required properties:
+   - compatible: "oxsemi,ox810se-gpio" or "oxsemi,ox820-gpio"
+   - reg: Base address and length for the device.
+   - interrupts: The port interrupt shared by all pins.
+   - gpio-controller: Marks the port as GPIO controller.
+   - #gpio-cells: Two. The first cell is the pin number and
+     the second cell is used to specify the gpio polarity as defined in
+     defined in <dt-bindings/gpio/gpio.h>:
+        0 = GPIO_ACTIVE_HIGH
+        1 = GPIO_ACTIVE_LOW
+   - interrupt-controller: Marks the device node as an interrupt controller.
+   - #interrupt-cells: Two. The first cell is the GPIO number and second cell
+     is used to specify the trigger type as defined in
+     <dt-bindings/interrupt-controller/irq.h>:
+        IRQ_TYPE_EDGE_RISING
+        IRQ_TYPE_EDGE_FALLING
+        IRQ_TYPE_EDGE_BOTH
+   - gpio-ranges: Interaction with the PINCTRL subsystem, it also specifies the
+     gpio base and count, should be in the format of numeric-gpio-range as
+     specified in the gpio.txt file.
+
+...

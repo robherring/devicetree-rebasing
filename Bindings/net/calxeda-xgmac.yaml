@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/calxeda-xgmac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Calxeda Highbank 10Gb XGMAC Ethernet
+
+maintainers:
+  - Rob Herring <rob.herring@calxeda.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Calxeda Highbank 10Gb XGMAC Ethernet
+
+  Required properties:
+  - compatible : Should be "calxeda,hb-xgmac"
+  - reg : Address and length of the register set for the device
+  - interrupts : Should contain 3 xgmac interrupts. The 1st is main interrupt.
+    The 2nd is pwr mgt interrupt. The 3rd is low power state interrupt.
+
+  Optional properties:
+  - dma-coherent      : Present if dma operations are coherent
+
+...

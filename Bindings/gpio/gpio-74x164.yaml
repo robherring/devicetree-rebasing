@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-74x164.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Generic 8-bits shift register GPIO driver
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Generic 8-bits shift register GPIO driver
+
+  Required properties:
+  - compatible: Should contain one of the following:
+      "fairchild,74hc595"
+      "nxp,74lvc594"
+  - reg : chip select number
+  - gpio-controller : Marks the device node as a gpio controller.
+  - #gpio-cells : Should be two.  The first cell is the pin number and
+    the second cell is used to specify the gpio polarity:
+        0 = active high
+        1 = active low
+  - registers-number: Number of daisy-chained shift registers
+
+  Optional properties:
+  - enable-gpios: GPIO connected to the OE (Output Enable) pin.
+
+...

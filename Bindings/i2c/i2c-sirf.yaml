@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-sirf.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: I2C for SiRFprimaII platforms
+
+maintainers:
+  - Wolfram Sang <wolfram@the-dreams.de>
+description: |+
+  Required properties :
+  - compatible : Must be "sirf,prima2-i2c"
+  - reg: physical base address of the controller and length of memory mapped
+       region.
+  - interrupts: interrupt number to the cpu.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  I2C for SiRFprimaII platforms
+
+  Required properties :
+  - compatible : Must be "sirf,prima2-i2c"
+  - reg: physical base address of the controller and length of memory mapped
+       region.
+  - interrupts: interrupt number to the cpu.
+
+  Optional properties:
+  - clock-frequency : Constains desired I2C/HS-I2C bus clock frequency in Hz.
+    The absence of the property indicates the default frequency 100 kHz.
+
+...

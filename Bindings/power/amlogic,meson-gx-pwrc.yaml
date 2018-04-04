@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/amlogic,meson-gx-pwrc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson Power Controller
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  The Amlogic Meson SoCs embeds an internal Power domain controller.
+
+  VPU Power Domain
+  ----------------
+
+  The Video Processing Unit power domain is controlled by this power controller,
+  but the domain requires some external resources to meet the correct power
+  sequences.
+  The bindings must respect the power domain bindings as described in the file
+  power_domain.txt
+
+  Device Tree Bindings:
+  ---------------------
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Amlogic Meson Power Controller
+  ==============================
+
+  The Amlogic Meson SoCs embeds an internal Power domain controller.
+
+  VPU Power Domain
+  ----------------
+
+  The Video Processing Unit power domain is controlled by this power controller,
+  but the domain requires some external resources to meet the correct power
+  sequences.
+  The bindings must respect the power domain bindings as described in the file
+  power_domain.txt
+
+  Device Tree Bindings:
+  ---------------------
+
+  Required properties:
+  - compatible: should be "amlogic,meson-gx-pwrc-vpu" for the Meson GX SoCs
+  - #power-domain-cells: should be 0
+  - amlogic,hhi-sysctrl: phandle to the HHI sysctrl node
+  - resets: phandles to the reset lines needed for this power demain sequence
+  	as described in ../reset/reset.txt
+  - clocks: from common clock binding: handle to VPU and VAPB clocks
+  - clock-names: from common clock binding: must contain "vpu", "vapb"
+  	corresponding to entry in the clocks property.
+
+  Parent node should have the following properties :
+  - compatible: "amlogic,meson-gx-ao-sysctrl", "syscon", "simple-mfd"
+  - reg: base address and size of the AO system control register space.
+
+...

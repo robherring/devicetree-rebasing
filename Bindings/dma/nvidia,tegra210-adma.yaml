@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/nvidia,tegra210-adma.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NVIDIA Tegra Audio DMA (ADMA) controller
+
+maintainers:
+  - Jon Hunter <jonathanh@nvidia.com>
+description: |+
+  The Tegra Audio DMA controller that is used for transferring data
+  between system memory and the Audio Processing Engine (APE).
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * NVIDIA Tegra Audio DMA (ADMA) controller
+
+  The Tegra Audio DMA controller that is used for transferring data
+  between system memory and the Audio Processing Engine (APE).
+
+  Required properties:
+  - compatible: Must be "nvidia,tegra210-adma".
+  - reg: Should contain DMA registers location and length. This should be
+    a single entry that includes all of the per-channel registers in one
+    contiguous bank.
+  - interrupt-parent: Phandle to the interrupt parent controller.
+  - interrupts: Should contain all of the per-channel DMA interrupts in
+    ascending order with respect to the DMA channel index.
+  - clocks: Must contain one entry for the ADMA module clock
+    (TEGRA210_CLK_D_AUDIO).
+  - clock-names: Must contain the name "d_audio" for the corresponding
+    'clocks' entry.
+  - #dma-cells : Must be 1. The first cell denotes the receive/transmit
+    request number and should be between 1 and the maximum number of
+    requests supported. This value corresponds to the RX/TX_REQUEST_SELECT
+    fields in the ADMA_CHn_CTRL register.
+
+
+...

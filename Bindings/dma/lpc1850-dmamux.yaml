@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/lpc1850-dmamux.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC18xx/43xx DMA MUX (DMA request router)
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NXP LPC18xx/43xx DMA MUX (DMA request router)
+
+  Required properties:
+  - compatible:	"nxp,lpc1850-dmamux"
+  - reg:		Memory map for accessing module
+  - #dma-cells:	Should be set to <3>.
+  		* 1st cell contain the master dma request signal
+  		* 2nd cell contain the mux value (0-3) for the peripheral
+  		* 3rd cell contain either 1 or 2 depending on the AHB
+  		  master used.
+  - dma-requests:	Number of DMA requests for the mux
+  - dma-masters:	phandle pointing to the DMA controller
+
+  The DMA controller node need to have the following poroperties:
+  - dma-requests:	Number of DMA requests the controller can handle
+
+...

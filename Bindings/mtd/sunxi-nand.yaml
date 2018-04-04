@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/sunxi-nand.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Allwinner NAND Flash Controller (NFC)
+
+maintainers:
+  - Boris BREZILLON <boris.brezillon@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Allwinner NAND Flash Controller (NFC)
+
+  Required properties:
+  - compatible : "allwinner,sun4i-a10-nand".
+  - reg : shall contain registers location and length for data and reg.
+  - interrupts : shall define the nand controller interrupt.
+  - #address-cells: shall be set to 1. Encode the nand CS.
+  - #size-cells : shall be set to 0.
+  - clocks : shall reference nand controller clocks.
+  - clock-names : nand controller internal clock names. Shall contain :
+      * "ahb" : AHB gating clock
+      * "mod" : nand controller clock
+
+  Optional properties:
+  - dmas : shall reference DMA channel associated to the NAND controller.
+  - dma-names : shall be "rxtx".
+
+  Optional children nodes:
+  Children nodes represent the available nand chips.
+
+  Optional properties:
+  - reset : phandle + reset specifier pair
+  - reset-names : must contain "ahb"
+  - allwinner,rb : shall contain the native Ready/Busy ids.
+   or
+  - rb-gpios : shall contain the gpios used as R/B pins.
+  - nand-ecc-mode : one of the supported ECC modes ("hw", "hw_syndrome", "soft",
+    "soft_bch" or "none")
+
+  see Documentation/devicetree/bindings/mtd/nand.txt for generic bindings.
+
+
+...

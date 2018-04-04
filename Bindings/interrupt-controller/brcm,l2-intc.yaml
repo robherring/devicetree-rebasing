@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/brcm,l2-intc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom Generic Level 2 Interrupt Controller
+
+maintainers:
+  - Florian Fainelli <f.fainelli@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom Generic Level 2 Interrupt Controller
+
+  Required properties:
+
+  - compatible: should be "brcm,l2-intc" for latched interrupt controllers
+                should be "brcm,bcm7271-l2-intc" for level interrupt controllers
+  - reg: specifies the base physical address and size of the registers
+  - interrupt-controller: identifies the node as an interrupt controller
+  - #interrupt-cells: specifies the number of cells needed to encode an
+    interrupt source. Should be 1.
+  - interrupt-parent: specifies the phandle to the parent interrupt controller
+    this controller is cacaded from
+  - interrupts: specifies the interrupt line in the interrupt-parent irq space
+    to be used for cascading
+
+  Optional properties:
+
+  - brcm,irq-can-wake: If present, this means the L2 controller can be used as a
+    wakeup source for system suspend/resume.
+
+...

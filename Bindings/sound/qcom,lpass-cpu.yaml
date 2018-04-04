@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/qcom,lpass-cpu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm Technologies LPASS CPU DAI
+
+maintainers:
+  - Kenneth Westfield <kwestfie@codeaurora.org>
+description: |+
+  This node models the Qualcomm Technologies Low-Power Audio SubSystem (LPASS).
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Qualcomm Technologies LPASS CPU DAI
+
+  This node models the Qualcomm Technologies Low-Power Audio SubSystem (LPASS).
+
+  Required properties:
+
+  - compatible		: "qcom,lpass-cpu" or "qcom,apq8016-lpass-cpu"
+  - clocks		: Must contain an entry for each entry in clock-names.
+  - clock-names		: A list which must include the following entries:
+  				* "ahbix-clk"
+  				* "mi2s-osr-clk"
+  				* "mi2s-bit-clk"
+  			: required clocks for "qcom,lpass-cpu-apq8016"
+  				* "ahbix-clk"
+  				* "mi2s-bit-clk0"
+  				* "mi2s-bit-clk1"
+  				* "mi2s-bit-clk2"
+  				* "mi2s-bit-clk3"
+  				* "pcnoc-mport-clk"
+  				* "pcnoc-sway-clk"
+
+  - interrupts		: Must contain an entry for each entry in
+  			  interrupt-names.
+  - interrupt-names	: A list which must include the following entries:
+  				* "lpass-irq-lpaif"
+  - pinctrl-N		: One property must exist for each entry in
+  			  pinctrl-names.  See ../pinctrl/pinctrl-bindings.txt
+  			  for details of the property values.
+  - pinctrl-names		: Must contain a "default" entry.
+  - reg			: Must contain an address for each entry in reg-names.
+  - reg-names		: A list which must include the following entries:
+  				* "lpass-lpaif"
+
+
+
+  Optional properties:
+
+  - qcom,adsp		: Phandle for the audio DSP node
+
+...

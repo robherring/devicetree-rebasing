@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/reset/amlogic,meson-reset.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson SoC Reset Controller
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  Please also refer to reset.txt in this directory for common reset
+  controller binding usage.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Amlogic Meson SoC Reset Controller
+  =======================================
+
+  Please also refer to reset.txt in this directory for common reset
+  controller binding usage.
+
+  Required properties:
+  - compatible: Should be "amlogic,meson8b-reset", "amlogic,meson-gxbb-reset" or
+  	"amlogic,meson-axg-reset".
+  - reg: should contain the register address base
+  - #reset-cells: 1, see below
+
+...

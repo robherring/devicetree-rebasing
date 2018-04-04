@@ -1,0 +1,69 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-xra1403.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: GPIO Driver for XRA1403 16-BIT GPIO Expander With Reset Input from EXAR
+
+maintainers:
+  - Nandor Han <nandor.han@ge.com>
+description: |+
+  The XRA1403 is an 16-bit GPIO expander with an SPI interface. Features available:
+  	- Individually programmable inputs:
+  		- Internal pull-up resistors
+  		- Polarity inversion
+  		- Individual interrupt enable
+  		- Rising edge and/or Falling edge interrupt
+  		- Input filter
+  	- Individually programmable outputs
+  		- Output Level Control
+  		- Output Three-State Control
+
+  Properties
+  ----------
+  Check documentation for SPI and GPIO controllers regarding properties needed to configure the node.
+
+  	- compatible = "exar,xra1403".
+  	- reg - SPI id of the device.
+  	- gpio-controller - marks the node as gpio.
+  	- #gpio-cells - should be two where the first cell is the pin number
+  		and the second one is used for optional parameters.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  GPIO Driver for XRA1403 16-BIT GPIO Expander With Reset Input from EXAR
+
+  The XRA1403 is an 16-bit GPIO expander with an SPI interface. Features available:
+  	- Individually programmable inputs:
+  		- Internal pull-up resistors
+  		- Polarity inversion
+  		- Individual interrupt enable
+  		- Rising edge and/or Falling edge interrupt
+  		- Input filter
+  	- Individually programmable outputs
+  		- Output Level Control
+  		- Output Three-State Control
+
+  Properties
+  ----------
+  Check documentation for SPI and GPIO controllers regarding properties needed to configure the node.
+
+  	- compatible = "exar,xra1403".
+  	- reg - SPI id of the device.
+  	- gpio-controller - marks the node as gpio.
+  	- #gpio-cells - should be two where the first cell is the pin number
+  		and the second one is used for optional parameters.
+
+  Optional properties:
+  -------------------
+  	- reset-gpios: in case available used to control the device reset line.
+  	- interrupt-controller - marks the node as interrupt controller.
+  	- #interrupt-cells - should be two and represents the number of cells
+  		needed to encode interrupt source.
+
+...

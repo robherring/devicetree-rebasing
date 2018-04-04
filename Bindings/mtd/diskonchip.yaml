@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/diskonchip.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: M-Systems and Sandisk DiskOnChip devices
+
+maintainers:
+  - Robert Jarzmik <robert.jarzmik@free.fr>
+description: |+
+  M-System DiskOnChip G3
+  ======================
+  The Sandisk (formerly M-Systems) docg3 is a nand device of 64M to 256MB.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    docg3: flash@0 {
+      compatible = "m-systems,diskonchip-g3";
+      reg = <0x0 0x2000>;
+    };
+historical: |+
+  M-Systems and Sandisk DiskOnChip devices
+
+  M-System DiskOnChip G3
+  ======================
+  The Sandisk (formerly M-Systems) docg3 is a nand device of 64M to 256MB.
+
+  Required properties:
+   - compatible: should be "m-systems,diskonchip-g3"
+   - reg: register base and size
+
+...

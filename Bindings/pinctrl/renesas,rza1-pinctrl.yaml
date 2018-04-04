@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/renesas,rza1-pinctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas RZ/A1 combined Pin and GPIO controller
+
+maintainers:
+  - Jacopo Mondi <jacopo+renesas@jmondi.org>
+description: |+
+  The Renesas SoCs of the RZ/A1 family feature a combined Pin and GPIO controller,
+  named "Ports" in the hardware reference manual.
+  Pin multiplexing and GPIO configuration is performed on a per-pin basis
+  writing configuration values to per-port register sets.
+  Each "port" features up to 16 pins, each of them configurable for GPIO
+  function (port mode) or in alternate function mode.
+  Up to 8 different alternate function modes exist for each single pin.
+
+  Pin controller node
+  -------------------
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Renesas RZ/A1 combined Pin and GPIO controller
+
+  The Renesas SoCs of the RZ/A1 family feature a combined Pin and GPIO controller,
+  named "Ports" in the hardware reference manual.
+  Pin multiplexing and GPIO configuration is performed on a per-pin basis
+  writing configuration values to per-port register sets.
+  Each "port" features up to 16 pins, each of them configurable for GPIO
+  function (port mode) or in alternate function mode.
+  Up to 8 different alternate function modes exist for each single pin.
+
+  Pin controller node
+  -------------------
+
+  Required properties:
+    - compatible: should be:
+      - "renesas,r7s72100-ports": for RZ/A1H
+      - "renesas,r7s72101-ports", "renesas,r7s72100-ports": for RZ/A1M
+      - "renesas,r7s72102-ports": for RZ/A1L
+
+    - reg
+      address base and length of the memory area where the pin controller
+      hardware is mapped to.
+
+...

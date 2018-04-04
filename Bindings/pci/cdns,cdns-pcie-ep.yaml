@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/cdns,cdns-pcie-ep.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cadence PCIe endpoint controller
+
+maintainers:
+  - Cyrille Pitchen <cyrille.pitchen@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Cadence PCIe endpoint controller
+
+  Required properties:
+  - compatible: Should contain "cdns,cdns-pcie-ep" to identify the IP used.
+  - reg: Should contain the controller register base address and AXI interface
+    region base address respectively.
+  - reg-names: Must be "reg" and "mem" respectively.
+  - cdns,max-outbound-regions: Set to maximum number of outbound regions
+
+  Optional properties:
+  - max-functions: Maximum number of functions that can be configured (default 1).
+
+...

@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/nvidia,tegra20-sdhci.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NVIDIA Tegra Secure Digital Host Controller
+
+maintainers:
+  - Stephen Warren <swarren@nvidia.com>
+description: |+
+  This controller on Tegra family SoCs provides an interface for MMC, SD,
+  and SDIO types of memory cards.
+
+  This file documents differences between the core properties described
+  by mmc.txt and the properties used by the sdhci-tegra driver.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * NVIDIA Tegra Secure Digital Host Controller
+
+  This controller on Tegra family SoCs provides an interface for MMC, SD,
+  and SDIO types of memory cards.
+
+  This file documents differences between the core properties described
+  by mmc.txt and the properties used by the sdhci-tegra driver.
+
+  Required properties:
+  - compatible : should be one of:
+    - "nvidia,tegra20-sdhci": for Tegra20
+    - "nvidia,tegra30-sdhci": for Tegra30
+    - "nvidia,tegra114-sdhci": for Tegra114
+    - "nvidia,tegra124-sdhci": for Tegra124 and Tegra132
+    - "nvidia,tegra210-sdhci": for Tegra210
+    - "nvidia,tegra186-sdhci": for Tegra186
+  - clocks : Must contain one entry, for the module clock.
+    See ../clocks/clock-bindings.txt for details.
+  - resets : Must contain an entry for each entry in reset-names.
+    See ../reset/reset.txt for details.
+  - reset-names : Must include the following entries:
+    - sdhci
+
+  Optional properties:
+  - power-gpios : Specify GPIOs for power control
+
+...

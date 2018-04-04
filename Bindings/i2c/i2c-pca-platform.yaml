@@ -1,0 +1,75 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-pca-platform.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP PCA PCA9564/PCA9665 I2C controller
+
+maintainers:
+  - Chris Packham <chris.packham@alliedtelesis.co.nz>
+description: |
+  The PCA9564/PCA9665 serves as an interface between most standard
+  parallel-bus microcontrollers/microprocessors and the serial I2C-bus
+  and allows the parallel bus system to communicate bi-directionally
+  with the I2C-bus.
+
+  Required properties :
+
+   - reg : Offset and length of the register set for the device
+   - compatible : one of "nxp,pca9564" or "nxp,pca9665"
+
+  Optional properties
+   - interrupts : the interrupt number
+   - interrupt-parent : the phandle for the interrupt controller.
+     If an interrupt is not specified polling will be used.
+   - reset-gpios : gpio specifier for gpio connected to RESET_N pin. As the line
+     is active low, it should be marked GPIO_ACTIVE_LOW.
+   - clock-frequency : I2C bus frequency.
+
+  Example:
+  	i2c0: i2c@80000 {
+  		compatible = "nxp,pca9564";
+  		#address-cells = <1>;
+  		#size-cells = <0>;
+  		reg = <0x80000 0x4>;
+  		reset-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+  		clock-frequency = <100000>;
+  	};
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    i2c0: i2c@80000 {
+      compatible = "nxp,pca9564";
+      #address-cells = <1>;
+      #size-cells = <0>;
+      reg = <0x80000 0x4>;
+      reset-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
+      clock-frequency = <100000>;
+    };
+historical: |+
+  * NXP PCA PCA9564/PCA9665 I2C controller
+
+  The PCA9564/PCA9665 serves as an interface between most standard
+  parallel-bus microcontrollers/microprocessors and the serial I2C-bus
+  and allows the parallel bus system to communicate bi-directionally
+  with the I2C-bus.
+
+  Required properties :
+
+   - reg : Offset and length of the register set for the device
+   - compatible : one of "nxp,pca9564" or "nxp,pca9665"
+
+  Optional properties
+   - interrupts : the interrupt number
+   - interrupt-parent : the phandle for the interrupt controller.
+     If an interrupt is not specified polling will be used.
+   - reset-gpios : gpio specifier for gpio connected to RESET_N pin. As the line
+     is active low, it should be marked GPIO_ACTIVE_LOW.
+   - clock-frequency : I2C bus frequency.
+
+...

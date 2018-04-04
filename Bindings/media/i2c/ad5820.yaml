@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/i2c/ad5820.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Analog Devices AD5820 autofocus coil
+
+maintainers:
+  - Pavel Machek <pavel@ucw.cz>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Analog Devices AD5820 autofocus coil
+
+  Required Properties:
+
+    - compatible: Must contain "adi,ad5820"
+
+    - reg: I2C slave address
+
+    - VANA-supply: supply of voltage for VANA pin
+
+...

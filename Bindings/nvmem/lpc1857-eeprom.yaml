@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/nvmem/lpc1857-eeprom.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP LPC18xx EEPROM memory NVMEM driver
+
+maintainers:
+  - Ariel D'Alessandro <ariel@vanguardiasur.com.ar>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * NXP LPC18xx EEPROM memory NVMEM driver
+
+  Required properties:
+    - compatible: Should be "nxp,lpc1857-eeprom"
+    - reg: Must contain an entry with the physical base address and length
+      for each entry in reg-names.
+    - reg-names: Must include the following entries.
+      - reg: EEPROM registers.
+      - mem: EEPROM address space.
+    - clocks: Must contain an entry for each entry in clock-names.
+    - clock-names: Must include the following entries.
+      - eeprom: EEPROM operating clock.
+    - resets: Should contain a reference to the reset controller asserting
+      the EEPROM in reset.
+    - interrupts: Should contain EEPROM interrupt.
+
+...

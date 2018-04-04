@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/renesas,r8a7778-cpg-clocks.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas R8A7778 Clock Pulse Generator (CPG)
+
+maintainers:
+  - Ulrich Hecht <ulrich.hecht+renesas@gmail.com>
+description: |+
+  The CPG generates core clocks for the R8A7778. It includes two PLLs and
+  several fixed ratio dividers.
+  The CPG also provides a Clock Domain for SoC devices, in combination with the
+  CPG Module Stop (MSTP) Clocks.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Renesas R8A7778 Clock Pulse Generator (CPG)
+
+  The CPG generates core clocks for the R8A7778. It includes two PLLs and
+  several fixed ratio dividers.
+  The CPG also provides a Clock Domain for SoC devices, in combination with the
+  CPG Module Stop (MSTP) Clocks.
+
+  Required Properties:
+
+    - compatible: Must be "renesas,r8a7778-cpg-clocks"
+    - reg: Base address and length of the memory resource used by the CPG
+    - #clock-cells: Must be 1
+    - clock-output-names: The names of the clocks. Supported clocks are
+      "plla", "pllb", "b", "out", "p", "s", and "s1".
+    - #power-domain-cells: Must be 0
+
+  SoC devices that are part of the CPG/MSTP Clock Domain and can be power-managed
+  through an MSTP clock should refer to the CPG device node in their
+  "power-domains" property, as documented by the generic PM domain bindings in
+  Documentation/devicetree/bindings/power/power_domain.txt.
+
+
+...

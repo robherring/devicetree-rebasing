@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/hwmon/tmp108.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TMP108 temperature sensor
+
+maintainers:
+  - John Muir <john@jmuir.com>
+description: |+
+  This device supports I2C only.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    tmp108@48 {
+      compatible = "ti,tmp108";
+      reg = <0x48>;
+    };
+historical: |+
+  TMP108 temperature sensor
+  -------------------------
+
+  This device supports I2C only.
+
+  Requires node properties:
+  - compatible : "ti,tmp108"
+  - reg : the I2C address of the device. This is 0x48, 0x49, 0x4a, or 0x4b.
+
+...

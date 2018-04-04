@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/ti-keystone-pllctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for Texas Instruments keystone pll controller
+
+maintainers:
+  - Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>
+description: |+
+  The main pll controller used to drive theC66x CorePacs, the switch fabric,
+  and a majority of the peripheral clocks (all but the ARM CorePacs, DDR3 and
+  the NETCP modules) requires a PLL Controller to manage the various clock
+  divisions, gating, and synchronization.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Device tree bindings for Texas Instruments keystone pll controller
+
+  The main pll controller used to drive theC66x CorePacs, the switch fabric,
+  and a majority of the peripheral clocks (all but the ARM CorePacs, DDR3 and
+  the NETCP modules) requires a PLL Controller to manage the various clock
+  divisions, gating, and synchronization.
+
+  Required properties:
+
+  - compatible:		"ti,keystone-pllctrl", "syscon"
+
+  - reg:			contains offset/length value for pll controller
+  			registers space.
+
+...

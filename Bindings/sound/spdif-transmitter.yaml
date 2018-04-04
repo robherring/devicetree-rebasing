@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/spdif-transmitter.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for dummy spdif transmitter
+
+maintainers:
+  - Marek Belisko <marek.belisko@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    codec: spdif-transmitter {
+      compatible = "linux,spdif-dit";
+    };
+historical: |+
+  Device-Tree bindings for dummy spdif transmitter
+
+  Required properties:
+  	- compatible: should be "linux,spdif-dit".
+
+...

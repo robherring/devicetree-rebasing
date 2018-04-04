@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/img,spdif-in.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Imagination Technologies SPDIF Input Controller
+
+maintainers:
+  - Damien.Horsley <Damien.Horsley@imgtec.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Imagination Technologies SPDIF Input Controller
+
+  Required Properties:
+
+    - compatible : Compatible list, must contain "img,spdif-in"
+
+    - #sound-dai-cells : Must be equal to 0
+
+    - reg : Offset and length of the register set for the device
+
+    - dmas: Contains an entry for each entry in dma-names.
+
+    - dma-names: Must include the following entry:
+  	"rx"
+
+    - clocks : Contains an entry for each entry in clock-names
+
+    - clock-names : Includes the following entries:
+  	"sys"	The system clock
+
+  Optional Properties:
+
+    - resets: Should contain a phandle to the spdif in reset signal, if any
+
+    - reset-names: Should contain the reset signal name "rst", if a
+  	reset phandle is given
+
+    - interrupts : Contains the spdif in interrupt, if present
+
+...

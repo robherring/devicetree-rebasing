@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/ata/ahci-dm816.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree binding for the TI DM816 AHCI SATA Controller
+
+maintainers:
+  - Bartosz Golaszewski <bgolaszewski@baylibre.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sata: sata@4a140000 {
+      compatible = "ti,dm816-ahci";
+      reg = <0x4a140000 0x10000>;
+      interrupts = <16>;
+      clocks = <&sysclk5_ck>, <&sata_refclk>;
+    };
+historical: |+
+  Device tree binding for the TI DM816 AHCI SATA Controller
+  ---------------------------------------------------------
+
+  Required properties:
+    - compatible: must be "ti,dm816-ahci"
+    - reg: physical base address and size of the register region used by
+           the controller (as defined by the AHCI 1.1 standard)
+    - interrupts: interrupt specifier (refer to the interrupt binding)
+    - clocks: list of phandle and clock specifier pairs (or only
+              phandles for clock providers with '0' defined for
+              #clock-cells); two clocks must be specified: the functional
+              clock and an external reference clock
+
+...

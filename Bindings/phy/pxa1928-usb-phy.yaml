@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/pxa1928-usb-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell PXA1928 USB and HSIC PHYs
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    usbphy: phy@7000 {
+      compatible = "marvell,pxa1928-usb-phy";
+      reg = <0x7000 0xe0>;
+      clocks = <&apmu_clocks PXA1928_CLK_USB>;
+      #phy-cells = <0>;
+    };
+historical: |+
+  * Marvell PXA1928 USB and HSIC PHYs
+
+  Required properties:
+  - compatible: "marvell,pxa1928-usb-phy" or "marvell,pxa1928-hsic-phy"
+  - reg: base address and length of the registers
+  - clocks - A single clock. From common clock binding.
+  - #phys-cells: should be 0. From commmon phy binding.
+  - resets: reference to the reset controller
+
+...

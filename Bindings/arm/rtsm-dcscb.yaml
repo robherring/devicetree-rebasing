@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/rtsm-dcscb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM Dual Cluster System Configuration Block
+
+maintainers:
+  - Nicolas Pitre <nicolas.pitre@linaro.org>
+description: |+
+  The Dual Cluster System Configuration Block (DCSCB) provides basic
+  functionality for controlling clocks, resets and configuration pins in
+  the Dual Cluster System implemented by the Real-Time System Model (RTSM).
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    dcscb@60000000 {
+      compatible = "arm,rtsm,dcscb";
+      reg = <0x60000000 0x1000>;
+    };
+historical: |+
+  ARM Dual Cluster System Configuration Block
+  -------------------------------------------
+
+  The Dual Cluster System Configuration Block (DCSCB) provides basic
+  functionality for controlling clocks, resets and configuration pins in
+  the Dual Cluster System implemented by the Real-Time System Model (RTSM).
+
+  Required properties:
+
+  - compatible : should be "arm,rtsm,dcscb"
+
+  - reg : physical base address and the size of the registers window
+
+...

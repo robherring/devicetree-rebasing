@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/efm32-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Energymicro efm32 UART
+
+maintainers:
+  - Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
+  - Kumar Gala <galak@codeaurora.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Energymicro efm32 UART
+
+  Required properties:
+  - compatible : Should be "energymicro,efm32-uart"
+  - reg : Address and length of the register set
+  - interrupts : Should contain uart interrupt
+
+  Optional properties:
+  - energymicro,location : Decides the location of the USART I/O pins.
+    Allowed range : [0 .. 5]
+    Default: 0
+
+...

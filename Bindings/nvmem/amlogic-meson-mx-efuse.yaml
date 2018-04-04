@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/nvmem/amlogic-meson-mx-efuse.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson6/Meson8/Meson8b efuse
+
+maintainers:
+  - Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    efuse: nvmem@0 {
+      compatible = "amlogic,meson8-efuse";
+      reg = <0x0 0x2000>;
+      clocks = <&clkc CLKID_EFUSE>;
+      clock-names = "core";
+    };
+historical: |+
+  Amlogic Meson6/Meson8/Meson8b efuse
+
+  Required Properties:
+  - compatible: depending on the SoC this should be one of:
+  	- "amlogic,meson6-efuse"
+  	- "amlogic,meson8-efuse"
+  	- "amlogic,meson8b-efuse"
+  - reg: base address and size of the efuse registers
+  - clocks: a reference to the efuse core gate clock
+  - clock-names: must be "core"
+
+  All properties and sub-nodes as well as the consumer bindings
+  defined in nvmem.txt in this directory are also supported.
+
+
+...

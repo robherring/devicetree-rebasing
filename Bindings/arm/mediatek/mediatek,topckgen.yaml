@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,topckgen.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek topckgen controller
+
+maintainers:
+  - Sascha Hauer <s.hauer@pengutronix.de>
+description: |+
+  The Mediatek topckgen controller provides various clocks to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek topckgen controller
+  ============================
+
+  The Mediatek topckgen controller provides various clocks to the system.
+
+  Required Properties:
+
+  - compatible: Should be one of:
+  	- "mediatek,mt2701-topckgen"
+  	- "mediatek,mt2712-topckgen", "syscon"
+  	- "mediatek,mt6797-topckgen"
+  	- "mediatek,mt7622-topckgen"
+  	- "mediatek,mt8135-topckgen"
+  	- "mediatek,mt8173-topckgen"
+  - #clock-cells: Must be 1
+
+  The topckgen controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

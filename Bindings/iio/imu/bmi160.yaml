@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/imu/bmi160.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Bosch BMI160 - Inertial Measurement Unit with Accelerometer, Gyroscope
+
+maintainers:
+  - Marcin Niestroj <m.niestroj@grinn-global.com>
+description: |+
+  https://www.bosch-sensortec.com/bst/products/all_products/bmi160
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Bosch BMI160 - Inertial Measurement Unit with Accelerometer, Gyroscope
+  and externally connectable Magnetometer
+
+  https://www.bosch-sensortec.com/bst/products/all_products/bmi160
+
+  Required properties:
+   - compatible : should be "bosch,bmi160"
+   - reg : the I2C address or SPI chip select number of the sensor
+   - spi-max-frequency : set maximum clock frequency (only for SPI)
+
+  Optional properties:
+   - interrupt-parent : should be the phandle of the interrupt controller
+   - interrupts : interrupt mapping for IRQ, must be IRQ_TYPE_LEVEL_LOW
+   - interrupt-names : set to "INT1" if INT1 pin should be used as interrupt
+     input, set to "INT2" if INT2 pin should be used instead
+
+...

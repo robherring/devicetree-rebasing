@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/leds-is31fl32xx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for ISSI IS31FL32xx and Si-En SN32xx LED Drivers
+
+maintainers:
+  - David Rivshin <drivshin@allworx.com>
+description: |+
+  The IS31FL32xx/SN32xx family of LED drivers are I2C devices with multiple
+  constant-current channels, each with independent 256-level PWM control.
+  Each LED is represented as a sub-node of the device.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for ISSI IS31FL32xx and Si-En SN32xx LED Drivers
+
+  The IS31FL32xx/SN32xx family of LED drivers are I2C devices with multiple
+  constant-current channels, each with independent 256-level PWM control.
+  Each LED is represented as a sub-node of the device.
+
+  Required properties:
+  - compatible: one of
+  	issi,is31fl3236
+  	issi,is31fl3235
+  	issi,is31fl3218
+  	issi,is31fl3216
+  	si-en,sn3218
+  	si-en,sn3216
+  - reg: I2C slave address
+  - address-cells : must be 1
+  - size-cells : must be 0
+
+  LED sub-node properties:
+  - reg : LED channel number (1..N)
+  - label :  (optional)
+    see Documentation/devicetree/bindings/leds/common.txt
+  - linux,default-trigger :  (optional)
+    see Documentation/devicetree/bindings/leds/common.txt
+
+
+...

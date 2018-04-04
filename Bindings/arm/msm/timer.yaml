@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/msm/timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MSM Timer
+
+maintainers:
+  - Stephen Boyd <sboyd@codeaurora.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * MSM Timer
+
+  Properties:
+
+  - compatible : Should at least contain "qcom,msm-timer". More specific
+                 properties specify which subsystem the timers are paired with.
+
+                 "qcom,kpss-timer" - krait subsystem
+                 "qcom,scss-timer" - scorpion subsystem
+
+  - interrupts : Interrupts for the debug timer, the first general purpose
+                 timer, and optionally a second general purpose timer, and
+                 optionally as well, 2 watchdog interrupts, in that order.
+
+  - reg : Specifies the base address of the timer registers.
+
+  - clocks: Reference to the parent clocks, one per output clock. The parents
+            must appear in the same order as the clock names.
+
+  - clock-names: The name of the clocks as free-form strings. They should be in
+                 the same order as the clocks.
+
+  - clock-frequency : The frequency of the debug timer and the general purpose
+                      timer(s) in Hz in that order.
+
+  Optional:
+
+  - cpu-offset : per-cpu offset used when the timer is accessed without the
+                 CPU remapping facilities. The offset is
+                 cpu-offset + (0x10000 * cpu-nr).
+
+...

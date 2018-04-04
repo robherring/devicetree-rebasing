@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/ti/ti,opa362.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OPA362 analog video amplifier
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  OPA362 analog video amplifier
+
+  Required properties:
+  - compatible: "ti,opa362"
+  - enable-gpios: enable/disable output gpio
+
+  Required node:
+  - Video port 0 for opa362 input
+  - Video port 1 for opa362 output
+
+...

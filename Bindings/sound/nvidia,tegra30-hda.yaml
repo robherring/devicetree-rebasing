@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/nvidia,tegra30-hda.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NVIDIA Tegra30 HDA controller
+
+maintainers:
+  - Thierry Reding <treding@nvidia.com>
+  - Dylan Reid <dgreid@chromium.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NVIDIA Tegra30 HDA controller
+
+  Required properties:
+  - compatible : For Tegra30, must contain "nvidia,tegra30-hda".  Otherwise,
+    must contain '"nvidia,<chip>-hda", "nvidia,tegra30-hda"', where <chip> is
+    tegra114, tegra124, or tegra132.
+  - reg : Should contain the HDA registers location and length.
+  - interrupts : The interrupt from the HDA controller.
+  - clocks : Must contain an entry for each required entry in clock-names.
+    See ../clocks/clock-bindings.txt for details.
+  - clock-names : Must include the following entries: hda, hda2hdmi, hda2codec_2x
+  - resets : Must contain an entry for each entry in reset-names.
+    See ../reset/reset.txt for details.
+  - reset-names : Must include the following entries: hda, hda2hdmi, hda2codec_2x
+
+...

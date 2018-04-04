@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/axis,etraxfs-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ETRAX FS UART
+
+maintainers:
+  - Niklas Cassel <nks@flawful.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ETRAX FS UART
+
+  Required properties:
+  - compatible : "axis,etraxfs-uart"
+  - reg: offset and length of the register set for the device.
+  - interrupts: device interrupt
+
+  Optional properties:
+  - {dtr,dsr,rng,dcd}-gpios: specify a GPIO for DTR/DSR/RI/DCD
+    line respectively.
+
+...

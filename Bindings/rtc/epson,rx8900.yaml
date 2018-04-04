@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/epson,rx8900.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'Real Time Clock driver for:'
+
+maintainers:
+  - Oleksij Rempel <fixed-term.Oleksij.Rempel@de.bosch.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    rtc: rtc@32 {
+      compatible = "epson,rx8900"
+      reg = <0x32>;
+      epson,vdet-disable;
+      trickle-diode-disable;
+    };
+historical: |+
+  Real Time Clock driver for:
+    - Epson RX8900
+    - Micro Crystal rv8803
+
+  Required properties:
+  - compatible: should be: "microcrystal,rv8803" or "epson,rx8900"
+  - reg : the I2C address of the device for I2C
+
+  Optional properties:
+  - epson,vdet-disable : boolean, if present will disable voltage detector.
+    Should be set if no backup battery is used.
+  - trickle-diode-disable : boolean, if present will disable internal trickle
+    charger diode
+
+...

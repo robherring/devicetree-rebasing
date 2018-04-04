@@ -1,0 +1,74 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/hisilicon-hns-dsaf.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Hisilicon DSA Fabric device controller
+
+maintainers:
+  - Yisen.Zhuang\(Zhuangyuzeng\) <Yisen.Zhuang@huawei.com>
+  - huangdaode <huangdaode@hisilicon.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Hisilicon DSA Fabric device controller
+
+  Required properties:
+  - compatible: should be "hisilicon,hns-dsaf-v1" or "hisilicon,hns-dsaf-v2".
+    "hisilicon,hns-dsaf-v1" is for hip05.
+    "hisilicon,hns-dsaf-v2" is for Hi1610 and Hi1612.
+  - mode: dsa fabric mode string. only support one of dsaf modes like these:
+  		"2port-64vf",
+  		"6port-16rss",
+  		"6port-16vf",
+  		"single-port".
+  - interrupt-parent: the interrupt parent of this device.
+  - interrupts: should contain the DSA Fabric and rcb interrupt.
+  - reg: specifies base physical address(es) and size of the device registers.
+    The first region is external interface control register base and size(optional,
+    only used when subctrl-syscon does not exist). It is recommended using
+    subctrl-syscon rather than this address.
+    The second region is SerDes base register and size(optional, only used when
+    serdes-syscon in port node does not exist). It is recommended using
+    serdes-syscon rather than this address.
+    The third region is the PPE register base and size.
+    The fourth region is dsa fabric base register and size. It is not required for
+    single-port mode.
+  - reg-names: may be ppe-base and(or) dsaf-base. It is used to find the
+    corresponding reg's index.
+
+  - phy-handle: phy handle of physical port, 0 if not any phy device. It is optional
+    attribute. If port node exists, phy-handle in each port node will be used.
+    see ethernet.txt [1].
+  - subctrl-syscon: is syscon handle for external interface control register.
+  - reset-field-offset: is offset of reset field. Its value depends on the hardware
+    user manual.
+  - buf-size: rx buffer size, should be 16-1024.
+  - desc-num: number of description in TX and RX queue, should be 512, 1024, 2048 or 4096.
+
+  - port: subnodes of dsaf. A dsaf node may contain several port nodes(Depending
+    on mode of dsaf). Port node contain some attributes listed below:
+  - reg: is physical port index in one dsaf.
+  - phy-handle: phy handle of physical port. It is not required if there isn't
+    phy device. see ethernet.txt [1].
+  - serdes-syscon: is syscon handle for SerDes register.
+  - cpld-syscon: is syscon handle + register offset pair for cpld register. It is
+    not required if there isn't cpld device.
+  - port-rst-offset: is offset of reset field for each port in dsaf. Its value
+    depends on the hardware user manual.
+  - port-mode-offset: is offset of port mode field for each port in dsaf. Its
+    value depends on the hardware user manual.
+  - mc-mac-mask: mask of multicast address, determines bit in multicast address
+    to set:
+    1 stands for this bit will be precisely matched, TCAM will check this bit of
+      MAC address.
+    0 stands for this bit will be fuzzy matched, TCAM won't care about this bit
+      of MAC address.
+
+  [1] Documentation/devicetree/bindings/net/phy.txt
+
+...

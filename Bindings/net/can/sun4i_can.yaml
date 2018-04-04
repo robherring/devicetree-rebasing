@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/can/sun4i_can.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Allwinner A10/A20 CAN controller Device Tree Bindings
+
+maintainers:
+  - Gerhard Bertelsmann <info@gerhard-bertelsmann.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Allwinner A10/A20 CAN controller Device Tree Bindings
+  -----------------------------------------------------
+
+  Required properties:
+  - compatible: "allwinner,sun4i-a10-can"
+  - reg: physical base address and size of the Allwinner A10/A20 CAN register map.
+  - interrupts: interrupt specifier for the sole interrupt.
+  - clock: phandle and clock specifier.
+
+...

@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/ezchip,nps400-timer1.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NPS Network Processor
+
+maintainers:
+  - Noam Camus <noamca@mellanox.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NPS Network Processor
+
+  Required properties:
+
+  - compatible :	should be "ezchip,nps400-timer1"
+
+  Clocks required for compatible = "ezchip,nps400-timer1":
+  - clocks : Must contain a single entry describing the clock input
+
+...

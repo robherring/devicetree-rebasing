@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/leds-pwm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: LED connected to PWM
+
+maintainers:
+  - Peter Ujfalusi <peter.ujfalusi@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  LED connected to PWM
+
+  Required properties:
+  - compatible : should be "pwm-leds".
+
+  Each LED is represented as a sub-node of the pwm-leds device.  Each
+  node's name represents the name of the corresponding LED.
+
+  LED sub-node properties:
+  - pwms : PWM property to point to the PWM device (phandle)/port (id) and to
+    specify the period time to be used: <&phandle id period_ns>;
+  - pwm-names : (optional) Name to be used by the PWM subsystem for the PWM device
+    For the pwms and pwm-names property please refer to:
+    Documentation/devicetree/bindings/pwm/pwm.txt
+  - max-brightness : Maximum brightness possible for the LED
+  - active-low : (optional) For PWMs where the LED is wired to supply
+    rather than ground.
+  - label :  (optional)
+    see Documentation/devicetree/bindings/leds/common.txt
+  - linux,default-trigger :  (optional)
+    see Documentation/devicetree/bindings/leds/common.txt
+
+...

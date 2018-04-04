@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/lp3943.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI/National Semiconductor LP3943 MFD driver
+
+maintainers:
+  - Milo Kim <milo.kim@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI/National Semiconductor LP3943 MFD driver
+
+  Required properties:
+    - compatible: "ti,lp3943"
+    - reg: I2C slave address. From 0x60 to 0x67.
+
+  LP3943 consists of two sub-devices, lp3943-gpio and lp3943-pwm.
+
+  For the LP3943 GPIO properties please refer to:
+  Documentation/devicetree/bindings/gpio/gpio-lp3943.txt
+
+  For the LP3943 PWM properties please refer to:
+  Documentation/devicetree/bindings/pwm/pwm-lp3943.txt
+
+...

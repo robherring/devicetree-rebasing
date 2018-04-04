@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arc/eznps.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: EZchip NPS Network Processor Platforms Device Tree Bindings
+
+maintainers:
+  - Noam Camus <noamc@ezchip.com>
+description: |+
+  Appliance main board with NPS400 ASIC.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  EZchip NPS Network Processor Platforms Device Tree Bindings
+  ---------------------------------------------------------------------------
+
+  Appliance main board with NPS400 ASIC.
+
+  Required root node properties:
+      - compatible = "ezchip,arc-nps";

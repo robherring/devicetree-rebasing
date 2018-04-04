@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/irled/gpio-ir-tx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for IR LED connected through gpio pin which is used as
+
+maintainers:
+  - Sean Young <sean@mess.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    irled@0 {
+      compatible = "gpio-ir-tx";
+      gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+    };
+historical: |+
+  Device tree bindings for IR LED connected through gpio pin which is used as
+  remote controller transmitter.
+
+  Required properties:
+  	- compatible: should be "gpio-ir-tx".
+  	- gpios :  Should specify the IR LED GPIO, see "gpios property" in
+  	  Documentation/devicetree/bindings/gpio/gpio.txt.  Active low LEDs
+  	  should be indicated using flags in the GPIO specifier.
+
+...

@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/health/afe4403.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments AFE4403 Heart rate and Pulse Oximeter
+
+maintainers:
+  - Andrew F. Davis <afd@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments AFE4403 Heart rate and Pulse Oximeter
+
+  Required properties:
+   - compatible		: Should be "ti,afe4403".
+   - reg			: SPI chip select address of device.
+   - tx-supply		: Regulator supply to transmitting LEDs.
+   - interrupt-parent	: Phandle to he parent interrupt controller.
+   - interrupts		: The interrupt line the device ADC_RDY pin is
+  			  connected to. For details refer to,
+  			  ../../interrupt-controller/interrupts.txt.
+
+  Optional properties:
+   - reset-gpios		: GPIO used to reset the device.
+  			  For details refer to, ../../gpio/gpio.txt.
+
+  For other required and optional properties of SPI slave nodes
+  please refer to ../../spi/spi-bus.txt.
+
+...

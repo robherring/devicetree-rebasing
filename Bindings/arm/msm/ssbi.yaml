@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/msm/ssbi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm SSBI
+
+maintainers:
+  - David Brown <davidb@codeaurora.org>
+description: |+
+  Some Qualcomm MSM devices contain a point-to-point serial bus used to
+  communicate with a limited range of devices (mostly power management
+  chips).
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  * Qualcomm SSBI
+
+  Some Qualcomm MSM devices contain a point-to-point serial bus used to
+  communicate with a limited range of devices (mostly power management
+  chips).
+
+  These require the following properties:
+
+  - compatible: "qcom,ssbi"
+
+  - qcom,controller-type
+    indicates the SSBI bus variant the controller should use to talk
+    with the slave device.  This should be one of "ssbi", "ssbi2", or
+    "pmic-arbiter".  The type chosen is determined by the attached
+    slave.
+
+  The slave device should be the single child node of the ssbi device
+  with a compatible field.

@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/gtm601.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: GTM601 UMTS modem audio interface CODEC
+
+maintainers:
+  - Marek Belisko <marek@goldelico.com>
+description: |+
+  This device has no configuration interface. Sample rate is fixed - 8kHz.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  GTM601 UMTS modem audio interface CODEC
+
+  This device has no configuration interface. Sample rate is fixed - 8kHz.
+
+  Required properties:
+
+    - compatible : "option,gtm601"
+
+...

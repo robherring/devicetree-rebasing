@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/da9150-gpadc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Dialog Semiconductor DA9150 IIO GPADC bindings
+
+maintainers:
+  - Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    gpadc: da9150-gpadc {
+      compatible = "dlg,da9150-gpadc";
+      #io-channel-cells = <1>;
+    };
+historical: |+
+  Dialog Semiconductor DA9150 IIO GPADC bindings
+
+  Required properties:
+  - compatible: "dlg,da9150-gpadc" for DA9150 IIO GPADC
+  - #io-channel-cells: Should be set to <1>
+    (See Documentation/devicetree/bindings/iio/iio-bindings.txt for further info)
+
+  For further information on GPADC channels, see device datasheet.
+
+
+...

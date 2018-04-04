@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/max11100.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim max11100 Analog to Digital Converter (ADC)
+
+maintainers:
+  - Jacopo Mondi <jacopo+renesas@jmondi.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Maxim max11100 Analog to Digital Converter (ADC)
+
+  Required properties:
+    - compatible: Should be "maxim,max11100"
+    - reg: the adc unit address
+    - vref-supply: phandle to the regulator that provides reference voltage
+
+  Optional properties:
+    - spi-max-frequency: SPI maximum frequency
+
+...

@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/twl4030-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for twl4030-wdt driver (TWL4030 watchdog)
+
+maintainers:
+  - Aaro Koskinen <aaro.koskinen@iki.fi>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Device tree bindings for twl4030-wdt driver (TWL4030 watchdog)
+
+  Required properties:
+  	compatible = "ti,twl4030-wdt";
+
+...

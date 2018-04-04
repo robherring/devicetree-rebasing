@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/auo_pixcir_ts.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AUO in-cell touchscreen controller using Pixcir sensors
+
+maintainers:
+  - Heiko Stübner <heiko@sntech.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    i2c@00000000 {
+      /* ... */
+
+      auo_pixcir_ts@5c {
+        compatible = "auo,auo_pixcir_ts";
+        reg = <0x5c>;
+        interrupts = <2 0>;
+
+        gpios = <&gpf 2 0 2>, /* INT */
+          <&gpf 5 1 0>; /* RST */
+
+        x-size = <800>;
+        y-size = <600>;
+      };
+
+      /* ... */
+    };
+historical: |+
+  * AUO in-cell touchscreen controller using Pixcir sensors
+
+  Required properties:
+  - compatible: must be "auo,auo_pixcir_ts"
+  - reg: I2C address of the chip
+  - interrupts: interrupt to which the chip is connected
+  - gpios: gpios the chip is connected to
+    first one is the interrupt gpio and second one the reset gpio
+  - x-size: horizontal resolution of touchscreen
+  - y-size: vertical resolution of touchscreen
+
+...

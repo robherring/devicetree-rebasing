@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/brcm,bcm2835-aux-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: BCM2835 AUXILIAR UART
+
+maintainers:
+  - Martin Sperl <kernel@martin.sperl.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    uart1: serial@7e215040 {
+      compatible = "brcm,bcm2835-aux-uart";
+      reg = <0x7e215040 0x40>;
+      interrupts = <1 29>;
+      clocks = <&aux BCM2835_AUX_CLOCK_UART>;
+    };
+historical: |+
+  * BCM2835 AUXILIAR UART
+
+  Required properties:
+
+  - compatible: "brcm,bcm2835-aux-uart"
+  - reg: The base address of the UART register bank.
+  - interrupts: A single interrupt specifier.
+  - clocks: Clock driving the hardware; used to figure out the baud rate
+    divisor.
+
+...

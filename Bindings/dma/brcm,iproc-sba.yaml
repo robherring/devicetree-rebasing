@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/brcm,iproc-sba.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom SBA RAID engine
+
+maintainers:
+  - Anup Patel <anup.patel@broadcom.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Broadcom SBA RAID engine
+
+  Required properties:
+  - compatible: Should be one of the following
+  	      "brcm,iproc-sba"
+  	      "brcm,iproc-sba-v2"
+    The "brcm,iproc-sba" has support for only 6 PQ coefficients
+    The "brcm,iproc-sba-v2" has support for only 30 PQ coefficients
+  - mboxes: List of phandle and mailbox channel specifiers
+
+...

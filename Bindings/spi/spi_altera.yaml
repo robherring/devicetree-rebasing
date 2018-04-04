@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/spi_altera.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera SPI
+
+maintainers:
+  - Thomas Chou <thomas@wytron.com.tw>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Altera SPI
+
+  Required properties:
+  - compatible : should be "ALTR,spi-1.0". <DEPRECATED>
+  - compatible : should be "altr,spi-1.0".

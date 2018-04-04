@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/al,alpine-msix.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Alpine MSIX controller
+
+maintainers:
+  - Antoine Tenart <antoine.tenart@free-electrons.com>
+description: |+
+  See arm,gic-v3.txt for SPI and MSI definitions.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Alpine MSIX controller
+
+  See arm,gic-v3.txt for SPI and MSI definitions.
+
+  Required properties:
+
+  - compatible: should be "al,alpine-msix"
+  - reg: physical base address and size of the registers
+  - interrupt-parent: specifies the parent interrupt controller.
+  - interrupt-controller: identifies the node as an interrupt controller
+  - msi-controller: identifies the node as an PCI Message Signaled Interrupt
+  		  controller
+  - al,msi-base-spi: SPI base of the MSI frame
+  - al,msi-num-spis: number of SPIs assigned to the MSI frame, relative to SPI0
+
+...

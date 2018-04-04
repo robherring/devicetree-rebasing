@@ -1,0 +1,70 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/gpio-charger.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: gpio-charger
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: |
+  Required properties :
+   - compatible : "gpio-charger"
+   - gpios : GPIO indicating the charger presence.
+     See GPIO binding in bindings/gpio/gpio.txt .
+   - charger-type : power supply type, one of
+       unknown
+       battery
+       ups
+       mains
+       usb-sdp (USB standard downstream port)
+       usb-dcp (USB dedicated charging port)
+       usb-cdp (USB charging downstream port)
+       usb-aca (USB accessory charger adapter)
+
+  Example:
+
+  	usb_charger: charger {
+  		compatible = "gpio-charger";
+  		charger-type = "usb-sdp";
+  		gpios = <&gpf0 2 0 0 0>;
+  	}
+
+  	battery {
+  		power-supplies = <&usb_charger>;
+  	};
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    usb_charger: charger {
+      compatible = "gpio-charger";
+      charger-type = "usb-sdp";
+      gpios = <&gpf0 2 0 0 0>;
+    }
+
+    battery {
+      power-supplies = <&usb_charger>;
+    };
+historical: |+
+  gpio-charger
+
+  Required properties :
+   - compatible : "gpio-charger"
+   - gpios : GPIO indicating the charger presence.
+     See GPIO binding in bindings/gpio/gpio.txt .
+   - charger-type : power supply type, one of
+       unknown
+       battery
+       ups
+       mains
+       usb-sdp (USB standard downstream port)
+       usb-dcp (USB dedicated charging port)
+       usb-cdp (USB charging downstream port)
+       usb-aca (USB accessory charger adapter)
+
+...

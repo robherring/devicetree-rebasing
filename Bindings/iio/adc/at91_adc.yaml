@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/adc/at91_adc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AT91's Analog to Digital Converter (ADC)
+
+maintainers:
+  - Alexandre Belloni <alexandre.belloni@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * AT91's Analog to Digital Converter (ADC)
+
+  Required properties:
+    - compatible: Should be "atmel,<chip>-adc"
+      <chip> can be "at91sam9260", "at91sam9g45" or "at91sam9x5"
+    - reg: Should contain ADC registers location and length
+    - interrupts: Should contain the IRQ line for the ADC
+    - clock-names: tuple listing input clock names.
+  	Required elements: "adc_clk", "adc_op_clk".
+    - clocks: phandles to input clocks.
+    - atmel,adc-channels-used: Bitmask of the channels muxed and enabled for this
+      device
+    - atmel,adc-startup-time: Startup Time of the ADC in microseconds as
+      defined in the datasheet
+    - atmel,adc-vref: Reference voltage in millivolts for the conversions
+    - atmel,adc-res: List of resolutions in bits supported by the ADC. List size
+  		   must be two at least.
+    - atmel,adc-res-names: Contains one identifier string for each resolution
+  			 in atmel,adc-res property. "lowres" and "highres"
+  			 identifiers are required.
+
+  Optional properties:
+    - atmel,adc-use-external-triggers: Boolean to enable the external triggers
+    - atmel,adc-use-res: String corresponding to an identifier from
+  		       atmel,adc-res-names property. If not specified, the highest
+  		       resolution will be used.
+    - atmel,adc-sleep-mode: Boolean to enable sleep mode when no conversion
+    - atmel,adc-sample-hold-time: Sample and Hold Time in microseconds
+    - atmel,adc-ts-wires: Number of touchscreen wires. Should be 4 or 5. If this
+                          value is set, then the adc driver will enable touchscreen
+                          support.
+      NOTE: when adc touchscreen is enabled, the adc hardware trigger will be
+            disabled. Since touchscreen will occupy the trigger register.
+    - atmel,adc-ts-pressure-threshold: a pressure threshold for touchscreen. It
+                                       makes touch detection more precise.
+
+  Optional trigger Nodes:
+    - Required properties:
+      * trigger-name: Name of the trigger exposed to the user
+      * trigger-value: Value to put in the Trigger register
+        to activate this trigger
+    - Optional properties:
+      * trigger-external: Is the trigger an external trigger?
+
+...

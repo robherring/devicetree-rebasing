@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/light/apds9300.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Avago APDS9300 ambient light sensor
+
+maintainers:
+  - Oleksandr Kravchenko <o.v.kravchenko@globallogic.com>
+description: |+
+  http://www.avagotech.com/docs/AV02-1077EN
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Avago APDS9300 ambient light sensor
+
+  http://www.avagotech.com/docs/AV02-1077EN
+
+  Required properties:
+
+    - compatible : should be "avago,apds9300"
+    - reg : the I2C address of the sensor
+
+  Optional properties:
+
+    - interrupt-parent : should be the phandle for the interrupt controller
+    - interrupts : interrupt mapping for GPIO IRQ
+
+...

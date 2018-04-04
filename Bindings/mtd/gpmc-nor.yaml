@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/gpmc-nor.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for NOR flash connect to TI GPMC
+
+maintainers:
+  - Jon Hunter <jon-hunter@ti.com>
+description: |+
+  NOR flash connected to the TI GPMC (found on OMAP boards) are represented as
+  child nodes of the GPMC controller with a name of "nor".
+
+  All timing relevant properties as well as generic GPMC child properties are
+  explained in a separate documents. Please refer to
+  Documentation/devicetree/bindings/memory-controllers/omap-gpmc.txt
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Device tree bindings for NOR flash connect to TI GPMC
+
+  NOR flash connected to the TI GPMC (found on OMAP boards) are represented as
+  child nodes of the GPMC controller with a name of "nor".
+
+  All timing relevant properties as well as generic GPMC child properties are
+  explained in a separate documents. Please refer to
+  Documentation/devicetree/bindings/memory-controllers/omap-gpmc.txt
+
+  Required properties:
+  - bank-width: 		Width of NOR flash in bytes. GPMC supports 8-bit and
+  			16-bit devices and so must be either 1 or 2 bytes.
+  - compatible:		Documentation/devicetree/bindings/mtd/mtd-physmap.txt
+  - gpmc,cs-on-ns:		Chip-select assertion time
+  - gpmc,cs-rd-off-ns:	Chip-select de-assertion time for reads
+  - gpmc,cs-wr-off-ns:	Chip-select de-assertion time for writes
+  - gpmc,oe-on-ns:	Output-enable assertion time
+  - gpmc,oe-off-ns:	Output-enable de-assertion time
+  - gpmc,we-on-ns		Write-enable assertion time
+  - gpmc,we-off-ns:	Write-enable de-assertion time
+  - gpmc,access-ns:	Start cycle to first data capture (read access)
+  - gpmc,rd-cycle-ns:	Total read cycle time
+  - gpmc,wr-cycle-ns:	Total write cycle time
+  - linux,mtd-name:	Documentation/devicetree/bindings/mtd/mtd-physmap.txt
+  - reg:			Chip-select, base address (relative to chip-select)
+  			and size of NOR flash. Note that base address will be
+  			typically 0 as this is the start of the chip-select.
+
+  Optional properties:
+  - gpmc,XXX		Additional GPMC timings and settings parameters. See
+  			Documentation/devicetree/bindings/memory-controllers/omap-gpmc.txt
+
+  Optional properties for partition table parsing:
+  - #address-cells: should be set to 1
+  - #size-cells: should be set to 1
+
+...

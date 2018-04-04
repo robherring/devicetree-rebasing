@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/spi-orion.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Orion SPI device
+
+maintainers:
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+  - Andrew Lunn <andrew@lunn.ch>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Marvell Orion SPI device
+
+  Required properties:
+  - compatible : should be on of the following:
+      - "marvell,orion-spi" for the Orion, mv78x00, Kirkwood and Dove SoCs
+      - "marvell,armada-370-spi", for the Armada 370 SoCs
+      - "marvell,armada-375-spi", for the Armada 375 SoCs
+      - "marvell,armada-380-spi", for the Armada 38x SoCs
+      - "marvell,armada-390-spi", for the Armada 39x SoCs
+      - "marvell,armada-xp-spi", for the Armada XP SoCs
+  - reg : offset and length of the register set for the device.
+  	This property can optionally have additional entries to configure
+  	the SPI direct access mode that some of the Marvell SoCs support
+  	additionally to the normal indirect access (PIO) mode. The values
+  	for the MBus "target" and "attribute" are defined in the Marvell
+  	SoC "Functional Specifications" Manual in the chapter "Marvell
+  	Core Processor Address Decoding".
+  	The eight register sets following the control registers refer to
+  	chip-select lines 0 through 7 respectively.
+  - cell-index : Which of multiple SPI controllers is this.
+  - clocks : pointers to the reference clocks for this device, the first
+  	   one is the one used for the clock on the spi bus, the
+  	   second one is optional and is the clock used for the
+  	   functional part of the controller
+
+  Optional properties:
+  - interrupts : Is currently not used.
+  - clock-names : names of used clocks, mandatory if the second clock is
+  		used, the name must be "core", and "axi" (the latter
+  		is only for Armada 7K/8K).
+
+
+...

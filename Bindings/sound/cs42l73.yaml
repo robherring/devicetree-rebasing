@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/cs42l73.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: CS42L73 audio CODEC
+
+maintainers:
+  - Brian Austin <brian.austin@cirrus.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  CS42L73 audio CODEC
+
+  Required properties:
+
+    - compatible : "cirrus,cs42l73"
+
+    - reg : the I2C address of the device for I2C
+
+  Optional properties:
+
+    - reset_gpio : a GPIO spec for the reset pin.
+    - chgfreq    : Charge Pump Frequency values 0x00-0x0F
+
+
+...

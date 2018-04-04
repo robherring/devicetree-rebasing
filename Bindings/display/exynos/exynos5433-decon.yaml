@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/exynos/exynos5433-decon.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for Samsung Exynos SoC display controller (DECON)
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+  - Andrzej Hajda <a.hajda@samsung.com>
+description: |+
+  DECON (Display and Enhancement Controller) is the Display Controller for the
+  Exynos series of SoCs which transfers the image data from a video memory
+  buffer to an external LCD interface.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Device-Tree bindings for Samsung Exynos SoC display controller (DECON)
+
+  DECON (Display and Enhancement Controller) is the Display Controller for the
+  Exynos series of SoCs which transfers the image data from a video memory
+  buffer to an external LCD interface.
+
+  Required properties:
+  - compatible: value should be one of:
+  	"samsung,exynos5433-decon", "samsung,exynos5433-decon-tv";
+  - reg: physical base address and length of the DECON registers set.
+  - interrupt-names: should contain the interrupt names depending on mode of work:
+  		video mode: "vsync",
+  		command mode: "lcd_sys",
+  		command mode with software trigger: "lcd_sys", "te".
+  - interrupts or interrupts-extended: list of interrupt specifiers corresponding
+  		to names privided in interrupt-names, as described in
+  		interrupt-controller/interrupts.txt
+  - clocks: must include clock specifiers corresponding to entries in the
+  	  clock-names property.
+  - clock-names: list of clock names sorted in the same order as the clocks
+  	       property. Must contain "pclk", "aclk_decon", "aclk_smmu_decon0x",
+  	       "aclk_xiu_decon0x", "pclk_smmu_decon0x", clk_decon_vclk",
+  	       "sclk_decon_eclk"
+  - ports: contains a port which is connected to mic node. address-cells and
+  	 size-cells must 1 and 0, respectively.
+  - port: contains an endpoint node which is connected to the endpoint in the mic
+  	node. The reg value muset be 0.
+
+...

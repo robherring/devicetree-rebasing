@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/sdhci-sirf.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SiRFprimII/marco/atlas6 SDHCI Controller
+
+maintainers:
+  - Barry Song <Baohua.Song@csr.com>
+description: |+
+  This file documents differences between the core properties in mmc.txt
+  and the properties used by the sdhci-sirf driver.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sd0: sdhci@56000000 {
+      compatible = "sirf,prima2-sdhc";
+      reg = <0xcd000000 0x100000>;
+      cd-gpios = <&gpio 6 0>;
+    };
+historical: |+
+  * SiRFprimII/marco/atlas6 SDHCI Controller
+
+  This file documents differences between the core properties in mmc.txt
+  and the properties used by the sdhci-sirf driver.
+
+  Required properties:
+  - compatible: sirf,prima2-sdhc
+
+  Optional properties:
+  - cd-gpios: card detect gpio, with zero flags.
+
+...

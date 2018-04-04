@@ -1,0 +1,82 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/usb/mediatek,mtk-xhci.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MT8173 xHCI
+
+maintainers:
+  - Chunfeng Yun <chunfeng.yun@mediatek.com>
+description: |+
+  The device node for Mediatek SOC USB3.0 host controller
+
+  There are two scenarios: the first one only supports xHCI driver;
+  the second one supports dual-role mode, and the host is based on xHCI
+  driver. Take account of backward compatibility, we divide bindings
+  into two parts.
+
+  1st: only supports xHCI driver
+  ------------------------------------------------------------------------
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  MT8173 xHCI
+
+  The device node for Mediatek SOC USB3.0 host controller
+
+  There are two scenarios: the first one only supports xHCI driver;
+  the second one supports dual-role mode, and the host is based on xHCI
+  driver. Take account of backward compatibility, we divide bindings
+  into two parts.
+
+  1st: only supports xHCI driver
+  ------------------------------------------------------------------------
+
+  Required properties:
+   - compatible : should be "mediatek,<soc-model>-xhci", "mediatek,mtk-xhci",
+  	soc-model is the name of SoC, such as mt8173, mt2712 etc, when using
+  	"mediatek,mtk-xhci" compatible string, you need SoC specific ones in
+  	addition, one of:
+  	- "mediatek,mt8173-xhci"
+   - reg : specifies physical base address and size of the registers
+   - reg-names: should be "mac" for xHCI MAC and "ippc" for IP port control
+   - interrupts : interrupt used by the controller
+   - power-domains : a phandle to USB power domain node to control USB's
+  	mtcmos
+   - vusb33-supply : regulator of USB avdd3.3v
+
+   - clocks : a list of phandle + clock-specifier pairs, one for each
+  	entry in clock-names
+   - clock-names : must contain
+  	"sys_ck": controller clock used by normal mode,
+  	the following ones are optional:
+  	"ref_ck": reference clock used by low power mode etc,
+  	"mcu_ck": mcu_bus clock for register access,
+  	"dma_ck": dma_bus clock for data transfer by DMA
+
+   - phys : a list of phandle + phy specifier pairs
+
+  Optional properties:
+   - wakeup-source : enable USB remote wakeup;
+   - mediatek,syscon-wakeup : phandle to syscon used to access the register
+  	of the USB wakeup glue layer between xHCI and SPM; it depends on
+  	"wakeup-source", and has two arguments:
+  	- the first one : register base address of the glue layer in syscon;
+  	- the second one : hardware version of the glue layer
+  		- 1 : used by mt8173 etc
+  		- 2 : used by mt2712 etc
+   - mediatek,u3p-dis-msk : mask to disable u3ports, bit0 for u3port0,
+  	bit1 for u3port1, ... etc;
+   - vbus-supply : reference to the VBUS regulator;
+   - usb3-lpm-capable : supports USB3.0 LPM
+   - pinctrl-names : a pinctrl state named "default" must be defined
+   - pinctrl-0 : pin control group
+  	See: Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
+   - imod-interval-ns: default interrupt moderation interval is 5000ns
+
+...

@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/mmci.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM PrimeCell MultiMedia Card Interface (MMCI) PL180/1
+
+maintainers:
+  - Ulf Hansson <ulf.hansson@linaro.org>
+  - Lee Jones <lee.jones@linaro.org>
+description: |+
+  The ARM PrimeCell MMCI PL180 and PL181 provides an interface for
+  reading and writing to MultiMedia and SD cards alike.
+
+  This file documents differences between the core properties described
+  by mmc.txt and the properties used by the mmci driver. Using "st" as
+  the prefix for a property, indicates support by the ST Micro variant.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * ARM PrimeCell MultiMedia Card Interface (MMCI) PL180/1
+
+  The ARM PrimeCell MMCI PL180 and PL181 provides an interface for
+  reading and writing to MultiMedia and SD cards alike.
+
+  This file documents differences between the core properties described
+  by mmc.txt and the properties used by the mmci driver. Using "st" as
+  the prefix for a property, indicates support by the ST Micro variant.
+
+  Required properties:
+  - compatible             : contains "arm,pl18x", "arm,primecell".
+  - vmmc-supply            : phandle to the regulator device tree node, mentioned
+                             as the VCC/VDD supply in the eMMC/SD specs.
+
+  Optional properties:
+  - arm,primecell-periphid : contains the PrimeCell Peripheral ID, it overrides
+                             the ID provided by the HW
+  - vqmmc-supply           : phandle to the regulator device tree node, mentioned
+                             as the VCCQ/VDD_IO supply in the eMMC/SD specs.
+  - st,sig-dir-dat0        : bus signal direction pin used for DAT[0].
+  - st,sig-dir-dat2        : bus signal direction pin used for DAT[2].
+  - st,sig-dir-dat31       : bus signal direction pin used for DAT[3] and DAT[1].
+  - st,sig-dir-dat74       : bus signal direction pin used for DAT[4] to DAT[7].
+  - st,sig-dir-cmd         : cmd signal direction pin used for CMD.
+  - st,sig-pin-fbclk       : feedback clock signal pin used.
+
+  Deprecated properties:
+  - mmc-cap-mmc-highspeed  : indicates whether MMC is high speed capable.
+  - mmc-cap-sd-highspeed   : indicates whether SD is high speed capable.
+
+...

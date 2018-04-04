@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/atmel-flexcom.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for Atmel Flexcom (Flexible Serial Communication Unit)
+
+maintainers:
+  - Cyrille Pitchen <cyrille.pitchen@atmel.com>
+description: |+
+  The Atmel Flexcom is just a wrapper which embeds a SPI controller, an I2C
+  controller and an USART. Only one function can be used at a time and is chosen
+  at boot time according to the device tree.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Device tree bindings for Atmel Flexcom (Flexible Serial Communication Unit)
+
+  The Atmel Flexcom is just a wrapper which embeds a SPI controller, an I2C
+  controller and an USART. Only one function can be used at a time and is chosen
+  at boot time according to the device tree.
+
+  Required properties:
+  - compatible:		Should be "atmel,sama5d2-flexcom"
+  - reg:			Should be the offset/length value for Flexcom dedicated
+  			I/O registers (without USART, TWI or SPI registers).
+  - clocks:		Should be the Flexcom peripheral clock from PMC.
+  - #address-cells:	Should be <1>
+  - #size-cells:		Should be <1>
+  - ranges:		Should be one range for the full I/O register region
+  			(including USART, TWI and SPI registers).
+  - atmel,flexcom-mode:	Should be one of the following values:
+  			- <1> for USART
+  			- <2> for SPI
+  			- <3> for I2C
+
+  Required child:
+  A single available child device of type matching the "atmel,flexcom-mode"
+  property.
+
+  The phandle provided by the clocks property of the child is the same as one for
+  the Flexcom parent.
+
+  For other properties, please refer to the documentations of the respective
+  device:
+  - ../serial/atmel-usart.txt
+  - ../spi/spi_atmel.txt
+  - ../i2c/i2c-at91.txt
+
+...

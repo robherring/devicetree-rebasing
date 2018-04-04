@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/ziirave-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Zodiac RAVE Watchdog Timer
+
+maintainers:
+  - Martyn Welch <martyn.welch@collabora.co.uk>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    watchdog@38 {
+      compatible = "zii,rave-wdt";
+      reg = <0x38>;
+      timeout-sec = <30>;
+      reset-duration-ms = <30>;
+    };
+historical: |+
+  Zodiac RAVE Watchdog Timer
+
+  Required properties:
+  - compatible: must be "zii,rave-wdt"
+  - reg: i2c slave address of device, usually 0x38
+
+  Optional Properties:
+  - timeout-sec: Watchdog timeout value in seconds.
+  - reset-duration-ms: Duration of the pulse generated when the watchdog times
+    out. Value in milliseconds.
+
+...

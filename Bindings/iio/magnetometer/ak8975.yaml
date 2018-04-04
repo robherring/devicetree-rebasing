@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/magnetometer/ak8975.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AsahiKASEI AK8975 magnetometer sensor
+
+maintainers:
+  - Gregor Boirie <gregor.boirie@parrot.com>
+  - Jacek Anaszewski <j.anaszewski@samsung.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * AsahiKASEI AK8975 magnetometer sensor
+
+  Required properties:
+
+    - compatible : should be "asahi-kasei,ak8975"
+    - reg : the I2C address of the magnetometer
+
+  Optional properties:
+
+    - gpios : should be device tree identifier of the magnetometer DRDY pin
+    - vdd-supply: an optional regulator that needs to be on to provide VDD
+    - mount-matrix: an optional 3x3 mounting rotation matrix
+
+...

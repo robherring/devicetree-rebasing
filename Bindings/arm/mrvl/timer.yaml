@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mrvl/timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell MMP Timer controller
+
+maintainers:
+  - Haojian Zhuang <haojian.zhuang@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    timer0: timer@d4014000 {
+      compatible = "mrvl,mmp-timer";
+      reg = <0xd4014000 0x100>;
+      interrupts = <13>;
+    };
+historical: |+
+  * Marvell MMP Timer controller
+
+  Required properties:
+  - compatible : Should be "mrvl,mmp-timer".
+  - reg : Address and length of the register set of timer controller.
+  - interrupts : Should be the interrupt number.
+
+...

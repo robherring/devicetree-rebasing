@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/crypto/artpec6-crypto.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Axis crypto engine with PDMA interface.
+
+maintainers:
+  - Lars Persson <lars.persson@axis.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Axis crypto engine with PDMA interface.
+
+  Required properties:
+  - compatible : Should be one of the following strings:
+  	"axis,artpec6-crypto" for the version in the Axis ARTPEC-6 SoC
+  	"axis,artpec7-crypto" for the version in the Axis ARTPEC-7 SoC.
+  - reg: Base address and size for the PDMA register area.
+  - interrupts: Interrupt handle for the PDMA interrupt line.
+
+...

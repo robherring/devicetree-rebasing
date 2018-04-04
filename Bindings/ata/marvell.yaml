@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/ata/marvell.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell Orion SATA
+
+maintainers:
+  - Andrew Lunn <andrew@lunn.ch>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Marvell Orion SATA
+
+  Required Properties:
+  - compatibility : "marvell,orion-sata" or "marvell,armada-370-sata"
+  - reg           : Address range of controller
+  - interrupts    : Interrupt controller is using
+  - nr-ports      : Number of SATA ports in use.
+
+  Optional Properties:
+  - phys		: List of phandles to sata phys
+  - phy-names	: Should be "0", "1", etc, one number per phandle
+
+...

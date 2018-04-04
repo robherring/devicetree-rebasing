@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/spi_oc_tiny.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OpenCores tiny SPI
+
+maintainers:
+  - Thomas Chou <thomas@wytron.com.tw>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  OpenCores tiny SPI
+
+  Required properties:
+  - compatible : should be "opencores,tiny-spi-rtlsvn2".
+  - gpios : should specify GPIOs used for chipselect.
+  Optional properties:
+  - clock-frequency : input clock frequency to the core.
+  - baud-width: width, in bits, of the programmable divider used to scale
+  	the input clock to SCLK.
+
+  The clock-frequency and baud-width properties are needed only if the divider
+  is programmable. They are not needed if the divider is fixed.

@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/lsi,zevio-timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI-NSPIRE timer
+
+maintainers:
+  - Daniel Tang <dt.tangr@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI-NSPIRE timer
+
+  Required properties:
+
+  - compatible : should be "lsi,zevio-timer".
+  - reg : The physical base address and size of the timer (always first).
+  - clocks: phandle to the source clock.
+
+  Optional properties:
+
+  - interrupts : The interrupt number of the first timer.
+  - reg : The interrupt acknowledgement registers
+  	(always after timer base address)
+
+  If any of the optional properties are not given, the timer is added as a
+  clock-source only.
+
+...

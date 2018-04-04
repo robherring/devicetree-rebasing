@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/gyroscope/invensense,mpu3050.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Invensense MPU-3050 Gyroscope device tree bindings
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Invensense MPU-3050 Gyroscope device tree bindings
+
+  Required properties:
+    - compatible : should be "invensense,mpu3050"
+    - reg : the I2C address of the sensor
+
+  Optional properties:
+    - interrupt-parent : should be the phandle for the interrupt controller
+    - interrupts : interrupt mapping for the trigger interrupt from the
+      internal oscillator. The following IRQ modes are supported:
+      IRQ_TYPE_EDGE_RISING, IRQ_TYPE_EDGE_FALLING, IRQ_TYPE_LEVEL_HIGH and
+      IRQ_TYPE_LEVEL_LOW. The driver should detect and configure the hardware
+      for the desired interrupt type.
+    - vdd-supply : supply regulator for the main power voltage.
+    - vlogic-supply : supply regulator for the signal voltage.
+    - mount-matrix : see iio/mount-matrix.txt
+
+  Optional subnodes:
+    - The MPU-3050 will pass through and forward the I2C signals from the
+      incoming I2C bus, alternatively drive traffic to a slave device (usually
+      an accelerometer) on its own initiative. Therefore is supports a subnode
+      i2c gate node. For details see: i2c/i2c-gate.txt
+
+...

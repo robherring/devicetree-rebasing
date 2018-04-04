@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/alphascale-asm9260.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Alphascale asm9260 Watchdog timer
+
+maintainers:
+  - Oleksij Rempel <linux@rempel-privat.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Alphascale asm9260 Watchdog timer
+
+  Required properties:
+
+  - compatible : should be "alphascale,asm9260-wdt".
+  - reg : Specifies base physical address and size of the registers.
+  - clocks : the clocks feeding the watchdog timer. See clock-bindings.txt
+  - clock-names : should be set to
+  	"mod" - source for tick counter.
+  	"ahb" - ahb gate.
+  - resets : phandle pointing to the system reset controller with
+  	line index for the watchdog.
+  - reset-names : should be set to "wdt_rst".
+
+  Optional properties:
+  - timeout-sec : shall contain the default watchdog timeout in seconds,
+  	if unset, the default timeout is 30 seconds.
+  - alphascale,mode : three modes are supported
+  	"hw" - hw reset (default).
+  	"sw" - sw reset.
+  	"debug" - no action is taken.
+
+...

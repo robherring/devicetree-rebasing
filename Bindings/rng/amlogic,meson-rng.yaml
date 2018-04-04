@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rng/amlogic,meson-rng.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson Random number generator
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Amlogic Meson Random number generator
+  =====================================
+
+  Required properties:
+
+  - compatible : should be "amlogic,meson-rng"
+  - reg : Specifies base physical address and size of the registers.
+
+  Optional properties:
+
+  - clocks : phandle to the following named clocks
+  - clock-names: Name of core clock, must be "core"
+
+...

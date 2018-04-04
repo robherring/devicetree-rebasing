@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/renesas,h8300-div-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Renesas H8/300 divider clock
+
+maintainers:
+  - Yoshinori Sato <ysato@users.sourceforge.jp>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Renesas H8/300 divider clock
+
+  Required Properties:
+
+    - compatible: Must be "renesas,h8300-div-clock"
+
+    - clocks: Reference to the parent clocks ("extal1" and "extal2")
+
+    - #clock-cells: Must be 1
+
+    - reg: Base address and length of the divide rate selector
+
+    - renesas,width: bit width of selector
+
+...

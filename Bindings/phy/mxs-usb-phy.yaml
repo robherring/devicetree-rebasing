@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/mxs-usb-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale MXS USB Phy Device
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale MXS USB Phy Device
+
+  Required properties:
+  - compatible: should contain:
+  	* "fsl,imx23-usbphy" for imx23 and imx28
+  	* "fsl,imx6q-usbphy" for imx6dq and imx6dl
+  	* "fsl,imx6sl-usbphy" for imx6sl
+  	* "fsl,vf610-usbphy" for Vybrid vf610
+  	* "fsl,imx6sx-usbphy" for imx6sx
+    "fsl,imx23-usbphy" is still a fallback for other strings
+  - reg: Should contain registers location and length
+  - interrupts: Should contain phy interrupt
+  - fsl,anatop: phandle for anatop register, it is only for imx6 SoC series
+
+  Optional properties:
+  - fsl,tx-cal-45-dn-ohms: Integer [30-55]. Resistance (in ohms) of switchable
+    high-speed trimming resistor connected in parallel with the 45 ohm resistor
+    that terminates the DN output signal. Default: 45
+  - fsl,tx-cal-45-dp-ohms: Integer [30-55]. Resistance (in ohms) of switchable
+    high-speed trimming resistor connected in parallel with the 45 ohm resistor
+    that terminates the DP output signal. Default: 45
+  - fsl,tx-d-cal: Integer [79-119]. Current trimming value (as a percentage) of
+    the 17.78mA TX reference current. Default: 100
+
+...

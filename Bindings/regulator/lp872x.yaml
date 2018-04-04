@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/regulator/lp872x.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for TI/National Semiconductor LP872x Driver
+
+maintainers:
+  - Kim, Milo <Milo.Kim@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for TI/National Semiconductor LP872x Driver
+
+  Required properties:
+    - compatible: "ti,lp8720" or "ti,lp8725"
+    - reg: I2C slave address. 0x7d = LP8720, 0x7a = LP8725
+
+  Optional properties:
+    - ti,general-config: the value of LP872X_GENERAL_CFG register (u8)
+      (LP8720)
+      bit[2]: BUCK output voltage control by external DVS pin or register
+              1 = external pin, 0 = bit7 of register 08h
+      bit[1]: sleep control by external DVS pin or register
+              1 = external pin, 0 = bit6 of register 08h
+      bit[0]: time step unit(usec). 1 = 25, 0 = 50
+
+      (LP8725)
+      bit[7:6]: time step unit(usec). 00 = 32, 01 = 64, 10 = 128, 11 = 256
+      bit[4]:   BUCK2 enable control. 1 = enable, 0 = disable
+      bit[3]:   BUCK2 output voltage register address. 1 = 0Ah, 0 = 0Bh
+      bit[2]:   BUCK1 output voltage control by external DVS pin or register
+                1 = register 08h, 0 = DVS
+      bit[1]:   LDO sleep control. 1 = sleep mode, 0 = normal
+      bit[0]:   BUCK1 enable control, 1 = enable, 0 = disable
+
+      For more details, please see the datasheet.
+
+    - ti,update-config: define it when LP872X_GENERAL_CFG register should be set
+    - ti,dvs-gpio: GPIO specifier for external DVS pin control of LP872x devices.
+    - ti,dvs-vsel: DVS selector. 0 = SEL_V1, 1 = SEL_V2.
+    - ti,dvs-state: initial DVS pin state. 0 = DVS_LOW, 1 = DVS_HIGH.
+    - enable-gpios: GPIO specifier for EN pin control of LP872x devices.
+
+    Sub nodes for regulator_init_data
+      LP8720 has maximum 6 nodes. (child name: ldo1 ~ 5 and buck)
+      LP8725 has maximum 9 nodes. (child name: ldo1 ~ 5, lilo1,2 and buck1,2)
+      For more details, please see the following binding document.
+      (Documentation/devicetree/bindings/regulator/regulator.txt)
+
+  Datasheet
+    - LP8720: http://www.ti.com/lit/ds/symlink/lp8720.pdf
+    - LP8725: http://www.ti.com/lit/ds/symlink/lp8725.pdf
+
+...

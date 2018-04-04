@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/ralink-usb-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek/Ralink USB PHY
+
+maintainers:
+  - John Crispin <john@phrozen.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek/Ralink USB PHY
+
+  Required properties:
+   - compatible: "ralink,rt3352-usbphy"
+  	       "mediatek,mt7620-usbphy"
+  	       "mediatek,mt7628-usbphy"
+   - reg: required for "mediatek,mt7628-usbphy", unused otherwise
+   - #phy-cells: should be 0
+   - ralink,sysctl: a phandle to a ralink syscon register region
+   - resets: the two reset controllers for host and device
+   - reset-names: the names of the 2 reset controllers
+
+...

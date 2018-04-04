@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/humidity/dht11.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: DHT11 humidity/temperature sensor (and compatibles like DHT22)
+
+maintainers:
+  - Harald Geyer <harald@ccbib.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * DHT11 humidity/temperature sensor (and compatibles like DHT22)
+
+  Required properties:
+    - compatible: Should be "dht11"
+    - gpios: Should specify the GPIO connected to the sensor's data
+      line, see "gpios property" in
+      Documentation/devicetree/bindings/gpio/gpio.txt.
+
+...

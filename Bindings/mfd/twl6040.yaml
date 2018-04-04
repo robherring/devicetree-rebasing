@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/twl6040.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments TWL6040 family
+
+maintainers:
+  - Peter Ujfalusi <peter.ujfalusi@ti.com>
+description: |+
+  The TWL6040s are 8-channel high quality low-power audio codecs providing audio,
+  vibra and GPO functionality on OMAP4+ platforms.
+  They are connected ot the host processor via i2c for commands, McPDM for audio
+  data and commands.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments TWL6040 family
+
+  The TWL6040s are 8-channel high quality low-power audio codecs providing audio,
+  vibra and GPO functionality on OMAP4+ platforms.
+  They are connected ot the host processor via i2c for commands, McPDM for audio
+  data and commands.
+
+  Required properties:
+  - compatible : "ti,twl6040" for twl6040, "ti,twl6041" for twl6041
+  - reg: must be 0x4b for i2c address
+  - interrupts: twl6040 has one interrupt line connecteded to the main SoC
+  - interrupt-parent: The parent interrupt controller
+  - gpio-controller:
+  - #gpio-cells = <1>: twl6040 provides GPO lines.
+  - #clock-cells = <0>; twl6040 is a provider of pdmclk which is used by McPDM
+  - twl6040,audpwron-gpio: Power on GPIO line for the twl6040
+
+  - vio-supply: Regulator for the twl6040 VIO supply
+  - v2v1-supply: Regulator for the twl6040 V2V1 supply
+
+  Optional properties, nodes:
+  - enable-active-high: To power on the twl6040 during boot.
+  - clocks: phandle to the clk32k and/or to mclk clock provider
+  - clock-names: Must be "clk32k" for the 32K clock and "mclk" for the MCLK.
+
+  Vibra functionality
+  Required properties:
+  - vddvibl-supply: Regulator for the left vibra motor
+  - vddvibr-supply: Regulator for the right vibra motor
+  - vibra { }: Configuration section for vibra parameters containing the following
+  	     properties:
+  - ti,vibldrv-res: Resistance parameter for left driver
+  - ti,vibrdrv-res: Resistance parameter for right driver
+  - ti,viblmotor-res: Resistance parameter for left motor
+  - ti,viblmotor-res: Resistance parameter for right motor
+
+  Optional properties within vibra { } section:
+  - vddvibl_uV: If the vddvibl default voltage need to be changed
+  - vddvibr_uV: If the vddvibr default voltage need to be changed
+
+...

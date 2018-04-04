@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/mti,mips-cpc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for MIPS Cluster Power Controller (CPC).
+
+maintainers:
+  - Paul Burton <paul.burton@mips.com>
+description: |+
+  This binding allows a system to specify where the CPC registers are
+  located.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Binding for MIPS Cluster Power Controller (CPC).
+
+  This binding allows a system to specify where the CPC registers are
+  located.
+
+  Required properties:
+  compatible : Should be "mti,mips-cpc".
+  regs: Should describe the address & size of the CPC register region.

@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/security/tpm/ibmvtpm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device Tree Bindings for IBM Virtual Trusted Platform Module(vtpm)
+
+maintainers:
+  - Nayna Jain <nayna@linux.vnet.ibm.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Device Tree Bindings for IBM Virtual Trusted Platform Module(vtpm)
+
+  Required properties:
+
+  - compatible            : property name that conveys the platform architecture
+                            identifiers, as 'IBM,vtpm'
+  - device_type           : specifies type of virtual device
+  - interrupts            : property specifying the interrupt source number and
+                            sense code associated with this virtual I/O Adapters
+  - ibm,my-drc-index      : integer index for the connector between the device
+                            and its parent - present only if Dynamic
+                            Reconfiguration(DR) Connector is enabled
+  - ibm,#dma-address-cells: specifies the number of cells that are used to
+                            encode the physical address field of dma-window
+                            properties
+  - ibm,#dma-size-cells   : specifies the number of cells that are used to
+                            encode the size field of dma-window properties
+  - ibm,my-dma-window     : specifies DMA window associated with this virtual
+                            IOA
+  - ibm,loc-code          : specifies the unique and persistent location code
+                            associated with this virtual I/O Adapters
+  - linux,sml-base        : 64-bit base address of the reserved memory allocated
+                            for the firmware event log
+  - linux,sml-size        : size of the memory allocated for the firmware event log
+
+...

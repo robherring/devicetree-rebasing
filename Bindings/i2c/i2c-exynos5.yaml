@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-exynos5.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung's High Speed I2C controller
+
+maintainers:
+  - Naveen Krishna Ch <ch.naveen@samsung.com>
+description: |+
+  The Samsung's High Speed I2C controller is used to interface with I2C devices
+  at various speeds ranging from 100khz to 3.4Mhz.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Samsung's High Speed I2C controller
+
+  The Samsung's High Speed I2C controller is used to interface with I2C devices
+  at various speeds ranging from 100khz to 3.4Mhz.
+
+  Required properties:
+    - compatible: value should be.
+  	-> "samsung,exynos5-hsi2c", (DEPRECATED)
+  				for i2c compatible with HSI2C available
+  				on Exynos5250 and Exynos5420 SoCs.
+  	-> "samsung,exynos5250-hsi2c", for i2c compatible with HSI2C available
+  				on Exynos5250 and Exynos5420 SoCs.
+  	-> "samsung,exynos5260-hsi2c", for i2c compatible with HSI2C available
+  				on Exynos5260 SoCs.
+  	-> "samsung,exynos7-hsi2c", for i2c compatible with HSI2C available
+  				on Exynos7 SoCs.
+
+    - reg: physical base address of the controller and length of memory mapped
+      region.
+    - interrupts: interrupt number to the cpu.
+    - #address-cells: always 1 (for i2c addresses)
+    - #size-cells: always 0
+
+    - Pinctrl:
+      - pinctrl-0: Pin control group to be used for this controller.
+      - pinctrl-names: Should contain only one value - "default".
+
+  Optional properties:
+    - clock-frequency: Desired operating frequency in Hz of the bus.
+      -> If not specified, the bus operates in fast-speed mode at
+         at 100khz.
+      -> If specified, the bus operates in high-speed mode only if the
+         clock-frequency is >= 1Mhz.
+
+...

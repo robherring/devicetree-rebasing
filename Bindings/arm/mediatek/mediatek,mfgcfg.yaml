@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,mfgcfg.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek mfgcfg controller
+
+maintainers:
+  - weiyi.lu@mediatek.com <weiyi.lu@mediatek.com>
+description: |+
+  The Mediatek mfgcfg controller provides various clocks to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek mfgcfg controller
+  ============================
+
+  The Mediatek mfgcfg controller provides various clocks to the system.
+
+  Required Properties:
+
+  - compatible: Should be one of:
+  	- "mediatek,mt2712-mfgcfg", "syscon"
+  - #clock-cells: Must be 1
+
+  The mfgcfg controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

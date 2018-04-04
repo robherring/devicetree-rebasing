@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/allwinner,sun4i-timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Allwinner A1X SoCs Timer Controller
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Allwinner A1X SoCs Timer Controller
+
+  Required properties:
+
+  - compatible : should be "allwinner,sun4i-a10-timer"
+  - reg : Specifies base physical address and size of the registers.
+  - interrupts : The interrupt of the first timer
+  - clocks: phandle to the source clock (usually a 24 MHz fixed clock)
+
+...

@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/reset/socfpga-reset.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera SOCFPGA Reset Manager
+
+maintainers:
+  - Steffen Trumtrar <s.trumtrar@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |4
+     rstmgr@ffd05000 {
+      #reset-cells = <1>;
+      compatible = "altr,rst-mgr";
+      reg = <0xffd05000 0x1000>;
+      altr,modrst-offset = <0x10>;
+    };
+historical: |+
+  Altera SOCFPGA Reset Manager
+
+  Required properties:
+  - compatible : "altr,rst-mgr"
+  - reg : Should contain 1 register ranges(address and length)
+  - altr,modrst-offset : Should contain the offset of the first modrst register.
+  - #reset-cells: 1
+
+...

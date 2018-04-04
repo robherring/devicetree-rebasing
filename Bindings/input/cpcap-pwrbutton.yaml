@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/cpcap-pwrbutton.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Motorola CPCAP on key
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: |+
+  This module is part of the CPCAP. For more details about the whole
+  chip see Documentation/devicetree/bindings/mfd/motorola-cpcap.txt.
+
+  This module provides a simple power button event via an Interrupt.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Motorola CPCAP on key
+
+  This module is part of the CPCAP. For more details about the whole
+  chip see Documentation/devicetree/bindings/mfd/motorola-cpcap.txt.
+
+  This module provides a simple power button event via an Interrupt.
+
+  Required properties:
+  - compatible: should be one of the following
+     - "motorola,cpcap-pwrbutton"
+  - interrupts: irq specifier for CPCAP's ON IRQ
+
+...

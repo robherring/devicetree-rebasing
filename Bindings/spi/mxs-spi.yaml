@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/mxs-spi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale MX233/MX28 SSP/SPI
+
+maintainers:
+  - Marek Vasut <marex@denx.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale MX233/MX28 SSP/SPI
+
+  Required properties:
+  - compatible: Should be "fsl,<soc>-spi", where soc is "imx23" or "imx28"
+  - reg: Offset and length of the register set for the device
+  - interrupts: Should contain SSP ERROR interrupt
+  - dmas: DMA specifier, consisting of a phandle to DMA controller node
+    and SSP DMA channel ID.
+    Refer to dma.txt and fsl-mxs-dma.txt for details.
+  - dma-names: Must be "rx-tx".
+
+  Optional properties:
+  - clock-frequency : Input clock frequency to the SPI block in Hz.
+  		    Default is 160000000 Hz.
+
+...

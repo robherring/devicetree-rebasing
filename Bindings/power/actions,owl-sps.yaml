@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/actions,owl-sps.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Actions Semi Owl Smart Power System (SPS)
+
+maintainers:
+  - Andreas Färber <afaerber@suse.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |4
+      sps: power-controller@b01b0100 {
+        compatible = "actions,s500-sps";
+        reg = <0xb01b0100 0x100>;
+        #power-domain-cells = <1>;
+      };
+historical: |+
+  Actions Semi Owl Smart Power System (SPS)
+
+  Required properties:
+  - compatible          :  "actions,s500-sps" for S500
+                           "actions,s700-sps" for S700
+  - reg                 :  Offset and length of the register set for the device.
+  - #power-domain-cells :  Must be 1.
+                           See macros in:
+                            include/dt-bindings/power/owl-s500-powergate.h for S500
+                            include/dt-bindings/power/owl-s700-powergate.h for S700
+
+
+...

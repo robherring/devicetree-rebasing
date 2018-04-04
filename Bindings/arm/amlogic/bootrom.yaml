@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/amlogic/bootrom.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'Amlogic Meson6/Meson8/Meson8b bootrom:'
+
+maintainers:
+  - Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+description: |+
+  The bootrom register area can be used to access SoC specific
+  information, such as the "misc version".
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    bootrom: bootrom@d9040000 {
+      compatible = "amlogic,meson-mx-bootrom", "syscon";
+      reg = <0xd9040000 0x10000>;
+    };
+historical: |+
+  Amlogic Meson6/Meson8/Meson8b bootrom:
+  --------------------------------------
+
+  The bootrom register area can be used to access SoC specific
+  information, such as the "misc version".
+
+  Required properties:
+  - reg: the register range of the bootrom registers
+  - compatible: should be "amlogic,meson-mx-bootrom" along with "syscon"
+
+
+...

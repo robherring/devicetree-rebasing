@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/misc/atmel-ssc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel SSC driver.
+
+maintainers:
+  - Bo Shen <voice.shen@atmel.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Atmel SSC driver.
+
+  Required properties:
+  - compatible: "atmel,at91rm9200-ssc" or "atmel,at91sam9g45-ssc"
+  	- atmel,at91rm9200-ssc: support pdc transfer
+  	- atmel,at91sam9g45-ssc: support dma transfer
+  - reg: Should contain SSC registers location and length
+  - interrupts: Should contain SSC interrupt
+  - clock-names: tuple listing input clock names.
+  	Required elements: "pclk"
+  - clocks: phandles to input clocks.
+
+
+  Required properties for devices compatible with "atmel,at91sam9g45-ssc":
+  - dmas: DMA specifier, consisting of a phandle to DMA controller node,
+    the memory interface and SSC DMA channel ID (for tx and rx).
+    See Documentation/devicetree/bindings/dma/atmel-dma.txt for details.
+  - dma-names: Must be "tx", "rx".
+
+  Optional properties:
+    - atmel,clk-from-rk-pin: bool property.
+       - When SSC works in slave mode, according to the hardware design, the
+         clock can get from TK pin, and also can get from RK pin. So, add
+         this parameter to choose where the clock from.
+       - By default the clock is from TK pin, if the clock from RK pin, this
+         property is needed.
+    - #sound-dai-cells: Should contain <0>.
+       - This property makes the SSC into an automatically registered DAI.
+
+...

@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/arm,mps2-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM MPS2 UART
+
+maintainers:
+  - Vladimir Murzin <vladimir.murzin@arm.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ARM MPS2 UART
+
+  Required properties:
+  - compatible	: Should be "arm,mps2-uart"
+  - reg		: Address and length of the register set
+  - interrupts	: Reference to the UART RX, TX and overrun interrupts
+
+  Required clocking property:
+  - clocks	  : The input clock of the UART
+
+
+...

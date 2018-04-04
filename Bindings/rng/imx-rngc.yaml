@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rng/imx-rngc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale RNGC (Random Number Generator Version C)
+
+maintainers:
+  - Steffen Trumtrar <s.trumtrar@pengutronix.de>
+description: |+
+  The driver also supports version B, which is mostly compatible
+  to version C.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale RNGC (Random Number Generator Version C)
+
+  The driver also supports version B, which is mostly compatible
+  to version C.
+
+  Required properties:
+  - compatible : should be one of
+                 "fsl,imx25-rngb"
+                 "fsl,imx35-rngc"
+  - reg : offset and length of the register set of this block
+  - interrupts : the interrupt number for the RNGC block
+  - clocks : the RNGC clk source
+
+...

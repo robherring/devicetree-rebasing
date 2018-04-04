@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/mt8173-rt5650-rt5676.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MT8173 with RT5650 RT5676 CODECS and HDMI via I2S
+
+maintainers:
+  - Koro Chen <koro.chen@mediatek.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sound {
+      compatible = "mediatek,mt8173-rt5650-rt5676";
+      mediatek,audio-codec = <&rt5650 &rt5676 &hdmi0>;
+      mediatek,platform = <&afe>;
+    };
+historical: |+
+  MT8173 with RT5650 RT5676 CODECS and HDMI via I2S
+
+  Required properties:
+  - compatible : "mediatek,mt8173-rt5650-rt5676"
+  - mediatek,audio-codec: the phandles of rt5650 and rt5676 codecs
+  			and of the hdmi encoder node
+  - mediatek,platform: the phandle of MT8173 ASoC platform
+
+...

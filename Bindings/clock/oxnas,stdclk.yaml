@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/oxnas,stdclk.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Oxford Semiconductor OXNAS SoC Family Standard Clocks
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: |+
+  Please also refer to clock-bindings.txt in this directory for common clock
+  bindings usage.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Oxford Semiconductor OXNAS SoC Family Standard Clocks
+  ================================================
+
+  Please also refer to clock-bindings.txt in this directory for common clock
+  bindings usage.
+
+  Required properties:
+  - compatible: For OX810SE, should be "oxsemi,ox810se-stdclk"
+  	      For OX820, should be "oxsemi,ox820-stdclk"
+  - #clock-cells: 1, see below
+
+  Parent node should have the following properties :
+  - compatible: For OX810SE, should be
+  		"oxsemi,ox810se-sys-ctrl", "syscon", "simple-mfd"
+  	      For OX820, should be
+  		"oxsemi,ox820-sys-ctrl", "syscon", "simple-mfd"
+
+...

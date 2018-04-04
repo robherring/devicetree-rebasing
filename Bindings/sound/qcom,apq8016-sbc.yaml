@@ -1,0 +1,68 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/qcom,apq8016-sbc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Qualcomm Technologies APQ8016 SBC ASoC machine driver
+
+maintainers:
+  - Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+description: |+
+  This node models the Qualcomm Technologies APQ8016 SBC ASoC machine driver
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Qualcomm Technologies APQ8016 SBC ASoC machine driver
+
+  This node models the Qualcomm Technologies APQ8016 SBC ASoC machine driver
+
+  Required properties:
+
+  - compatible		: "qcom,apq8016-sbc-sndcard"
+
+  - pinctrl-N		: One property must exist for each entry in
+  			  pinctrl-names.  See ../pinctrl/pinctrl-bindings.txt
+  			  for details of the property values.
+  - pinctrl-names		: Must contain a "default" entry.
+  - reg			: Must contain an address for each entry in reg-names.
+  - reg-names		: A list which must include the following entries:
+  				* "mic-iomux"
+  				* "spkr-iomux"
+  - qcom,model		: Name of the sound card.
+
+  - qcom,audio-routing	: A list of the connections between audio components.
+  			  Each entry is a pair of strings, the first being the
+  			  connection's sink, the second being the connection's
+  			  source. Valid names could be power supplies, MicBias
+  			  of msm8x16_wcd codec and the jacks on the board:
+
+  			  Power supplies:
+  			  * MIC BIAS External1
+  			  * MIC BIAS External2
+  			  * MIC BIAS Internal1
+  			  * MIC BIAS Internal2
+
+  			  Board connectors:
+  			  * Headset Mic
+  			  * Secondary Mic",
+  			  * DMIC
+  			  * Ext Spk
+
+  Dai-link subnode properties and subnodes:
+
+  Required dai-link subnodes:
+
+  - cpu					: CPU   sub-node
+  - codec					: CODEC sub-node
+
+  Required CPU/CODEC subnodes properties:
+
+  -link-name		: Name of the dai link.
+  -sound-dai		: phandle/s and port of CPU/CODEC
+
+...

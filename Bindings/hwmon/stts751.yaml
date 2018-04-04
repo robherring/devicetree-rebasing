@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/hwmon/stts751.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: STTS751 thermometer.
+
+maintainers:
+  - andrea.merello <andrea.merello@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * STTS751 thermometer.
+
+  Required node properties:
+  - compatible: "stts751"
+  - reg: I2C bus address of the device
+
+  Optional properties:
+  - smbus-timeout-disable: when set, the smbus timeout function will be disabled
+
+...

@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-pnx.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NXP PNX I2C Controller
+
+maintainers:
+  - Wolfram Sang <wolfram@the-dreams.de>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    i2c1: i2c@400a0000 {
+      compatible = "nxp,pnx-i2c";
+      reg = <0x400a0000 0x100>;
+      interrupt-parent = <&mic>;
+      interrupts = <51 0>;
+      #address-cells = <1>;
+      #size-cells = <0>;
+    };
+
+    i2c2: i2c@400a8000 {
+      compatible = "nxp,pnx-i2c";
+      reg = <0x400a8000 0x100>;
+      interrupt-parent = <&mic>;
+      interrupts = <50 0>;
+      #address-cells = <1>;
+      #size-cells = <0>;
+      clock-frequency = <100000>;
+    };
+historical: |+
+  * NXP PNX I2C Controller
+
+  Required properties:
+
+   - reg: Offset and length of the register set for the device
+   - compatible: should be "nxp,pnx-i2c"
+   - interrupts: configure one interrupt line
+   - #address-cells: always 1 (for i2c addresses)
+   - #size-cells: always 0
+   - interrupt-parent: the phandle for the interrupt controller that
+     services interrupts for this device.
+
+  Optional properties:
+
+   - clock-frequency: desired I2C bus clock frequency in Hz, Default: 100000 Hz
+
+...

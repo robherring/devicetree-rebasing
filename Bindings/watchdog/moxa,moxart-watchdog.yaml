@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/moxa,moxart-watchdog.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MOXA ART Watchdog timer
+
+maintainers:
+  - Jonas Jensen <jonas.jensen@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    watchdog: watchdog@98500000 {
+      compatible = "moxa,moxart-watchdog";
+      reg = <0x98500000 0x10>;
+      clocks = <&coreclk>;
+    };
+historical: |+
+  MOXA ART Watchdog timer
+
+  Required properties:
+
+  - compatible : Must be "moxa,moxart-watchdog"
+  - reg : Should contain registers location and length
+  - clocks : Should contain phandle for the clock that drives the counter
+
+...

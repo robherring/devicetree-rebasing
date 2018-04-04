@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/phy-hi6220-usb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Hisilicon hi6220 usb PHY
+
+maintainers:
+  - Zhangfei Gao <zhangfei.gao@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    usb_phy: usbphy {
+      compatible = "hisilicon,hi6220-usb-phy";
+      #phy-cells = <0>;
+      phy-supply = <&fixed_5v_hub>;
+      hisilicon,peripheral-syscon = <&sys_ctrl>;
+    };
+historical: |+
+  Hisilicon hi6220 usb PHY
+  -----------------------
+
+  Required properties:
+  - compatible: should be "hisilicon,hi6220-usb-phy"
+  - #phy-cells: must be 0
+  - hisilicon,peripheral-syscon: phandle of syscon used to control phy.
+  Refer to phy/phy-bindings.txt for the generic PHY binding properties
+
+...

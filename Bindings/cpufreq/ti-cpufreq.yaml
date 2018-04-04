@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/cpufreq/ti-cpufreq.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI CPUFreq and OPP bindings
+
+maintainers:
+  - Dave Gerlach <d-gerlach@ti.com>
+description: |+
+  Certain TI SoCs, like those in the am335x, am437x, am57xx, and dra7xx
+  families support different OPPs depending on the silicon variant in use.
+  The ti-cpufreq driver can use revision and an efuse value from the SoC to
+  provide the OPP framework with supported hardware information. This is
+  used to determine which OPPs from the operating-points-v2 table get enabled
+  when it is parsed by the OPP framework.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  TI CPUFreq and OPP bindings
+  ================================
+
+  Certain TI SoCs, like those in the am335x, am437x, am57xx, and dra7xx
+  families support different OPPs depending on the silicon variant in use.
+  The ti-cpufreq driver can use revision and an efuse value from the SoC to
+  provide the OPP framework with supported hardware information. This is
+  used to determine which OPPs from the operating-points-v2 table get enabled
+  when it is parsed by the OPP framework.
+
+  Required properties:
+  --------------------
+  In 'cpus' nodes:
+  - operating-points-v2: Phandle to the operating-points-v2 table to use.
+
+  In 'operating-points-v2' table:
+  - compatible: Should be
+  	- 'operating-points-v2-ti-cpu' for am335x, am43xx, and dra7xx/am57xx SoCs
+  - syscon: A phandle pointing to a syscon node representing the control module
+  	  register space of the SoC.
+
+  Optional properties:
+  --------------------
+  For each opp entry in 'operating-points-v2' table:
+  - opp-supported-hw: Two bitfields indicating:
+  	1. Which revision of the SoC the OPP is supported by
+  	2. Which eFuse bits indicate this OPP is available
+
+  	A bitwise AND is performed against these values and if any bit
+  	matches, the OPP gets enabled.
+
+...

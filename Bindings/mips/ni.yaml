@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mips/ni.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: National Instruments MIPS platforms
+
+maintainers:
+  - Nathan Sullivan <nathan.sullivan@ni.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  National Instruments MIPS platforms
+
+  required root node properties:
+  	- compatible: must be "ni,169445"
+
+  CPU Nodes
+  	- compatible: must be "mti,mips14KEc"

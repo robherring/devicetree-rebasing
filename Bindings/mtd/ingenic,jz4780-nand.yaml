@@ -1,0 +1,58 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/ingenic,jz4780-nand.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Ingenic JZ4780 NAND/BCH
+
+maintainers:
+  - Alex Smith <alex.smith@imgtec.com>
+description: |+
+  This file documents the device tree bindings for NAND flash devices on the
+  JZ4780. NAND devices are connected to the NEMC controller (described in
+  memory-controllers/ingenic,jz4780-nemc.txt), and thus NAND device nodes must
+  be children of the NEMC node.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Ingenic JZ4780 NAND/BCH
+
+  This file documents the device tree bindings for NAND flash devices on the
+  JZ4780. NAND devices are connected to the NEMC controller (described in
+  memory-controllers/ingenic,jz4780-nemc.txt), and thus NAND device nodes must
+  be children of the NEMC node.
+
+  Required NAND controller device properties:
+  - compatible: Should be set to "ingenic,jz4780-nand".
+  - reg: For each bank with a NAND chip attached, should specify a bank number,
+    an offset of 0 and a size of 0x1000000 (i.e. the whole NEMC bank).
+
+  Optional NAND controller device properties:
+  - ingenic,bch-controller: To make use of the hardware BCH controller, this
+    property must contain a phandle for the BCH controller node. The required
+    properties for this node are described below. If this is not specified,
+    software BCH will be used instead.
+
+  Optional children nodes:
+  - Individual NAND chips are children of the NAND controller node.
+
+  Required children node properties:
+  - reg: An integer ranging from 1 to 6 representing the CS line to use.
+
+  Optional children node properties:
+  - nand-ecc-step-size: ECC block size in bytes.
+  - nand-ecc-strength: ECC strength (max number of correctable bits).
+  - nand-ecc-mode: String, operation mode of the NAND ecc mode. "hw" by default
+  - nand-on-flash-bbt: boolean to enable on flash bbt option, if not present false
+  - rb-gpios: GPIO specifier for the busy pin.
+  - wp-gpios: GPIO specifier for the write protect pin.
+
+  Optional child node of NAND chip nodes:
+  - partitions: see Documentation/devicetree/bindings/mtd/partition.txt
+
+...

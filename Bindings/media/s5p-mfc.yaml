@@ -1,0 +1,62 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/s5p-mfc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung Multi Format Codec (MFC)
+
+maintainers:
+  - Arun Kumar K <arun.kk@samsung.com>
+  - Marek Szyprowski <m.szyprowski@samsung.com>
+description: |+
+  Multi Format Codec (MFC) is the IP present in Samsung SoCs which
+  supports high resolution decoding and encoding functionalities.
+  The MFC device driver is a v4l2 driver which can encode/decode
+  video raw/elementary streams and has support for all popular
+  video codecs.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Samsung Multi Format Codec (MFC)
+
+  Multi Format Codec (MFC) is the IP present in Samsung SoCs which
+  supports high resolution decoding and encoding functionalities.
+  The MFC device driver is a v4l2 driver which can encode/decode
+  video raw/elementary streams and has support for all popular
+  video codecs.
+
+  Required properties:
+    - compatible : value should be either one among the following
+  	(a) "samsung,mfc-v5" for MFC v5 present in Exynos4 SoCs
+  	(b) "samsung,mfc-v6" for MFC v6 present in Exynos5 SoCs
+  	(c) "samsung,mfc-v7" for MFC v7 present in Exynos5420 SoC
+  	(d) "samsung,mfc-v8" for MFC v8 present in Exynos5800 SoC
+  	(e) "samsung,exynos5433-mfc" for MFC v8 present in Exynos5433 SoC
+
+    - reg : Physical base address of the IP registers and length of memory
+  	  mapped region.
+
+    - interrupts : MFC interrupt number to the CPU.
+    - clocks : from common clock binding: handle to mfc clock.
+    - clock-names : from common clock binding: must contain "mfc",
+  		  corresponding to entry in the clocks property.
+
+  Optional properties:
+    - power-domains : power-domain property defined with a phandle
+  			   to respective power domain.
+    - memory-region : from reserved memory binding: phandles to two reserved
+  	memory regions, first is for "left" mfc memory bus interfaces,
+  	second if for the "right" mfc memory bus, used when no SYSMMU
+  	support is available; used only by MFC v5 present in Exynos4 SoCs
+
+  Obsolete properties:
+    - samsung,mfc-r, samsung,mfc-l : support removed, please use memory-region
+  	property instead
+
+
+...

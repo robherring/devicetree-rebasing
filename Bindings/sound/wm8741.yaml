@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/wm8741.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: WM8741 audio CODEC
+
+maintainers:
+  - Mark Brown <broonie@opensource.wolfsonmicro.com>
+description: |+
+  This device supports both I2C and SPI (configured with pin strapping
+  on the board).
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  WM8741 audio CODEC
+
+  This device supports both I2C and SPI (configured with pin strapping
+  on the board).
+
+  Required properties:
+
+    - compatible : "wlf,wm8741"
+
+    - reg : the I2C address of the device for I2C, the chip select
+            number for SPI.
+
+  Optional properties:
+
+    - diff-mode: Differential output mode configuration. Default value for field
+      DIFF in register R8 (MODE_CONTROL_2). If absent, the default is 0, shall be:
+      0 = stereo
+      1 = mono left
+      2 = stereo reversed
+      3 = mono right
+
+...

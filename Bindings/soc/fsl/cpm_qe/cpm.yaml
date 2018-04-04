@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/soc/fsl/cpm_qe/cpm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale Communications Processor Module
+
+maintainers:
+  - Zhao Qiang <qiang.zhao@nxp.com>
+description: |+
+  NOTE: This is an interim binding, and will likely change slightly,
+  as more devices are supported.  The QE bindings especially are
+  incomplete.
+
+  * Root CPM node
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale Communications Processor Module
+
+  NOTE: This is an interim binding, and will likely change slightly,
+  as more devices are supported.  The QE bindings especially are
+  incomplete.
+
+  * Root CPM node
+
+  Properties:
+  - compatible : "fsl,cpm1", "fsl,cpm2", or "fsl,qe".
+  - reg : A 48-byte region beginning with CPCR.
+
+...

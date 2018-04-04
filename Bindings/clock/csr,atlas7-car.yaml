@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/csr,atlas7-car.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Clock and reset bindings for CSR atlas7
+
+maintainers:
+  - Zhiwu Song <Zhiwu.Song@csr.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Clock and reset bindings for CSR atlas7
+
+  Required properties:
+  - compatible: Should be "sirf,atlas7-car"
+  - reg: Address and length of the register set
+  - #clock-cells: Should be <1>
+  - #reset-cells: Should be <1>
+
+  The clock consumer should specify the desired clock by having the clock
+  ID in its "clocks" phandle cell.
+  The ID list atlas7_clks defined in drivers/clk/sirf/clk-atlas7.c
+
+  The reset consumer should specify the desired reset by having the reset
+  ID in its "reset" phandle cell.
+  The ID list atlas7_reset_unit defined in drivers/clk/sirf/clk-atlas7.c
+
+...

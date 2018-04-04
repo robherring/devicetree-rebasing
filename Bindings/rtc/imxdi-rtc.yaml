@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/imxdi-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: i.MX25 Real Time Clock controller
+
+maintainers:
+  - Roland Stigge <stigge@antcom.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * i.MX25 Real Time Clock controller
+
+  Required properties:
+  - compatible: should be: "fsl,imx25-rtc"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - clocks: should contain the phandle for the rtc clock
+  - interrupts: rtc alarm interrupt
+
+  Optional properties:
+  - interrupts: dryice security violation interrupt (second entry)
+
+...

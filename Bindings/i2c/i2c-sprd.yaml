@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-sprd.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: I2C for Spreadtrum platforms
+
+maintainers:
+  - Baolin Wang <baolin.wang@spreadtrum.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  I2C for Spreadtrum platforms
+
+  Required properties:
+  - compatible: Should be "sprd,sc9860-i2c".
+  - reg: Specify the physical base address of the controller and length
+    of memory mapped region.
+  - interrupts: Should contain I2C interrupt.
+  - clock-names: Should contain following entries:
+    "i2c" for I2C clock,
+    "source" for I2C source (parent) clock,
+    "enable" for I2C module enable clock.
+  - clocks: Should contain a clock specifier for each entry in clock-names.
+  - clock-frequency: Constains desired I2C bus clock frequency in Hz.
+  - #address-cells: Should be 1 to describe address cells for I2C device address.
+  - #size-cells: Should be 0 means no size cell for I2C device address.
+
+  Optional properties:
+  - Child nodes conforming to I2C bus binding
+
+...

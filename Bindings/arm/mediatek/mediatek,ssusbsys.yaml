@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,ssusbsys.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MediaTek SSUSBSYS controller
+
+maintainers:
+  - Sean Wang <sean.wang@mediatek.com>
+description: |+
+  The MediaTek SSUSBSYS controller provides various clocks to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  MediaTek SSUSBSYS controller
+  ============================
+
+  The MediaTek SSUSBSYS controller provides various clocks to the system.
+
+  Required Properties:
+
+  - compatible: Should be:
+  	- "mediatek,mt7622-ssusbsys", "syscon"
+  - #clock-cells: Must be 1
+
+  The SSUSBSYS controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

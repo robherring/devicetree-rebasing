@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/al,alpine.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Annapurna Labs Alpine Platform Device Tree Bindings
+
+maintainers:
+  - Tsahee Zidenberg <tsahee@annapurnalabs.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Annapurna Labs Alpine Platform Device Tree Bindings
+  ---------------------------------------------------------------
+
+  Boards in the Alpine family shall have the following properties:
+
+  * Required root node properties:
+  compatible: must contain "al,alpine"
+
+  * Example:
+
+  / {
+  	model = "Annapurna Labs Alpine Dev Board";
+  	compatible = "al,alpine";
+
+  	...
+  }
+
+  * CPU node:
+
+  The Alpine platform includes cortex-a15 cores.
+  enable-method: must be "al,alpine-smp" to allow smp  [1]
+
+...

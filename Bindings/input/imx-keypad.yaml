@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/imx-keypad.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale i.MX Keypad Port(KPP) device tree bindings
+
+maintainers:
+  - Liu Ying <Ying.Liu@freescale.com>
+description: |+
+  The KPP is designed to interface with a keypad matrix with 2-point contact
+  or 3-point contact keys. The KPP is designed to simplify the software task
+  of scanning a keypad matrix. The KPP is capable of detecting, debouncing,
+  and decoding one or multiple keys pressed simultaneously on a keypad.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale i.MX Keypad Port(KPP) device tree bindings
+
+  The KPP is designed to interface with a keypad matrix with 2-point contact
+  or 3-point contact keys. The KPP is designed to simplify the software task
+  of scanning a keypad matrix. The KPP is capable of detecting, debouncing,
+  and decoding one or multiple keys pressed simultaneously on a keypad.
+
+  Required SoC Specific Properties:
+  - compatible: Should be "fsl,<soc>-kpp".
+
+  - reg: Physical base address of the KPP and length of memory mapped
+    region.
+
+  - interrupts: The KPP interrupt number to the CPU(s).
+
+  - clocks: The clock provided by the SoC to the KPP. Some SoCs use dummy
+  clock(The clock for the KPP is provided by the SoCs automatically).
+
+  Required Board Specific Properties:
+  - pinctrl-names: The definition can be found at
+  pinctrl/pinctrl-bindings.txt.
+
+  - pinctrl-0: The definition can be found at
+  pinctrl/pinctrl-bindings.txt.
+
+  - linux,keymap: The definition can be found at
+  bindings/input/matrix-keymap.txt.
+
+...

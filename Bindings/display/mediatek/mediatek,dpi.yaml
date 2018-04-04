@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/mediatek/mediatek,dpi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek DPI Device
+
+maintainers:
+  - CK Hu <ck.hu@mediatek.com>
+description: |+
+  The Mediatek DPI function block is a sink of the display subsystem and
+  provides 8-bit RGB/YUV444 or 8/10/10-bit YUV422 pixel data on a parallel
+  output bus.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek DPI Device
+  ===================
+
+  The Mediatek DPI function block is a sink of the display subsystem and
+  provides 8-bit RGB/YUV444 or 8/10/10-bit YUV422 pixel data on a parallel
+  output bus.
+
+  Required properties:
+  - compatible: "mediatek,<chip>-dpi"
+  - reg: Physical base address and length of the controller's registers
+  - interrupts: The interrupt signal from the function block.
+  - clocks: device clocks
+    See Documentation/devicetree/bindings/clock/clock-bindings.txt for details.
+  - clock-names: must contain "pixel", "engine", and "pll"
+  - port: Output port node with endpoint definitions as described in
+    Documentation/devicetree/bindings/graph.txt. This port should be connected
+    to the input port of an attached HDMI or LVDS encoder chip.
+
+...

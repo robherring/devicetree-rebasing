@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/brcm,bcm7445-switch-v4.0.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom Starfighter 2 integrated swich
+
+maintainers:
+  - Scott Branden <sbranden@broadcom.com>
+  - Florian Fainelli <f.fainelli@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Broadcom Starfighter 2 integrated swich
+
+  Required properties:
+
+  - compatible: should be one of
+  	"brcm,bcm7445-switch-v4.0"
+  	"brcm,bcm7278-switch-v4.0"
+  	"brcm,bcm7278-switch-v4.8"
+  - reg: addresses and length of the register sets for the device, must be 6
+    pairs of register addresses and lengths
+  - interrupts: interrupts for the devices, must be two interrupts
+  - #address-cells: must be 1, see dsa/dsa.txt
+  - #size-cells: must be 0, see dsa/dsa.txt
+
+  Deprecated binding required properties:
+
+  - dsa,mii-bus: phandle to the MDIO bus controller, see dsa/dsa.txt
+  - dsa,ethernet: phandle to the CPU network interface controller, see dsa/dsa.txt
+  - #address-cells: must be 2, see dsa/dsa.txt
+
+  Subnodes:
+
+  The integrated switch subnode should be specified according to the binding
+  described in dsa/dsa.txt.
+
+  Optional properties:
+
+  - reg-names: litteral names for the device base register addresses, when present
+    must be: "core", "reg", "intrl2_0", "intrl2_1", "fcb", "acb"
+
+  - interrupt-names: litternal names for the device interrupt lines, when present
+    must be: "switch_0" and "switch_1"
+
+  - brcm,num-gphy: specify the maximum number of integrated gigabit PHYs in the
+    switch
+
+  - brcm,num-rgmii-ports: specify the maximum number of RGMII interfaces supported
+    by the switch
+
+  - brcm,fcb-pause-override: boolean property, if present indicates that the switch
+    supports Failover Control Block pause override capability
+
+  - brcm,acb-packets-inflight: boolean property, if present indicates that the switch
+    Admission Control Block supports reporting the number of packets in-flight in a
+    switch queue
+
+  Port subnodes:
+
+  Optional properties:
+
+  - brcm,use-bcm-hdr: boolean property, if present, indicates that the switch
+    port has Broadcom tags enabled (per-packet metadata)
+
+...

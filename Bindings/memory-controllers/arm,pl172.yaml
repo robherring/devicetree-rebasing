@@ -1,0 +1,104 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/memory-controllers/arm,pl172.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device tree bindings for ARM PL172/PL175/PL176 MultiPort Memory Controller
+
+maintainers:
+  - Joachim Eastwood <manabian@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Device tree bindings for ARM PL172/PL175/PL176 MultiPort Memory Controller
+
+  Required properties:
+
+  - compatible:		Must be "arm,primecell" and exactly one from
+  			"arm,pl172", "arm,pl175" or "arm,pl176".
+
+  - reg:			Must contains offset/length value for controller.
+
+  - #address-cells:	Must be 2. The partition number has to be encoded in the
+  			first address cell and it may accept values 0..N-1
+  			(N - total number of partitions). The second cell is the
+  			offset into the partition.
+
+  - #size-cells:		Must be set to 1.
+
+  - ranges:		Must contain one or more chip select memory regions.
+
+  - clocks:		Must contain references to controller clocks.
+
+  - clock-names:		Must contain "mpmcclk" and "apb_pclk".
+
+  - clock-ranges:		Empty property indicating that child nodes can inherit
+  			named clocks. Required only if clock tree data present
+  			in device tree.
+  			See clock-bindings.txt
+
+  Child chip-select (cs) nodes contain the memory devices nodes connected to
+  such as NOR (e.g. cfi-flash) and NAND.
+
+  Required child cs node properties:
+
+  - #address-cells:	Must be 2.
+
+  - #size-cells:		Must be 1.
+
+  - ranges:		Empty property indicating that child nodes can inherit
+  			memory layout.
+
+  - clock-ranges:		Empty property indicating that child nodes can inherit
+  			named clocks. Required only if clock tree data present
+  			in device tree.
+
+  - mpmc,cs:		Chip select number. Indicates to the pl0172 driver
+  			which chipselect is used for accessing the memory.
+
+  - mpmc,memory-width:	Width of the chip select memory. Must be equal to
+  			either 8, 16 or 32.
+
+  Optional child cs node config properties:
+
+  - mpmc,async-page-mode:	Enable asynchronous page mode.
+
+  - mpmc,cs-active-high:	Set chip select polarity to active high.
+
+  - mpmc,byte-lane-low:	Set byte lane state to low.
+
+  - mpmc,extended-wait:	Enable extended wait.
+
+  - mpmc,buffer-enable:	Enable write buffer, option is not supported by
+  			PL175 and PL176 controllers.
+
+  - mpmc,write-protect:	Enable write protect.
+
+  Optional child cs node timing properties:
+
+  - mpmc,write-enable-delay:	Delay from chip select assertion to write
+  				enable (WE signal) in nano seconds.
+
+  - mpmc,output-enable-delay:	Delay from chip select assertion to output
+  				enable (OE signal) in nano seconds.
+
+  - mpmc,write-access-delay:	Delay from chip select assertion to write
+  				access in nano seconds.
+
+  - mpmc,read-access-delay:	Delay from chip select assertion to read
+  				access in nano seconds.
+
+  - mpmc,page-mode-read-delay:	Delay for asynchronous page mode sequential
+  				accesses in nano seconds.
+
+  - mpmc,turn-round-delay:	Delay between access to memory banks in nano
+  				seconds.
+
+  If any of the above timing parameters are absent, current parameter value will
+  be taken from the corresponding HW reg.
+
+...

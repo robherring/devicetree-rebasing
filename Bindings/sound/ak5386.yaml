@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/ak5386.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AK5386 Single-ended 24-Bit 192kHz delta-sigma ADC
+
+maintainers:
+  - Daniel Mack <zonque@gmail.com>
+description: |+
+  This device has no control interface.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  AK5386 Single-ended 24-Bit 192kHz delta-sigma ADC
+
+  This device has no control interface.
+
+  Required properties:
+
+    - compatible : "asahi-kasei,ak5386"
+
+  Optional properties:
+
+    - reset-gpio : a GPIO spec for the reset/power down pin.
+  		 If specified, it will be deasserted at probe time.
+    - va-supply : a regulator spec, providing 5.0V
+    - vd-supply : a regulator spec, providing 3.3V
+
+...

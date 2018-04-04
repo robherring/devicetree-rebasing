@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/fsl-imx-mmc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale Secure Digital Host Controller for i.MX2/3 series
+
+maintainers:
+  - Markus Pargmann <mpa@pengutronix.de>
+description: |+
+  This file documents differences to the properties defined in mmc.txt.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Freescale Secure Digital Host Controller for i.MX2/3 series
+
+  This file documents differences to the properties defined in mmc.txt.
+
+  Required properties:
+  - compatible : Should be "fsl,<chip>-mmc", chip can be imx21 or imx31
+
+  Optional properties:
+  - dmas: One DMA phandle with arguments as defined by the devicetree bindings
+  	of the used DMA controller.
+  - dma-names: Has to be "rx-tx".
+
+...

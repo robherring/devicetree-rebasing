@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/hisilicon/dw-dsi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Device-Tree bindings for DesignWare DSI Host Controller v1.20a driver
+
+maintainers:
+  - Xinliang Liu <xinliang.liu@linaro.org>
+description: |+
+  A DSI Host Controller resides in the middle of display controller and external
+  HDMI converter or panel.
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Device-Tree bindings for DesignWare DSI Host Controller v1.20a driver
+
+  A DSI Host Controller resides in the middle of display controller and external
+  HDMI converter or panel.
+
+  Required properties:
+  - compatible: value should be "hisilicon,hi6220-dsi".
+  - reg: physical base address and length of dsi controller's registers.
+  - clocks: contains APB clock phandle + clock-specifier pair.
+  - clock-names: should be "pclk".
+  - ports: contains DSI controller input and output sub port.
+    The input port connects to ADE output port with the reg value "0".
+    The output port with the reg value "1", it could connect to panel or
+    any other bridge endpoints.
+    See Documentation/devicetree/bindings/graph.txt for more device graph info.
+
+  A example of HiKey board hi6220 SoC and board specific DT entry:

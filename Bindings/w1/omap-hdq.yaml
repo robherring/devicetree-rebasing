@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/w1/omap-hdq.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: OMAP HDQ One wire bus master controller
+
+maintainers:
+  - NeilBrown <neilb@suse.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * OMAP HDQ One wire bus master controller
+
+  Required properties:
+  - compatible : should be "ti,omap3-1w" or "ti,am4372-hdq"
+  - reg : Address and length of the register set for the device
+  - interrupts : interrupt line.
+  - ti,hwmods : "hdq1w"
+
+  Optional properties:
+  - ti,mode: should be "hdq": HDQ mode  "1w": one-wire mode.
+  	   If not specified HDQ mode is implied.
+
+...

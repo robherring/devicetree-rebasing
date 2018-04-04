@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/spear-timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SPEAr ARM Timer
+
+maintainers:
+  - Viresh Kumar <viresh.kumar@st.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    timer@f0000000 {
+      compatible = "st,spear-timer";
+      reg = <0xf0000000 0x400>;
+      interrupts = <2>;
+    };
+historical: |+
+  * SPEAr ARM Timer
+
+  ** Timer node required properties:
+
+  - compatible : Should be:
+  	"st,spear-timer"
+  - reg: Address range of the timer registers
+  - interrupt-parent: Should be the phandle for the interrupt controller
+    that services interrupts for this device
+  - interrupt: Should contain the timer interrupt number
+
+...

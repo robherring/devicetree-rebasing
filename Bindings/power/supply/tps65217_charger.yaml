@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/tps65217_charger.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TPS65217 Charger
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    tps65217-charger {
+      compatible = "ti,tps65217-charger";
+      interrupts = <0>, <1>;
+      interrupt-names = "USB", "AC";
+    };
+historical: |+
+  TPS65217 Charger
+
+  Required Properties:
+  -compatible: "ti,tps65217-charger"
+  -interrupts: TPS65217 interrupt numbers for the AC and USB charger input change.
+               Should be <0> for the USB charger and <1> for the AC adapter.
+  -interrupt-names: Should be "USB" and "AC"
+
+  This node is a subnode of the tps65217 PMIC.
+
+...

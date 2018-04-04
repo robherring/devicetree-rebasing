@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/atmel-dma.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel Direct Memory Access Controller (DMA)
+
+maintainers:
+  - Nicolas Ferre <nicolas.ferre@atmel.com>
+  - Ludovic Desroches <ludovic.desroches@atmel.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Atmel Direct Memory Access Controller (DMA)
+
+  Required properties:
+  - compatible: Should be "atmel,<chip>-dma".
+  - reg: Should contain DMA registers location and length.
+  - interrupts: Should contain DMA interrupt.
+  - #dma-cells: Must be <2>, used to represent the number of integer cells in
+  the dmas property of client devices.
+
+...

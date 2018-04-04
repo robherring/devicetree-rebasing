@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/armv7m_systick.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARMv7M System Timer
+
+maintainers:
+  - Maxime Coquelin <mcoquelin.stm32@gmail.com>
+description: |+
+  ARMv7-M includes a system timer, known as SysTick. Current driver only
+  implements the clocksource feature.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * ARMv7M System Timer
+
+  ARMv7-M includes a system timer, known as SysTick. Current driver only
+  implements the clocksource feature.
+
+  Required properties:
+  - compatible	  : Should be "arm,armv7m-systick"
+  - reg		  : The address range of the timer
+
+  Required clocking property, have to be one of:
+  - clocks	  : The input clock of the timer
+  - clock-frequency : The rate in HZ in input of the ARM SysTick
+
+...

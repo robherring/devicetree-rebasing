@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/hisilicon-hns-mdio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Hisilicon MDIO bus controller
+
+maintainers:
+  - huangdaode <huangdaode@hisilicon.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Hisilicon MDIO bus controller
+
+  Properties:
+  - compatible: can be one of:
+  	"hisilicon,hns-mdio"
+  	"hisilicon,mdio"
+    "hisilicon,hns-mdio" is recommended to be used for hip05 and later SOCs,
+    while "hisilicon,mdio" is optional for backwards compatibility only on
+    hip04 Soc.
+  - reg: The base address of the MDIO bus controller register bank.
+  - #address-cells: Must be <1>.
+  - #size-cells: Must be <0>.  MDIO addresses have no size component.
+
+  Typically an MDIO bus might have several children.
+
+...

@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/via-rhine.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: VIA Rhine 10/100 Network Controller
+
+maintainers:
+  - Alexey Charkov <alchark@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * VIA Rhine 10/100 Network Controller
+
+  Required properties:
+  - compatible : Should be "via,vt8500-rhine" for integrated
+  	Rhine controllers found in VIA VT8500, WonderMedia WM8950
+  	and similar. These are listed as 1106:3106 rev. 0x84 on the
+  	virtual PCI bus under vendor-provided kernels
+  - reg : Address and length of the io space
+  - interrupts : Should contain the controller interrupt line
+
+...

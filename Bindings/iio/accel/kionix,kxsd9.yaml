@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/accel/kionix,kxsd9.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Kionix KXSD9 Accelerometer device tree bindings
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Kionix KXSD9 Accelerometer device tree bindings
+
+  Required properties:
+   - compatible: 		should be set to "kionix,kxsd9"
+   - reg:			i2c slave address
+
+  Optional properties:
+   - vdd-supply:		The input supply for VDD
+   - iovdd-supply:	The input supply for IOVDD
+   - interrupts:		The movement detection interrupt
+   - mount-matrix:	See mount-matrix.txt
+
+...

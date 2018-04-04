@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/aspeed-scu.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: The Aspeed System Control Unit manages the global behaviour of the SoC,
+
+maintainers:
+  - Andrew Jeffery <andrew@aj.id.au>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  The Aspeed System Control Unit manages the global behaviour of the SoC,
+  configuring elements such as clocks, pinmux, and reset.
+
+  Required properties:
+  - compatible:	One of:
+  		"aspeed,ast2400-scu", "syscon", "simple-mfd"
+  		"aspeed,g4-scu", "syscon", "simple-mfd"
+  		"aspeed,ast2500-scu", "syscon", "simple-mfd"
+  		"aspeed,g5-scu", "syscon", "simple-mfd"
+
+  - reg:		contains the offset and length of the SCU memory region
+  - #clock-cells: should be set to <1> - the system controller is also a
+  	clock provider
+  - #reset-cells: should be set to <1> - the system controller is also a
+  	reset line provider
+
+...

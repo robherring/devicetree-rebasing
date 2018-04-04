@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/bcm/brcm,brcmstb.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM Broadcom STB platforms Device Tree Bindings
+
+maintainers:
+  - Scott Branden <sbranden@broadcom.com>
+  - Florian Fainelli <f.fainelli@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  ARM Broadcom STB platforms Device Tree Bindings
+  -----------------------------------------------
+  Boards with Broadcom Brahma15 ARM-based BCMxxxx (generally BCM7xxx variants)
+  SoC shall have the following DT organization:
+
+  Required root node properties:
+      - compatible: "brcm,bcm<chip_id>", "brcm,brcmstb"
+
+...

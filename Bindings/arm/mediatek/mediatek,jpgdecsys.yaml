@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,jpgdecsys.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek jpgdecsys controller
+
+maintainers:
+  - weiyi.lu@mediatek.com <weiyi.lu@mediatek.com>
+description: |+
+  The Mediatek jpgdecsys controller provides various clocks to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek jpgdecsys controller
+  ============================
+
+  The Mediatek jpgdecsys controller provides various clocks to the system.
+
+  Required Properties:
+
+  - compatible: Should be:
+  	- "mediatek,mt2712-jpgdecsys", "syscon"
+  - #clock-cells: Must be 1
+
+  The jpgdecsys controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

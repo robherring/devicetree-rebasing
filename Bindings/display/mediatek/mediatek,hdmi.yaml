@@ -1,0 +1,90 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/mediatek/mediatek,hdmi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek HDMI Encoder
+
+maintainers:
+  - Philipp Zabel <p.zabel@pengutronix.de>
+description: |+
+  The Mediatek HDMI encoder can generate HDMI 1.4a or MHL 2.0 signals from
+  its parallel input.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek HDMI Encoder
+  =====================
+
+  The Mediatek HDMI encoder can generate HDMI 1.4a or MHL 2.0 signals from
+  its parallel input.
+
+  Required properties:
+  - compatible: Should be "mediatek,<chip>-hdmi".
+  - reg: Physical base address and length of the controller's registers
+  - interrupts: The interrupt signal from the function block.
+  - clocks: device clocks
+    See Documentation/devicetree/bindings/clock/clock-bindings.txt for details.
+  - clock-names: must contain "pixel", "pll", "bclk", and "spdif".
+  - phys: phandle link to the HDMI PHY node.
+    See Documentation/devicetree/bindings/phy/phy-bindings.txt for details.
+  - phy-names: must contain "hdmi"
+  - mediatek,syscon-hdmi: phandle link and register offset to the system
+    configuration registers. For mt8173 this must be offset 0x900 into the
+    MMSYS_CONFIG region: <&mmsys 0x900>.
+  - ports: A node containing input and output port nodes with endpoint
+    definitions as documented in Documentation/devicetree/bindings/graph.txt.
+  - port@0: The input port in the ports node should be connected to a DPI output
+    port.
+  - port@1: The output port in the ports node should be connected to the input
+    port of a connector node that contains a ddc-i2c-bus property, or to the
+    input port of an attached bridge chip, such as a SlimPort transmitter.
+
+  HDMI CEC
+  ========
+
+  The HDMI CEC controller handles hotplug detection and CEC communication.
+
+  Required properties:
+  - compatible: Should be "mediatek,<chip>-cec"
+  - reg: Physical base address and length of the controller's registers
+  - interrupts: The interrupt signal from the function block.
+  - clocks: device clock
+
+  HDMI DDC
+  ========
+
+  The HDMI DDC i2c controller is used to interface with the HDMI DDC pins.
+  The Mediatek's I2C controller is used to interface with I2C devices.
+
+  Required properties:
+  - compatible: Should be "mediatek,<chip>-hdmi-ddc"
+  - reg: Physical base address and length of the controller's registers
+  - clocks: device clock
+  - clock-names: Should be "ddc-i2c".
+
+  HDMI PHY
+  ========
+
+  The HDMI PHY serializes the HDMI encoder's three channel 10-bit parallel
+  output and drives the HDMI pads.
+
+  Required properties:
+  - compatible: "mediatek,<chip>-hdmi-phy"
+  - reg: Physical base address and length of the module's registers
+  - clocks: PLL reference clock
+  - clock-names: must contain "pll_ref"
+  - clock-output-names: must be "hdmitx_dig_cts" on mt8173
+  - #phy-cells: must be <0>
+  - #clock-cells: must be <0>
+
+  Optional properties:
+  - mediatek,ibias: TX DRV bias current for <1.65Gbps, defaults to 0xa
+  - mediatek,ibias_up: TX DRV bias current for >1.65Gbps, defaults to 0x1c
+
+...

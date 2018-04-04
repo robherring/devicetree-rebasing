@@ -1,0 +1,88 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/remoteproc/ti,davinci-rproc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI Davinci DSP devices
+
+maintainers:
+  - Suman Anna <s-anna@ti.com>
+description: |+
+  Binding status: Unstable - Subject to changes for DT representation of clocks
+  			   and resets
+
+  The TI Davinci family of SoCs usually contains a TI DSP Core sub-system that
+  is used to offload some of the processor-intensive tasks or algorithms, for
+  achieving various system level goals.
+
+  The processor cores in the sub-system usually contain additional sub-modules
+  like L1 and/or L2 caches/SRAMs, an Interrupt Controller, an external memory
+  controller, a dedicated local power/sleep controller etc. The DSP processor
+  core used in Davinci SoCs is usually a C674x DSP CPU.
+
+  DSP Device Node:
+  ================
+  Each DSP Core sub-system is represented as a single DT node.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  TI Davinci DSP devices
+  =======================
+
+  Binding status: Unstable - Subject to changes for DT representation of clocks
+  			   and resets
+
+  The TI Davinci family of SoCs usually contains a TI DSP Core sub-system that
+  is used to offload some of the processor-intensive tasks or algorithms, for
+  achieving various system level goals.
+
+  The processor cores in the sub-system usually contain additional sub-modules
+  like L1 and/or L2 caches/SRAMs, an Interrupt Controller, an external memory
+  controller, a dedicated local power/sleep controller etc. The DSP processor
+  core used in Davinci SoCs is usually a C674x DSP CPU.
+
+  DSP Device Node:
+  ================
+  Each DSP Core sub-system is represented as a single DT node.
+
+  Required properties:
+  --------------------
+  The following are the mandatory properties:
+
+  - compatible:		Should be one of the following,
+  			    "ti,da850-dsp" for DSPs on OMAP-L138 SoCs
+
+  - reg:			Should contain an entry for each value in 'reg-names'.
+  			Each entry should have the memory region's start address
+  			and the size of the region, the representation matching
+  			the parent node's '#address-cells' and '#size-cells' values.
+
+  - reg-names:		Should contain strings with the following names, each
+  			representing a specific internal memory region or a
+  			specific register space,
+  			     "l2sram", "l1pram", "l1dram", "host1cfg", "chipsig_base"
+
+  - interrupts: 		Should contain the interrupt number used to receive the
+  			interrupts from the DSP. The value should follow the
+  			interrupt-specifier format as dictated by the
+  			'interrupt-parent' node.
+
+  - memory-region:	phandle to the reserved memory node to be associated
+  			with the remoteproc device. The reserved memory node
+  			can be a CMA memory node, and should be defined as
+  			per the bindings in
+  			Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
+
+  Optional properties:
+  --------------------
+  - interrupt-parent:	phandle to the interrupt controller node. This property
+  			is needed if the device node hierarchy doesn't have an
+  			interrupt controller.
+
+
+...

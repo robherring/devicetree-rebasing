@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/via-velocity.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: VIA Velocity 10/100/1000 Network Controller
+
+maintainers:
+  - Tony Prisk <linux@prisktech.co.nz>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * VIA Velocity 10/100/1000 Network Controller
+
+  Required properties:
+  - compatible : Should be "via,velocity-vt6110"
+  - reg : Address and length of the io space
+  - interrupts : Should contain the controller interrupt line
+
+  Optional properties:
+  - no-eeprom : PCI network cards use an external EEPROM to store data. Embedded
+  	devices quite often set this data in uboot and do not provide an eeprom.
+  	Specify this option if you have no external eeprom.
+
+...

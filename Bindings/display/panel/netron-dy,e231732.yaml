@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/netron-dy,e231732.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Netron-DY E231732 7.0" WSVGA TFT LCD panel
+
+maintainers:
+  - Maxime Ripard <maxime.ripard@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Netron-DY E231732 7.0" WSVGA TFT LCD panel
+
+  Required properties:
+  - compatible: should be "netron-dy,e231732"
+
+  This binding is compatible with the simple-panel binding, which is specified
+  in simple-panel.txt in this directory.

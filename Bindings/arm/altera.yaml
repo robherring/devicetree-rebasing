@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/altera.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera's SoCFPGA platform device tree bindings
+
+maintainers:
+  - Dinh Nguyen <dinguyen@opensource.altera.com>
+description: |
+  Boards with Cyclone 5 SoC:
+             
+
+properties:
+  compatible: {}
+historical: |
+  Altera's SoCFPGA platform device tree bindings
+  ---------------------------------------------
+
+  Boards with Cyclone 5 SoC:
+  Required root node properties:
+  compatible = "altr,socfpga-cyclone5", "altr,socfpga";
+
+  Boards with Arria 5 SoC:
+  Required root node properties:
+  compatible = "altr,socfpga-arria5", "altr,socfpga";
+
+  Boards with Arria 10 SoC:
+  Required root node properties:
+  compatible = "altr,socfpga-arria10", "altr,socfpga";

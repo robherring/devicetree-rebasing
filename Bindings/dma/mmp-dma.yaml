@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/dma/mmp-dma.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MARVELL MMP DMA controller
+
+maintainers:
+  - Zhangfei Gao <zhangfei.gao@marvell.com>
+description: |+
+  Marvell Peripheral DMA Controller
+  Used platforms: pxa688, pxa910, pxa3xx, etc
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * MARVELL MMP DMA controller
+
+  Marvell Peripheral DMA Controller
+  Used platforms: pxa688, pxa910, pxa3xx, etc
+
+  Required properties:
+  - compatible: Should be "marvell,pdma-1.0"
+  - reg: Should contain DMA registers location and length.
+  - interrupts: Either contain all of the per-channel DMA interrupts
+  		or one irq for pdma device
+
+  Optional properties:
+  - #dma-channels: Number of DMA channels supported by the controller (defaults
+    to 32 when not specified)
+  - #dma-requests: Number of DMA requestor lines supported by the controller
+    (defaults to 32 when not specified)
+
+  "marvell,pdma-1.0"
+  Used platforms: pxa25x, pxa27x, pxa3xx, pxa93x, pxa168, pxa910, pxa688.
+
+...

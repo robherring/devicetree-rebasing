@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/nfc/nfcmrvl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Marvell International Ltd. NCI NFC Controller
+
+maintainers:
+  - Vincent Cuissard <cuissard@marvell.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Marvell International Ltd. NCI NFC Controller
+
+  Required properties:
+  - compatible: Should be:
+    - "marvell,nfc-uart" or "mrvl,nfc-uart" for UART devices
+    - "marvell,nfc-i2c" for I2C devices
+    - "marvell,nfc-spi" for SPI devices
+
+  Optional SoC specific properties:
+  - pinctrl-names: Contains only one value - "default".
+  - pintctrl-0: Specifies the pin control groups used for this controller.
+  - reset-n-io: Output GPIO pin used to reset the chip (active low).
+  - hci-muxed: Specifies that the chip is muxing NCI over HCI frames.
+
+  Optional UART-based chip specific properties:
+  - flow-control: Specifies that the chip is using RTS/CTS.
+  - break-control: Specifies that the chip needs specific break management.
+
+  Optional I2C-based chip specific properties:
+  - i2c-int-falling: Specifies that the chip read event shall be trigged on
+    		   falling edge.
+  - i2c-int-rising: Specifies that the chip read event shall be trigged on
+    		  rising edge.
+
+...

@@ -1,0 +1,96 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/reset/ti-syscon-reset.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI SysCon Reset Controller
+
+maintainers:
+  - Andrew F. Davis <afd@ti.com>
+description: |+
+  Almost all SoCs have hardware modules that require reset control in addition
+  to clock and power control for their functionality. The reset control is
+  typically provided by means of memory-mapped I/O registers. These registers are
+  sometimes a part of a larger register space region implementing various
+  functionalities. This register range is best represented as a syscon node to
+  allow multiple entities to access their relevant registers in the common
+  register space.
+
+  A SysCon Reset Controller node defines a device that uses a syscon node
+  and provides reset management functionality for various hardware modules
+  present on the SoC.
+
+  SysCon Reset Controller Node
+  ============================
+  Each of the reset provider/controller nodes should be a child of a syscon
+  node and have the following properties.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  TI SysCon Reset Controller
+  =======================
+
+  Almost all SoCs have hardware modules that require reset control in addition
+  to clock and power control for their functionality. The reset control is
+  typically provided by means of memory-mapped I/O registers. These registers are
+  sometimes a part of a larger register space region implementing various
+  functionalities. This register range is best represented as a syscon node to
+  allow multiple entities to access their relevant registers in the common
+  register space.
+
+  A SysCon Reset Controller node defines a device that uses a syscon node
+  and provides reset management functionality for various hardware modules
+  present on the SoC.
+
+  SysCon Reset Controller Node
+  ============================
+  Each of the reset provider/controller nodes should be a child of a syscon
+  node and have the following properties.
+
+  Required properties:
+  --------------------
+   - compatible		: Should be,
+  			    "ti,k2e-pscrst"
+  			    "ti,k2l-pscrst"
+  			    "ti,k2hk-pscrst"
+  			    "ti,syscon-reset"
+   - #reset-cells		: Should be 1. Please see the reset consumer node below
+  			  for usage details
+   - ti,reset-bits	: Contains the reset control register information
+  			  Should contain 7 cells for each reset exposed to
+  			  consumers, defined as:
+  			    Cell #1 : offset of the reset assert control
+  			              register from the syscon register base
+  			    Cell #2 : bit position of the reset in the reset
+  			              assert control register
+  			    Cell #3 : offset of the reset deassert control
+  			              register from the syscon register base
+  			    Cell #4 : bit position of the reset in the reset
+  			              deassert control register
+  			    Cell #5 : offset of the reset status register
+  			              from the syscon register base
+  			    Cell #6 : bit position of the reset in the
+  			              reset status register
+  			    Cell #7 : Flags used to control reset behavior,
+  			              availible flags defined in the DT include
+  			              file <dt-bindings/reset/ti-syscon.h>
+
+  SysCon Reset Consumer Nodes
+  ===========================
+  Each of the reset consumer nodes should have the following properties,
+  in addition to their own properties.
+
+  Required properties:
+  --------------------
+   - resets	: A phandle to the reset controller node and an index number
+  		  to a reset specifier as defined above.
+
+  Please also refer to Documentation/devicetree/bindings/reset/reset.txt for
+  common reset controller usage by consumers.
+
+...

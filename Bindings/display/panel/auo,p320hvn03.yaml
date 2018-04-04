@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/auo,p320hvn03.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: AU Optronics Corporation 31.5" FHD (1920x1080) TFT LCD panel
+
+maintainers:
+  - Lucas Stach <l.stach@pengutronix.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  AU Optronics Corporation 31.5" FHD (1920x1080) TFT LCD panel
+
+  Required properties:
+  - compatible: should be "auo,p320hvn03"
+  - power-supply: as specified in the base binding
+
+  This binding is compatible with the simple-panel binding, which is specified
+  in simple-panel.txt in this directory.

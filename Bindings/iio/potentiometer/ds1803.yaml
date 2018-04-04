@@ -1,0 +1,41 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/potentiometer/ds1803.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Maxim Integrated DS1803 digital potentiometer driver
+
+maintainers:
+  - Slawomir Stepien <sst@poczta.fm>
+description: |+
+  The node for this driver must be a child node of a I2C controller, hence
+  all mandatory properties for your controller must be specified. See directory:
+
+          Documentation/devicetree/bindings/i2c
+
+  for more details.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Maxim Integrated DS1803 digital potentiometer driver
+
+  The node for this driver must be a child node of a I2C controller, hence
+  all mandatory properties for your controller must be specified. See directory:
+
+          Documentation/devicetree/bindings/i2c
+
+  for more details.
+
+  Required properties:
+  	- compatible:  	Must be one of the following, depending on the
+  			model:
+  			"maxim,ds1803-010",
+  			"maxim,ds1803-050",
+  			"maxim,ds1803-100"
+
+...

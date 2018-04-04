@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/img,pistachio-internal-dac.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Pistachio internal DAC DT bindings
+
+maintainers:
+  - Damien.Horsley <Damien.Horsley@imgtec.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Pistachio internal DAC DT bindings
+
+  Required properties:
+
+    - compatible: "img,pistachio-internal-dac"
+
+    - img,cr-top : Must contain a phandle to the top level control syscon
+  		 node which contains the internal dac control registers
+
+    - VDD-supply : Digital power supply regulator (+1.8V or +3.3V)
+
+...

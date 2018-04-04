@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/faraday,tve200.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Faraday TV Encoder TVE200
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Faraday TV Encoder TVE200
+
+  Required properties:
+
+  - compatible: must be one of:
+  	"faraday,tve200"
+  	"cortina,gemini-tvc", "faraday,tve200"
+
+  - reg: base address and size of the control registers block
+
+  - interrupts: contains an interrupt specifier for the interrupt
+  	line from the TVE200
+
+  - clock-names: should contain "PCLK" for the clock line clocking the
+  	silicon and "TVE" for the 27MHz clock to the video driver
+
+  - clocks: contains phandle and clock specifier pairs for the entries
+  	in the clock-names property. See
+  	Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+  Optional properties:
+
+  - resets: contains the reset line phandle for the block
+
+  Required sub-nodes:
+
+  - port: describes LCD panel signals, following the common binding
+  	for video transmitter interfaces; see
+  	Documentation/devicetree/bindings/media/video-interfaces.txt
+  	This port should have the properties:
+  	reg = <0>;
+  	It should have one endpoint connected to a remote endpoint where
+  	the display is connected.
+
+...

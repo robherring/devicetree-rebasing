@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/rtc-sh.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Real Time Clock for Renesas SH and ARM SoCs
+
+maintainers:
+  - Chris Brandt <chris.brandt@renesas.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Real Time Clock for Renesas SH and ARM SoCs
+
+  Required properties:
+  - compatible: Should be "renesas,r7s72100-rtc" and "renesas,sh-rtc" as a
+    fallback.
+  - reg: physical base address and length of memory mapped region.
+  - interrupts: 3 interrupts for alarm, period, and carry.
+  - interrupt-names: The interrupts should be labeled as "alarm", "period", and
+    "carry".
+  - clocks: The functional clock source for the RTC controller must be listed
+    first (if exists). Additionally, potential clock counting sources are to be
+    listed.
+  - clock-names: The functional clock must be labeled as "fck". Other clocks
+    may be named in accordance to the SoC hardware manuals.
+
+
+...

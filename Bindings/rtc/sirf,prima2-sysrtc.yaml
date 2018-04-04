@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/sirf,prima2-sysrtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SiRFSoC Real Time Clock
+
+maintainers:
+  - Alexandre Belloni <alexandre.belloni@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    rtc@2000 {
+      compatible = "sirf,prima2-sysrtc";
+      reg = <0x2000 0x1000>;
+      interrupts = <52 53 54>;
+    };
+historical: |+
+  SiRFSoC Real Time Clock
+
+  Required properties:
+  - compatible: must be "sirf,prima2-sysrtc"
+  - reg: address range of rtc register set.
+  - interrupts: rtc alarm interrupts.
+
+...

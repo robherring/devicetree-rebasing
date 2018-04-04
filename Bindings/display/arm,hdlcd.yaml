@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/arm,hdlcd.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ARM HDLCD
+
+maintainers:
+  - Liviu Dudau <Liviu.Dudau@arm.com>
+description: |+
+  This is a display controller found on several development platforms produced
+  by ARM Ltd and in more modern of its' Fast Models. The HDLCD is an RGB
+  streamer that reads the data from a framebuffer and sends it to a single
+  digital encoder (DVI or HDMI).
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ARM HDLCD
+
+  This is a display controller found on several development platforms produced
+  by ARM Ltd and in more modern of its' Fast Models. The HDLCD is an RGB
+  streamer that reads the data from a framebuffer and sends it to a single
+  digital encoder (DVI or HDMI).
+
+  Required properties:
+    - compatible: "arm,hdlcd"
+    - reg: Physical base address and length of the controller's registers.
+    - interrupts: One interrupt used by the display controller to notify the
+      interrupt controller when any of the interrupt sources programmed in
+      the interrupt mask register have activated.
+    - clocks: A list of phandle + clock-specifier pairs, one for each
+      entry in 'clock-names'.
+    - clock-names: A list of clock names. For HDLCD it should contain:
+        - "pxlclk" for the clock feeding the output PLL of the controller.
+
+  Required sub-nodes:
+    - port: The HDLCD connection to an encoder chip. The connection is modeled
+      using the OF graph bindings specified in
+      Documentation/devicetree/bindings/graph.txt.
+
+  Optional properties:
+    - memory-region: phandle to a node describing memory (see
+      Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt) to be
+      used for the framebuffer; if not present, the framebuffer may be located
+      anywhere in memory.
+
+
+...

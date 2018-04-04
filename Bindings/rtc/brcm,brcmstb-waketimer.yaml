@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/brcm,brcmstb-waketimer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom STB wake-up Timer
+
+maintainers:
+  - Florian Fainelli <f.fainelli@gmail.com>
+description: |+
+  The Broadcom STB wake-up timer provides a 27Mhz resolution timer, with the
+  ability to wake up the system from low-power suspend/standby modes.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom STB wake-up Timer
+
+  The Broadcom STB wake-up timer provides a 27Mhz resolution timer, with the
+  ability to wake up the system from low-power suspend/standby modes.
+
+  Required properties:
+  - compatible     : should contain "brcm,brcmstb-waketimer"
+  - reg            : the register start and length for the WKTMR block
+  - interrupts     : The TIMER interrupt
+  - interrupt-parent: The phandle to the Always-On (AON) Power Management (PM) L2
+                      interrupt controller node
+  - clocks	 : The phandle to the UPG fixed clock (27Mhz domain)
+
+...

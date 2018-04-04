@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/fsl,ftm-timer.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Freescale FlexTimer Module (FTM) Timer
+
+maintainers:
+  - Xiubo Li <Li.Xiubo@freescale.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Freescale FlexTimer Module (FTM) Timer
+
+  Required properties:
+
+  - compatible : should be "fsl,ftm-timer"
+  - reg : Specifies base physical address and size of the register sets for the
+    clock event device and clock source device.
+  - interrupts : Should be the clock event device interrupt.
+  - clocks : The clocks provided by the SoC to drive the timer, must contain an
+    entry for each entry in clock-names.
+  - clock-names : Must include the following entries:
+    o "ftm-evt"
+    o "ftm-src"
+    o "ftm-evt-counter-en"
+    o "ftm-src-counter-en"
+  - big-endian: One boolean property, the big endian mode will be in use if it is
+    present, or the little endian mode will be in use for all the device registers.
+
+...

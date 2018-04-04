@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/tegra/nvidia,tegra186-pmc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NVIDIA Tegra Power Management Controller (PMC)
+
+maintainers:
+  - Thierry Reding <treding@nvidia.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  NVIDIA Tegra Power Management Controller (PMC)
+
+  Required properties:
+  - compatible: Should contain one of the following:
+    - "nvidia,tegra186-pmc": for Tegra186
+  - reg: Must contain an (offset, length) pair of the register set for each
+    entry in reg-names.
+  - reg-names: Must include the following entries:
+    - "pmc"
+    - "wake"
+    - "aotag"
+    - "scratch"
+
+  Optional properties:
+  - nvidia,invert-interrupt: If present, inverts the PMU interrupt signal.
+
+...

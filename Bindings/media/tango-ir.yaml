@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/tango-ir.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Sigma Designs Tango IR NEC/RC-5/RC-6 decoder (SMP86xx and SMP87xx)
+
+maintainers:
+  - Marc Gonzalez <marc_gonzalez@sigmadesigns.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    ir@10518 {
+      compatible = "sigma,smp8642-ir";
+      reg = <0x10518 0x18>, <0x105e0 0x1c>;
+      interrupts = <21 IRQ_TYPE_EDGE_RISING>;
+      clocks = <&xtal>;
+    };
+historical: |+
+  Sigma Designs Tango IR NEC/RC-5/RC-6 decoder (SMP86xx and SMP87xx)
+
+  Required properties:
+
+  - compatible: "sigma,smp8642-ir"
+  - reg: address/size of NEC+RC5 area, address/size of RC6 area
+  - interrupts: spec for IR IRQ
+  - clocks: spec for IR clock (typically the crystal oscillator)
+
+  Optional properties:
+
+  - linux,rc-map-name: see Documentation/devicetree/bindings/media/rc.txt
+
+...

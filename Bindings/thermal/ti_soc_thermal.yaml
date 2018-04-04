@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/thermal/ti_soc_thermal.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instrument OMAP SCM bandgap bindings
+
+maintainers:
+  - Eduardo Valentin <eduardo.valentin@ti.com>
+description: |+
+  In the System Control Module, OMAP supplies a voltage reference
+  and a temperature sensor feature that are gathered in the band
+  gap voltage and temperature sensor (VBGAPTS) module. The band
+  gap provides current and voltage reference for its internal
+  circuits and other analog IP blocks. The analog-to-digital
+  converter (ADC) produces an output value that is proportional
+  to the silicon temperature.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Texas Instrument OMAP SCM bandgap bindings
+
+  In the System Control Module, OMAP supplies a voltage reference
+  and a temperature sensor feature that are gathered in the band
+  gap voltage and temperature sensor (VBGAPTS) module. The band
+  gap provides current and voltage reference for its internal
+  circuits and other analog IP blocks. The analog-to-digital
+  converter (ADC) produces an output value that is proportional
+  to the silicon temperature.
+
+  Required properties:
+  - compatible : Should be:
+    - "ti,omap34xx-bandgap" : for OMAP34xx bandgap
+    - "ti,omap36xx-bandgap" : for OMAP36xx bandgap
+    - "ti,omap4430-bandgap" : for OMAP4430 bandgap
+    - "ti,omap4460-bandgap" : for OMAP4460 bandgap
+    - "ti,omap4470-bandgap" : for OMAP4470 bandgap
+    - "ti,omap5430-bandgap" : for OMAP5430 bandgap
+  - interrupts : this entry should indicate which interrupt line
+  the talert signal is routed to;
+  Specific:
+  - gpios : this entry should be used to inform which GPIO
+  line the tshut signal is routed to. The informed GPIO will
+  be treated as an IRQ;
+  - regs : this entry must also be specified and it is specific
+  to each bandgap version, because the mapping may change from
+  soc to soc, apart of depending on available features.
+
+...

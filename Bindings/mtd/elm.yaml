@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mtd/elm.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Error location module
+
+maintainers:
+  - Philip Avinash <avinashphilip@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Error location module
+
+  Required properties:
+  - compatible: Must be "ti,am3352-elm"
+  - reg: physical base address and size of the registers map.
+  - interrupts: Interrupt number for the elm.
+
+  Optional properties:
+  - ti,hwmods: Name of the hwmod associated to the elm
+
+...

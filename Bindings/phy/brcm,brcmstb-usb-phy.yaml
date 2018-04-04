@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/brcm,brcmstb-usb-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom STB USB PHY
+
+maintainers:
+  - Al Cooper <alcooperx@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom STB USB PHY
+
+  Required properties:
+   - compatible: brcm,brcmstb-usb-phy
+   - reg: two offset and length pairs.
+  	The first pair specifies a manditory set of memory mapped
+  	registers used for general control of the PHY.
+  	The second pair specifies optional registers used by some of
+  	the SoCs that support USB 3.x
+   - #phy-cells: Shall be 1 as it expects one argument for setting
+  	       the type of the PHY. Possible values are:
+  	       - PHY_TYPE_USB2 for USB1.1/2.0 PHY
+  	       - PHY_TYPE_USB3 for USB3.x PHY
+
+  Optional Properties:
+  - clocks : clock phandles.
+  - clock-names: String, clock name.
+  - brcm,ipp: Boolean, Invert Port Power.
+    Possible values are: 0 (Don't invert), 1 (Invert)
+  - brcm,ioc: Boolean, Invert Over Current detection.
+    Possible values are: 0 (Don't invert), 1 (Invert)
+  NOTE: one or both of the following two properties must be set
+  - brcm,has-xhci: Boolean indicating the phy has an XHCI phy.
+  - brcm,has-eohci: Boolean indicating the phy has an EHCI/OHCI phy.
+  - dr_mode: String, PHY Device mode.
+    Possible values are: "host", "peripheral ", "drd" or "typec-pd"
+    If this property is not defined, the phy will default to "host" mode.
+
+...

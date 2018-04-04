@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/simple-scu-card.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ASoC Simple SCU Sound Card
+
+maintainers:
+  - Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+description: |+
+  Simple SCU Sound Card is "Simple Sound Card" + "ALSA DPCM".
+  For example, you can use this driver if you want to exchange sampling rate convert,
+  Mixing, etc...
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  ASoC Simple SCU Sound Card
+
+  Simple SCU Sound Card is "Simple Sound Card" + "ALSA DPCM".
+  For example, you can use this driver if you want to exchange sampling rate convert,
+  Mixing, etc...
+
+  Required properties:
+
+  - compatible				: "simple-scu-audio-card"
+  					  "renesas,rsrc-card"
+  Optional properties:
+
+  - simple-audio-card,name		: see simple-audio-card.txt
+  - simple-audio-card,cpu			: see simple-audio-card.txt
+  - simple-audio-card,codec		: see simple-audio-card.txt
+
+  Optional subnode properties:
+
+  - simple-audio-card,format		: see simple-audio-card.txt
+  - simple-audio-card,frame-master	: see simple-audio-card.txt
+  - simple-audio-card,bitclock-master	: see simple-audio-card.txt
+  - simple-audio-card,bitclock-inversion	: see simple-audio-card.txt
+  - simple-audio-card,frame-inversion	: see simple-audio-card.txt
+  - simple-audio-card,convert-rate	: platform specified sampling rate convert
+  - simple-audio-card,convert-channels	: platform specified converted channel size (2 - 8 ch)
+  - simple-audio-card,prefix		: see routing
+  - simple-audio-card,widgets		: Please refer to widgets.txt.
+  - simple-audio-card,routing		: A list of the connections between audio components.
+  					  Each entry is a pair of strings, the first being the connection's sink,
+  					  the second being the connection's source. Valid names for sources.
+  					  use audio-prefix if some components is using same sink/sources naming.
+  					  it can be used if compatible was "renesas,rsrc-card";
+
+  Required CPU/CODEC subnodes properties:
+
+  - sound-dai				: see simple-audio-card.txt
+
+  Optional CPU/CODEC subnodes properties:
+
+  - clocks / system-clock-frequency	: see simple-audio-card.txt
+
+...

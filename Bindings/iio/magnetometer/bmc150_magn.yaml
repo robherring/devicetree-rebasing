@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/magnetometer/bmc150_magn.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Bosch BMC150 magnetometer sensor
+
+maintainers:
+  - Irina Tirdea <irina.tirdea@intel.com>
+description: |+
+  http://ae-bst.resource.bosch.com/media/products/dokumente/bmc150/BST-BMC150-DS000-04.pdf
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Bosch BMC150 magnetometer sensor
+
+  http://ae-bst.resource.bosch.com/media/products/dokumente/bmc150/BST-BMC150-DS000-04.pdf
+
+  Required properties:
+
+    - compatible : should be "bosch,bmc150_magn"
+    - reg : the I2C address of the magnetometer
+
+  Optional properties:
+
+    - interrupt-parent : phandle to the parent interrupt controller
+    - interrupts : interrupt mapping for GPIO IRQ
+
+...

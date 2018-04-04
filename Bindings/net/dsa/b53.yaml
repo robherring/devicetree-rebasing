@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/dsa/b53.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom BCM53xx Ethernet switches
+
+maintainers:
+  - Florian Fainelli <f.fainelli@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom BCM53xx Ethernet switches
+  ==================================
+
+  Required properties:
+
+  - compatible: For external switch chips, compatible string must be exactly one
+    of: "brcm,bcm5325"
+        "brcm,bcm53115"
+        "brcm,bcm53125"
+        "brcm,bcm53128"
+        "brcm,bcm5365"
+        "brcm,bcm5395"
+        "brcm,bcm5397"
+        "brcm,bcm5398"
+
+    For the BCM11360 SoC, must be:
+        "brcm,bcm11360-srab" and the mandatory "brcm,cygnus-srab" string
+
+    For the BCM5310x SoCs with an integrated switch, must be one of:
+        "brcm,bcm53010-srab"
+        "brcm,bcm53011-srab"
+        "brcm,bcm53012-srab"
+        "brcm,bcm53018-srab"
+        "brcm,bcm53019-srab" and the mandatory "brcm,bcm5301x-srab" string
+
+    For the BCM585xx/586XX/88312 SoCs with an integrated switch, must be one of:
+        "brcm,bcm58522-srab"
+        "brcm,bcm58523-srab"
+        "brcm,bcm58525-srab"
+        "brcm,bcm58622-srab"
+        "brcm,bcm58623-srab"
+        "brcm,bcm58625-srab"
+        "brcm,bcm88312-srab" and the mandatory "brcm,nsp-srab string
+
+    For the BCM63xx/33xx SoCs with an integrated switch, must be one of:
+        "brcm,bcm3384-switch"
+        "brcm,bcm6328-switch"
+        "brcm,bcm6368-switch" and the mandatory "brcm,bcm63xx-switch"
+
+  See Documentation/devicetree/bindings/net/dsa/dsa.txt for a list of additional
+  required and optional properties.
+
+...

@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/ingenic,jz4740-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: JZ4740 and similar SoCs real-time clock driver
+
+maintainers:
+  - Paul Cercueil <paul@crapouillou.net>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  JZ4740 and similar SoCs real-time clock driver
+
+  Required properties:
+
+  - compatible: One of:
+    - "ingenic,jz4740-rtc" - for use with the JZ4740 SoC
+    - "ingenic,jz4780-rtc" - for use with the JZ4780 SoC
+  - reg: Address range of rtc register set
+  - interrupts: IRQ number for the alarm interrupt
+  - clocks: phandle to the "rtc" clock
+  - clock-names: must be "rtc"
+
+  Optional properties:
+  - system-power-controller: To use this component as the
+    system power controller
+  - reset-pin-assert-time-ms: Reset pin low-level assertion
+    time after wakeup (default 60ms; range 0-125ms if RTC clock
+    at 32 kHz)
+  - min-wakeup-pin-assert-time-ms: Minimum wakeup pin assertion
+    time (default 100ms; range 0-2s if RTC clock at 32 kHz)
+
+...

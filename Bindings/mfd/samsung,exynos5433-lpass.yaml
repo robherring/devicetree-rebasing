@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/samsung,exynos5433-lpass.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Samsung Exynos SoC Low Power Audio Subsystem (LPASS)
+
+maintainers:
+  - Marek Szyprowski <m.szyprowski@samsung.com>
+  - Sylwester Nawrocki <s.nawrocki@samsung.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Samsung Exynos SoC Low Power Audio Subsystem (LPASS)
+
+  Required properties:
+
+   - compatible		: "samsung,exynos5433-lpass"
+   - reg			: should contain the LPASS top SFR region location
+  			  and size
+   - clock-names		: should contain following required clocks: "sfr0_ctrl"
+   - clocks		: should contain clock specifiers of all clocks, which
+  			  input names have been specified in clock-names
+  			  property, in same order.
+   - #address-cells	: should be 1
+   - #size-cells		: should be 1
+   - ranges		: must be present
+
+  Each IP block of the Low Power Audio Subsystem should be specified as
+  an optional sub-node. For "samsung,exynos5433-lpass" compatible this includes:
+  UART, SLIMBUS, PCM, I2S, DMAC, Timers 0...4, VIC, WDT 0...1 devices.
+
+  Bindings of the sub-nodes are described in:
+    ../serial/samsung_uart.txt
+    ../sound/samsung-i2s.txt
+    ../dma/arm-pl330.txt
+
+
+...

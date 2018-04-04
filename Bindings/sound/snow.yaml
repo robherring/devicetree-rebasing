@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/snow.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Audio Binding for Snow boards
+
+maintainers:
+  - Tushar Behera <tushar.behera@linaro.org>
+  - Tushar Behera <tushar.b@samsung.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Audio Binding for Snow boards
+
+  Required properties:
+  - compatible : Can be one of the following,
+  			"google,snow-audio-max98090" or
+  			"google,snow-audio-max98091" or
+  			"google,snow-audio-max98095"
+  - samsung,i2s-controller: The phandle of the Samsung I2S controller
+  - samsung,audio-codec: The phandle of the audio codec
+
+  Optional:
+  - samsung,model: The name of the sound-card
+
+...

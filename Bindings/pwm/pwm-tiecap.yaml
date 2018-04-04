@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/pwm-tiecap.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI SOC ECAP based APWM controller
+
+maintainers:
+  - Franklin S Cooper Jr <fcooper@ti.com>
+  - Philip, Avinash <avinashphilip@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI SOC ECAP based APWM controller
+
+  Required properties:
+  - compatible: Must be "ti,<soc>-ecap".
+    for am33xx - compatible = "ti,am3352-ecap", "ti,am33xx-ecap";
+    for am4372 - compatible = "ti,am4372-ecap", "ti,am3352-ecap", "ti,am33xx-ecap";
+    for da850  - compatible = "ti,da850-ecap", "ti,am3352-ecap", "ti,am33xx-ecap";
+    for dra746 - compatible = "ti,dra746-ecap", "ti,am3352-ecap";
+    for 66ak2g - compatible = "ti,k2g-ecap", "ti,am3352-ecap";
+  - #pwm-cells: should be 3. See pwm.txt in this directory for a description of
+    the cells format. The PWM channel index ranges from 0 to 4. The only third
+    cell flag supported by this binding is PWM_POLARITY_INVERTED.
+  - reg: physical base address and size of the registers map.
+
+  Optional properties:
+  - clocks: Handle to the ECAP's functional clock.
+  - clock-names: Must be set to "fck".
+
+...

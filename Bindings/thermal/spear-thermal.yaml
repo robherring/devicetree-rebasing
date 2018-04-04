@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/thermal/spear-thermal.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: SPEAr Thermal
+
+maintainers:
+  - Viresh Kumar <viresh.linux@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    thermal@fc000000 {
+      compatible = "st,thermal-spear1340";
+      reg = <0xfc000000 0x1000>;
+      st,thermal-flags = <0x7000>;
+    };
+historical: |+
+  * SPEAr Thermal
+
+  Required properties:
+  - compatible : "st,thermal-spear1340"
+  - reg : Address range of the thermal registers
+  - st,thermal-flags: flags used to enable thermal sensor
+
+...

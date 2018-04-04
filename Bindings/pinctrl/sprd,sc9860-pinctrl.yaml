@@ -1,0 +1,59 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/sprd,sc9860-pinctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Spreadtrum SC9860 Pin Controller
+
+maintainers:
+  - Baolin Wang <baolin.wang@spreadtrum.com>
+description: |+
+  Please refer to sprd,pinctrl.txt in this directory for common binding part
+  and usage.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Spreadtrum SC9860 Pin Controller
+
+  Please refer to sprd,pinctrl.txt in this directory for common binding part
+  and usage.
+
+  Required properties:
+  - compatible: Must be "sprd,sc9860-pinctrl".
+  - reg: The register address of pin controller device.
+  - pins : An array of strings, each string containing the name of a pin.
+
+  Optional properties:
+  - function: A string containing the name of the function, values must be
+    one of: "func1", "func2", "func3" and "func4".
+  - drive-strength: Drive strength in mA. Supported values: 2, 4, 6, 8, 10,
+    12, 14, 16, 20, 21, 24, 25, 27, 29, 31 and 33.
+  - input-schmitt-disable: Enable schmitt-trigger mode.
+  - input-schmitt-enable: Disable schmitt-trigger mode.
+  - bias-disable: Disable pin bias.
+  - bias-pull-down: Pull down on pin.
+  - bias-pull-up: Pull up on pin. Supported values: 20000 for pull-up resistor
+    is 20K and 4700 for pull-up resistor is 4.7K.
+  - input-enable: Enable pin input.
+  - input-disable: Enable pin output.
+  - output-high: Set the pin as an output level high.
+  - output-low: Set the pin as an output level low.
+  - sleep-hardware-state: Indicate these configs in this state are sleep related.
+  - sprd,control: Control values referring to databook for global control pins.
+  - sprd,sleep-mode: Choose the pin sleep mode, and supported values are:
+    AP_SLEEP, PUBCP_SLEEP, TGLDSP_SLEEP and AGDSP_SLEEP.
+
+  Pin sleep mode definition:
+  enum pin_sleep_mode {
+  	AP_SLEEP = BIT(0),
+  	PUBCP_SLEEP = BIT(1),
+  	TGLDSP_SLEEP = BIT(2),
+  	AGDSP_SLEEP = BIT(3),
+  };
+
+...

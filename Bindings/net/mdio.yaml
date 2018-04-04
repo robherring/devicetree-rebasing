@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/mdio.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Common MDIO bus properties.
+
+maintainers:
+  - Roger Quadros <rogerq@ti.com>
+description: |+
+  These are generic properties that can apply to any MDIO bus.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Common MDIO bus properties.
+
+  These are generic properties that can apply to any MDIO bus.
+
+  Optional properties:
+  - reset-gpios: One GPIO that control the RESET lines of all PHYs on that MDIO
+    bus.
+  - reset-delay-us: RESET pulse width in microseconds.
+
+  A list of child nodes, one per device on the bus is expected. These
+  should follow the generic phy.txt, or a device specific binding document.
+
+  The 'reset-delay-us' indicates the RESET signal pulse width in microseconds and
+  applies to all PHY devices. It must therefore be appropriately determined based
+  on all PHY requirements (maximum value of all per-PHY RESET pulse widths).
+
+...

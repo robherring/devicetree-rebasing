@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/brcm,bcm2836-l1-intc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: BCM2836 per-CPU interrupt controller
+
+maintainers:
+  - Eric Anholt <eric@anholt.net>
+description: |+
+  The BCM2836 has a per-cpu interrupt controller for the timer, PMU
+  events, and SMP IPIs.  One of the CPUs may receive interrupts for the
+  peripheral (GPU) events, which chain to the BCM2835-style interrupt
+  controller.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  BCM2836 per-CPU interrupt controller
+
+  The BCM2836 has a per-cpu interrupt controller for the timer, PMU
+  events, and SMP IPIs.  One of the CPUs may receive interrupts for the
+  peripheral (GPU) events, which chain to the BCM2835-style interrupt
+  controller.
+
+  Required properties:
+
+  - compatible:	 	Should be "brcm,bcm2836-l1-intc"
+  - reg:			Specifies base physical address and size of the
+  			  registers
+  - interrupt-controller:	Identifies the node as an interrupt controller
+  - #interrupt-cells:	Specifies the number of cells needed to encode an
+  			  interrupt source. The value shall be 2
+
+  Please refer to interrupts.txt in this directory for details of the common
+  Interrupt Controllers bindings used by client devices.
+
+  The interrupt sources are as follows:
+
+  0: CNTPSIRQ
+  1: CNTPNSIRQ
+  2: CNTHPIRQ
+  3: CNTVIRQ
+  8: GPU_FAST
+  9: PMU_FAST
+
+...

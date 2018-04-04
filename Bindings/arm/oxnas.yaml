@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/oxnas.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Oxford Semiconductor OXNAS SoCs Family device tree bindings
+
+maintainers:
+  - Neil Armstrong <narmstrong@baylibre.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Oxford Semiconductor OXNAS SoCs Family device tree bindings
+  -------------------------------------------
+
+  Boards with the OX810SE SoC shall have the following properties:
+    Required root node property:
+      compatible: "oxsemi,ox810se"
+
+  Boards with the OX820 SoC shall have the following properties:
+    Required root node property:
+      compatible: "oxsemi,ox820"
+
+  Board compatible values:
+    - "wd,mbwe" (OX810SE)
+    - "cloudengines,pogoplugv3" (OX820)

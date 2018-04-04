@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/panel/tpo,td043mtea1.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TPO TD043MTEA1 Panel
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TPO TD043MTEA1 Panel
+  ====================
+
+  Required properties:
+  - compatible: "tpo,td043mtea1"
+  - reset-gpios: panel reset gpio
+
+  Optional properties:
+  - label: a symbolic name for the panel
+
+  Required nodes:
+  - Video port for DPI input
+
+...

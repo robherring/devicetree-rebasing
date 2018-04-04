@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/cris/boards.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'Boards based on the CRIS SoCs:'
+
+maintainers:
+  - Jesper Nilsson <jespern@axis.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Boards based on the CRIS SoCs:
+
+  Required root node properties:
+      - compatible = should be one or more of the following:
+  	- "axis,dev88"	- for Axis devboard 88 with ETRAX FS
+
+  Optional:
+
+...

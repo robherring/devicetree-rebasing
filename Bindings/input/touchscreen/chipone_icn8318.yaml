@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/touchscreen/chipone_icn8318.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ChipOne icn8318 I2C touchscreen controller
+
+maintainers:
+  - Hans de Goede <hdegoede@redhat.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * ChipOne icn8318 I2C touchscreen controller
+
+  Required properties:
+   - compatible		  : "chipone,icn8318"
+   - reg			  : I2C slave address of the chip (0x40)
+   - interrupt-parent	  : a phandle pointing to the interrupt controller
+  			    serving the interrupt for this chip
+   - interrupts		  : interrupt specification for the icn8318 interrupt
+   - wake-gpios		  : GPIO specification for the WAKE input
+   - touchscreen-size-x	  : horizontal resolution of touchscreen (in pixels)
+   - touchscreen-size-y	  : vertical resolution of touchscreen (in pixels)
+
+  Optional properties:
+   - pinctrl-names	  : should be "default"
+   - pinctrl-0:		  : a phandle pointing to the pin settings for the
+  			    control gpios
+   - touchscreen-fuzz-x	  : horizontal noise value of the absolute input
+  			    device (in pixels)
+   - touchscreen-fuzz-y	  : vertical noise value of the absolute input
+  			    device (in pixels)
+   - touchscreen-inverted-x : X axis is inverted (boolean)
+   - touchscreen-inverted-y : Y axis is inverted (boolean)
+   - touchscreen-swapped-x-y	  : X and Y axis are swapped (boolean)
+  			    Swapping is done after inverting the axis
+
+...

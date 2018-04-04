@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/phy/meson-gxl-usb2-phy.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Amlogic Meson GXL and GXM USB2 PHY binding
+
+maintainers:
+  - Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    usb2_phy0: phy@78000 {
+      compatible = "amlogic,meson-gxl-usb2-phy";
+      #phy-cells = <0>;
+      reg = <0x0 0x78000 0x0 0x20>;
+    };
+historical: |+
+  * Amlogic Meson GXL and GXM USB2 PHY binding
+
+  Required properties:
+  - compatible:	Should be "amlogic,meson-gxl-usb2-phy"
+  - reg:		The base address and length of the registers
+  - #phys-cells:	must be 0 (see phy-bindings.txt in this directory)
+
+  Optional properties:
+  - phy-supply:	see phy-bindings.txt in this directory
+
+
+...

@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/leds-lp8860.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments - lp8860 4-Channel LED Driver
+
+maintainers:
+  - Dan Murphy <dmurphy@ti.com>
+description: |+
+  The LP8860-Q1 is an high-efficiency LED
+  driver with boost controller. It has 4 high-precision
+  current sinks that can be controlled by a PWM input
+  signal, a SPI/I2C master, or both.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Texas Instruments - lp8860 4-Channel LED Driver
+
+  The LP8860-Q1 is an high-efficiency LED
+  driver with boost controller. It has 4 high-precision
+  current sinks that can be controlled by a PWM input
+  signal, a SPI/I2C master, or both.
+
+  Required properties:
+  	- compatible :
+  		"ti,lp8860"
+  	- reg : I2C slave address
+  	- #address-cells : 1
+  	- #size-cells : 0
+
+  Optional properties:
+  	- enable-gpios : gpio pin to enable (active high)/disable the device.
+  	- vled-supply : LED supply
+
+  Required child properties:
+  	- reg : 0
+
+  Optional child properties:
+  	- label : see Documentation/devicetree/bindings/leds/common.txt
+  	- linux,default-trigger :
+  	   see Documentation/devicetree/bindings/leds/common.txt
+
+...

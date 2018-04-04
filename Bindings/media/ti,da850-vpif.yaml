@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/media/ti,da850-vpif.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments VPIF
+
+maintainers:
+  - Bartosz Golaszewski <bgolaszewski@baylibre.com>
+  - Kevin Hilman <khilman@baylibre.com>
+description: |+
+  The TI Video Port InterFace (VPIF) is the primary component for video
+  capture and display on the DA850/AM18x family of TI DaVinci/Sitara
+  SoCs.
+
+  TI Document reference: SPRUH82C, Chapter 35
+  http://www.ti.com/lit/pdf/spruh82
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments VPIF
+  ----------------------
+
+  The TI Video Port InterFace (VPIF) is the primary component for video
+  capture and display on the DA850/AM18x family of TI DaVinci/Sitara
+  SoCs.
+
+  TI Document reference: SPRUH82C, Chapter 35
+  http://www.ti.com/lit/pdf/spruh82
+
+  Required properties:
+  - compatible: must be "ti,da850-vpif"
+  - reg: physical base address and length of the registers set for the device;
+  - interrupts: should contain IRQ line for the VPIF
+
+  Video Capture:
+
+  VPIF has a 16-bit parallel bus input, supporting 2 8-bit channels or a
+  single 16-bit channel. It should contain one or two port child nodes
+  with child 'endpoint' node. If there are two ports then port@0 must
+  describe the input and port@1 output channels. Please refer to the
+  bindings defined in
+  Documentation/devicetree/bindings/media/video-interfaces.txt.
+
+...

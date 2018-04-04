@@ -1,0 +1,54 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/nfc/st95hf.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'STMicroelectronics : NFC Transceiver ST95HF'
+
+maintainers:
+  - Shikha Singh <shikha.singh@st.com>
+description: |+
+  ST NFC Transceiver is required to attach with SPI bus.
+  ST95HF node should be defined in DT as SPI slave device of SPI
+  master with which ST95HF transceiver is physically connected.
+  The properties defined below are required to be the part of DT
+  to include ST95HF transceiver into the platform.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * STMicroelectronics : NFC Transceiver ST95HF
+
+  ST NFC Transceiver is required to attach with SPI bus.
+  ST95HF node should be defined in DT as SPI slave device of SPI
+  master with which ST95HF transceiver is physically connected.
+  The properties defined below are required to be the part of DT
+  to include ST95HF transceiver into the platform.
+
+  Required properties:
+  ===================
+  - reg: Address of SPI slave "ST95HF transceiver" on SPI master bus.
+
+  - compatible: should be "st,st95hf" for ST95HF NFC transceiver
+
+  - spi-max-frequency: Max. operating SPI frequency for ST95HF
+  	transceiver.
+
+  - enable-gpio: GPIO line to enable ST95HF transceiver.
+
+  - interrupt-parent : Standard way to specify the controller to which
+  	ST95HF transceiver's interrupt is routed.
+
+  - interrupts : Standard way to define ST95HF transceiver's out
+  	interrupt.
+
+  Optional property:
+  =================
+  - st95hfvin-supply : This is an optional property. It contains a
+  	phandle to ST95HF transceiver's regulator supply node in DT.
+
+...

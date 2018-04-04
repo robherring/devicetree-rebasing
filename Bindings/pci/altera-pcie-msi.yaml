@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pci/altera-pcie-msi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera PCIe MSI controller
+
+maintainers:
+  - Ley Foon Tan <lftan@altera.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Altera PCIe MSI controller
+
+  Required properties:
+  - compatible:	should contain "altr,msi-1.0"
+  - reg:		specifies the physical base address of the controller and
+  		the length of the memory mapped region.
+  - reg-names:	must include the following entries:
+  		"csr": CSR registers
+  		"vector_slave": vectors slave port region
+  - interrupt-parent:	interrupt source phandle.
+  - interrupts:	specifies the interrupt source of the parent interrupt
+  		controller. The format of the interrupt specifier depends on the
+  		parent interrupt controller.
+  - num-vectors:	number of vectors, range 1 to 32.
+  - msi-controller:	indicates that this is MSI controller node
+
+
+...

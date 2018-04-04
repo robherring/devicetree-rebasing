@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/power/supply/rx51-battery.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Binding for Nokia N900 battery
+
+maintainers:
+  - Sebastian Reichel <sre@kernel.org>
+description: |+
+  The Nokia N900 battery status can be read via the TWL4030's A/D converter.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Binding for Nokia N900 battery
+
+  The Nokia N900 battery status can be read via the TWL4030's A/D converter.
+
+  Required properties:
+  - compatible: Should contain one of the following:
+   * "nokia,n900-battery"
+  - io-channels: Should contain IIO channel specifiers
+                 for each element in io-channel-names.
+  - io-channel-names: Should contain the following values:
+   * "temp" - The ADC channel for temperature reading
+   * "bsi"  - The ADC channel for battery size identification
+   * "vbat" - The ADC channel to measure the battery voltage
+
+...

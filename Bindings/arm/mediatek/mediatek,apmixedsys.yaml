@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/mediatek/mediatek,apmixedsys.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mediatek apmixedsys controller
+
+maintainers:
+  - Sascha Hauer <s.hauer@pengutronix.de>
+description: |+
+  The Mediatek apmixedsys controller provides the PLLs to the system.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Mediatek apmixedsys controller
+  ==============================
+
+  The Mediatek apmixedsys controller provides the PLLs to the system.
+
+  Required Properties:
+
+  - compatible: Should be one of:
+  	- "mediatek,mt2701-apmixedsys"
+  	- "mediatek,mt2712-apmixedsys", "syscon"
+  	- "mediatek,mt6797-apmixedsys"
+  	- "mediatek,mt7622-apmixedsys"
+  	- "mediatek,mt8135-apmixedsys"
+  	- "mediatek,mt8173-apmixedsys"
+  - #clock-cells: Must be 1
+
+  The apmixedsys controller uses the common clk binding from
+  Documentation/devicetree/bindings/clock/clock-bindings.txt
+  The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+
+...

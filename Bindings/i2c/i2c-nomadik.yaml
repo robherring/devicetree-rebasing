@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-nomadik.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: I2C for Nomadik based systems
+
+maintainers:
+  - Wolfram Sang <wolfram@the-dreams.de>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  I2C for Nomadik based systems
+
+  Required (non-standard) properties:
+   - Nil
+
+  Recommended (non-standard) properties:
+   - clock-frequency : Maximum bus clock frequency for the device
+
+  Optional (non-standard) properties:
+   - Nil
+
+...

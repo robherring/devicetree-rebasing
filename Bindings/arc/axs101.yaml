@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arc/axs101.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Synopsys DesignWare ARC Software Development Platforms Device Tree Bindings
+
+maintainers:
+  - Alexey Brodkin <abrodkin@synopsys.com>
+description: |+
+  SDP Main Board with an AXC001 CPU Card hoisting ARC700 core in silicon
+
+             
+
+properties:
+  compatible: {}
+historical: |
+  Synopsys DesignWare ARC Software Development Platforms Device Tree Bindings
+  ---------------------------------------------------------------------------
+
+  SDP Main Board with an AXC001 CPU Card hoisting ARC700 core in silicon
+
+  Required root node properties:
+      - compatible = "snps,axs101", "snps,arc-sdp";

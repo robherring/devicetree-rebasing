@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/timer/snps,archs-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Synopsys ARC Free Running 64-bit Local Timer for ARC HS CPUs
+
+maintainers:
+  - Vineet Gupta <vgupta@synopsys.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    rtc {
+      compatible = "snps,arc-rtc";
+      clocks = <&core_clk>;
+    };
+historical: |+
+  Synopsys ARC Free Running 64-bit Local Timer for ARC HS CPUs
+  - clocksource provider for UP SoC
+
+  Required properties:
+
+  - compatible : should be "snps,archs-rtc"
+  - clocks     : phandle to the source clock
+
+...

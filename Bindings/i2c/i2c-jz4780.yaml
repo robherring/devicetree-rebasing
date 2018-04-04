@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/i2c/i2c-jz4780.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Ingenic JZ4780 I2C Bus controller
+
+maintainers:
+  - Zubair Lutfullah Kakakhel <Zubair.Kakakhel@imgtec.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Ingenic JZ4780 I2C Bus controller
+
+  Required properties:
+  - compatible: should be "ingenic,jz4780-i2c"
+  - reg: Should contain the address & size of the I2C controller registers.
+  - interrupts: Should specify the interrupt provided by parent.
+  - clocks: Should contain a single clock specifier for the JZ4780 I2C clock.
+  - clock-frequency: desired I2C bus clock frequency in Hz.
+
+  Recommended properties:
+  - pinctrl-names: should be "default";
+  - pinctrl-0: phandle to pinctrl function
+
+  Optional properties:
+  - interrupt-parent: Should be the phandle of the interrupt controller that
+    delivers interrupts to the I2C block.
+
+...

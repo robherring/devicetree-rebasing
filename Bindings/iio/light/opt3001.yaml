@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/iio/light/opt3001.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments OPT3001 Ambient Light Sensor
+
+maintainers:
+  - Andreas Dannenberg <dannenberg@ti.com>
+description: |+
+  The driver supports interrupt-driven and interrupt-less operation, depending
+  on whether an interrupt property has been populated into the DT. Note that
+  the optional generation of IIO events on rising/falling light threshold changes
+  requires the use of interrupts. Without interrupts, only the simple reading
+  of the current light value is supported through the IIO API.
+
+  http://www.ti.com/product/opt3001
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Texas Instruments OPT3001 Ambient Light Sensor
+
+  The driver supports interrupt-driven and interrupt-less operation, depending
+  on whether an interrupt property has been populated into the DT. Note that
+  the optional generation of IIO events on rising/falling light threshold changes
+  requires the use of interrupts. Without interrupts, only the simple reading
+  of the current light value is supported through the IIO API.
+
+  http://www.ti.com/product/opt3001
+
+  Required properties:
+    - compatible: should be "ti,opt3001"
+    - reg: the I2C address of the sensor
+
+  Optional properties:
+    - interrupt-parent: should be the phandle for the interrupt controller
+    - interrupts: interrupt mapping for GPIO IRQ (configure for falling edge)
+
+...

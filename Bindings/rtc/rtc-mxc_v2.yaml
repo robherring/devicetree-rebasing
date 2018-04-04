@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/rtc-mxc_v2.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: i.MX53 Secure Real Time Clock (SRTC)
+
+maintainers:
+  - Patrick Bruenn <p.bruenn@beckhoff.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * i.MX53 Secure Real Time Clock (SRTC)
+
+  Required properties:
+  - compatible: should be: "fsl,imx53-rtc"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - clocks: should contain the phandle for the rtc clock
+  - interrupts: rtc alarm interrupt
+
+...

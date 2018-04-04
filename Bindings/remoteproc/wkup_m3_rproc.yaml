@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/remoteproc/wkup_m3_rproc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI Wakeup M3 Remoteproc Driver
+
+maintainers:
+  - Dave Gerlach <d-gerlach@ti.com>
+description: |+
+  The TI AM33xx and AM43xx family of devices use a small Cortex M3 co-processor
+  (commonly referred to as Wakeup M3 or CM3) to help with various low power tasks
+  that cannot be controlled from the MPU. This CM3 processor requires a firmware
+  binary to accomplish this. The wkup_m3 remoteproc driver handles the loading of
+  the firmware and booting of the CM3.
+
+  Wkup M3 Device Node:
+  ====================
+  A wkup_m3 device node is used to represent the Wakeup M3 processor instance
+  within the SoC. It is added as a child node of the parent interconnect bus
+  (l4_wkup) through which it is accessible to the MPU.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  TI Wakeup M3 Remoteproc Driver
+  ==============================
+
+  The TI AM33xx and AM43xx family of devices use a small Cortex M3 co-processor
+  (commonly referred to as Wakeup M3 or CM3) to help with various low power tasks
+  that cannot be controlled from the MPU. This CM3 processor requires a firmware
+  binary to accomplish this. The wkup_m3 remoteproc driver handles the loading of
+  the firmware and booting of the CM3.
+
+  Wkup M3 Device Node:
+  ====================
+  A wkup_m3 device node is used to represent the Wakeup M3 processor instance
+  within the SoC. It is added as a child node of the parent interconnect bus
+  (l4_wkup) through which it is accessible to the MPU.
+
+  Required properties:
+  --------------------
+  - compatible:		Should be one of,
+  				"ti,am3352-wkup-m3" for AM33xx SoCs
+  				"ti,am4372-wkup-m3" for AM43xx SoCs
+  - reg:			Should contain the address ranges for the two internal
+  			memory regions, UMEM and DMEM. The parent node should
+  			provide an appropriate ranges property for properly
+  			translating these into bus addresses.
+  - reg-names:		Contains the corresponding names for the two memory
+  			regions. These should be named "umem" & "dmem".
+  - ti,hwmods:		Name of the hwmod associated with the wkupm3 device.
+  - ti,pm-firmware:	Name of firmware file to be used for loading and
+  			booting the wkup_m3 remote processor.
+
+...

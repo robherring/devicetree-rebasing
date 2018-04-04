@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/display/bridge/adi,adv7123.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Analog Device ADV7123 Video DAC
+
+maintainers:
+  - Rob Herring <robh@kernel.org>
+description: |+
+  The ADV7123 is a digital-to-analog converter that outputs VGA signals from a
+  parallel video input.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Analog Device ADV7123 Video DAC
+  -------------------------------
+
+  The ADV7123 is a digital-to-analog converter that outputs VGA signals from a
+  parallel video input.
+
+  Required properties:
+
+  - compatible: Should be "adi,adv7123"
+
+  Optional properties:
+
+  - psave-gpios: Power save control GPIO
+
+  Required nodes:
+
+  The ADV7123 has two video ports. Their connections are modeled using the OF
+  graph bindings specified in Documentation/devicetree/bindings/graph.txt.
+
+  - Video port 0 for DPI input
+  - Video port 1 for VGA output
+
+
+...

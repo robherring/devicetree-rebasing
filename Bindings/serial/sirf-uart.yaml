@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/sirf-uart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: CSR SiRFprimaII/atlasVI Universal Synchronous Asynchronous Receiver/Transmitter
+
+maintainers:
+  - Qipan Li <Qipan.Li@csr.com>
+  - Kumar Gala <galak@codeaurora.org>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * CSR SiRFprimaII/atlasVI Universal Synchronous Asynchronous Receiver/Transmitter *
+
+  Required properties:
+  - compatible : Should be "sirf,prima2-uart", "sirf, prima2-usp-uart",
+  		"sirf,atlas7-uart" or "sirf,atlas7-usp-uart".
+  - reg : Offset and length of the register set for the device
+  - interrupts : Should contain uart interrupt
+  - fifosize : Should define hardware rx/tx fifo size
+  - clocks : Should contain uart clock number
+
+  Optional properties:
+  - uart-has-rtscts: we have hardware flow controller pins in hardware
+  - rts-gpios: RTS pin for USP-based UART if uart-has-rtscts is true
+  - cts-gpios: CTS pin for USP-based UART if uart-has-rtscts is true
+
+...

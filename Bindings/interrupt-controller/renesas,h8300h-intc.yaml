@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/interrupt-controller/renesas,h8300h-intc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: H8/300H Interrupt controller
+
+maintainers:
+  - Yoshinori Sato <ysato@users.sourceforge.jp>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    h8intc: interrupt-controller@fee012 {
+      compatible = "renesas,h8300h-intc", "renesas,h8300-intc";
+      #interrupt-cells = <2>;
+      interrupt-controller;
+      reg = <0xfee012 7>;
+    };
+historical: |+
+  * H8/300H Interrupt controller
+
+  Required properties:
+
+  - compatible: has to be "renesas,h8300h-intc", "renesas,h8300-intc" as fallback.
+  - #interrupt-cells: has to be <2>: an interrupt index and flags, as defined in
+    interrupts.txt in this directory
+  - regs: Base address of interrupt controller registers.
+
+  Optional properties:
+
+  - any properties, listed in interrupts.txt, and any standard resource allocation
+    properties
+
+...

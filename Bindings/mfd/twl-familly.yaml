@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mfd/twl-familly.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments TWL family
+
+maintainers:
+  - Benoit Cousson <b-cousson@ti.com>
+description: |+
+  The TWLs are Integrated Power Management Chips.
+  Some version might contain much more analog function like
+  USB transceiver or Audio amplifier.
+  These chips are connected to an i2c bus.
+
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Texas Instruments TWL family
+
+  The TWLs are Integrated Power Management Chips.
+  Some version might contain much more analog function like
+  USB transceiver or Audio amplifier.
+  These chips are connected to an i2c bus.
+
+
+  Required properties:
+  - compatible : Must be "ti,twl4030";
+    For Integrated power-management/audio CODEC device used in OMAP3
+    based boards
+  - compatible : Must be "ti,twl6030";
+    For Integrated power-management used in OMAP4 based boards
+  - interrupts : This i2c device has an IRQ line connected to the main SoC
+  - interrupt-controller : Since the twl support several interrupts internally,
+    it is considered as an interrupt controller cascaded to the SoC one.
+  - #interrupt-cells = <1>;
+  - interrupt-parent : The parent interrupt controller.
+
+  Optional node:
+  - Child nodes contain in the twl. The twl family is made of several variants
+    that support a different number of features.
+    The children nodes will thus depend of the capability of the variant.
+
+
+...

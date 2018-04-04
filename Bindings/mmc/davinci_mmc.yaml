@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mmc/davinci_mmc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI Highspeed MMC host controller for DaVinci
+
+maintainers:
+  - Manjunathappa, Prakash <prakash.pm@ti.com>
+description: |+
+  The Highspeed MMC Host Controller on TI DaVinci family
+  provides an interface for MMC, SD and SDIO types of memory cards.
+
+  This file documents the properties used by the davinci_mmc driver.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * TI Highspeed MMC host controller for DaVinci
+
+  The Highspeed MMC Host Controller on TI DaVinci family
+  provides an interface for MMC, SD and SDIO types of memory cards.
+
+  This file documents the properties used by the davinci_mmc driver.
+
+  Required properties:
+  - compatible:
+   Should be "ti,da830-mmc": for da830, da850, dm365
+   Should be "ti,dm355-mmc": for dm355, dm644x
+
+  Optional properties:
+  - bus-width: Number of data lines, can be <1>, <4>, or <8>, default <1>
+  - max-frequency: Maximum operating clock frequency, default 25MHz.
+  - dmas: List of DMA specifiers with the controller specific format
+  	as described in the generic DMA client binding. A tx and rx
+  	specifier is required.
+  - dma-names: RX and TX  DMA request names. These strings correspond
+  	1:1 with the DMA specifiers listed in dmas.
+
+...

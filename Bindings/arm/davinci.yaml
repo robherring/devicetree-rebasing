@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/davinci.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Texas Instruments DaVinci Platforms Device Tree Bindings
+
+maintainers:
+  - Sekhar Nori <nsekhar@ti.com>
+description: |
+  DA850/OMAP-L138/AM18x Evaluation Module (EVM) board
+             
+
+properties:
+  compatible: {}
+historical: |
+  Texas Instruments DaVinci Platforms Device Tree Bindings
+  --------------------------------------------------------
+
+  DA850/OMAP-L138/AM18x Evaluation Module (EVM) board
+  Required root node properties:
+      - compatible = "ti,da850-evm", "ti,da850";
+
+  DA850/OMAP-L138/AM18x L138/C6748 Development Kit (LCDK) board
+  Required root node properties:
+      - compatible = "ti,da850-lcdk", "ti,da850";
+
+  EnBW AM1808 based CMC board
+  Required root node properties:
+      - compatible = "enbw,cmc", "ti,da850;
+
+  LEGO MINDSTORMS EV3 (AM1808 based)
+  Required root node properties:
+      - compatible = "lego,ev3", "ti,da850";
+
+  Generic DaVinci Boards
+  ----------------------
+
+  DA850/OMAP-L138/AM18x generic board
+  Required root node properties:
+      - compatible = "ti,da850";

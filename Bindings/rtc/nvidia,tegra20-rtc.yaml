@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/nvidia,tegra20-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: NVIDIA Tegra20 real-time clock
+
+maintainers:
+  - Stephen Warren <swarren@nvidia.com>
+description: |+
+  The Tegra RTC maintains seconds and milliseconds counters, and five alarm
+  registers. The alarms and other interrupts may wake the system from low-power
+  state.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  NVIDIA Tegra20 real-time clock
+
+  The Tegra RTC maintains seconds and milliseconds counters, and five alarm
+  registers. The alarms and other interrupts may wake the system from low-power
+  state.
+
+  Required properties:
+
+  - compatible : For Tegra20, must contain "nvidia,tegra20-rtc".  Otherwise,
+    must contain '"nvidia,<chip>-rtc", "nvidia,tegra20-rtc"', where <chip>
+    can be tegra30, tegra114, tegra124, or tegra132.
+  - reg : Specifies base physical address and size of the registers.
+  - interrupts : A single interrupt specifier.
+  - clocks : Must contain one entry, for the module clock.
+    See ../clocks/clock-bindings.txt for details.
+
+...

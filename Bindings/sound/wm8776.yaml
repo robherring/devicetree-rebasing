@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sound/wm8776.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: WM8776 audio CODEC
+
+maintainers:
+  - Mark Brown <broonie@opensource.wolfsonmicro.com>
+description: |+
+  This device supports both I2C and SPI (configured with pin strapping
+  on the board).
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  WM8776 audio CODEC
+
+  This device supports both I2C and SPI (configured with pin strapping
+  on the board).
+
+  Required properties:
+
+    - compatible : "wlf,wm8776"
+
+    - reg : the I2C address of the device for I2C, the chip select
+            number for SPI.
+
+...

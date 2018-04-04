@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/thermal/qoriq-thermal.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Thermal Monitoring Unit (TMU) on Freescale QorIQ SoCs
+
+maintainers:
+  - Hongtao Jia <hongtao.jia@freescale.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  * Thermal Monitoring Unit (TMU) on Freescale QorIQ SoCs
+
+  Required properties:
+  - compatible : Must include "fsl,qoriq-tmu". The version of the device is
+  	determined by the TMU IP Block Revision Register (IPBRR0) at
+  	offset 0x0BF8.
+  	Table of correspondences between IPBRR0 values and example  chips:
+  		Value           Device
+  		----------      -----
+  		0x01900102      T1040
+  - reg : Address range of TMU registers.
+  - interrupts : Contains the interrupt for TMU.
+  - fsl,tmu-range : The values to be programmed into TTRnCR, as specified by
+  	the SoC reference manual. The first cell is TTR0CR, the second is
+  	TTR1CR, etc.
+  - fsl,tmu-calibration : A list of cell pairs containing temperature
+  	calibration data, as specified by the SoC reference manual.
+  	The first cell of each pair is the value to be written to TTCFGR,
+  	and the second is the value to be written to TSCFGR.
+  - #thermal-sensor-cells : Must be 1. The sensor specifier is the monitoring
+  	site ID, and represents the "n" in TRITSRn and TRATSRn.
+
+  Optional property:
+  - little-endian : If present, the TMU registers are little endian. If absent,
+  	the default is big endian.
+
+...

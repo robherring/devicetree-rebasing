@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/net/cortina,gemini-ethernet.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Cortina Systems Gemini Ethernet Controller
+
+maintainers:
+  - Linus Walleij <linus.walleij@linaro.org>
+description: |+
+  This ethernet controller is found in the Gemini SoC family:
+  StorLink SL3512 and SL3516, also known as Cortina Systems
+  CS3512 and CS3516.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  Cortina Systems Gemini Ethernet Controller
+  ==========================================
+
+  This ethernet controller is found in the Gemini SoC family:
+  StorLink SL3512 and SL3516, also known as Cortina Systems
+  CS3512 and CS3516.
+
+  Required properties:
+  - compatible: must be "cortina,gemini-ethernet"
+  - reg: must contain the global registers and the V-bit and A-bit
+    memory areas, in total three register sets.
+  - syscon: a phandle to the system controller
+  - #address-cells: must be specified, must be <1>
+  - #size-cells: must be specified, must be <1>
+  - ranges: should be state like this giving a 1:1 address translation
+    for the subnodes
+
+  The subnodes represents the two ethernet ports in this device.
+  They are not independent of each other since they share resources
+  in the parent node, and are thus children.
+
+  Required subnodes:
+  - port0: contains the resources for ethernet port 0
+  - port1: contains the resources for ethernet port 1
+
+  Required subnode properties:
+  - compatible: must be "cortina,gemini-ethernet-port"
+  - reg: must contain two register areas: the DMA/TOE memory and
+    the GMAC memory area of the port
+  - interrupts: should contain the interrupt line of the port.
+    this is nominally a level interrupt active high.
+  - resets: this must provide an SoC-integrated reset line for
+    the port.
+  - clocks: this should contain a handle to the PCLK clock for
+    clocking the silicon in this port
+  - clock-names: must be "PCLK"
+
+  Optional subnode properties:
+  - phy-mode: see ethernet.txt
+  - phy-handle: see ethernet.txt
+
+...

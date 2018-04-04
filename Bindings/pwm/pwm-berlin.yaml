@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pwm/pwm-berlin.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Berlin PWM controller
+
+maintainers:
+  - Antoine Ténart <antoine.tenart@free-electrons.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Berlin PWM controller
+
+  Required properties:
+  - compatible: should be "marvell,berlin-pwm"
+  - reg: physical base address and length of the controller's registers
+  - clocks: phandle to the input clock
+  - #pwm-cells: should be 3. See pwm.txt in this directory for a description of
+    the cells format.
+
+...

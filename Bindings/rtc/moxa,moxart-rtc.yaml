@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/moxa,moxart-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: MOXA ART real-time clock
+
+maintainers:
+  - Jonas Jensen <jonas.jensen@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    rtc: rtc {
+      compatible = "moxa,moxart-rtc";
+      gpio-rtc-sclk = <&gpio 5 0>;
+      gpio-rtc-data = <&gpio 6 0>;
+      gpio-rtc-reset = <&gpio 7 0>;
+    };
+historical: |+
+  MOXA ART real-time clock
+
+  Required properties:
+
+  - compatible : Should be "moxa,moxart-rtc"
+  - gpio-rtc-sclk : RTC sclk gpio, with zero flags
+  - gpio-rtc-data : RTC data gpio, with zero flags
+  - gpio-rtc-reset : RTC reset gpio, with zero flags
+
+...

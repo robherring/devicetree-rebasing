@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/input/pwm-beeper.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: PWM beeper device tree bindings
+
+maintainers:
+  - Sascha Hauer <s.hauer@pengutronix.de>
+description: |+
+  Registers a PWM device as beeper.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * PWM beeper device tree bindings
+
+  Registers a PWM device as beeper.
+
+  Required properties:
+  - compatible: should be "pwm-beeper"
+  - pwms: phandle to the physical PWM device
+
+  Optional properties:
+  - amp-supply: phandle to a regulator that acts as an amplifier for the beeper
+  - beeper-hz:  bell frequency in Hz
+
+...

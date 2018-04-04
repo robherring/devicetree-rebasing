@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/serial/altera_jtaguart.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Altera JTAG UART
+
+maintainers:
+  - Tobias Klauser <tklauser@distanz.ch>
+description: test
+
+properties:
+  compatible: {}
+historical: |
+  Altera JTAG UART
+
+  Required properties:
+  - compatible : should be "ALTR,juart-1.0" <DEPRECATED>
+  - compatible : should be "altr,juart-1.0"

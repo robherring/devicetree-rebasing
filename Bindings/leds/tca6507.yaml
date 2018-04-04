@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/leds/tca6507.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: LEDs connected to tca6507
+
+maintainers:
+  - Marek Belisko <marek.belisko@open-nandra.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  LEDs connected to tca6507
+
+  Required properties:
+  - compatible : should be : "ti,tca6507".
+  - #address-cells: must be 1
+  - #size-cells: must be 0
+  - reg: typically 0x45.
+
+  Optional properties:
+  - gpio-controller: allows lines to be used as output-only GPIOs.
+  - #gpio-cells: if present, must not be 0.
+
+  Each led is represented as a sub-node of the ti,tca6507 device.
+
+  LED sub-node properties:
+  - label : (optional) see Documentation/devicetree/bindings/leds/common.txt
+  - reg : number of LED line (could be from 0 to 6)
+  - linux,default-trigger : (optional)
+     see Documentation/devicetree/bindings/leds/common.txt
+  - compatible: either "led" (the default) or "gpio".
+
+...

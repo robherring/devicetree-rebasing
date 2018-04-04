@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/watchdog/da9062-wdt.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Dialog Semiconductor DA9062/61 Watchdog Timer
+
+maintainers:
+  - Steve Twiss <stwiss.opensource@diasemi.com>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    pmic0: da9062@58 {
+      watchdog {
+        compatible = "dlg,da9062-watchdog";
+      };
+    };
+
+    Example: DA9061 using a fall-back compatible for the DA9062 watchdog driver
+
+    pmic0: da9061@58 {
+      watchdog {
+        compatible = "dlg,da9061-watchdog", "dlg,da9062-watchdog";
+      };
+    };
+historical: |+
+  * Dialog Semiconductor DA9062/61 Watchdog Timer
+
+  Required properties:
+
+  - compatible: should be one of the following valid compatible string lines:
+  	"dlg,da9061-watchdog", "dlg,da9062-watchdog"
+  	"dlg,da9062-watchdog"
+
+...

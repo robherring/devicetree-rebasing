@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/icpdas-lp8841-spi-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: ICP DAS LP-8841 SPI Controller for RTC
+
+maintainers:
+  - Sergei Ianovich <ynvich@gmail.com>
+description: |+
+  ICP DAS LP-8841 contains a DS-1302 RTC. RTC is connected to an IO
+  memory register, which acts as an SPI master device.
+
+  The device uses the standard MicroWire half-duplex transfer timing.
+  Master output is set on low clock and sensed by the RTC on the rising
+  edge. Master input is set by the RTC on the trailing edge and is sensed
+  by the master on low clock.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * ICP DAS LP-8841 SPI Controller for RTC
+
+  ICP DAS LP-8841 contains a DS-1302 RTC. RTC is connected to an IO
+  memory register, which acts as an SPI master device.
+
+  The device uses the standard MicroWire half-duplex transfer timing.
+  Master output is set on low clock and sensed by the RTC on the rising
+  edge. Master input is set by the RTC on the trailing edge and is sensed
+  by the master on low clock.
+
+  Required properties:
+
+  - #address-cells: should be 1
+
+  - #size-cells: should be 0
+
+  - compatible: should be "icpdas,lp8841-spi-rtc"
+
+  - reg: should provide IO memory address
+
+  Requirements to SPI slave nodes:
+
+  - There can be only one slave device.
+
+  - The spi slave node should claim the following flags which are
+    required by the spi controller.
+
+    - spi-3wire: The master itself has only 3 wire. It cannor work in
+      full duplex mode.
+
+    - spi-cs-high: DS-1302 has active high chip select line. The master
+      doesn't support active low.
+
+    - spi-lsb-first: DS-1302 requires least significant bit first
+      transfers. The master only support this type of bit ordering.
+
+
+...

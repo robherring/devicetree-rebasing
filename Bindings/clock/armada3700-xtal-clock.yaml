@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/armada3700-xtal-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Xtal Clock bindings for Marvell Armada 37xx SoCs
+
+maintainers:
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+description: |+
+  Marvell Armada 37xx SoCs allow to determine the xtal clock frequencies by
+  reading the gpio latch register.
+
+  This node must be a subnode of the node exposing the register address
+  of the GPIO block where the gpio latch is located.
+  See Documentation/devicetree/bindings/pinctrl/marvell,armada-37xx-pinctrl.txt
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Xtal Clock bindings for Marvell Armada 37xx SoCs
+
+  Marvell Armada 37xx SoCs allow to determine the xtal clock frequencies by
+  reading the gpio latch register.
+
+  This node must be a subnode of the node exposing the register address
+  of the GPIO block where the gpio latch is located.
+  See Documentation/devicetree/bindings/pinctrl/marvell,armada-37xx-pinctrl.txt
+
+  Required properties:
+  - compatible : shall be one of the following:
+  	"marvell,armada-3700-xtal-clock"
+  - #clock-cells : from common clock binding; shall be set to 0
+
+  Optional properties:
+  - clock-output-names : from common clock binding; allows overwrite default clock
+  	output names ("xtal")
+
+...

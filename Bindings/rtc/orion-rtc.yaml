@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/rtc/orion-rtc.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Mvebu Real Time Clock
+
+maintainers:
+  - Gregory CLEMENT <gregory.clement@free-electrons.com>
+description: |+
+  RTC controller for the Kirkwood, the Dove, the Armada 370 and the
+  Armada XP SoCs
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Mvebu Real Time Clock
+
+  RTC controller for the Kirkwood, the Dove, the Armada 370 and the
+  Armada XP SoCs
+
+  Required properties:
+  - compatible : Should be "marvell,orion-rtc"
+  - reg: physical base address of the controller and length of memory mapped
+    region.
+  - interrupts: IRQ line for the RTC.
+
+...

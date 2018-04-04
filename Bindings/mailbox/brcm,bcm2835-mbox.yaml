@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/mailbox/brcm,bcm2835-mbox.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Broadcom BCM2835 VideoCore mailbox IPC
+
+maintainers:
+  - Lubomir Rintel <lkundrak@v3.sk>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  Broadcom BCM2835 VideoCore mailbox IPC
+
+  Required properties:
+
+  - compatible:	Should be "brcm,bcm2835-mbox"
+  - reg:		Specifies base physical address and size of the registers
+  - interrupts:	The interrupt number
+  		  See bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt
+  - #mbox-cells:	Specifies the number of cells needed to encode a mailbox
+  		  channel. The value shall be 0, since there is only one
+  		  mailbox channel implemented by the device.
+
+...

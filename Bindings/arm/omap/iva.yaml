@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/omap/iva.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI - IVA (Imaging and Video Accelerator) subsystem
+
+maintainers:
+  - Benoit Cousson <b-cousson@ti.com>
+description: |+
+  The IVA contain various audio, video or imaging HW accelerator
+  depending of the version.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * TI - IVA (Imaging and Video Accelerator) subsystem
+
+  The IVA contain various audio, video or imaging HW accelerator
+  depending of the version.
+
+  Required properties:
+  - compatible : Should be:
+    - "ti,ivahd" for OMAP4
+    - "ti,iva2.2" for OMAP3
+    - "ti,iva2.1" for OMAP2430
+    - "ti,iva1" for OMAP2420
+  - ti,hwmods: "iva"
+
+...

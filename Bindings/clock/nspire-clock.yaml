@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/clock/nspire-clock.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI-NSPIRE Clocks
+
+maintainers:
+  - Daniel Tang <dt.tangr@gmail.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI-NSPIRE Clocks
+
+  Required properties:
+  - compatible: Valid compatible properties include:
+  	"lsi,nspire-cx-ahb-divider" for the AHB divider in the CX model
+  	"lsi,nspire-classic-ahb-divider" for the AHB divider in the older model
+  	"lsi,nspire-cx-clock" for the base clock in the CX model
+  	"lsi,nspire-classic-clock" for the base clock in the older model
+
+  - reg: Physical base address of the controller and length of memory mapped
+  	region.
+
+  Optional:
+  - clocks: For the "nspire-*-ahb-divider" compatible clocks, this is the parent
+  	clock where it divides the rate from.
+
+...

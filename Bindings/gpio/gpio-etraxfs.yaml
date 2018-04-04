@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/gpio/gpio-etraxfs.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Axis ETRAX FS General I/O controller bindings
+
+maintainers:
+  - Rabin Vincent <rabin@rab.in>
+description: test
+
+properties:
+  compatible: {}
+examples:
+  - |
+    gio: gpio@b001a000 {
+      compatible = "axis,etraxfs-gio";
+      reg = <0xb001a000 0x1000>;
+      gpio-controller;
+      #gpio-cells = <3>;
+    };
+historical: |+
+  Axis ETRAX FS General I/O controller bindings
+
+  Required properties:
+
+  - compatible: one of:
+    - "axis,etraxfs-gio"
+    - "axis,artpec3-gio"
+  - reg: Physical base address and length of the controller's registers.
+  - #gpio-cells: Should be 3
+    - The first cell is the gpio offset number.
+    - The second cell is reserved and is currently unused.
+    - The third cell is the port number (hex).
+  - gpio-controller: Marks the device node as a GPIO controller.
+
+...

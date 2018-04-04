@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/spi/ti_qspi.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI QSPI controller.
+
+maintainers:
+  - Sourav Poddar <sourav.poddar@ti.com>
+  - Vignesh R <vigneshr@ti.com>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  TI QSPI controller.
+
+  Required properties:
+  - compatible : should be "ti,dra7xxx-qspi" or "ti,am4372-qspi".
+  - reg: Should contain QSPI registers location and length.
+  - reg-names: Should contain the resource reg names.
+  	- qspi_base: Qspi configuration register Address space
+  	- qspi_mmap: Memory mapped Address space
+  	- (optional) qspi_ctrlmod: Control module Address space
+  - interrupts: should contain the qspi interrupt number.
+  - #address-cells, #size-cells : Must be present if the device has sub-nodes
+  - ti,hwmods: Name of the hwmod associated to the QSPI
+
+  Recommended properties:
+  - spi-max-frequency: Definition as per
+                       Documentation/devicetree/bindings/spi/spi-bus.txt
+
+  Optional properties:
+  - syscon-chipselects: Handle to system control region contains QSPI
+  		      chipselect register and offset of that register.
+
+  NOTE: TI QSPI controller requires different pinmux and IODelay
+  parameters for Mode-0 and Mode-3 operations, which needs to be set up by
+  the bootloader (U-Boot). Default configuration only supports Mode-0
+  operation. Hence, "spi-cpol" and "spi-cpha" DT properties cannot be
+  specified in the slave nodes of TI QSPI controller without appropriate
+  modification to bootloader.
+
+...

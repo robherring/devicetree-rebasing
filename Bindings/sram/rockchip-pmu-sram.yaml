@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/sram/rockchip-pmu-sram.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: 'Rockchip SRAM for pmu:'
+
+maintainers:
+  - Krzysztof Kozlowski <k.kozlowski@samsung.com>
+description: |+
+  The sram of pmu is used to store the function of resume from maskrom(the 1st
+  level loader). This is a common use of the "pmu-sram" because it keeps power
+  even in low power states in the system.
+
+             
+
+properties:
+  compatible: {}
+examples:
+  - |
+    sram@ff720000 {
+      compatible = "rockchip,rk3288-pmu-sram", "mmio-sram";
+      reg = <0xff720000 0x1000>;
+    };
+historical: |+
+  Rockchip SRAM for pmu:
+  ------------------------------
+
+  The sram of pmu is used to store the function of resume from maskrom(the 1st
+  level loader). This is a common use of the "pmu-sram" because it keeps power
+  even in low power states in the system.
+
+  Required node properties:
+  - compatible : should be "rockchip,rk3288-pmu-sram"
+  - reg : physical base address and the size of the registers window
+
+...

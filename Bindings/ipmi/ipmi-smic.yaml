@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/ipmi/ipmi-smic.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: IPMI device
+
+maintainers:
+  - Alistair Popple <alistair@popple.id.au>
+description: test
+
+properties:
+  compatible: {}
+historical: |+
+  IPMI device
+
+  Required properties:
+  - compatible: should be one of ipmi-kcs, ipmi-smic, or ipmi-bt
+  - device_type: should be ipmi
+  - reg: Address and length of the register set for the device
+
+  Optional properties:
+  - interrupts: The interrupt for the device.  Without this the interface
+  	is polled.
+  - reg-size - The size of the register.  Defaults to 1
+  - reg-spacing - The number of bytes between register starts.  Defaults to 1
+  - reg-shift - The amount to shift the registers to the right to get the data
+  	into bit zero.
+
+...

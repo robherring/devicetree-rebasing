@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/omap/dsp.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: TI - DSP (Digital Signal Processor)
+
+maintainers:
+  - Benoit Cousson <b-cousson@ti.com>
+description: |+
+  TI DSP included in OMAP SoC
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * TI - DSP (Digital Signal Processor)
+
+  TI DSP included in OMAP SoC
+
+  Required properties:
+  - compatible : Should be "ti,omap3-c64" for OMAP3 & 4
+  - ti,hwmods: "dsp"
+
+...

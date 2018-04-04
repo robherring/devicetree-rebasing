@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/pinctrl/atmel,at91-pio4-pinctrl.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Atmel PIO4 Controller
+
+maintainers:
+  - Ludovic Desroches <ludovic.desroches@atmel.com>
+description: |+
+  The Atmel PIO4 controller is used to select the function of a pin and to
+  configure it.
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * Atmel PIO4 Controller
+
+  The Atmel PIO4 controller is used to select the function of a pin and to
+  configure it.
+
+  Required properties:
+  - compatible: "atmel,sama5d2-pinctrl".
+  - reg: base address and length of the PIO controller.
+  - interrupts: interrupt outputs from the controller, one for each bank.
+  - interrupt-controller: mark the device node as an interrupt controller.
+  - #interrupt-cells: should be two.
+  - gpio-controller: mark the device node as a gpio controller.
+  - #gpio-cells: should be two.
+
+  Please refer to ../gpio/gpio.txt and ../interrupt-controller/interrupts.txt for
+  a general description of GPIO and interrupt bindings.
+
+  Please refer to pinctrl-bindings.txt in this directory for details of the
+  common pinctrl bindings used by client devices.
+
+  Subnode format
+  Each node (or subnode) will list the pins it needs and how to configured these
+  pins.
+
+  	node {
+  		pinmux = <PIN_NUMBER_PINMUX>;
+  		GENERIC_PINCONFIG;
+  	};
+
+  Required properties:
+  - pinmux: integer array. Each integer represents a pin number plus mux and
+  ioset settings. Use the macros from boot/dts/<soc>-pinfunc.h file to get the
+  right representation of the pin.
+
+  Optional properties:
+  - GENERIC_PINCONFIG: generic pinconfig options to use, bias-disable,
+  bias-pull-down, bias-pull-up, drive-open-drain, input-schmitt-enable,
+  input-debounce, output-low, output-high.
+
+...

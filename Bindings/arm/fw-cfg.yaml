@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: None
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/Bindings/arm/fw-cfg.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: QEMU Firmware Configuration bindings for ARM
+
+maintainers:
+  - Laszlo Ersek <lersek@redhat.com>
+description: |+
+  QEMU's arm-softmmu and aarch64-softmmu emulation / virtualization targets
+  provide the following Firmware Configuration interface on the "virt" machine
+  type:
+
+  - A write-only, 16-bit wide selector (or control) register,
+  - a read-write, 64-bit wide data register.
+
+  QEMU exposes the control and data register to ARM guests as memory mapped
+  registers; their location is communicated to the guest's UEFI firmware in the
+  DTB that QEMU places at the bottom of the guest's DRAM.
+
+  The authoritative guest-side hardware interface documentation to the fw_cfg
+  device can be found in "docs/specs/fw_cfg.txt" in the QEMU source tree.
+
+
+             
+
+properties:
+  compatible: {}
+historical: |+
+  * QEMU Firmware Configuration bindings for ARM
+
+  QEMU's arm-softmmu and aarch64-softmmu emulation / virtualization targets
+  provide the following Firmware Configuration interface on the "virt" machine
+  type:
+
+  - A write-only, 16-bit wide selector (or control) register,
+  - a read-write, 64-bit wide data register.
+
+  QEMU exposes the control and data register to ARM guests as memory mapped
+  registers; their location is communicated to the guest's UEFI firmware in the
+  DTB that QEMU places at the bottom of the guest's DRAM.
+
+  The authoritative guest-side hardware interface documentation to the fw_cfg
+  device can be found in "docs/specs/fw_cfg.txt" in the QEMU source tree.
+
+
+  Required properties:
+
+  - compatible: "qemu,fw-cfg-mmio".
+
+  - reg: the MMIO region used by the device.
+    * Bytes 0x0 to 0x7 cover the data register.
+    * Bytes 0x8 to 0x9 cover the selector register.
+    * Further registers may be appended to the region in case of future interface
+      revisions / feature bits.
+
+...
