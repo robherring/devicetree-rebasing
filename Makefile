@@ -66,14 +66,7 @@ ifneq ($(filter s% -s%,$(MAKEFLAGS)),)
 endif
 endif
 
-ifeq ("$(origin C)", "command line")
-  KBUILD_CHECKSRC = $(C)
-endif
-ifndef KBUILD_CHECKSRC
-  KBUILD_CHECKSRC = 0
-endif
-
-export quiet Q KBUILD_VERBOSE KBUILD_CHECKSRC
+export quiet Q KBUILD_VERBOSE
 
 %/: DTB	= $(patsubst %.dts,%.dtb,$(shell find $@ -name \*.dts))
 
@@ -85,12 +78,10 @@ DTB ?= $(patsubst %.dts,%.dtb,$(shell find src/ -name \*.dts))
 src	:= src/
 obj	:= src/
 
-ifneq ($(KBUILD_CHECKSRC),0)
-  DTYAML = $(patsubst %.dtb,%.dt.yaml,$(DTB))
-endif
+DTYAML = $(patsubst %.dtb,%.dt.yaml,$(DTB))
 
 PHONY += all
-all: $(DTB) $(DTYAML)
+all: $(DTB)
 
 include scripts/Kbuild.include
 
@@ -116,21 +107,6 @@ cmd_dtc = $(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
                 -d $(depfile).dtc.tmp $(dtc-tmp) ; \
         cat $(depfile).pre.tmp $(depfile).dtc.tmp > $(depfile)
 
-ifneq ($(KBUILD_CHECKSRC),0)
-  ifeq ($(KBUILD_CHECKSRC),2)
-    quiet_cmd_force_checksrc = CHECK   $@
-          cmd_force_checksrc = $(DT_CHECKER) $@ ;
-  else
-      quiet_cmd_checksrc     = CHECK   $@
-            cmd_checksrc     = $(DT_CHECKER) $@ ;
-  endif
-endif
-
-define rule_dt_yaml
-        $(call echo-cmd,dtc) $(cmd_dtc) ;                                   \
-        $(call echo-cmd,checksrc) $(cmd_checksrc)
-endef
-
 dt_yaml_cmd_files := $(wildcard $(foreach f,$(DTYAML),$(dir $(f)).$(notdir $(f)).cmd))
 
 ifneq ($(dt_yaml_cmd_files),)
@@ -138,8 +114,7 @@ ifneq ($(dt_yaml_cmd_files),)
 endif
 
 %.dt.yaml: %.dts FORCE
-	$(call if_changed_rule,dt_yaml,yaml)
-	$(call cmd,force_checksrc)
+	$(call if_changed_dep,dtc,yaml)
 
 %.dtb: %.dts FORCE
 	$(call if_changed_dep,dtc,dtb)
@@ -154,6 +129,9 @@ quiet_cmd_chk_binding = CHKBIND	$@
 
 %.yaml: FORCE
 	$(call cmd,chk_binding)
+
+checkdt: $(DTYAML)
+	$(Q)$(DT_CHECKER) -s Bindings/ $^
 
 RCS_FIND_IGNORE := \( -name SCCS -o -name BitKeeper -o -name .svn -o -name CVS \
                    -o -name .pc -o -name .hg -o -name .git \) -prune -o
