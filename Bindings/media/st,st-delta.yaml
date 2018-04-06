@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,st-delta
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: delta
+      - const: delta-st231
+      - const: delta-flash-promip
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  clocks: {}
 examples:
   - |
     delta0 {

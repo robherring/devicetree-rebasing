@@ -38,7 +38,30 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: allwinner,sun9i-a80-de-clks
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: mod
+      - const: dram
+      - const: bus
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  resets: {}
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
 historical: |+
   Allwinner A80 Display Engine Clock Control Binding
   --------------------------------------------------

@@ -33,7 +33,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: i2c-demux-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  i2c-parent: {}
+  i2c-bus-name:
+    items:
+      - const: i2c-exio0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   Pinctrl-based I2C Bus DeMux
 

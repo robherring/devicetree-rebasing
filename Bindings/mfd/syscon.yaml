@@ -22,7 +22,356 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - syscon
+          - cortina,gemini-syscon
+          - qcom,tcsr-apq8064
+          - samsung,exynos4-sysreg
+          - samsung,exynos4210-pmu
+          - marvell,dove-global-config
+          - fsl,sec-v4.0-mon
+          - fsl,imx6q-iomuxc-gpr
+          - fsl,imx6q-ocotp
+          - samsung,exynos5-sysreg
+          - samsung,exynos5410-pmu
+          - samsung,exynos5420-pmu
+          - arm,realview-eb11mp-revb-syscon
+          - xlnx,zynq-slcr
+          - atmel,at91sam9260-smc
+          - atmel,at91sam9260-matrix
+          - atmel,at91sam9260-pmc
+          - atmel,at91rm9200-tcb
+          - atmel,at91sam9260-gpbr
+          - rockchip,rk3066-pmu
+          - brcm,bcm6328-timer
+          - ti,keystone-pllctrl
+          - ti,keystone-devctrl
+          - rockchip,rk3288-pmu
+          - rockchip,rk3288-sgrf
+          - rockchip,rk3288-grf
+          - socionext,uniphier-pxs2-sdctrl
+          - socionext,uniphier-pxs2-perictrl
+          - socionext,uniphier-pxs2-soc-glue
+          - socionext,uniphier-pxs2-sysctrl
+          - fsl,vf610-mscm-cpucfg
+          - fsl,vf610-anatop
+          - fsl,vf610-src
+          - fsl,imx53-iomuxc-gpr
+          - samsung,exynos5250-pmu
+          - cirrus,ep7209-syscon1
+          - cirrus,ep7209-syscon2
+          - cirrus,ep7209-syscon3
+          - altr,l3regs
+          - altr,sdr-ctl
+          - altr,sys-mgr
+          - stericsson,nomadik-pmu
+          - ti,da830-cfgchip
+          - atmel,at91sam9rl-matrix
+          - atmel,at91sam9g45-pmc
+          - qcom,tcsr-ipq8064
+          - allwinner,sun8i-h3-system-controller
+          - fsl,ls1021a-dcfg
+          - fsl,ls1021a-scfg
+          - nxp,lpc1850-creg
+          - samsung,exynos3-sysreg
+          - samsung,exynos3250-pmu
+          - qcom,tcsr-mdm9615
+          - fsl,imx7d-iomuxc-gpr
+          - fsl,imx7d-ocotp
+          - fsl,imx7d-src
+          - atmel,at91sam9x5-tcb
+          - atmel,sama5d3-sfr
+          - atmel,sama5d3-smc
+          - atmel,sama5d3-pmc
+          - atmel,sama5d3-nfc-io
+          - fsl,imx6ul-iomuxc-gpr
+          - fsl,imx6ul-ocotp
+          - arm,realview-pb11mp-syscon
+          - arm,realview-eb-syscon
+          - zte,sysctrl
+          - samsung,exynos4412-pmu
+          - samsung-s5pv210-pmu
+          - brcm,bcm7445-sun-top-ctrl
+          - brcm,bcm7445-hif-cpubiuctrl
+          - brcm,bcm7445-hif-continuation
+          - fsl,imx6sl-iomuxc-gpr
+          - fsl,imx6sl-ocotp
+          - atmel,at91sam9x5-matrix
+          - atmel,at91sam9x5-pmc
+          - mediatek,mt2701-topckgen
+          - mediatek,mt2701-infracfg
+          - mediatek,mt2701-pericfg
+          - mediatek,mt2701-pctl-a-syscfg
+          - mediatek,mt2701-scpsys
+          - mediatek,mt2701-apmixedsys
+          - mediatek,mt2701-mmsys
+          - mediatek,mt2701-imgsys
+          - mediatek,mt2701-vdecsys
+          - mediatek,mt2701-hifsys
+          - mediatek,mt2701-ethsys
+          - mediatek,mt2701-bdpsys
+          - socionext,uniphier-ld4-mioctrl
+          - socionext,uniphier-ld4-perictrl
+          - socionext,uniphier-ld4-soc-glue
+          - socionext,uniphier-ld4-sysctrl
+          - fsl,imx6sx-iomuxc-gpr
+          - fsl,imx6sx-ocotp
+          - simple-mfd
+          - fsl,imx50-iomuxc-gpr
+          - allwinner,sun8i-a83t-system-controller
+          - atmel,sama5d4-sfr
+          - atmel,at91rm9200-sdramc
+          - atmel,at91rm9200-pmc
+          - atmel,at91rm9200-st
+          - qcom,tcsr-msm8660
+          - aspeed,ast2500-scu
+          - aspeed,ast2500-gfx
+          - aspeed,ast2500-lpc-host
+          - brcm,iproc-ts-adc-syscon
+          - arm,core-module-integrator
+          - arm,integrator-ap-syscon
+          - rockchip,rv1108-grf
+          - rockchip,rv1108-pmugrf
+          - rockchip,rv1108-usbgrf
+          - st,spear1340-misc
+          - qcom,tcsr-msm8960
+          - samsung,exynos5260-pmu
+          - cnxt,cx92755-uc
+          - aspeed,ast2400-scu
+          - aspeed,ast2400-lpc-host
+          - atmel,at91sam9g45-matrix
+          - arm,realview-pbx-syscon
+          - arm,realview-pb1176-syscon
+          - socionext,uniphier-pro4-mioctrl
+          - socionext,uniphier-pro4-perictrl
+          - socionext,uniphier-pro4-soc-glue
+          - socionext,uniphier-pro4-sysctrl
+          - axis,artpec6-syscon
+          - amlogic,meson-mx-assist
+          - amlogic,meson-mx-bootrom
+          - hisilicon,hi3519-sysctrl
+          - amlogic,meson8b-analog-top
+          - amlogic,meson8b-pmu
+          - arm,core-module-versatile
+          - arm,versatile-sysreg
+          - st,stih407-sbc-syscfg
+          - st,stih407-front-syscfg
+          - st,stih407-rear-syscfg
+          - st,stih407-flash-syscfg
+          - st,stih407-sbc-reg-syscfg
+          - st,stih407-core-syscfg
+          - st,stih407-lpm-syscfg
+          - rockchip,rk3036-grf
+          - atmel,at91sam9261-matrix
+          - atmel,sama5d2-pmc
+          - atmel,sama5d2-smc
+          - atmel,sama5d2-sfr
+          - atmel,sama5d2-secumod
+          - atmel,sama5d2-sfrbu
+          - arm,integrator-cp-syscon
+          - al,alpine-sysfabric-service
+          - oxsemi,ox810se-sys-ctrl
+          - mediatek,mt8135-infracfg
+          - mediatek,mt8135-pericfg
+          - mediatek,mt8135-pctl-a-syscfg
+          - mediatek,mt8135-pctl-b-syscfg
+          - stericsson,u300-syscon
+          - arm,realview-pba8-syscon
+          - atmel,at91sam9263-matrix
+          - lsi,axxia-syscon
+          - mediatek,mt7623-topckgen
+          - mediatek,mt7623-infracfg
+          - mediatek,mt7623-pericfg
+          - mediatek,mt7623-pctl-a-syscfg
+          - mediatek,mt7623-scpsys
+          - mediatek,mt7623-apmixedsys
+          - mediatek,mt7623-hifsys
+          - mediatek,mt7623-ethsys
+          - socionext,uniphier-sld8-mioctrl
+          - socionext,uniphier-sld8-perictrl
+          - socionext,uniphier-sld8-soc-glue
+          - socionext,uniphier-sld8-sysctrl
+          - oxsemi,ox820-sys-ctrl
+          - atmel,at91sam9n12-matrix
+          - atmel,at91sam9n12-pmc
+          - amlogic,meson8-analog-top
+          - amlogic,meson8-pmu
+          - socionext,uniphier-ld11-adamv
+          - socionext,uniphier-ld11-sdctrl
+          - socionext,uniphier-ld11-perictrl
+          - socionext,uniphier-ld11-mioctrl
+          - socionext,uniphier-ld11-soc-glue
+          - socionext,uniphier-ld11-sysctrl
+          - socionext,uniphier-ld20-adamv
+          - socionext,uniphier-ld20-sdctrl
+          - socionext,uniphier-ld20-perictrl
+          - socionext,uniphier-ld20-soc-glue
+          - socionext,uniphier-ld20-sysctrl
+          - socionext,uniphier-pxs3-sdctrl
+          - socionext,uniphier-pxs3-perictrl
+          - socionext,uniphier-pxs3-soc-glue
+          - socionext,uniphier-pxs3-sysctrl
+          - hisilicon,hi6220-sramctrl
+          - hisilicon,hi6220-aoctrl
+          - hisilicon,hi6220-sysctrl
+          - hisilicon,hi6220-mediactrl
+          - hisilicon,hi6220-pmctrl
+          - hisilicon,hi6220-acpu-sctrl
+          - hisilicon,peri-subctrl
+          - hisilicon,dsa-subctrl
+          - hisilicon,pcie-sas-subctrl
+          - hisilicon,hi3660-crgctrl
+          - hisilicon,hi3660-pctrl
+          - hisilicon,hi3660-pmuctrl
+          - hisilicon,hi3660-sctrl
+          - hisilicon,hi3660-iomcu
+          - hisilicon,hi3798cv200-crg
+          - hisilicon,hi3798cv200-sysctrl
+          - marvell,armada3710-nb-pinctrl
+          - marvell,armada-3700-nb-pm
+          - marvell,armada3710-sb-pinctrl
+          - zte,zx296718-aon-sysctrl
+          - zte,zx296718-sysctrl
+          - fsl,ls1043a-scfg
+          - fsl,ls1043a-dcfg
+          - fsl,ls2080a-rstcr
+          - fsl,ls2080a-dcfg
+          - fsl,ls1046a-scfg
+          - fsl,ls1046a-dcfg
+          - fsl,ls1012a-scfg
+          - fsl,ls1012a-dcfg
+          - fsl,ls1088a-dcfg
+          - amlogic,meson-gx-ao-sysctrl
+          - amlogic,meson-gx-ao-secure
+          - amlogic,meson-gx-hhi-sysctrl
+          - apm,xgene-scu
+          - apm,xgene-csw
+          - apm,xgene-mcb
+          - apm,xgene-efuse
+          - apm,xgene-rb
+          - allwinner,sun50i-a64-system-controller
+          - mediatek,mt2712-topckgen
+          - mediatek,mt2712-infracfg
+          - mediatek,mt2712-pericfg
+          - mediatek,mt2712-scpsys
+          - mediatek,mt2712-apmixedsys
+          - mediatek,mt2712-mcucfg
+          - mediatek,mt2712-mfgcfg
+          - mediatek,mt2712-mmsys
+          - mediatek,mt2712-imgsys
+          - mediatek,mt2712-bdpsys
+          - mediatek,mt2712-vdecsys
+          - mediatek,mt2712-vencsys
+          - mediatek,mt2712-jpgdecsys
+          - mediatek,mt6797-infracfg
+          - mediatek,mt6797-mmsys
+          - mediatek,mt6797-imgsys
+          - mediatek,mt6797-vdecsys
+          - mediatek,mt6797-vencsys
+          - mediatek,mt8173-infracfg
+          - mediatek,mt8173-pericfg
+          - mediatek,mt8173-pctl-a-syscfg
+          - mediatek,mt8173-mmsys
+          - mediatek,mt8173-imgsys
+          - mediatek,mt8173-vdecsys
+          - mediatek,mt8173-vencsys
+          - mediatek,mt8173-vencltsys
+          - qcom,tcsr-msm8996
+          - qcom,tcsr-msm8916
+          - rockchip,rk3399-pmu
+          - rockchip,rk3399-pmugrf
+          - rockchip,rk3399-grf
+          - rockchip,rk3368-pmugrf
+          - rockchip,rk3368-grf
+          - rockchip,rk3328-grf
+          - rockchip,rk3328-cru
+          - rockchip,rk3328-usb2phy-grf
+          - samsung,exynos5433-pmu
+          - samsung,exynos7-pmu
+          - img,pistachio-clk
+          - img,pistachio-cr-top
+          - img,boston-platform-regs
+          - ralink,mt7620a-sysc
+          - brcm,bcm7346-sun-top-ctrl
+          - brcm,bcm7362-sun-top-ctrl
+          - brcm,bcm7125-sun-top-ctrl
+          - brcm,bcm7360-sun-top-ctrl
+          - brcm,bcm7358-sun-top-ctrl
+          - brcm,bcm7425-sun-top-ctrl
+          - brcm,bcm7420-sun-top-ctrl
+          - mti,sead3-fpga
+          - mti,sead3-cpld
+          - mti,malta-fpga
+      - const: syscon
+      - const: simple-mfd
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x3
+  interrupt-parent: {}
+  clock-names:
+    items:
+      - const: clkout0
+      - const: clkout1
+      - const: clkout2
+      - const: clkout3
+      - const: clkout4
+      - const: clkout8
+      - const: clkout9
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  clocks: {}
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  interrupts: {}
+  cpu1-start-addr: {}
+  '#syscon-cells':
+    const: 0x2
+  big-endian: {}
+  resets: {}
+  '#power-domain-cells':
+    const: 0x1
+  infracfg: {}
+  reset-names:
+    items:
+      - const: fe
+      - const: gmac
+      - const: ppe
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  power-domains: {}
+  mediatek,ethsys:
+    description: FIXME
+  mediatek,pctl:
+    description: FIXME
+  reg-io-width: {}
+  little-endian: {}
+  amlogic,has-chip-id:
+    description: FIXME
+    type: boolean
+  assigned-clock-rates: {}
+  rockchip,grf:
+    description: FIXME
+  native-endian: {}
 historical: |+
   * System Controller Registers R/W driver
 

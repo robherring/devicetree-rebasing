@@ -16,7 +16,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm2835-sdhost
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx-tx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  bus-width: {}
 historical: |+
   Broadcom BCM2835 SDHOST controller
 

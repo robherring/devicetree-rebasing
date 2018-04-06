@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-pinmux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     pinctrl@70000000 {

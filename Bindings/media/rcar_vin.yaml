@@ -108,7 +108,33 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,vin-r8a7791
+          - renesas,vin-r8a7790
+          - renesas,vin-r8a7792
+          - renesas,vin-r8a7794
+          - renesas,vin-r8a7793
+      - const: renesas,rcar-gen2-vin
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  power-domains: {}
+  resets: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Renesas R-Car Video Input driver (rcar_vin)
   -------------------------------------------

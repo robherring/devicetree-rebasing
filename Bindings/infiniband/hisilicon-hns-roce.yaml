@@ -19,7 +19,65 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hns-roce-v1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dma-coherent: {}
+  eth-handle: {}
+  dsaf-handle: {}
+  node-guid: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: hns-roce-comp-0
+      - const: hns-roce-comp-1
+      - const: hns-roce-comp-2
+      - const: hns-roce-comp-3
+      - const: hns-roce-comp-4
+      - const: hns-roce-comp-5
+      - const: hns-roce-comp-6
+      - const: hns-roce-comp-7
+      - const: hns-roce-comp-8
+      - const: hns-roce-comp-9
+      - const: hns-roce-comp-10
+      - const: hns-roce-comp-11
+      - const: hns-roce-comp-12
+      - const: hns-roce-comp-13
+      - const: hns-roce-comp-14
+      - const: hns-roce-comp-15
+      - const: hns-roce-comp-16
+      - const: hns-roce-comp-17
+      - const: hns-roce-comp-18
+      - const: hns-roce-comp-19
+      - const: hns-roce-comp-20
+      - const: hns-roce-comp-21
+      - const: hns-roce-comp-22
+      - const: hns-roce-comp-23
+      - const: hns-roce-comp-24
+      - const: hns-roce-comp-25
+      - const: hns-roce-comp-26
+      - const: hns-roce-comp-27
+      - const: hns-roce-comp-28
+      - const: hns-roce-comp-29
+      - const: hns-roce-comp-30
+      - const: hns-roce-comp-31
+      - const: hns-roce-async
+      - const: hns-roce-common
+    minItems: 34
+    maxItems: 34
+    additionalItems: false
 examples:
   - |
     infiniband@c4000000 {

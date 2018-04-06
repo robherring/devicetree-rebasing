@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - dallas,max6649
+          - adi,adt7461
+          - onnn,nct1008
+          - adi,adt7461a
+          - gmt,g781
+          - national,lm90
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vcc-supply: {}
+  interrupt-parent: {}
+  interrupts: {}
 historical: |+
   * LM90 series thermometer.
 

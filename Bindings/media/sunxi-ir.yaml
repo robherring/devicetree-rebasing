@@ -13,7 +13,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun5i-a13-ir
+          - allwinner,sun4i-a10-ir
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: apb
+      - const: ir
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   Device-Tree bindings for SUNXI IR controller found in sunXi SoC family
 

@@ -15,7 +15,35 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - buffalo,lschl
+          - marvell,rd-88f5182-nas
+          - buffalo,kurobox-pro
+          - lacie,ethernet-disk-mini-v2
+          - buffalo,lswsgl
+          - buffalo,lsgl
+          - lacie,d2-network
+          - netgear,wnr854t
+          - maxtor,shared-storage-2
+          - buffalo,lswtgl
+      - const: marvell,orion5x-88f5182
+      - const: marvell,orion5x
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Marvell Reference Design 88F5182 NAS
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |
   Marvell Orion SoC Family Device Tree Bindings
   ---------------------------------------------

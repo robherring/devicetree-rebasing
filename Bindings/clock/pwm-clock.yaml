@@ -18,7 +18,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pwm-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clock-frequency: {}
+  clock-output-names:
+    items:
+      - const: mipi_pwm3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pwms: {}
 examples:
   - |
     clock {

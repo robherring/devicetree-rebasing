@@ -15,7 +15,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8173-efuse
+          - mediatek,mt7623-efuse
+      - const: mediatek,mt8173-efuse
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 examples:
   - |
     efuse: efuse@10206000 {

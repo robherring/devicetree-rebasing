@@ -25,7 +25,67 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,omap2-nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  linux,mtd-name:
+    items:
+      - const: micron,mt29c4g96maz
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  nand-bus-width: {}
+  gpmc,device-width:
+    description: FIXME
+  ti,nand-ecc-opt:
+    items:
+      - const: bch8
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  gpmc,sync-clk-ps:
+    description: FIXME
+  gpmc,cs-on-ns:
+    description: FIXME
+  gpmc,cs-rd-off-ns:
+    description: FIXME
+  gpmc,cs-wr-off-ns:
+    description: FIXME
+  gpmc,adv-on-ns:
+    description: FIXME
+  gpmc,adv-rd-off-ns:
+    description: FIXME
+  gpmc,adv-wr-off-ns:
+    description: FIXME
+  gpmc,we-off-ns:
+    description: FIXME
+  gpmc,oe-off-ns:
+    description: FIXME
+  gpmc,access-ns:
+    description: FIXME
+  gpmc,rd-cycle-ns:
+    description: FIXME
+  gpmc,wr-cycle-ns:
+    description: FIXME
+  gpmc,wr-access-ns:
+    description: FIXME
+  gpmc,wr-data-mux-bus-ns:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 examples:
   - |
     gpmc: gpmc@50000000 {

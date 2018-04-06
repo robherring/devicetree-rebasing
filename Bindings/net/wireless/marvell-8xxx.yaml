@@ -17,7 +17,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pci1b4b,2b42
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  wakeup-source: {}
+  marvell,wakeup-pin:
+    description: FIXME
 historical: |+
   Marvell 8787/8897/8997 (sd8787/sd8897/sd8997/pcie8997) SDIO/PCIE devices
   ------

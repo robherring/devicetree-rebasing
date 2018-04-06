@@ -20,7 +20,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: google,cros-ec-keyb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  keypad,num-rows:
+    description: FIXME
+  keypad,num-columns:
+    description: FIXME
+  google,needs-ghost-filter:
+    description: FIXME
+    type: boolean
+  linux,keymap:
+    description: FIXME
 historical: |+
   ChromeOS EC Keyboard
 

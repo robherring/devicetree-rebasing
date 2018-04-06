@@ -95,7 +95,38 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,usb-hs-phy-msm8974
+          - qcom,usb-hs-phy-apq8064
+          - qcom,usb-hs-phy-msm8916
+      - const: qcom,usb-hs-phy
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: sleep
+      - const: ref
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: por
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  v3p3-supply: {}
+  v1p8-supply: {}
+  extcon: {}
+  qcom,init-seq:
+    description: FIXME
 historical: |+
   Qualcomm's USB HS PHY
 

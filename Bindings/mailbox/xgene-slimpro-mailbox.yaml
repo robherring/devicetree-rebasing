@@ -16,7 +16,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-slimpro-mbox
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#mbox-cells':
+    const: 0x1
+  interrupts: {}
 historical: |+
   The APM X-Gene SLIMpro mailbox is used to communicate messages between
   the ARM64 processors and the Cortex M3 (dubbed SLIMpro). It uses a simple

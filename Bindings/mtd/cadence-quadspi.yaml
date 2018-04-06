@@ -13,7 +13,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,k2g-qspi
+          - cdns,qspi-nor
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  cdns,fifo-depth:
+    description: FIXME
+  cdns,fifo-width:
+    description: FIXME
+  cdns,trigger-address:
+    description: FIXME
+  clocks: {}
+  power-domains: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  cdns,rclk-en:
+    description: FIXME
+    type: boolean
 examples:
   - |
     qspi: spi@ff705000 {

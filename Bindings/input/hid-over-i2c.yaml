@@ -23,7 +23,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hid-over-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  hid-descr-addr: {}
+  vcc-supply: {}
+  wakeup-source: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vdd-supply: {}
+  post-power-on-delay-ms: {}
 examples:
   - |
     i2c-hid-dev@2c {

@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm2835-i2s
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * Broadcom BCM2835 SoC I2S/PCM module
 

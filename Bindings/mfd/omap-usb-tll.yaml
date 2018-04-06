@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,usbhs-tll
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: usb_tll_hs
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 examples:
   - |
     usbhstll: usbhstll@4a062000 {

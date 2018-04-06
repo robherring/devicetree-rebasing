@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,ohci-omap3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  remote-wakeup-connected: {}
 historical: |+
   OMAP HS USB OHCI controller (OMAP3 and later)
 

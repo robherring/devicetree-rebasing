@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5420-mixer
+          - samsung,exynos4210-mixer
+          - samsung,exynos5250-mixer
+          - samsung,exynos4212-mixer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  iommus: {}
+  clock-names:
+    items:
+      - const: mixer
+      - const: hdmi
+      - const: sclk_hdmi
+      - const: vp
+      - const: mout_mixer
+      - const: sclk_mixer
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  clocks: {}
 examples:
   - |
     mixer {

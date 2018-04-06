@@ -16,7 +16,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,r8a73a4-cpg-clocks
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
+  clock-output-names:
+    items:
+      - const: main
+      - const: pll0
+      - const: pll1
+      - const: pll2
+      - const: pll2s
+      - const: pll2h
+      - const: z
+      - const: z2
+      - const: i
+      - const: m3
+      - const: b
+      - const: m1
+      - const: m2
+      - const: zx
+      - const: zs
+      - const: hp
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
 historical: |+
   * Renesas R8A73A4 Clock Pulse Generator (CPG)
 

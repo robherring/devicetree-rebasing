@@ -16,7 +16,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
 examples:
   - |
     gpio0: gpio0@1701c000 {

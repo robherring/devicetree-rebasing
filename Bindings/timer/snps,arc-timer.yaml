@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,arc-timer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  clocks: {}
 examples:
   - |
     timer0 {

@@ -52,7 +52,19 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm2835-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#thermal-sensor-cells':
+    const: 0x0
 historical: |+
   Binding for Thermal Sensor driver for BCM2835 SoCs.
 

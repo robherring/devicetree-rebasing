@@ -12,7 +12,17 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,pnx4008-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 examples:
   - |
     watchdog@4003c000 {

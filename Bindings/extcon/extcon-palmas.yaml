@@ -14,7 +14,21 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,palmas-usb-vid
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,enable-vbus-detection:
+    description: FIXME
+    type: boolean
+  ti,enable-id-detection:
+    description: FIXME
+    type: boolean
+  ti,wakeup:
+    description: FIXME
+    type: boolean
 historical: |
   EXTCON FOR PALMAS/TWL CHIPS
 

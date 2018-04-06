@@ -26,7 +26,63 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,dmac-r8a7790
+          - renesas,dmac-r8a7745
+          - renesas,dmac-r8a7743
+          - renesas,dmac-r8a7791
+          - renesas,dmac-r8a7792
+          - renesas,dmac-r8a7794
+          - renesas,dmac-r8a7793
+          - renesas,dmac-r8a7795
+          - renesas,dmac-r8a7796
+          - renesas,dmac-r8a77970
+          - renesas,dmac-r8a77995
+      - const: renesas,rcar-dmac
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: error
+      - const: ch0
+      - const: ch1
+      - const: ch2
+      - const: ch3
+      - const: ch4
+      - const: ch5
+      - const: ch6
+      - const: ch7
+      - const: ch8
+      - const: ch9
+      - const: ch10
+      - const: ch11
+      - const: ch12
+      - const: ch13
+      - const: ch14
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
+  resets: {}
+  '#dma-cells':
+    const: 0x1
+  dma-channels: {}
+  iommus: {}
 examples:
   - |
     dmac0: dma-controller@e6700000 {

@@ -20,7 +20,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - maxim,max77836-muic
+          - maxim,max77836
+          - maxim,max77836-regulator
+          - maxim,max77836-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  wakeup-source: {}
+  maxim,constant-uvolt:
+    description: FIXME
+  maxim,fast-charge-uamp:
+    description: FIXME
+  maxim,eoc-uamp:
+    description: FIXME
+  maxim,ovp-uvolt:
+    description: FIXME
 historical: |+
   Maxim MAX14577/77836 Multi-Function Device
 

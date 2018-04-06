@@ -22,7 +22,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,dm816-fapll-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-indices: {}
+  clock-output-names:
+    items:
+      - const: main_pll_clk1
+      - const: main_pll_clk2
+      - const: main_pll_clk3
+      - const: main_pll_clk4
+      - const: main_pll_clk5
+      - const: main_pll_clk6
+      - const: main_pll_clk7
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
 examples:
   - |
     main_fapll: main_fapll {

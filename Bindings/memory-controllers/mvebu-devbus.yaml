@@ -18,7 +18,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,mvebu-devbus
+          - marvell,orion-devbus
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  clocks: {}
+  devbus,bus-width:
+    description: FIXME
+  devbus,turn-off-ps:
+    description: FIXME
+  devbus,badr-skew-ps:
+    description: FIXME
+  devbus,acc-first-ps:
+    description: FIXME
+  devbus,acc-next-ps:
+    description: FIXME
+  devbus,wr-high-ps:
+    description: FIXME
+  devbus,wr-low-ps:
+    description: FIXME
+  devbus,ale-wr-ps:
+    description: FIXME
 examples:
   - |
     devbus-bootcs@d0010400 {

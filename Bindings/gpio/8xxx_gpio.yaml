@@ -31,7 +31,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,mpc8349-gpio
+          - fsl,mpc8572-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
 examples:
   - |
     gpio1: gpio-controller@c00 {

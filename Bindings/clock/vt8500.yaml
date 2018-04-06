@@ -17,7 +17,36 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - via,vt8500-device-clock
+          - wm,wm8750-pll-clock
+          - wm,wm8650
+          - wm,wm8650-pll-clock
+          - via,vt8500-pll-clock
+          - wm,wm8850-pll-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  divisor-reg: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Wondermedia WM8650-MID Tablet
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Device Tree Clock bindings for arch-vt8500
 

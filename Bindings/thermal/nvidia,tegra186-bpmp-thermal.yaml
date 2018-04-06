@@ -24,7 +24,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra186-bpmp-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x1
 historical: |+
   NVIDIA Tegra186 BPMP thermal sensor
 

@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun5i-a10s-pwm
+          - allwinner,sun7i-a20-pwm
+          - allwinner,sun4i-a10-pwm
+          - allwinner,sun8i-h3-pwm
+          - allwinner,sun5i-a13-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#pwm-cells':
+    const: 0x3
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     pwm: pwm@1c20e00 {

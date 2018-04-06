@@ -17,7 +17,50 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,qoriq-sysclk-2.0
+          - fixed-clock
+          - fsl,qoriq-sysclk-1.0
+          - fsl,imx-ckil
+          - fsl,imx-ckih1
+          - fsl,imx-osc
+          - fsl,imx-osc26m
+          - fsl,imx-ckih2
+          - samsung,clock-xxti
+          - samsung,clock-xusbxti
+          - fsl,imx-clk32
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clock-frequency: {}
+  clock-output-names:
+    items:
+      - const: mmc_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-accuracy: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-outputs:
+    items:
+      - const: bus
+      - const: pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ref-clock: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
 examples:
   - |
     clock {

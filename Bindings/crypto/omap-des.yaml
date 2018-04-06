@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,omap4-des
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: des
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     /* DRA7xx SoC */

@@ -23,7 +23,55 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3328-usb2phy
+          - rockchip,rv1108-usb
+      - const: rockchip,rk3066-usb
+      - const: snps,dwc2
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  g-np-tx-fifo-size: {}
+  g-rx-fifo-size: {}
+  g-tx-fifo-size: {}
+  g-use-dma: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-output-names:
+    items:
+      - const: usb480m_phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  assigned-clocks: {}
+  assigned-clock-parents: {}
 examples:
   - |
     pmugrf: syscon@ff320000 {

@@ -16,7 +16,44 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx6sx-lcdif
+          - fsl,imx28-lcdif
+          - fsl,imx23-lcdif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  display: {}
+  clock-names:
+    items:
+      - const: pix
+      - const: axi
+      - const: disp_axi
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 examples:
   - |
     lcdif1: display-controller@2220000 {

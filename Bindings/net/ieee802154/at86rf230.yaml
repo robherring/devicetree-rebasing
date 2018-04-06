@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,at86rf233
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  spi-max-frequency: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  xtal-trim: {}
+  sleep-gpio: {}
+  reset-gpio: {}
+  fsl,spi-cs-sck-delay:
+    description: FIXME
+  fsl,spi-sck-cs-delay:
+    description: FIXME
 examples:
   - |
     at86rf231@0 {

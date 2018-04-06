@@ -20,7 +20,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,vf610-mscm-ir
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,cpucfg:
+    description: FIXME
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-parent: {}
 historical: |+
   Freescale Vybrid Miscellaneous System Control - Interrupt Router
 

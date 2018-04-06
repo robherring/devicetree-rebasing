@@ -18,7 +18,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,twl6040
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,audpwron-gpio:
+    description: FIXME
+  vio-supply: {}
+  v2v1-supply: {}
+  enable-active-high: {}
 historical: |+
   Texas Instruments TWL6040 family
 

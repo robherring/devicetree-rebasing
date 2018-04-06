@@ -12,7 +12,48 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - toradex,tegra-audio-sgtl5000-apalis_tk1
+          - toradex,tegra-audio-sgtl5000-apalis_t30
+          - toradex,tegra-audio-sgtl5000-colibri_t30
+      - const: nvidia,tegra-audio-sgtl5000
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,model:
+    items:
+      - const: Toradex Apalis T30
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  nvidia,audio-routing:
+    items:
+      - const: Headphone Jack
+      - const: HP_OUT
+      - const: LINE_IN
+      - const: Line In Jack
+      - const: MIC_IN
+      - const: Mic Jack
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+    description: FIXME
+  nvidia,i2s-controller:
+    description: FIXME
+  nvidia,audio-codec:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: pll_a
+      - const: pll_a_out0
+      - const: mclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   NVIDIA Tegra audio complex, with SGTL5000 CODEC
 

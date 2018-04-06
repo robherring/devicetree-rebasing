@@ -15,7 +15,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,h8s2678-pll-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x0
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   Renesas H8S2678 PLL clock
 

@@ -17,7 +17,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s5p-cec
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: hdmicec
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  samsung,syscon-phandle:
+    description: FIXME
+  hdmi-phandle: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * Samsung HDMI CEC driver
 

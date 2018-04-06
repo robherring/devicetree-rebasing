@@ -16,7 +16,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s5pv210-audss-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: hclk
+      - const: xxti
+      - const: fout_epll
+      - const: sclk_audio0
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
 examples:
   - |
     clk_audss: clock-controller@c0900000 {

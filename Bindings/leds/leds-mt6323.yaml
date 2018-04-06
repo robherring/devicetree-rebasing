@@ -24,7 +24,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt6323-led
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 examples:
   - |
     mt6323: pmic {

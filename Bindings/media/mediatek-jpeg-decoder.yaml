@@ -15,7 +15,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt2701-jpgdec
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: jpgdec-smi
+      - const: jpgdec
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  mediatek,larb:
+    description: FIXME
+  iommus: {}
 examples:
   - |
     jpegdec: jpegdec@15004000 {

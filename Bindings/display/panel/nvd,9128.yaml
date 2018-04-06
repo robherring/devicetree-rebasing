@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvd,9128
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   New Vision Display 7.0" 800 RGB x 480 TFT LCD panel
 

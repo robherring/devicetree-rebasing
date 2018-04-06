@@ -76,7 +76,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,qman-portal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  cell-index: {}
 historical: |+
   QorIQ DPAA Queue Manager Portals Device Tree Binding
 

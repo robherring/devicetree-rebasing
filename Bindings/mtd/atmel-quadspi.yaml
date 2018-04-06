@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,sama5d2-qspi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: qspi_base
+      - const: qspi_mmap
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   * Atmel Quad Serial Peripheral Interface (QSPI)
 

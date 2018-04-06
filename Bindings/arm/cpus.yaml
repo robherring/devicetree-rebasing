@@ -48,7 +48,59 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,pj4a
+          - qcom,kpss-acc-v1
+          - arm,arm926ej-s
+          - arm,arm1176jz-s
+          - arm,arm1176jzf
+          - arm,arm720t
+          - arm,arm1136jf-s
+          - arm,cortex-m4
+          - brcm,brahma-b15
+          - qcom,kpss-acc-v2
+          - arm,arm1176jzf-s
+          - arm,arm920t
+          - qcom,gcc-msm8660
+          - marvell,pj4b
+          - faraday,fa526
+          - cavium,thunder2
+          - qcom,kryo
+          - nvidia,tegra186-denver
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  device_type:
+    items:
+      - const: cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  next-level-cache: {}
+  cpu-clock: {}
+  d-cache-line-size: {}
+  d-cache-size: {}
+  i-cache-line-size: {}
+  i-cache-size: {}
+  clocks: {}
+  enable-method:
+    items:
+      - const: brcm,brahma-b15
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
+  clock-latency: {}
+  operating-points: {}
 examples:
   - |
     cpus {

@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra20-apbdma
+          - nvidia,tegra30-apbdma
+      - const: nvidia,tegra20-apbdma
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x1
 historical: |+
   * NVIDIA Tegra APB DMA controller
 

@@ -25,7 +25,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,mhu
+      - const: arm,primecell
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: mhu_lpri_rx
+      - const: mhu_hpri_rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#mbox-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: apb_pclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   ARM MHU Mailbox Driver
   ======================

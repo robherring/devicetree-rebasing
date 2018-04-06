@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: synopsys,dwc3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  usb-phy: {}
+  dr_mode:
+    items:
+      - const: host
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Generic USB Properties
 

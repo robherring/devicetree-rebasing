@@ -27,7 +27,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: allwinner,sun8i-a33-codec
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: bus
+      - const: mod
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   Allwinner SUN8I audio codec
   ------------------------------------

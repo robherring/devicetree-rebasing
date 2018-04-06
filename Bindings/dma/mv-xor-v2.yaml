@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,armada-7k-xor
+      - const: marvell,xor-v2
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  msi-parent: {}
+  clocks: {}
+  dma-coherent: {}
 examples:
   - |
     xor0@400000 {

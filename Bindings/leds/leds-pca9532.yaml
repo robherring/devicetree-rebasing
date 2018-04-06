@@ -16,7 +16,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nxp,pca9533
+          - nxp,pca9532
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   *NXP - pca9532 PWM LED Driver
 

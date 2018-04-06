@@ -15,7 +15,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,max98357a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Maxim MAX98357A audio DAC
 

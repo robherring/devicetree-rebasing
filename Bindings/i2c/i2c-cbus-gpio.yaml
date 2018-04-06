@@ -12,7 +12,17 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: i2c-cbus-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   Device tree bindings for i2c-cbus-gpio driver
 

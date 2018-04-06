@@ -67,7 +67,20 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra210-car
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
 historical: |+
   NVIDIA Tegra210 Clock And Reset Controller
 

@@ -12,7 +12,68 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,da830-cppi41
+          - ti,da830-musb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: mc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx1
+      - const: rx2
+      - const: rx3
+      - const: rx4
+      - const: tx1
+      - const: tx2
+      - const: tx3
+      - const: tx4
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+  reg-names:
+    items:
+      - const: controller
+      - const: scheduler
+      - const: queuemgr
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#dma-cells':
+    const: 0x2
+  '#dma-channels': {}
 examples:
   - |
     usb_phy: usb-phy {

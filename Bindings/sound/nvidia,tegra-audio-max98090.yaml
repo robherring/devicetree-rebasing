@@ -12,7 +12,63 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra-audio-max98090-venice2
+          - nvidia,tegra-audio-max98090-nyan-big
+          - nvidia,tegra-audio-max98090-nyan-blaze
+      - const: nvidia,tegra-audio-max98090-nyan
+      - const: nvidia,tegra-audio-max98090
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  nvidia,audio-routing:
+    items:
+      - const: Headphones
+      - const: HPR
+      - const: Headphones
+      - const: HPL
+      - const: Speakers
+      - const: SPKR
+      - const: Speakers
+      - const: SPKL
+      - const: Mic Jack
+      - const: MICBIAS
+      - const: DMICL
+      - const: Int Mic
+      - const: DMICR
+      - const: Int Mic
+      - const: IN34
+      - const: Mic Jack
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
+    description: FIXME
+  nvidia,i2s-controller:
+    description: FIXME
+  nvidia,audio-codec:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: pll_a
+      - const: pll_a_out0
+      - const: mclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  nvidia,hp-det-gpios:
+    description: FIXME
+  nvidia,mic-det-gpios:
+    description: FIXME
+  nvidia,model:
+    items:
+      - const: GoogleNyanBig
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 historical: |+
   NVIDIA Tegra audio complex, with MAX98090 CODEC
 

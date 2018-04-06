@@ -12,7 +12,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: socionext,uniphier-sd4hc
+      - const: cdns,sd4hc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clocks: {}
+  resets: {}
+  bus-width: {}
+  mmc-ddr-1_8v: {}
+  mmc-hs200-1_8v: {}
+  mmc-pwrseq: {}
+  cdns,phy-input-delay-legacy:
+    description: FIXME
+  cdns,phy-input-delay-mmc-highspeed:
+    description: FIXME
+  cdns,phy-input-delay-mmc-ddr:
+    description: FIXME
+  cdns,phy-dll-delay-sdclk:
+    description: FIXME
+  cdns,phy-dll-delay-sdclk-hsmmc:
+    description: FIXME
 examples:
   - |
     emmc: sdhci@5a000000 {

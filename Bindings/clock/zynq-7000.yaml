@@ -25,7 +25,73 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,ps7-clkc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  fclk-enable: {}
+  clock-output-names:
+    items:
+      - const: armpll
+      - const: ddrpll
+      - const: iopll
+      - const: cpu_6or4x
+      - const: cpu_3or2x
+      - const: cpu_2x
+      - const: cpu_1x
+      - const: ddr2x
+      - const: ddr3x
+      - const: dci
+      - const: lqspi
+      - const: smc
+      - const: pcap
+      - const: gem0
+      - const: gem1
+      - const: fclk0
+      - const: fclk1
+      - const: fclk2
+      - const: fclk3
+      - const: can0
+      - const: can1
+      - const: sdio0
+      - const: sdio1
+      - const: uart0
+      - const: uart1
+      - const: spi0
+      - const: spi1
+      - const: dma
+      - const: usb0_aper
+      - const: usb1_aper
+      - const: gem0_aper
+      - const: gem1_aper
+      - const: sdio0_aper
+      - const: sdio1_aper
+      - const: spi0_aper
+      - const: spi1_aper
+      - const: can0_aper
+      - const: can1_aper
+      - const: i2c0_aper
+      - const: i2c1_aper
+      - const: uart0_aper
+      - const: uart1_aper
+      - const: gpio_aper
+      - const: lqspi_aper
+      - const: smc_aper
+      - const: swdt
+      - const: dbg_trc
+      - const: dbg_apb
+    minItems: 48
+    maxItems: 48
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ps-clk-frequency: {}
 examples:
   - |
     clkc: clkc@100 {

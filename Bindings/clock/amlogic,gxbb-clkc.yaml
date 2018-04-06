@@ -16,7 +16,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,gxbb-clkc
+          - amlogic,gxl-clkc
+      - const: amlogic,gxbb-clkc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     clkc: clock-controller@c883c000 {

@@ -434,7 +434,20 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos-bus
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: bus
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  operating-points-v2: {}
 examples:
   - |
     Show the AXI buses of Exynos3250 SoC. Exynos3250 divides the buses to

@@ -17,7 +17,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: aspeed,ast2400-vic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  valid-sources: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Aspeed Vectored Interrupt Controller
 

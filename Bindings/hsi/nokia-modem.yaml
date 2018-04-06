@@ -17,7 +17,63 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nokia,n950-modem
+          - nokia,n900-modem
+          - nokia,n9-modem
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  hsi-channel-ids: {}
+  hsi-channel-names:
+    items:
+      - const: mcsaab-control
+      - const: speech-control
+      - const: speech-data
+      - const: mcsaab-data
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  hsi-speed-kbps: {}
+  hsi-mode:
+    items:
+      - const: frame
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  hsi-flow:
+    items:
+      - const: synchronized
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  hsi-arb-mode:
+    items:
+      - const: round-robin
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts-extended: {}
+  gpios: {}
+  gpio-names:
+    items:
+      - const: cmt_apeslpx
+      - const: cmt_rst_rq
+      - const: cmt_en
+      - const: cmt_rst
+      - const: cmt_bsi
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
 historical: |+
   Nokia modem client bindings
 

@@ -12,7 +12,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: i2c-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  i2c-gpio,delay-us:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  i2c-gpio,sda-open-drain:
+    description: FIXME
+    type: boolean
+  i2c-gpio,scl-open-drain:
+    description: FIXME
+    type: boolean
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  sda-gpios: {}
+  scl-gpios: {}
+  i2c-gpio,scl-output-only:
+    description: FIXME
+    type: boolean
+  clock-frequency: {}
 historical: |+
   Device-Tree bindings for i2c gpio driver
 

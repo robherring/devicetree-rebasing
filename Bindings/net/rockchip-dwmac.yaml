@@ -16,7 +16,86 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3228-gmac
+          - rockchip,rk3288-gmac
+          - rockchip,rk3399-gmac
+          - rockchip,rk3368-gmac
+          - rockchip,rk3328-gmac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+      - const: eth_wake_irq
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  rockchip,grf:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: stmmaceth
+      - const: mac_clk_rx
+      - const: mac_clk_tx
+      - const: clk_mac_ref
+      - const: clk_mac_refout
+      - const: aclk_mac
+      - const: pclk_mac
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  clock_in_out:
+    items:
+      - const: input
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-supply: {}
+  phy-mode:
+    items:
+      - const: rgmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  snps,reset-gpio:
+    description: FIXME
+  snps,reset-active-low:
+    description: FIXME
+    type: boolean
+  snps,reset-delays-us:
+    description: FIXME
+  tx_delay: {}
+  rx_delay: {}
+  power-domains: {}
+  snps,force_thresh_dma_mode:
+    description: FIXME
+    type: boolean
 historical: |+
   Rockchip SoC RK3288 10/100/1000 Ethernet driver(GMAC)
 

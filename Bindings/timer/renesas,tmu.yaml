@@ -20,7 +20,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,tmu-r8a7779
+          - renesas,tmu-r8a7740
+          - renesas,tmu-r8a7778
+      - const: renesas,tmu
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
+  '#renesas,channels': {}
 examples:
   - |
     tmu0: timer@ffd80000 {

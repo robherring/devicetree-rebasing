@@ -27,7 +27,12 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,smd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Qualcomm Shared Memory Driver (SMD) binding
 

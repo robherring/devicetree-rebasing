@@ -18,7 +18,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,corenet1-cf
+          - fsl,corenet2-cf
+      - const: fsl,corenet-cf
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  fsl,ccf-num-csdids:
+    description: FIXME
+  fsl,ccf-num-snoopids:
+    description: FIXME
 examples:
   - |
     corenet-cf@18000 {

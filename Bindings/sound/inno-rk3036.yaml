@@ -15,7 +15,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rk3036-codec
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  rockchip,grf:
+    description: FIXME
+  clock-names:
+    items:
+      - const: acodec_pclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 examples:
   - |
     acodec: acodec-ana@20030000 {

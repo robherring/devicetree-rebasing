@@ -13,7 +13,53 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-mcspi
+          - ti,omap2-mcspi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  ti,hwmods:
+    items:
+      - const: mcspi1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,spi-num-cs:
+    description: FIXME
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx0
+      - const: rx0
+      - const: tx1
+      - const: rx1
+      - const: tx2
+      - const: rx2
+      - const: tx3
+      - const: rx3
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   OMAP2+ McSPI device
 

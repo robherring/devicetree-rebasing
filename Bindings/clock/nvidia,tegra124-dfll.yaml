@@ -23,7 +23,56 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra124-dfll
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: soc
+      - const: ref
+      - const: i2c
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: dvco
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clock-output-names:
+    items:
+      - const: dfllCPU_out
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvidia,sample-rate:
+    description: FIXME
+  nvidia,droop-ctrl:
+    description: FIXME
+  nvidia,force-mode:
+    description: FIXME
+  nvidia,cf:
+    description: FIXME
+  nvidia,ci:
+    description: FIXME
+  nvidia,cg:
+    description: FIXME
+  vdd-cpu-supply: {}
+  nvidia,i2c-fs-rate:
+    description: FIXME
 historical: |+
   NVIDIA Tegra124 DFLL FCPU clocksource
 

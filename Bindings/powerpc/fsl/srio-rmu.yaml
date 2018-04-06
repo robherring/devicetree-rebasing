@@ -174,7 +174,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,srio-rmu
+          - fsl,srio
+          - fsl,srio-msg-unit
+          - fsl,srio-dbell-unit
+          - fsl,srio-port-write-unit
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  ranges: {}
+  sleep: {}
 examples:
   - |
     rmu: rmu@d3000 {

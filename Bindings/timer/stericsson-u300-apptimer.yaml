@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,u300-apptimer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
 historical: |+
   ST-Ericsson U300 apptimer
 

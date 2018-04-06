@@ -16,7 +16,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,ns-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x0
 historical: |+
   * Broadcom Northstar Thermal
 

@@ -16,7 +16,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hi6220-dsi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Device-Tree bindings for DesignWare DSI Host Controller v1.20a driver
 

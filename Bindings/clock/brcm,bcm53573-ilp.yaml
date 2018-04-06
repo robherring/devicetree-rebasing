@@ -26,7 +26,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm53573-ilp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x0
+  clock-output-names:
+    items:
+      - const: ilp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Broadcom BCM53573 ILP clock
   ===========================

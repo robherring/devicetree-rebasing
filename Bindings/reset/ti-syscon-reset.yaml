@@ -30,7 +30,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,k2e-pscrst
+          - ti,k2l-pscrst
+          - ti,k2hk-pscrst
+          - ti,syscon-reset
+      - const: ti,syscon-reset
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#reset-cells':
+    const: 0x1
+  ti,reset-bits:
+    description: FIXME
 historical: |+
   TI SysCon Reset Controller
   =======================

@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,thermal-spear1340
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  thermal_flags: {}
+  st,thermal-flags:
+    description: FIXME
 examples:
   - |
     thermal@fc000000 {

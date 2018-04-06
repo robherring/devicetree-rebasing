@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cirrus,ep7209-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
 historical: |+
   Cirrus Logic CLPS711X GPIO controller
 

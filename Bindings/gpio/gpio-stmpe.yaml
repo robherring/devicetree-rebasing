@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stmpe-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
 examples:
   - |
     stmpe_gpio {

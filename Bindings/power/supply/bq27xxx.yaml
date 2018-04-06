@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,bq27200
+          - ti,bq27541
+          - ti,bq27500
+          - ti,bq27742
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  battery-name:
+    items:
+      - const: battery
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     bat: battery {

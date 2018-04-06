@@ -13,7 +13,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,dove-audio
+          - marvell,kirkwood-audio
+          - marvell,armada370-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: internal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * mvebu (Kirkwood, Dove, Armada 370) audio controller
 

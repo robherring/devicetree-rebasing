@@ -15,7 +15,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nokia,n900-battery
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: temp
+      - const: bsi
+      - const: vbat
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   Binding for Nokia N900 battery
 

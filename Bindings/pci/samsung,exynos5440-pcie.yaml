@@ -17,7 +17,52 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos5440-pcie
+      - const: snps,dw-pcie
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: elbi
+      - const: config
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pcie
+      - const: pcie_bus
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phys: {}
+  ranges: {}
+  bus-range: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  num-lanes: {}
+  reset-gpio: {}
 historical: |+
   * Samsung Exynos 5440 PCIe interface
 

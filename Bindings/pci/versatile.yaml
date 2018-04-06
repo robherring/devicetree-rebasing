@@ -15,7 +15,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,versatile-pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bus-range: {}
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  '#interrupt-cells':
+    const: 0x1
+  ranges: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
 historical: |+
   * ARM Versatile Platform Baseboard PCI interface
 

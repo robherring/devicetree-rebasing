@@ -17,7 +17,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,c6474-pll
+          - ti,c6455-pll
+          - ti,c6457-pll
+          - ti,c6472-pll
+      - const: ti,c64x+pll
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,c64x+pll-bypass-delay:
+    description: FIXME
+  ti,c64x+pll-reset-delay:
+    description: FIXME
+  ti,c64x+pll-lock-delay:
+    description: FIXME
+  clock-frequency: {}
 examples:
   - |
     clock-controller@29a0000 {

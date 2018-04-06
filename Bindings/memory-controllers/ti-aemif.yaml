@@ -25,7 +25,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,da850-aemif
+          - ti,keystone-aemif
+      - const: ti,davinci-aemif
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: aemif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * Device tree bindings for Texas instruments AEMIF controller
 

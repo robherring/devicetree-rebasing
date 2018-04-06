@@ -12,7 +12,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - panel-dsi-cm
+          - tpo,taal
+          - nokia,himalaya
+      - const: panel-dsi-cm
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  label:
+    items:
+      - const: lcd0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reset-gpios: {}
+  vddi-supply: {}
+  width-mm: {}
+  height-mm: {}
+  backlight: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vpnl-supply: {}
+  te-gpios: {}
 historical: |+
   Generic MIPI DSI Command Mode Panel
   ===================================

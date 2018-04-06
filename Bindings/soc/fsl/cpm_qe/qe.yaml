@@ -24,7 +24,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,qe
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  device_type:
+    items:
+      - const: qe
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  brg-frequency: {}
+  bus-frequency: {}
+  fsl,qe-num-riscs:
+    description: FIXME
+  fsl,qe-num-snums:
+    description: FIXME
 historical: |+
   * Freescale QUICC Engine module (QE)
   This represents qe module that is installed on PowerQUICC II Pro.

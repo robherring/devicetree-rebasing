@@ -15,7 +15,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cnxt,cx92755-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 examples:
   - |
     rtc@f0000c30 {

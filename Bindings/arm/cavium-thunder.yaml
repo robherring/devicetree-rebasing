@@ -17,7 +17,23 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,thunder-88xx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: Cavium ThunderX CN88XX board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Cavium Thunder platform device tree bindings
   --------------------------------------------

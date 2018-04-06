@@ -12,7 +12,46 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rk3399-typec-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: tcpdcore
+      - const: tcpdphy-ref
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  power-domains: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: uphy
+      - const: uphy-pipe
+      - const: uphy-tcphy
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  rockchip,grf:
+    description: FIXME
+  rockchip,typec-conn-dir:
+    description: FIXME
+  rockchip,usb3tousb2-en:
+    description: FIXME
+  rockchip,external-psm:
+    description: FIXME
+  rockchip,pipe-status:
+    description: FIXME
 examples:
   - |
     tcphy0: phy@ff7c0000 {

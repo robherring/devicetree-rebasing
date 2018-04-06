@@ -12,7 +12,60 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra-audio-rt5640-jetson-tk1
+          - nvidia,tegra-audio-rt5640-dalmore
+          - nvidia,tegra-audio-rt5640-beaver
+      - const: nvidia,tegra-audio-rt5640
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,model:
+    items:
+      - const: NVIDIA Tegra Dalmore
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  nvidia,audio-routing:
+    items:
+      - const: Headphones
+      - const: HPOR
+      - const: Headphones
+      - const: HPOL
+      - const: Speakers
+      - const: SPORP
+      - const: Speakers
+      - const: SPORN
+      - const: Speakers
+      - const: SPOLP
+      - const: Speakers
+      - const: SPOLN
+      - const: Mic Jack
+      - const: MICBIAS1
+      - const: IN2P
+      - const: Mic Jack
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
+    description: FIXME
+  nvidia,i2s-controller:
+    description: FIXME
+  nvidia,audio-codec:
+    description: FIXME
+  nvidia,hp-det-gpios:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: pll_a
+      - const: pll_a_out0
+      - const: mclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   NVIDIA Tegra audio complex, with RT5640 CODEC
 

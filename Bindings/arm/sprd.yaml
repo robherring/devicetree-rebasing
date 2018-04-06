@@ -14,7 +14,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - sprd,sp9860g-1h10
+          - sprd,sc9836-openphone
+      - const: sprd,sc9836
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: Spreadtrum SC9836 Openphone Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Spreadtrum SoC Platforms Device Tree Bindings
   ----------------------------------------------------

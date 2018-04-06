@@ -62,7 +62,66 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,mpc5200b-immr
+          - ohci-be
+          - fsl,mpc5200b-fec
+          - fsl,mpc5200-immr
+          - fsl,mpc5200-cdm
+          - fsl,mpc5200-pic
+          - fsl,mpc5200-gpt
+          - fsl,mpc5200-mscan
+          - fsl,mpc5200-gpio
+          - fsl,mpc5200-ohci
+          - fsl,mpc5200-bestcomm
+          - fsl,mpc5200-xlb
+          - fsl,mpc5200-psc-uart
+          - fsl,mpc5200-fec
+          - fsl,mpc5200-ata
+          - fsl,mpc5200-i2c
+          - fsl,mpc5200-pci
+          - fsl,mpc5200-rtc
+          - fsl,mpc5200-gpio-wkup
+          - fsl,mpc5200-spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  bus-frequency: {}
+  system-frequency: {}
+  local-mac-address: {}
+  phy-handle: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x3
+  fsl,has-wdt:
+    description: FIXME
+    type: boolean
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  clock-frequency: {}
+  bus-range: {}
 historical: |
   MPC5200 Device Tree Bindings
   ----------------------------

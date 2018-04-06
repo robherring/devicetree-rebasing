@@ -15,7 +15,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,u300-syscon-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clock-type: {}
+  clock-id: {}
+  clocks: {}
 historical: |+
   Clock bindings for ST-Ericsson U300 System Controller Clocks
 

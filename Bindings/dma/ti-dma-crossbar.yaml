@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,dra7-dma-crossbar
+          - ti,am335x-edma-crossbar
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x3
+  dma-requests: {}
+  dma-masters: {}
+  ti,dma-safe-map:
+    description: FIXME
 historical: |+
   Texas Instruments DMA Crossbar (DMA request router)
 

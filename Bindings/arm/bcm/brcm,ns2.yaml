@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,ns2-xmc
+          - brcm,ns2-svk
+      - const: brcm,ns2
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: Broadcom NS2 SVK
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Broadcom North Star 2 (NS2) device tree bindings
   ------------------------------------------------

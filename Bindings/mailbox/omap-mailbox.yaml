@@ -42,7 +42,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-mailbox
+          - ti,omap3-mailbox
+          - ti,omap2-mailbox
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: mailbox
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#mbox-cells':
+    const: 0x1
+  ti,mbox-num-users:
+    description: FIXME
+  ti,mbox-num-fifos:
+    description: FIXME
+  interrupt-names:
+    items:
+      - const: dsp
+      - const: iva
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   OMAP2+ Mailbox Driver
   =====================

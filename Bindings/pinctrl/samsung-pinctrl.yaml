@@ -19,7 +19,41 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos4210-wakeup-eint
+          - samsung,exynos4210-pinctrl
+          - samsung,exynos5410-pinctrl
+          - samsung,exynos5420-pinctrl
+          - samsung,exynos5250-pinctrl
+          - samsung,exynos3250-pinctrl
+          - samsung,exynos4x12-pinctrl
+          - samsung,s5pv210-pinctrl
+          - samsung,exynos5260-pinctrl
+          - samsung,s3c64xx-pinctrl
+          - samsung,s3c64xx-wakeup-eint
+          - samsung,s3c2416-pinctrl
+          - samsung,s3c2410-wakeup-eint
+          - samsung,exynos5433-pinctrl
+          - samsung,exynos7-wakeup-eint
+          - samsung,exynos7-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     pinctrl_0: pinctrl@11400000 {

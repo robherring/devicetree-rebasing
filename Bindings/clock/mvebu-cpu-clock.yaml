@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-xp-cpu-clock
+          - marvell,sheeva-v7
+          - marvell,mv98dx3236-cpu-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
 historical: |
   Device Tree Clock bindings for cpu clock of Marvell EBU platforms
 

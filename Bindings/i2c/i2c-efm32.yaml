@@ -44,7 +44,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: energymicro,efm32-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-frequency: {}
+  energymicro,location:
+    description: FIXME
 examples:
   - |
     i2c0: i2c@4000a000 {

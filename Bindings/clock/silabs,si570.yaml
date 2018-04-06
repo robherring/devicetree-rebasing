@@ -23,7 +23,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: silabs,si570
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  temperature-stability: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  factory-fout: {}
+  clock-frequency: {}
 examples:
   - |
     si570: clock-generator@5d {

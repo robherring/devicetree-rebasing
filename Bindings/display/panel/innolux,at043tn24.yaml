@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: innolux,at043tn24
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  backlight: {}
+  pinctrl-0: {}
+  enable-gpios: {}
+  power-supply: {}
 historical: |
   Innolux AT043TN24 4.3" WQVGA TFT LCD panel
 

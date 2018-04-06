@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rk3399-pcie-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: refclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x1
+  resets: {}
+  reset-names:
+    items:
+      - const: phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Rockchip PCIE PHY
   -----------------------

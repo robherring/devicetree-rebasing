@@ -17,7 +17,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos4210-ehci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: usbhost
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 examples:
   - |
     usb@12110000 {

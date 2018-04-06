@@ -15,7 +15,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nxp,pca9547
+          - nxp,pca9546
+          - nxp,pca9548
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 examples:
   - |
     i2c-switch@74 {

@@ -22,7 +22,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,l220-cache
+          - arm,pl310-cache
+          - marvell,aurora-outer-cache
+          - arm,l210-cache
+          - marvell,aurora-system-cache
+          - marvell,tauros3-cache
+          - brcm,bcm11351-a2-pl310-cache
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cache-unified: {}
+  cache-level: {}
+  arm,tag-latency:
+    description: FIXME
+  arm,data-latency:
+    description: FIXME
+  interrupt-parent: {}
+  interrupts: {}
+  cache-size: {}
+  cache-sets: {}
+  cache-line-size: {}
+  arm,shared-override:
+    description: FIXME
+    type: boolean
+  arm,parity-enable:
+    description: FIXME
+    type: boolean
+  arm,outer-sync-disable:
+    description: FIXME
+    type: boolean
+  cache-id-part: {}
+  wt-override: {}
+  arm,dirty-latency:
+    description: FIXME
 historical: |+
   * ARM L2 Cache Controller
 

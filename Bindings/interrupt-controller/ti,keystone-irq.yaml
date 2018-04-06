@@ -19,7 +19,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,keystone-irq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  ti,syscon-dev:
+    description: FIXME
 examples:
   - |
     kirq0: keystone_irq0@26202a0 {

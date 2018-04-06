@@ -12,7 +12,52 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: amd,xgbe-seattle-v1a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  interrupts: {}
+  amd,per-channel-interrupt:
+    description: FIXME
+    type: boolean
+  amd,speed-set:
+    description: FIXME
+  amd,serdes-blwc:
+    description: FIXME
+  amd,serdes-cdr-rate:
+    description: FIXME
+  amd,serdes-pq-skew:
+    description: FIXME
+  amd,serdes-tx-amp:
+    description: FIXME
+  amd,serdes-dfe-tap-config:
+    description: FIXME
+  amd,serdes-dfe-tap-enable:
+    description: FIXME
+  mac-address: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: dma_clk
+      - const: ptp_clk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  phy-mode:
+    items:
+      - const: xgmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#stream-id-cells':
+    const: 0x10
+  dma-coherent: {}
 examples:
   - |
     xgbe@e0700000 {

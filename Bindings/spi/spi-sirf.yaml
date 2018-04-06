@@ -12,7 +12,40 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sirf,prima2-spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cell-index: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  sirf,spi-num-chipselects:
+    description: FIXME
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * CSR SiRFprimaII Serial Peripheral Interface
 

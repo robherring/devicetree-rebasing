@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hix5hd2-ir
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  hisilicon,power-syscon:
+    description: FIXME
 examples:
   - |
     ir: ir@f8001000 {

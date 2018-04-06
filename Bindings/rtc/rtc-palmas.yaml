@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,palmas-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
 examples:
   - |
     palmas: tps65913@58 {

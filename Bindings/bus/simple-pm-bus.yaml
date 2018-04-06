@@ -25,7 +25,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: simple-pm-bus
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 examples:
   - |
     bsc: bus@fec10000 {

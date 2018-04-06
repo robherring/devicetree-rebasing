@@ -12,7 +12,34 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rk3288-crypto
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: aclk
+      - const: hclk
+      - const: sclk
+      - const: apb_pclk
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: crypto-rst
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     crypto: cypto-controller@ff8a0000 {

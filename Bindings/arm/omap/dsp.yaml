@@ -15,7 +15,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,omap3-c64
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * TI - DSP (Digital Signal Processor)
 

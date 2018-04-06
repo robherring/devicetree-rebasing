@@ -19,7 +19,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cortina,gemini-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regmap: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   Cortina Systems Gemini pin controller
 

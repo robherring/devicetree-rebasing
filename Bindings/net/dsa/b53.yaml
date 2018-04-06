@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,nsp-srab
+          - brcm,bcm5301x-srab
+          - brcm,bcm11360-srab
+          - brcm,bcm53125
+          - brcm,bcm58625-srab
+          - brcm,bcm58623-srab
+          - brcm,bcm88312-srab
+          - brcm,bcm58622-srab
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   Broadcom BCM53xx Ethernet switches
   ==================================

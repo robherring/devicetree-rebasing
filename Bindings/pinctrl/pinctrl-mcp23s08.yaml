@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: microchip,mcp23017
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Microchip MCP2308/MCP23S08/MCP23017/MCP23S17 driver for
   8-/16-bit I/O expander with serial interface (I2C/SPI)

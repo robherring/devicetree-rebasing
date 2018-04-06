@@ -25,7 +25,37 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,mv88e6190
+          - marvell,mv88e6085
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dsa,member:
+    description: FIXME
+  eeprom-length: {}
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
 examples:
   - |
     mdio {

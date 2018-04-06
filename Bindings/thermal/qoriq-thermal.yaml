@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,qoriq-tmu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  fsl,tmu-range:
+    description: FIXME
+  fsl,tmu-calibration:
+    description: FIXME
+  '#thermal-sensor-cells':
+    const: 0x1
 historical: |+
   * Thermal Monitoring Unit (TMU) on Freescale QorIQ SoCs
 

@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,upm-nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,upm-addr-offset:
+    description: FIXME
+  fsl,upm-cmd-offset:
+    description: FIXME
+  gpios: {}
 historical: |+
   Freescale Localbus UPM programmed to work with NAND flash
 

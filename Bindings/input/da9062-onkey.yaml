@@ -19,7 +19,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: dlg,da9063-onkey
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pmic0: da9063@58 {

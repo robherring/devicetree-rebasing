@@ -20,7 +20,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,sysc-r8a7740
+          - renesas,sysc-r8a73a4
+          - renesas,sysc-sh73a0
+      - const: renesas,sysc-rmobile
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   DT bindings for the Renesas R-Mobile System Controller
 

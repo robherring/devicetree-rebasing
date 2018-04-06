@@ -17,7 +17,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,k2e-evm
+          - ti,k2l-evm
+          - ti,k2g-ice
+          - ti,k2g-evm
+          - ti,k2hk-evm
+      - const: ti,k2l
+      - const: ti,keystone
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  model:
+    items:
+      - const: Texas Instruments Keystone 2 Lamarr EVM
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  interrupt-parent: {}
 historical: |
   TI Keystone Platforms Device Tree Bindings
   -----------------------------------------------

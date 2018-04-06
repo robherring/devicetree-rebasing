@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,mpc8536-pmc
+          - fsl,mpc8313-pmc
+      - const: fsl,mpc8349-pmc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  fsl,mpc8313-wakeup-timer:
+    description: FIXME
 examples:
   - |
     power@b00 {

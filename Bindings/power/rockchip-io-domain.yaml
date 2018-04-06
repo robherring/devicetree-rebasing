@@ -42,7 +42,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3228-io-voltage-domain
+          - rockchip,rk3288-io-voltage-domain
+          - rockchip,rk3399-pmu-io-voltage-domain
+          - rockchip,rk3399-io-voltage-domain
+          - rockchip,rk3368-pmu-io-voltage-domain
+          - rockchip,rk3368-io-voltage-domain
+          - rockchip,rk3328-io-voltage-domain
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bb-supply: {}
+  dvp-supply: {}
+  flash0-supply: {}
+  gpio1830-supply: {}
+  gpio30-supply: {}
+  lcdc-supply: {}
+  wifi-supply: {}
+  vccio1-supply: {}
+  vccio2-supply: {}
+  vccio4-supply: {}
+  pmu1830-supply: {}
+  bt656-supply: {}
+  audio-supply: {}
+  sdmmc-supply: {}
+  pmu-supply: {}
+  vop-supply: {}
+  vccio3-supply: {}
+  vccio5-supply: {}
+  vccio6-supply: {}
+  pmuio-supply: {}
 examples:
   - |
     io-domains {

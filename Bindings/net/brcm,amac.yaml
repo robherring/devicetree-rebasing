@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,amac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: amac_base
+      - const: idm_base
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  dma-coherent: {}
+  phy-mode:
+    items:
+      - const: rgmii-id
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-handle: {}
 historical: |+
   Broadcom AMAC Ethernet Controller Device Tree Bindings
   -------------------------------------------------------------

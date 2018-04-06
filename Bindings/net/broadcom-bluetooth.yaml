@@ -19,7 +19,13 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm43438-bt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  max-speed: {}
 historical: |+
   Broadcom Bluetooth Chips
   ---------------------

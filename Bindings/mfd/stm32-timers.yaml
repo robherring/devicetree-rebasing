@@ -57,7 +57,27 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32-timers
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: int
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     timers@40010000 {

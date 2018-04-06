@@ -49,7 +49,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,nomadik-nhk-15
+          - calaosystems,usb-s8815
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Calao Systems USB-S8815
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   ST-Ericsson Nomadik Device Tree Bindings
 

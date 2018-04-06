@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,tfp410
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  powerdown-gpios: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  powerdown-gpio: {}
 historical: |+
   TFP410 DPI to DVI encoder
   =========================

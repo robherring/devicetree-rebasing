@@ -66,7 +66,69 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy_type:
+    items:
+      - const: utmi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: reg
+      - const: pll_u
+      - const: timer
+      - const: utmi-pads
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: usb
+      - const: utmi-pads
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,has-legacy-mode:
+    description: FIXME
+    type: boolean
+  nvidia,hssync-start-delay:
+    description: FIXME
+  nvidia,idle-wait-delay:
+    description: FIXME
+  nvidia,elastic-limit:
+    description: FIXME
+  nvidia,term-range-adj:
+    description: FIXME
+  nvidia,xcvr-setup:
+    description: FIXME
+  nvidia,xcvr-lsfslew:
+    description: FIXME
+  nvidia,xcvr-lsrslew:
+    description: FIXME
+  nvidia,has-utmi-pad-registers:
+    description: FIXME
+    type: boolean
+  vbus-supply: {}
+  nvidia,phy-reset-gpio:
+    description: FIXME
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Tegra SOC USB PHY
 

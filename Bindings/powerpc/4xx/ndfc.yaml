@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ibm,ndfc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ccr: {}
+  bank-settings: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 historical: |+
   AMCC NDFC (NanD Flash Controller)
 

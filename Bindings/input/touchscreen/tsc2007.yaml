@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,tsc2007
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,x-plate-ohms:
+    description: FIXME
 examples:
   - |
     &i2c1 {

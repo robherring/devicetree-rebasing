@@ -25,7 +25,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-creg-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
 historical: |+
   * NXP LPC1850 CREG clocks
 

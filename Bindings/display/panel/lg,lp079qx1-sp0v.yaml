@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lg,lp079qx1-sp0v
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  backlight: {}
+  enable-gpios: {}
+  pinctrl-0: {}
+  power-supply: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   LG LP079QX1-SP0V 7.9" (1536x2048 pixels) TFT LCD panel
 

@@ -12,7 +12,72 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,ns16550
+          - ns16550
+          - ns16550a
+          - ns16750
+          - ti,da830-uart
+          - nxp,lpc3220-uart
+          - fsl,16550-FIFO64
+          - nvidia,tegra20-uart
+          - aspeed,ast2500-vuart
+          - aspeed,ast2400-vuart
+          - ns8250
+          - ralink,rt2880-uart
+          - altr,16550-FIFO32
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: serial
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  virtual-reg: {}
+  clock-frequency: {}
+  current-speed: {}
+  interrupt-parent: {}
+  interrupts: {}
+  cell-index: {}
+  reg-shift: {}
+  reg-io-width: {}
+  clocks: {}
+  fifo-size: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: serial
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  no-loopback-test: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  fsl,weim-cs-timing:
+    description: FIXME
+  auto-flow-control: {}
+  tx-threshold: {}
 examples:
   - |
     uart@80230000 {

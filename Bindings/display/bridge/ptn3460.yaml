@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,ptn3460
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  powerdown-gpios: {}
+  reset-gpios: {}
+  edid-emulation: {}
 examples:
   - |
     lvds-bridge@20 {

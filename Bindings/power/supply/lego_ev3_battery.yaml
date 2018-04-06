@@ -17,7 +17,41 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - lego,ev3-battery
+          - lego,ev3
+      - const: ti,da850
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: LEGO MINDSTORMS EV3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: voltage
+      - const: current
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  rechargeable-gpios: {}
 examples:
   - |
     battery {

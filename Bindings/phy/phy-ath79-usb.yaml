@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qca,ar7100-usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reset-names:
+    items:
+      - const: usb-phy
+      - const: usb-suspend-override
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  '#phy-cells':
+    const: 0x0
 examples:
   - |
     usb-phy {

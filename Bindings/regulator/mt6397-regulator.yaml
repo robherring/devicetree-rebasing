@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt6397-regulator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pmic {

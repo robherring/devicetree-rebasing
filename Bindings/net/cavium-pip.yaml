@@ -110,7 +110,31 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - cavium,octeon-3860-pip-interface
+          - cavium,octeon-3860-pip
+          - cavium,octeon-3860-pip-port
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  local-mac-address: {}
+  interrupt-parent: {}
+  model:
+    items:
+      - const: ubnt,e100
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pip@11800a0000000 {

@@ -16,7 +16,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,hlcdc-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#pwm-cells':
+    const: 0x3
 examples:
   - |
     hlcdc: hlcdc@f0030000 {

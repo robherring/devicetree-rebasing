@@ -27,7 +27,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - megachips,stdp4028-ge-b850v3-fw
+          - megachips,stdp2690-ge-b850v3-fw
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
 historical: |+
   Drivers for the second video output of the GE B850v3:
      STDP4028-ge-b850v3-fw bridges (LVDS-DP)

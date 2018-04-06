@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx53-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
 historical: |+
   * i.MX53 Secure Real Time Clock (SRTC)
 

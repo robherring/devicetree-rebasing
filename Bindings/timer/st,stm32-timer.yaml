@@ -15,7 +15,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32-timer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
 historical: |+
   . STMicroelectronics STM32 timer
 

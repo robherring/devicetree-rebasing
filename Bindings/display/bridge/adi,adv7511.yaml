@@ -19,7 +19,46 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: adi,adv7511
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  adi,input-depth:
+    description: FIXME
+  adi,input-colorspace:
+    items:
+      - const: yuv422
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  adi,input-clock:
+    items:
+      - const: 1x
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  adi,input-style:
+    description: FIXME
+  adi,input-justification:
+    items:
+      - const: right
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  interrupts: {}
+  adi,clock-delay:
+    description: FIXME
+  '#sound-dai-cells':
+    const: 0x0
 historical: |+
   Analog Device ADV7511(W)/13/33 HDMI Encoders
   -----------------------------------------

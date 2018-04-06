@@ -19,7 +19,77 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,ucc-mdio
+          - ucc_geth
+          - gianfar
+          - fsl,gianfar-mdio
+          - fsl,gianfar-tbi
+          - fsl,etsec2-mdio
+          - fsl,etsec2-tbi
+          - fsl,fman-mdio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: network
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cell-index: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  local-mac-address: {}
+  rx-clock-name:
+    items:
+      - const: clk9
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  tx-clock-name:
+    items:
+      - const: clk10
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-handle: {}
+  pio-handle: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  model:
+    items:
+      - const: eTSEC
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  phy-connection-type:
+    items:
+      - const: mii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  tbi-handle: {}
+  sleep: {}
+  fsl,magic-packet:
+    description: FIXME
+    type: boolean
+  fsl,num_rx_queues:
+    description: FIXME
+  fsl,num_tx_queues:
+    description: FIXME
+  fsl,wake-on-filer:
+    description: FIXME
+    type: boolean
 examples:
   - |
     mdio@24520 {

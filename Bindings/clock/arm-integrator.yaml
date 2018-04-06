@@ -24,7 +24,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,versatile-cm-auxosc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
 historical: |+
   Clock bindings for ARM Integrator and Versatile Core Module clocks
 

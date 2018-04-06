@@ -19,7 +19,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: syna,rmi4-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  vdd-supply: {}
+  vio-supply: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 examples:
   - |
     &i2c1 {

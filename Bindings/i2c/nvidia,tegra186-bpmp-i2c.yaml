@@ -25,7 +25,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra186-bpmp-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvidia,bpmp-bus-id:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   NVIDIA Tegra186 BPMP I2C controller
 

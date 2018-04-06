@@ -36,7 +36,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,max77686
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  wakeup-source: {}
+  '#clock-cells':
+    const: 0x1
 historical: |+
   Binding for Maxim MAX77686/MAX77802/MAX77620 32k clock generator block
 

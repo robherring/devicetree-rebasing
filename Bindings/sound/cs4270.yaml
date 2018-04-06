@@ -15,7 +15,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cirrus,cs4270
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
 historical: |+
   CS4270 audio CODEC
 

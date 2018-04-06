@@ -16,7 +16,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,ipq806x-ahci
+      - const: generic-ahci
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: slave_face
+      - const: iface
+      - const: core
+      - const: rxoob
+      - const: pmalive
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: sata-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ports-implemented: {}
 examples:
   - |
     sata@29000000 {

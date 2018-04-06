@@ -31,7 +31,71 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,mv64360-mdio
+          - marvell,mv64360
+          - marvell,mv64360-eth
+          - marvell,mv64360-sdma
+          - marvell,mv64360-brg
+          - marvell,mv64360-mpsc
+          - marvell,mv64360-wdt
+          - marvell,mv64360-i2c
+          - marvell,mv64360-pic
+          - marvell,mv64360-mpp
+          - marvell,mv64360-gpp
+          - marvell,mv64360-pci
+          - marvell,mv64360-cpu-error
+          - marvell,mv64360-sram-ctrl
+          - marvell,mv64360-pci-error
+          - marvell,mv64360-mem-ctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: mv64460
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  virtual-reg: {}
+  ranges: {}
+  device_type:
+    items:
+      - const: network
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  phy: {}
+  local-mac-address: {}
+  interrupt-base: {}
+  clock-src: {}
+  current-speed: {}
+  sdma: {}
+  brg: {}
+  cunit: {}
+  mpscrouting: {}
+  mpscintr: {}
+  cell-index: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-controller: {}
+  bus-range: {}
+  interrupt-pci-iack: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
 historical: |+
   Marvell Discovery mv64[345]6x System Controller chips
   ===========================================================

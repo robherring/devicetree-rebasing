@@ -12,7 +12,75 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,db8500-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: IRQ_HOTMON_LOW
+      - const: IRQ_HOTMON_HIGH
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  num-trips: {}
+  trip0-temp: {}
+  trip0-type:
+    items:
+      - const: active
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  trip0-cdev-num: {}
+  trip0-cdev-name0:
+    items:
+      - const: thermal-cpufreq-0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  trip1-temp: {}
+  trip1-type:
+    items:
+      - const: active
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  trip1-cdev-num: {}
+  trip1-cdev-name0:
+    items:
+      - const: thermal-cpufreq-0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  trip2-temp: {}
+  trip2-type:
+    items:
+      - const: active
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  trip2-cdev-num: {}
+  trip2-cdev-name0:
+    items:
+      - const: thermal-cpufreq-0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  trip3-temp: {}
+  trip3-type:
+    items:
+      - const: critical
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  trip3-cdev-num: {}
 historical: |+
   * ST-Ericsson DB8500 Thermal
 

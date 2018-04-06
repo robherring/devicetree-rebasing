@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lsi,zevio-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
 examples:
   - |
     gpio: gpio@90000000 {

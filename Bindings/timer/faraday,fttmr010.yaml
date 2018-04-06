@@ -16,7 +16,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - moxa,moxart-timer
+          - faraday,fttmr010
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  resets: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: PCLK
+      - const: EXTCLK
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  syscon: {}
 historical: |+
   Faraday Technology timer
 

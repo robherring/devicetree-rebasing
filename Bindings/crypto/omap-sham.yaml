@@ -12,7 +12,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap5-sham
+          - ti,omap4-sham
+          - ti,omap2-sham
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: sham
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     /* AM335x */

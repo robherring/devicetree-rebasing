@@ -16,7 +16,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sigma,smp8758-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     cpu_temp: thermal@920100 {

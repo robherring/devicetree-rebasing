@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bus-axi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
 examples:
   - |
     axi@18000000 {

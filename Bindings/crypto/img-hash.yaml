@@ -16,7 +16,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,hash-accelerator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: sys
+      - const: hash
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     hash: hash@18149600 {

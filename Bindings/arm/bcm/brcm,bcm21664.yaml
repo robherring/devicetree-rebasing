@@ -25,7 +25,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm21664-garnet
+      - const: brcm,bcm21664
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: BCM21664 Garnet board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |+
   Broadcom BCM21664 device tree bindings
   --------------------------------------

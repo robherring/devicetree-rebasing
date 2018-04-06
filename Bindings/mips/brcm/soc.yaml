@@ -13,7 +13,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,brcmstb-aon-ctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: aon-ctrl
+      - const: aon-sram
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * Broadcom cable/DSL/settop platforms
 

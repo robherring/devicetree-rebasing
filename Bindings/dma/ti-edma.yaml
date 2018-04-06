@@ -22,7 +22,50 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,edma3-tptc
+          - ti,edma3-tpcc
+          - ti,k2g-edma3-tpcc
+          - ti,k2g-edma3-tptc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: tpcc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: edma3_cc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: edma3_ccint
+      - const: edma3_mperr
+      - const: edma3_ccerrint
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  dma-requests: {}
+  '#dma-cells':
+    const: 0x2
+  ti,tptcs:
+    description: FIXME
+  ti,edma-memcpy-channels:
+    description: FIXME
+  power-domains: {}
 historical: |
   Texas Instruments eDMA
 

@@ -16,7 +16,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ir-spi-led
+          - regulator-fixed
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-name:
+    items:
+      - const: ext_3p3v
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-type:
+    items:
+      - const: voltage
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  startup-delay-us: {}
+  gpio: {}
+  enable-active-high: {}
+  regulator-boot-on: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  power-supply: {}
+  duty-cycle: {}
+  led-active-low: {}
 examples:
   - |
     irled@0 {

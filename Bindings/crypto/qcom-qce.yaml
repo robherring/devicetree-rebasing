@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,crypto-v5.1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: iface
+      - const: bus
+      - const: core
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     crypto@fd45a000 {

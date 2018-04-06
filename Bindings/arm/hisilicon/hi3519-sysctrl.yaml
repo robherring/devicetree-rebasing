@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hi3519
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: HiSilicon HI3519 DEMO Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Hisilicon Hi3519 System Controller Block
 

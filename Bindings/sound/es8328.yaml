@@ -15,7 +15,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - everest,es8388
+          - everest,es8328
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  DVDD-supply: {}
+  AVDD-supply: {}
+  PVDD-supply: {}
+  HPVDD-supply: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clocks: {}
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  assigned-clock-rates: {}
 historical: |+
   Everest ES8328 audio CODEC
 

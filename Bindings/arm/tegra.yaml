@@ -55,7 +55,40 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ad,medcom-wide
+          - nvidia,cardhu-a02
+          - compulab,trimslice
+          - nvidia,cardhu-a04
+          - toradex,apalis_t30-eval
+          - toradex,iris
+          - nvidia,seaboard
+          - ad,plutux
+          - nvidia,ventana
+          - nvidia,harmony
+          - compal,paz00
+          - toradex,apalis-tk1-eval
+          - toradex,colibri_t30-eval-v3
+          - nvidia,beaver
+          - ad,tec
+      - const: nvidia,cardhu
+      - const: nvidia,tegra30
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: NVIDIA Tegra30 Cardhu A02 evaluation board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   NVIDIA Tegra device tree bindings
   -------------------------------------------

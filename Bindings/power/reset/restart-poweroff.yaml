@@ -17,7 +17,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: restart-poweroff
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   * Restart Power Off
 

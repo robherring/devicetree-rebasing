@@ -23,7 +23,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,max77802
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  wakeup-source: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  inb1-supply: {}
+  inb2-supply: {}
+  inb3-supply: {}
+  inb4-supply: {}
+  inb5-supply: {}
+  inb6-supply: {}
+  inb7-supply: {}
+  inb8-supply: {}
+  inb9-supply: {}
+  inb10-supply: {}
+  inl1-supply: {}
+  inl2-supply: {}
+  inl3-supply: {}
+  inl4-supply: {}
+  inl5-supply: {}
+  inl6-supply: {}
+  inl7-supply: {}
+  inl9-supply: {}
+  inl10-supply: {}
 examples:
   - |
     max77802: pmic@9 {

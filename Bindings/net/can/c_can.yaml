@@ -13,7 +13,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - bosch,d_can
+          - ti,am3352-d_can
+          - ti,dra7-d_can
+          - bosch,c_can
+          - ti,am4372-d_can
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: d_can0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  syscon-raminit: {}
+  interrupts: {}
+  resets: {}
 historical: |+
   Bosch C_CAN/D_CAN controller Device Tree Bindings
   -------------------------------------------------

@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,omap-twl4030
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,model:
+    items:
+      - const: overo
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,mcbsp:
+    description: FIXME
 historical: |+
   * Texas Instruments SoC with twl4030 based audio setups
 

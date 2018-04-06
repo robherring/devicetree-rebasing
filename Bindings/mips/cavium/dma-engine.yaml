@@ -17,7 +17,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,octeon-5750-bootbus-dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 examples:
   - |
     dma0: dma-engine@1180000000100 {

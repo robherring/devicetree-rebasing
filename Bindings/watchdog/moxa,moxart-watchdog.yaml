@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: moxa,moxart-watchdog
+      - const: faraday,ftwdt010
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: PCLK
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     watchdog: watchdog@98500000 {

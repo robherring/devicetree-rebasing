@@ -72,7 +72,18 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,ecm-law
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,num-laws:
+    description: FIXME
 historical: |
   =====================================================================
   E500 LAW & Coherency Module Device Tree Binding

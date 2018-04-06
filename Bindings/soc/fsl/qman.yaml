@@ -198,7 +198,27 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,qman-pfdr
+          - fsl,qman-fqd
+          - shared-dma-pool
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  size: {}
+  alignment: {}
+  alloc-ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  fsl,qman-portals:
+    description: FIXME
+  memory-region: {}
+  reusable: {}
 historical: |+
   QorIQ DPAA Queue Manager Device Tree Binding
 

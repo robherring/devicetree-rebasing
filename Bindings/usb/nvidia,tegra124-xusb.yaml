@@ -16,7 +16,72 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra124-xusb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg-names:
+    items:
+      - const: hcd
+      - const: fpci
+      - const: ipfs
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: xusb_host
+      - const: xusb_host_src
+      - const: xusb_falcon_src
+      - const: xusb_ss
+      - const: xusb_ss_div2
+      - const: xusb_ss_src
+      - const: xusb_hs_src
+      - const: xusb_fs_src
+      - const: pll_u_480m
+      - const: clk_m
+      - const: pll_e
+    minItems: 11
+    maxItems: 11
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: xusb_host
+      - const: xusb_ss
+      - const: xusb_src
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  nvidia,xusb-padctl:
+    description: FIXME
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-0
+      - const: usb2-1
+      - const: usb2-2
+      - const: usb3-0
+      - const: usb3-1
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  avddio-pex-supply: {}
+  dvddio-pex-supply: {}
+  avdd-usb-supply: {}
+  avdd-pll-utmip-supply: {}
+  avdd-pll-erefe-supply: {}
+  avdd-usb-ss-pll-supply: {}
+  hvdd-usb-ss-supply: {}
+  hvdd-usb-ss-pll-e-supply: {}
 historical: |+
   NVIDIA Tegra xHCI controller
   ============================

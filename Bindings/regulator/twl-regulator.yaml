@@ -12,7 +12,63 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,twl4030-vaux1
+          - ti,twl4030
+          - ti,twl4030-vaux2
+          - ti,twl4030-vaux3
+          - ti,twl4030-vaux4
+          - ti,twl4030-vdd1
+          - ti,twl4030-vdac
+          - ti,twl4030-vio
+          - ti,twl4030-vintana1
+          - ti,twl4030-vintana2
+          - ti,twl4030-vintdig
+          - ti,twl4030-vmmc1
+          - ti,twl4030-vmmc2
+          - ti,twl4030-vusb1v5
+          - ti,twl4030-vusb1v8
+          - ti,twl4030-vusb3v1
+          - ti,twl4030-vpll1
+          - ti,twl4030-vpll2
+          - ti,twl4030-vsim
+          - ti,twl6030
+          - ti,twl6030-vaux1
+          - ti,twl6030-vaux2
+          - ti,twl6030-vaux3
+          - ti,twl6030-vmmc
+          - ti,twl6030-vpp
+          - ti,twl6030-vusim
+          - ti,twl6030-vdac
+          - ti,twl6030-vana
+          - ti,twl6030-vcxio
+          - ti,twl6030-vusb
+          - ti,twl6030-v1v8
+          - ti,twl6030-v2v1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-always-on: {}
 examples:
   - |
     xyz: regulator@0 {

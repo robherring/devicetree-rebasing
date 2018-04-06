@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,twl4030-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Device tree bindings for twl4030-wdt driver (TWL4030 watchdog)
 

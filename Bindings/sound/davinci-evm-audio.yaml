@@ -12,7 +12,44 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,da830-evm-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,model:
+    items:
+      - const: AM335x-SL50
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,audio-codec:
+    description: FIXME
+  ti,mcasp-controller:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: mclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,audio-routing:
+    items:
+      - const: Headphone Jack
+      - const: HPLOUT
+      - const: Headphone Jack
+      - const: HPROUT
+      - const: LINE1R
+      - const: Line In
+      - const: LINE1L
+      - const: Line In
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+    description: FIXME
 historical: |+
   * Texas Instruments SoC audio setups with TLV320AIC3X Codec
 

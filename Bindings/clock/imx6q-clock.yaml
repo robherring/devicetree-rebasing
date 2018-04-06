@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx6q-ccm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#clock-cells':
+    const: 0x1
 historical: |+
   * Clock bindings for Freescale i.MX6 Quad
 

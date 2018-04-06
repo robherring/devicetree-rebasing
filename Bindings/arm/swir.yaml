@@ -22,7 +22,25 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: swir,mangoh-green-wp8548
+      - const: swir,wp8548
+      - const: qcom,mdm9615
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: MangOH Green with WP8548 Module
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |
   Sierra Wireless Modules device tree bindings
   --------------------------------------------

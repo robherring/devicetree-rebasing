@@ -20,7 +20,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-pmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk
+      - const: clk32k_in
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,invert-interrupt:
+    description: FIXME
+    type: boolean
+  nvidia,suspend-mode:
+    description: FIXME
+  nvidia,cpu-pwr-good-time:
+    description: FIXME
+  nvidia,cpu-pwr-off-time:
+    description: FIXME
+  nvidia,core-pwr-good-time:
+    description: FIXME
+  nvidia,core-pwr-off-time:
+    description: FIXME
+  nvidia,sys-clock-req-active-high:
+    description: FIXME
+    type: boolean
 historical: |+
   NVIDIA Tegra Power Management Controller (PMC)
 

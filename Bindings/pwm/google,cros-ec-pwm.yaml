@@ -19,7 +19,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: google,cros-ec-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x1
 examples:
   - |
     cros-ec@0 {

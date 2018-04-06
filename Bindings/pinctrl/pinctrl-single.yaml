@@ -12,7 +12,55 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - pinctrl-single
+          - ti,omap3-padconf
+          - pinconf-single
+          - ti,omap4-padconf
+          - ti,dra7-padconf
+          - ti,am437-padconf
+          - ti,omap5-padconf
+          - ti,omap2420-padconf
+          - ti,omap2430-padconf
+      - const: pinctrl-single
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  '#pinctrl-cells':
+    const: 0x1
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-controller: {}
+  pinctrl-single,register-width:
+    description: FIXME
+  pinctrl-single,function-mask:
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#gpio-range-cells':
+    const: 0x3
+  ranges: {}
+  pinctrl-single,gpio-range:
+    description: FIXME
+  pinctrl-single,bit-per-mux:
+    description: FIXME
+    type: boolean
+  pinctrl-1: {}
 historical: |+
   One-register-per-pin type device tree based pinctrl driver
 

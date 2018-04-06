@@ -16,7 +16,41 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt7623-i2c
+          - mediatek,mt2701-i2c
+          - mediatek,mt8173-i2c
+      - const: mediatek,mt6577-i2c
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clock-div: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: main
+      - const: dma
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     i2c0: i2c@1100d000 {

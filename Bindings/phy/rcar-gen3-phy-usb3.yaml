@@ -19,7 +19,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,r8a7796-usb3-phy
+          - renesas,r8a7795-usb3-phy
+      - const: renesas,rcar-gen3-usb3-phy
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: usb3-if
+      - const: usb3s_clk
+      - const: usb_extal
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  power-domains: {}
+  resets: {}
+  '#phy-cells':
+    const: 0x0
 examples:
   - |
     usb-phy@e65ee000 {

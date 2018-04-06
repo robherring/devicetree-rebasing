@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: amd,ccp-seattle-v1a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dma-coherent: {}
+  amd,zlib-support:
+    description: FIXME
 examples:
   - |
     ccp@e0100000 {

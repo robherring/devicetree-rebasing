@@ -22,7 +22,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-ccu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: base_apb3_clk
+      - const: base_apb1_clk
+      - const: base_spifi_clk
+      - const: base_cpu_clk
+      - const: base_periph_clk
+      - const: base_usb0_clk
+      - const: base_usb1_clk
+      - const: base_spi_clk
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
 historical: |+
   * NXP LPC1850 Clock Control Unit (CCU)
 

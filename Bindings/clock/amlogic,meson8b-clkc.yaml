@@ -17,7 +17,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: amlogic,meson8b-clkc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     clkc: clock-controller@c1104000 {

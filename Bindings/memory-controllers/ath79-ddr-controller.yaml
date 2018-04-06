@@ -18,7 +18,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qca,ar7240-ddr-controller
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#qca,ddr-wb-channel-cells':
+    const: 0x1
 examples:
   - |
     ddr_ctrl: memory-controller@18000000 {

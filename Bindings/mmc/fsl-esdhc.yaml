@@ -19,7 +19,55 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,t1040-esdhc
+          - fsl,mpc8378-esdhc
+          - fsl,p2020-esdhc
+          - fsl,esdhc
+          - fsl,t4240-esdhc
+          - fsl,mpc8536-esdhc
+          - fsl,p4080-esdhc
+          - fsl,ls1043a-esdhc
+          - fsl,ls2080a-esdhc
+          - fsl,ls1046a-esdhc
+          - fsl,ls1012a-esdhc
+          - fsl,ls1088a-esdhc
+      - const: fsl,esdhc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  sdhci,wp-inverted:
+    description: FIXME
+    type: boolean
+  clock-frequency: {}
+  fsl,iommu-parent:
+    description: FIXME
+  fsl,liodn-reg:
+    description: FIXME
+  sdhci,auto-cmd12:
+    description: FIXME
+    type: boolean
+  fsl,sdhci-auto-cmd12:
+    description: FIXME
+    type: boolean
+  voltage-ranges: {}
+  big-endian: {}
+  bus-width: {}
+  clocks: {}
+  little-endian: {}
+  mmc-hs200-1_8v: {}
+  sd-uhs-sdr104: {}
+  sd-uhs-sdr50: {}
+  sd-uhs-sdr25: {}
+  sd-uhs-sdr12: {}
 historical: |+
   * Freescale Enhanced Secure Digital Host Controller (eSDHC)
 

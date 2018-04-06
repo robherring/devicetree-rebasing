@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-i2s
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: i2s
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   NVIDIA Tegra 20 I2S controller
 

@@ -20,7 +20,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson8-gpio-intc
+          - amlogic,meson-gpio-intc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  amlogic,channel-interrupts:
+    description: FIXME
 historical: |+
   Amlogic meson GPIO interrupt controller
 

@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: regulator-haptic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  haptic-supply: {}
+  min-microvolt: {}
+  max-microvolt: {}
 examples:
   - |
     haptics {

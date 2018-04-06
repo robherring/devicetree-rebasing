@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ezchip,nps400-ic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
 historical: |+
   EZchip NPS Interrupt Controller
 

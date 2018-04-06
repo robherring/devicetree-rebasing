@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,dra7xx-cpsw-phy-sel
+          - ti,am3352-cpsw-phy-sel
+          - ti,am43xx-cpsw-phy-sel
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: gmii-sel
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     phy_sel: cpsw-phy-sel@44e10650 {

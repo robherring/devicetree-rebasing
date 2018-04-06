@@ -12,7 +12,52 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: motorola,mapphone-cpcap-usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  pinctrl-2: {}
+  pinctrl-3: {}
+  pinctrl-names:
+    items:
+      - const: default
+      - const: ulpi
+      - const: utmi
+      - const: uart
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  interrupts-extended: {}
+  interrupt-names:
+    items:
+      - const: id_ground
+      - const: id_float
+      - const: se0conn
+      - const: vbusvld
+      - const: sessvld
+      - const: sessend
+      - const: se1
+      - const: dm
+      - const: dp
+    minItems: 9
+    maxItems: 9
+    additionalItems: false
+  mode-gpios: {}
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: vbus
+      - const: id
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  vusb-supply: {}
 historical: |+
   Motorola CPCAP PMIC USB PHY binding
 

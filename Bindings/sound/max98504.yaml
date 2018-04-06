@@ -16,7 +16,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,max98504
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  maxim,rx-path:
+    description: FIXME
+  maxim,tx-path:
+    description: FIXME
+  maxim,tx-channel-mask:
+    description: FIXME
+  maxim,tx-channel-source:
+    description: FIXME
 historical: |+
   Maxim MAX98504 class D mono speaker amplifier
 

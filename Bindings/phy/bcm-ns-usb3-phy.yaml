@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,ns-ax-usb3-phy
+          - brcm,ns-bx-usb3-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dmp
+      - const: ccb-mii
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
 examples:
   - |
     mdio: mdio@0 {

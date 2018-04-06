@@ -16,7 +16,89 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm2835-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-line-names:
+    items:
+      - const: GPIO0
+      - const: GPIO1
+      - const: SDA1
+      - const: SCL1
+      - const: GPIO_GCLK
+      - const: GPIO5
+      - const: GPIO6
+      - const: SPI_CE1_N
+      - const: SPI_CE0_N
+      - const: SPI_MISO
+      - const: SPI_MOSI
+      - const: SPI_SCLK
+      - const: GPIO12
+      - const: GPIO13
+      - const: TXD0
+      - const: RXD0
+      - const: GPIO16
+      - const: GPIO17
+      - const: GPIO18
+      - const: GPIO19
+      - const: GPIO20
+      - const: GPIO21
+      - const: GPIO22
+      - const: GPIO23
+      - const: GPIO24
+      - const: GPIO25
+      - const: GPIO26
+      - const: GPIO27
+      - const: SDA0
+      - const: SCL0
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: CAM_GPIO1
+      - const: WL_ON
+      - const: NC
+      - const: WIFI_CLK
+      - const: CAM_GPIO0
+      - const: BT_ON
+      - const: HDMI_HPD_N
+      - const: STATUS_LED_N
+      - const: SD_CLK_R
+      - const: SD_CMD_R
+      - const: SD_DATA0_R
+      - const: SD_DATA1_R
+      - const: SD_DATA2_R
+      - const: SD_DATA3_R
+    minItems: 54
+    maxItems: 54
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     gpio: gpio {

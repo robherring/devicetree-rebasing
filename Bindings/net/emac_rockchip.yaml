@@ -6,14 +6,61 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
 version: 1
 
 title: ARC EMAC 10/100 Ethernet platform driver for Rockchip RK3036/RK3066/RK3188
-  SoCs
+  SoCs 
 
 maintainers:
   - Romain Perier <romain.perier@gmail.com>
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3188-emac
+          - rockchip,rk3066-emac
+          - rockchip,rk3036-emac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  rockchip,grf:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: hclk
+      - const: macref
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  max-speed: {}
+  phy-mode:
+    items:
+      - const: rmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  phy: {}
+  phy-supply: {}
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  phy-reset-gpios: {}
+  phy-reset-duration: {}
 historical: |+
   * ARC EMAC 10/100 Ethernet platform driver for Rockchip RK3036/RK3066/RK3188 SoCs
 

@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sharp,lq123p1jx31
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  backlight: {}
+  power-supply: {}
 historical: |
   Sharp 12.3" (2400x1600 pixels) TFT LCD panel
 

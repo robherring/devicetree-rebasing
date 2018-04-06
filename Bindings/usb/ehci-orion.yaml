@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-3700-ehci
+          - marvell,orion-ehci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
 examples:
   - |
     ehci@50000 {

@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx6sx-ccm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: ckil
+      - const: osc
+      - const: ipp_di0
+      - const: ipp_di1
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
 historical: |
   * Clock bindings for Freescale i.MX6 SoloX
 

@@ -13,7 +13,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,dma-spear1340
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  '#dma-cells':
+    const: 0x3
 examples:
   - |
     dmahost: dma@fc000000 {

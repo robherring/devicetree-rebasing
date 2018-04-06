@@ -21,7 +21,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pwm-vibrator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pwms: {}
+  pwm-names:
+    items:
+      - const: enable
+      - const: direction
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  direction-duty-cycle-ns: {}
 historical: |+
   * PWM vibrator device tree bindings
 

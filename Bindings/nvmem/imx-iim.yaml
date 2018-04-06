@@ -16,7 +16,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx51-iim
+          - fsl,imx27-iim
+          - fsl,imx53-iim
+          - fsl,imx35-iim
+          - fsl,imx31-iim
+          - fsl,imx25-iim
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
 examples:
   - |
     iim: iim@63f98000 {

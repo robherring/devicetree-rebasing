@@ -13,7 +13,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-xp-neta
+          - marvell,armada-370-neta
+          - marvell,armada-3700-neta
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy: {}
+  phy-mode:
+    items:
+      - const: rgmii-id
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Marvell Armada 370 / Armada XP / Armada 3700 Ethernet Controller (NETA)
 

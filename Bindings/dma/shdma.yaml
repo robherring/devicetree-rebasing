@@ -24,7 +24,56 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,shdma-r8a73a4
+          - renesas,shdma-mux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x1
+  dma-channels: {}
+  dma-requests: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: error
+      - const: ch0
+      - const: ch1
+      - const: ch2
+      - const: ch3
+      - const: ch4
+      - const: ch5
+      - const: ch6
+      - const: ch7
+      - const: ch8
+      - const: ch9
+      - const: ch10
+      - const: ch11
+      - const: ch12
+      - const: ch13
+      - const: ch14
+      - const: ch15
+      - const: ch16
+      - const: ch17
+      - const: ch18
+      - const: ch19
+    minItems: 21
+    maxItems: 21
+    additionalItems: false
+  clocks: {}
+  power-domains: {}
 examples:
   - |
     dmac: dma-multiplexer@0 {

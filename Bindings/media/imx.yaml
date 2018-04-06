@@ -20,7 +20,13 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx-capture-subsystem
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ports: {}
 historical: |+
   Freescale i.MX Media Video Device
   =================================

@@ -16,7 +16,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8173-vcodec-enc
+          - mediatek,mt8173-vcodec-dec
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 12
+    maxItems: 12
+    additionalItems: false
+  interrupts: {}
+  mediatek,larb:
+    description: FIXME
+  iommus: {}
+  mediatek,vpu:
+    description: FIXME
+  power-domains: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: vcodecpll
+      - const: univpll_d2
+      - const: clk_cci400_sel
+      - const: vdec_sel
+      - const: vdecpll
+      - const: vencpll
+      - const: venc_lt_sel
+      - const: vdec_bus_clk_src
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
 historical: |+
   Mediatek Video Codec
 

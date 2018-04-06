@@ -12,7 +12,39 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ifm,o2d-csi
+          - ifm,o2d
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: ifm,o2i
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ifm,csi-clk-handle:
+    description: FIXME
+  gpios: {}
+  interrupts: {}
+  ifm,csi-addr-bus-width:
+    description: FIXME
+  ifm,csi-data-bus-width:
+    description: FIXME
+  ifm,csi-wait-cycles:
+    description: FIXME
 examples:
   - |
     csi@3,0 {

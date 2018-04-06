@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,anatop-regulator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-name:
+    items:
+      - const: vdd1p1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-always-on: {}
+  anatop-reg-offset: {}
+  anatop-vol-bit-shift: {}
+  anatop-vol-bit-width: {}
+  anatop-min-bit-val: {}
+  anatop-min-voltage: {}
+  anatop-max-voltage: {}
+  anatop-enable-bit: {}
 examples:
   - |
     regulator-vddpu {

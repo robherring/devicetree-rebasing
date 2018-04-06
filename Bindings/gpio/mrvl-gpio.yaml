@@ -13,7 +13,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,mmp-gpio
+          - marvell,mmp2-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: gpio_mux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  resets: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  ranges: {}
 examples:
   - |
     gpio: gpio@d4019000 {

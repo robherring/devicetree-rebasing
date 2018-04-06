@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,ltn140at29-301
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  backlight: {}
+  ddc-i2c-bus: {}
 historical: |
   Samsung Electronics 14" WXGA (1366x768) TFT LCD panel
 

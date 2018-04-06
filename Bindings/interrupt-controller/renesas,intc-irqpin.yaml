@@ -13,7 +13,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,intc-irqpin-r8a7779
+          - renesas,intc-irqpin-r8a7740
+          - renesas,intc-irqpin-r8a7778
+          - renesas,intc-irqpin-sh73a0
+      - const: renesas,intc-irqpin
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  reg:
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  power-domains: {}
+  sense-bitfield-width: {}
+  control-parent: {}
 historical: |+
   DT bindings for the R-/SH-Mobile irqpin controller
 

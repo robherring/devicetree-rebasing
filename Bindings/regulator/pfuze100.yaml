@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,pfuze3000
+          - fsl,pfuze100
+          - fsl,pfuze200
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pmic: pfuze100@8 {

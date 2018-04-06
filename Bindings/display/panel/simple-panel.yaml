@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - urt,umsh-8596md-t
+          - chunghwa,claa101wb01
+          - innolux,n133hse-ea1
+          - panasonic,vvx10f004b00
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ddc-i2c-bus: {}
+  power-supply: {}
+  enable-gpios: {}
+  backlight: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     panel: panel {

@@ -12,7 +12,89 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rk3399-pcie
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: axi-base
+      - const: apb-base
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  '#interrupt-cells':
+    const: 0x1
+  aspm-no-l0s: {}
+  bus-range: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: aclk
+      - const: aclk-perf
+      - const: hclk
+      - const: pm
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: sys
+      - const: legacy
+      - const: client
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  linux,pci-domain:
+    description: FIXME
+  max-link-speed: {}
+  msi-map: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: pcie-phy-0
+      - const: pcie-phy-1
+      - const: pcie-phy-2
+      - const: pcie-phy-3
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  ranges: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: core
+      - const: mgmt
+      - const: mgmt-sticky
+      - const: pipe
+      - const: pm
+      - const: pclk
+      - const: aclk
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  ep-gpios: {}
+  num-lanes: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * Rockchip AXI PCIe Root Port Bridge DT description
 

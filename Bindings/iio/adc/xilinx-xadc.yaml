@@ -22,7 +22,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,zynq-xadc-1.00.a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  clocks: {}
 examples:
   - |
     xadc@f8007100 {

@@ -135,7 +135,30 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,cpm2-fcc-enet
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: network
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  local-mac-address: {}
+  interrupts: {}
+  interrupt-parent: {}
+  phy-handle: {}
+  linux,network-index:
+    description: FIXME
+  fsl,cpm-command:
+    description: FIXME
 examples:
   - |
     ethernet@11300 {

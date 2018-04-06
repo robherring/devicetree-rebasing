@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: axis,dev88
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: Axis 88 Developer Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Boards based on the CRIS SoCs:
 

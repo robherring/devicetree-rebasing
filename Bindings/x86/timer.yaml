@@ -16,7 +16,16 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: intel,ce4100-hpet
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Timers
   ------

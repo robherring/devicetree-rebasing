@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ceva,ahci-1v84
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  ceva,broken-gen2:
+    description: FIXME
+    type: boolean
 examples:
   - |
     ahci@fd0c0000 {

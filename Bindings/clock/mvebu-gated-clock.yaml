@@ -186,7 +186,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,dove-gating-clock
+          - marvell,kirkwood-gating-clock
+          - marvell,armada-390-gating-clock
+          - marvell,armada-370-gating-clock
+          - marvell,armada-375-gating-clock
+          - marvell,armada-xp-gating-clock
+          - marvell,armada-380-gating-clock
+          - marvell,mv98dx3236-gating-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
 historical: |+
   * Gated Clock bindings for Marvell EBU SoCs
 

@@ -12,7 +12,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3288-pwm
+          - rockchip,rk2928-pwm
+          - rockchip,rv1108-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x2
+  clocks: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clock-names:
+    items:
+      - const: pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 examples:
   - |
     pwm0: pwm@20030000 {

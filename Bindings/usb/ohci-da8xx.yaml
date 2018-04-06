@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,da830-ohci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   DA8XX USB OHCI controller
 

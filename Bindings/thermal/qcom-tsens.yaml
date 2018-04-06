@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,msm8996-tsens
+          - qcom,msm8974-tsens
+          - qcom,msm8916-tsens
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvmem-cells: {}
+  nvmem-cell-names:
+    items:
+      - const: calib
+      - const: calib_backup
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x1
 historical: |+
   * QCOM SoC Temperature Sensor (TSENS)
 

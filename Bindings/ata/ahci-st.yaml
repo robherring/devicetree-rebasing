@@ -16,7 +16,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,ahci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: hostc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: ahci_phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: pwr-dwn
+      - const: sw-rst
+      - const: pwr-rst
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  clock-names:
+    items:
+      - const: ahci_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  ports-implemented: {}
 examples:
   - |
     /* Example for stih407 family silicon */

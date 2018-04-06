@@ -15,7 +15,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,hsdk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: snps,hsdk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 historical: |
   Synopsys DesignWare ARC HS Development Kit Device Tree Bindings
   ---------------------------------------------------------------------------

@@ -18,7 +18,96 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,krait-pmu
+          - qcom,krait
+          - arm,cortex-a9-pmu
+          - arm,cortex-a15
+          - arm,cortex-a8
+          - arm,cortex-a8-pmu
+          - arm,cortex-a7-pmu
+          - arm,cortex-a15-pmu
+          - arm,arm11mpcore-pmu
+          - arm,cortex-a12-pmu
+          - arm,cortex-a5-pmu
+          - arm,cortex-a53
+          - arm,arm1176-pmu
+          - qcom,scorpion
+          - qcom,scorpion-mp-pmu
+          - arm,arm1136-pmu
+          - arm,cortex-a72
+          - arm,cortex-a57
+          - arm,cortex-a57-pmu
+          - arm,cortex-a72-pmu
+          - arm,cortex-a73
+          - arm,cortex-a53-pmu
+          - arm,cortex-a73-pmu
+          - arm,armv8-pmuv3
+          - apm,potenza
+          - apm,potenza-pmu
+          - cavium,thunder-pmu
+          - brcm,vulcan-pmu
+          - arm,cortex-a35
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  enable-method:
+    items:
+      - const: qcom,kpss-acc-v1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  next-level-cache: {}
+  qcom,acc:
+    description: FIXME
+  qcom,saw:
+    description: FIXME
+  cpu-idle-states: {}
+  interrupts: {}
+  interrupt-parent: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-latency: {}
+  operating-points: {}
+  cooling-min-level: {}
+  cooling-max-level: {}
+  '#cooling-cells':
+    const: 0x2
+  cpu0-supply: {}
+  clock-frequency: {}
+  power-domains: {}
+  voltage-tolerance: {}
+  ti,hwmods:
+    items:
+      - const: debugss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  interrupt-affinity: {}
+  cpu-supply: {}
+  resets: {}
+  cpu-release-addr: {}
+  operating-points-v2: {}
+  capacity-dmips-mhz: {}
+  proc-supply: {}
 historical: |+
   * ARM Performance Monitor Units
 

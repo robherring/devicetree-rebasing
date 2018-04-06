@@ -20,7 +20,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,bcm58625
+          - brcm,bcm58525
+          - brcm,bcm58522
+          - brcm,bcm58623
+          - brcm,bcm88312
+          - brcm,bcm58622
+      - const: brcm,nsp
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: NorthStar Plus SVK (BCM958525ER)
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |
   Broadcom Northstar Plus device tree bindings
   --------------------------------------------

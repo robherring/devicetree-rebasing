@@ -13,7 +13,44 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-keys
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  autorepeat: {}
+  input-name:
+    items:
+      - const: k1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vdd-supply: {}
+  label:
+    items:
+      - const: EV3 Brick Buttons
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-keys,name:
+    items:
+      - const: gpio-keys
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 examples:
   - |
     gpio-keys {

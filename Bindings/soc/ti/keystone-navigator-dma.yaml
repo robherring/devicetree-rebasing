@@ -35,7 +35,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,keystone-navigator-dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  ti,navigator-cloud-address:
+    description: FIXME
 examples:
   - |
     knav_dmas: knav_dmas@0 {

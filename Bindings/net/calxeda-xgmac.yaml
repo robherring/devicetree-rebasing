@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: calxeda,hb-xgmac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dma-coherent: {}
 historical: |+
   * Calxeda Highbank 10Gb XGMAC Ethernet
 

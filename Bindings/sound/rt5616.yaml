@@ -15,7 +15,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rt5616
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: mclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
 historical: |+
   RT5616 audio CODEC
 

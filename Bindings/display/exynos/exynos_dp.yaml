@@ -125,7 +125,22 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos5-dp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   The Exynos display port interface should be configured based on
   the type of panel connected to it.

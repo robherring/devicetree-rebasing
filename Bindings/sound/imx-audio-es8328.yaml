@@ -12,7 +12,45 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx-audio-es8328
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: imx-audio-es8328
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ssi-controller: {}
+  audio-codec: {}
+  audio-amp-supply: {}
+  jack-gpio: {}
+  audio-routing:
+    items:
+      - const: Speaker
+      - const: LOUT2
+      - const: Speaker
+      - const: ROUT2
+      - const: Speaker
+      - const: audio-amp
+      - const: Headphone
+      - const: ROUT1
+      - const: Headphone
+      - const: LOUT1
+      - const: LINPUT1
+      - const: Mic Jack
+      - const: RINPUT1
+      - const: Mic Jack
+      - const: Mic Jack
+      - const: Mic Bias
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
+  mux-int-port: {}
+  mux-ext-port: {}
 historical: |+
   Freescale i.MX audio complex with ES8328 codec
 

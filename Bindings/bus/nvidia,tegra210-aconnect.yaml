@@ -17,7 +17,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra210-aconnect
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: ape
+      - const: apb2ape
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 examples:
   - |
     aconnect@702c0000 {

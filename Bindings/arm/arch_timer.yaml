@@ -22,7 +22,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,armv8-timer
+          - arm,armv7-timer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 examples:
   - |
     timer {

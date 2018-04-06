@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s3fwrn5-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  s3fwrn5,en-gpios:
+    description: FIXME
+  s3fwrn5,fw-gpios:
+    description: FIXME
 historical: |+
   * Samsung S3FWRN5 NCI NFC Controller
 

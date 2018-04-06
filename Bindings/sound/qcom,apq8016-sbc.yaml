@@ -15,7 +15,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,apq8016-sbc
+      - const: qcom,apq8016
+      - const: qcom,sbc
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  model:
+    items:
+      - const: Qualcomm Technologies, Inc. APQ 8016 SBC
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
 historical: |+
   * Qualcomm Technologies APQ8016 SBC ASoC machine driver
 

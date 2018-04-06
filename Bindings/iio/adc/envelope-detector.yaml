@@ -30,7 +30,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: axentia,tse850-envelope-detector
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: dac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channel-cells':
+    const: 0x1
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: comp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     &i2c {

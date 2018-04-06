@@ -12,7 +12,13 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,opa362
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  enable-gpios: {}
 historical: |+
   OPA362 analog video amplifier
 

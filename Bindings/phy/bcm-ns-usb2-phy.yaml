@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,ns-usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dmu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  clocks: {}
+  clock-names:
+    items:
+      - const: phy-ref-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     usb2-phy {

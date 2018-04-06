@@ -13,7 +13,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,sgtl5000
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  VDDA-supply: {}
+  VDDIO-supply: {}
+  clocks: {}
 historical: |+
   * Freescale SGTL5000 Stereo Codec
 

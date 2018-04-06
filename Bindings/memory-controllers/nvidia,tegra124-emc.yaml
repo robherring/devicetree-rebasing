@@ -384,7 +384,20 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra132-emc
+          - nvidia,tegra124-emc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvidia,memory-controller:
+    description: FIXME
 historical: |+
   NVIDIA Tegra124 SoC EMC (external memory controller)
   ====================================================

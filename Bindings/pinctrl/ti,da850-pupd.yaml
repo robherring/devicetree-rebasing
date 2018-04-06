@@ -16,7 +16,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,da850-pupd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Pin configuration for TI DA850/OMAP-L138/AM18x
 

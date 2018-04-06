@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-370-xp-system-controller
+          - marvell,orion-system-controller
+          - marvell,armada-375-system-controller
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     system-controller@d0018200 {

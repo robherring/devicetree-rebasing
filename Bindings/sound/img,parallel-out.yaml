@@ -12,7 +12,43 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,parallel-out
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: sys
+      - const: ref
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: rst
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
 historical: |+
   Imagination Technologies Parallel Output Controller
 

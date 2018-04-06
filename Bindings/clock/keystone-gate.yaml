@@ -19,7 +19,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,keystone,psc-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: modrst0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: control
+      - const: domain
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  domain-id: {}
 examples:
   - |
     clkusb: clkusb {

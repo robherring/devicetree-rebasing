@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5250-rotator
+          - samsung,exynos4210-rotator
+          - samsung,exynos4212-rotator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: rotator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  iommus: {}
+  power-domains: {}
 examples:
   - |
     rotator@12810000 {

@@ -24,7 +24,54 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3228-usb2phy
+          - rockchip,rv1108-usb2phy
+          - rockchip,rk3399-usb2phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: phyclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clock-output-names:
+    items:
+      - const: usbphy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  rockchip,usbgrf:
+    description: FIXME
+  interrupts: {}
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  g-np-tx-fifo-size: {}
+  g-rx-fifo-size: {}
+  g-tx-fifo-size: {}
+  g-use-dma: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   ROCKCHIP USB2.0 PHY WITH INNO IP BLOCK
 

@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra114-mipi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#nvidia,mipi-calibrate-cells':
+    const: 0x1
 examples:
   - |
     mipi: mipi@700e3000 {

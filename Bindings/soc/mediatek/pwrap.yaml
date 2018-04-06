@@ -74,7 +74,43 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8173-pwrap
+          - mediatek,mt8135-pwrap
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: pwrap
+      - const: pwrap-bridge
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: pwrap
+      - const: pwrap-bridge
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: spi
+      - const: wrap
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
 examples:
   - |
     pwrap: pwrap@1000f000 {

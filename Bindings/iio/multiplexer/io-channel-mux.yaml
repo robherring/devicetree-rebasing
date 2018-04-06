@@ -16,7 +16,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: io-channel-mux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: parent
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mux-controls: {}
+  channels:
+    items:
+      - const: batntc0
+      - const: batntc1
+      - const: batntc2
+      - const: batntc3
+      - const: batntc4
+      - const: batntc5
+      - const: batntc6
+      - const: batntc7
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
 examples:
   - |
     mux: mux-controller {

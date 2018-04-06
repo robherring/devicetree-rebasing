@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: wm,wm8750
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: VIA APC8750
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   VIA/Wondermedia VT8500 Platforms Device Tree Bindings
   ---------------------------------------

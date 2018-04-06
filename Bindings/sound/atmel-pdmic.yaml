@@ -12,7 +12,52 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,sama5d2-pdmic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk
+      - const: gclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  atmel,model:
+    items:
+      - const: PDMIC @ sama5d2_xplained
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  atmel,mic-min-freq:
+    description: FIXME
+  atmel,mic-max-freq:
+    description: FIXME
+  atmel,mic-offset:
+    description: FIXME
 examples:
   - |
     pdmic@f8018000 {

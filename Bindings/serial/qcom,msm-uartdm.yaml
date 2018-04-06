@@ -19,7 +19,50 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,msm-uartdm-v1.4
+          - qcom,msm-uartdm-v1.3
+      - const: qcom,msm-uartdm
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+      - const: iface
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  label:
+    items:
+      - const: LS-UART1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-1: {}
 historical: |+
   * MSM Serial UARTDM
 

@@ -15,7 +15,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ezchip,arc-nps
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  present-cpus:
+    items:
+      - const: 0-1,16-17
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  possible-cpus:
+    items:
+      - const: 0-4095
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   EZchip NPS Network Processor Platforms Device Tree Bindings
   ---------------------------------------------------------------------------

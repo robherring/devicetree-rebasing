@@ -16,7 +16,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - socionext,uniphier-ld4-clock
+          - socionext,uniphier-pxs2-clock
+          - socionext,uniphier-pro4-clock
+          - socionext,uniphier-sld8-clock
+          - socionext,uniphier-ld11-clock
+          - socionext,uniphier-ld20-clock
+          - socionext,uniphier-pxs3-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 examples:
   - |
     sysctrl@61840000 {

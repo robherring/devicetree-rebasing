@@ -20,7 +20,83 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,omap2-onenand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpmc,sync-read:
+    description: FIXME
+    type: boolean
+  gpmc,sync-write:
+    description: FIXME
+    type: boolean
+  gpmc,burst-length:
+    description: FIXME
+  gpmc,burst-read:
+    description: FIXME
+    type: boolean
+  gpmc,burst-wrap:
+    description: FIXME
+    type: boolean
+  gpmc,burst-write:
+    description: FIXME
+    type: boolean
+  gpmc,device-width:
+    description: FIXME
+  gpmc,mux-add-data:
+    description: FIXME
+  gpmc,cs-on-ns:
+    description: FIXME
+  gpmc,cs-rd-off-ns:
+    description: FIXME
+  gpmc,cs-wr-off-ns:
+    description: FIXME
+  gpmc,adv-on-ns:
+    description: FIXME
+  gpmc,adv-rd-off-ns:
+    description: FIXME
+  gpmc,adv-wr-off-ns:
+    description: FIXME
+  gpmc,oe-on-ns:
+    description: FIXME
+  gpmc,oe-off-ns:
+    description: FIXME
+  gpmc,we-on-ns:
+    description: FIXME
+  gpmc,we-off-ns:
+    description: FIXME
+  gpmc,rd-cycle-ns:
+    description: FIXME
+  gpmc,wr-cycle-ns:
+    description: FIXME
+  gpmc,access-ns:
+    description: FIXME
+  gpmc,page-burst-access-ns:
+    description: FIXME
+  gpmc,bus-turnaround-ns:
+    description: FIXME
+  gpmc,cycle2cycle-delay-ns:
+    description: FIXME
+  gpmc,wait-monitoring-ns:
+    description: FIXME
+  gpmc,clk-activation-ns:
+    description: FIXME
+  gpmc,wr-data-mux-bus-ns:
+    description: FIXME
+  gpmc,wr-access-ns:
+    description: FIXME
+  gpmc,sync-clk-ps:
+    description: FIXME
 examples:
   - |
     gpmc: gpmc@6e000000 {

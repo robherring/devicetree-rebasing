@@ -15,7 +15,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - hisilicon,hip06-sas-v2
+          - hisilicon,hip07-sas-v2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  sas-addr: {}
+  hisilicon,sas-syscon:
+    description: FIXME
+  ctrl-reset-reg: {}
+  ctrl-reset-sts-reg: {}
+  ctrl-clock-ena-reg: {}
+  queue-count: {}
+  phy-count: {}
+  dma-coherent: {}
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
 examples:
   - |
     sas0: sas@c1000000 {

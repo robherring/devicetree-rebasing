@@ -15,7 +15,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: wlf,wm8960
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
 historical: |+
   WM8960 audio CODEC
 

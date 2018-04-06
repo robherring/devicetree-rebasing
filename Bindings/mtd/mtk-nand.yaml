@@ -24,7 +24,30 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt2701-nfc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: nfi_clk
+      - const: pad_clk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ecc-engine: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 examples:
   - |
     nandc: nfi@1100d000 {

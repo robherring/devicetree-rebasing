@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sirf,prima2-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  '#interrupt-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  gpio-controller: {}
+  interrupt-controller: {}
 historical: |
   CSR SiRFprimaII pinmux controller
 

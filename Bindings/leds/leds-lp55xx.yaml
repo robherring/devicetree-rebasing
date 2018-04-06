@@ -13,7 +13,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - national,lp5521
+          - national,lp5523
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-mode: {}
+  enable-gpio: {}
+  label:
+    items:
+      - const: lp5521_pri
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Binding for TI/National Semiconductor LP55xx Led Drivers
 

@@ -16,7 +16,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mti,mips-cpc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Binding for MIPS Cluster Power Controller (CPC).
 

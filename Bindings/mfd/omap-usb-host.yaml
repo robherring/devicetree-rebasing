@@ -12,7 +12,34 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,usbhs-host
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: usb_host_hs
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  port2-mode:
+    items:
+      - const: ehci-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   OMAP HS USB Host
 

@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lgphilips,lb035q02
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  label:
+    items:
+      - const: lcd35
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  spi-cpol: {}
+  spi-cpha: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  enable-gpios: {}
 historical: |+
   LG.Philips LB035Q02 Panel
   =========================

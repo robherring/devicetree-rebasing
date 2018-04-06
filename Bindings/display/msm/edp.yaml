@@ -12,7 +12,42 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,mdss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: mdss_phys
+      - const: vbif_phys
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: iface_clk
+      - const: bus_clk
+      - const: vsync_clk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 examples:
   - |
     mdss_edp: qcom,mdss_edp@fd923400 {

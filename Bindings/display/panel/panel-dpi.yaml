@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - panel-dpi
+          - samsung,lte430wq-f0c
+          - newhaven,nhd-4.3-480272ef-atxl
+          - osddisplays,osd057T0559-34ts
+          - innolux,at070tn83
+      - const: panel-dpi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  label:
+    items:
+      - const: lcd43
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  enable-gpios: {}
+  backlight: {}
 historical: |+
   Generic MIPI DPI Panel
   ======================

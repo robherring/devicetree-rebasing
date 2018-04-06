@@ -22,7 +22,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos5420-nocp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     nocp_mem0_0: nocp@10ca1000 {

@@ -60,7 +60,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - adi,adv7180cp
+          - adi,adv7180
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  powerdown-gpios: {}
+  interrupt-parent: {}
+  interrupts: {}
+  remote: {}
 examples:
   - |
     i2c0@1c22000 {

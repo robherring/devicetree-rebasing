@@ -16,7 +16,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,wl1251
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vio-supply: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  spi-cpol: {}
+  spi-cpha: {}
+  ti,power-gpio:
+    description: FIXME
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
 historical: |+
   * Texas Instruments wl1251 wireless lan controller
 

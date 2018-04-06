@@ -18,7 +18,54 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk805
+          - rockchip,rk808
+          - rockchip,rk818
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-output-names:
+    items:
+      - const: xin32k
+      - const: wifibt_32kin
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  rockchip,system-power-controller:
+    description: FIXME
+    type: boolean
+  wakeup-source: {}
+  '#clock-cells':
+    const: 0x1
+  vcc1-supply: {}
+  vcc2-supply: {}
+  vcc3-supply: {}
+  vcc4-supply: {}
+  vcc7-supply: {}
+  vcc8-supply: {}
+  vddio-supply: {}
+  dvs-gpios: {}
+  vcc11-supply: {}
+  vcc5-supply: {}
+  vcc6-supply: {}
+  boost-supply: {}
+  vcc9-supply: {}
 examples:
   - |
     rk808: pmic@1b {

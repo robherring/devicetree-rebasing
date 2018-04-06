@@ -14,7 +14,23 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: bhf,cx9020
+      - const: fsl,imx53
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Beckhoff CX9020 Embedded PC
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Beckhoff Automation Platforms Device Tree Bindings
   --------------------------------------------------

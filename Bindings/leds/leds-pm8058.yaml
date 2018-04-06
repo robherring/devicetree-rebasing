@@ -32,7 +32,57 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,pm8058-keypad
+          - qcom,pm8058
+          - qcom,pm8058-keypad-led
+          - qcom,pm8058-led
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  debounce: {}
+  scan-delay: {}
+  row-hold: {}
+  linux,keymap:
+    description: FIXME
+  keypad,num-rows:
+    description: FIXME
+  keypad,num-columns:
+    description: FIXME
+  label:
+    items:
+      - const: pm8058:infrared:proximitysensor
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  default-state:
+    items:
+      - const: off
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  linux,default-trigger:
+    items:
+      - const: cm3605
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 historical: |+
   Qualcomm PM8058 LED driver
 

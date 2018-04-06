@@ -13,7 +13,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-ac97
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: ac97
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,codec-reset-gpio:
+    description: FIXME
+  nvidia,codec-sync-gpio:
+    description: FIXME
 historical: |+
   NVIDIA Tegra 20 AC97 controller
 

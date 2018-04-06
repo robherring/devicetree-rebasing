@@ -15,7 +15,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-beeper
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  gpios: {}
 examples:
   - |
     beeper: beeper {

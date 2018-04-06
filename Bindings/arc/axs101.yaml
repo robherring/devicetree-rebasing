@@ -15,7 +15,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,axs101
+      - const: snps,arc-sdp
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: snps,axs101
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Synopsys DesignWare ARC Software Development Platforms Device Tree Bindings
   ---------------------------------------------------------------------------

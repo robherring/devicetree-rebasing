@@ -16,7 +16,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - lemaker,guitar-bb-rev-b
+          - allo,sparky
+          - cubietech,cubieboard6
+          - ucrobotics,bubblegum-96
+          - cubietech,cubieboard7
+      - const: actions,s500
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Allo.com Sparky
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Actions Semi platforms device tree bindings
   -------------------------------------------

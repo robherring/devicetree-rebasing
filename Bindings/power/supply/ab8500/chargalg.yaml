@@ -15,7 +15,13 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,ab8500-chargalg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  battery: {}
 historical: |+
   === AB8500 Charging Algorithm Driver ===
 

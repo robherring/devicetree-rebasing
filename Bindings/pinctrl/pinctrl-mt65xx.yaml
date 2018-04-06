@@ -15,7 +15,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8135-pinctrl
+          - mediatek,mt2701-pinctrl
+          - mediatek,mt7623-pinctrl
+          - mediatek,mt8173-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mediatek,pctl-regmap:
+    description: FIXME
+  pins-are-numbered: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupts: {}
+  interrupt-parent: {}
 historical: |+
   * Mediatek MT65XX Pin Controller
 

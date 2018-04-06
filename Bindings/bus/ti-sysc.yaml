@@ -28,7 +28,51 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,sysc-omap3630-sr
+          - ti,sysc-omap3430-sr
+          - ti,sysc-omap4
+          - ti,sysc-omap4-sr
+          - ti,sysc-mcasp
+      - const: ti,sysc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: smartreflex_core
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: sysc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,sysc-mask:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  ti,sysc-sidle:
+    description: FIXME
 historical: |+
   Texas Instruments sysc interconnect target module wrapper binding
 

@@ -29,7 +29,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt6323
+          - mediatek,mt6397
+          - mediatek,mt6323-regulator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
 examples:
   - |
     pwrap: pwrap@1000f000 {

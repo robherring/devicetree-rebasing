@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tps65090-charger
+          - ti,tps65090
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vsys1-supply: {}
+  vsys2-supply: {}
+  vsys3-supply: {}
+  infet1-supply: {}
+  infet2-supply: {}
+  infet3-supply: {}
+  infet4-supply: {}
+  infet5-supply: {}
+  infet6-supply: {}
+  infet7-supply: {}
+  vsys-l1-supply: {}
+  vsys-l2-supply: {}
 examples:
   - |
     tps65090-charger {

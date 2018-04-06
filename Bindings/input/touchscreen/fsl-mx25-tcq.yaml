@@ -16,7 +16,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx25-tcq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  fsl,wires:
+    description: FIXME
 examples:
   - |
     tsc: tcq@50030400 {

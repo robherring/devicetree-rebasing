@@ -52,7 +52,36 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,comms-ssc4-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: ssc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   ST SSC binding, for I2C mode operation
 

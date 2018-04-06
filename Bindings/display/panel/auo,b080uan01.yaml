@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: auo,b080uan01
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  enable-gpios: {}
+  power-supply: {}
+  backlight: {}
 historical: |
   AU Optronics Corporation 8.0" WUXGA TFT LCD panel
 

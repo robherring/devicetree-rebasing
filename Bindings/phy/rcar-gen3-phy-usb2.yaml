@@ -16,7 +16,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,usb2-phy-r8a7796
+          - renesas,usb2-phy-r8a7795
+          - renesas,usb2-phy-r8a77995
+      - const: renesas,rcar-gen3-usb2-phy
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  power-domains: {}
+  resets: {}
+  '#phy-cells':
+    const: 0x0
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vbus-supply: {}
 examples:
   - |
     usb-phy@ee080200 {

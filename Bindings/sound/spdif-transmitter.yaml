@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: linux,spdif-dit
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
 examples:
   - |
     codec: spdif-transmitter {

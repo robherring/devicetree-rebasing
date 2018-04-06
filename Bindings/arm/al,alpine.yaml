@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: al,alpine
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: Annapurna Labs Alpine Dev Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Annapurna Labs Alpine Platform Device Tree Bindings
   ---------------------------------------------------------------

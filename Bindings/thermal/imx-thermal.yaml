@@ -13,7 +13,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx6sx-tempmon
+          - fsl,imx6q-tempmon
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  fsl,tempmon:
+    description: FIXME
+  fsl,tempmon-data:
+    description: FIXME
+  clocks: {}
+  nvmem-cells: {}
+  nvmem-cell-names:
+    items:
+      - const: calib
+      - const: temp_grade
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * Temperature Monitor (TEMPMON) on Freescale i.MX SoCs
 

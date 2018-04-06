@@ -63,7 +63,35 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm7120-l2-intc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  '#interrupt-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  interrupts: {}
+  brcm,int-map-mask:
+    description: FIXME
+  brcm,int-fwd-mask:
+    description: FIXME
+  brcm,irq-can-wake:
+    description: FIXME
+    type: boolean
+  interrupt-names:
+    items:
+      - const: upg_main
+      - const: upg_bsc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   Broadcom BCM7120-style Level 2 interrupt controller
 

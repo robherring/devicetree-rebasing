@@ -21,7 +21,58 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun5i-a13-mmc
+          - allwinner,sun7i-a20-mmc
+          - allwinner,sun8i-a83t-emmc
+          - allwinner,sun50i-a64-mmc
+          - allwinner,sun50i-a64-emmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: ahb
+      - const: mmc
+      - const: output
+      - const: sample
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: ahb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vmmc-supply: {}
+  bus-width: {}
+  cd-gpios: {}
+  cd-inverted: {}
+  non-removable: {}
+  cap-mmc-hw-reset: {}
+  max-frequency: {}
+  disable-wp: {}
 examples:
   - |
     - Within .dtsi:

@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: tianma,tm070jdhg30
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  backlight: {}
+  power-supply: {}
 historical: |
   Tianma Micro-electronics TM070JDHG30 7.0" WXGA TFT LCD panel
 

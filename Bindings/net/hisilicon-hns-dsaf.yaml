@@ -13,7 +13,43 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - hisilicon,hns-dsaf-v2
+          - cpld
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  read-only: {}
+  mode:
+    items:
+      - const: 6port-16rss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: ppe-base
+      - const: dsaf-base
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  subctrl-syscon: {}
+  reset-field-offset: {}
+  interrupts: {}
+  desc-num: {}
+  buf-size: {}
+  dma-coherent: {}
 historical: |+
   Hisilicon DSA Fabric device controller
 

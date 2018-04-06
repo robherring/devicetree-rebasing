@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - isil,isl29023
+          - isil,isl29018
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vcc-supply: {}
 historical: |+
   * ISL 29018/29023/29035 I2C ALS, Proximity, and Infrared sensor
 

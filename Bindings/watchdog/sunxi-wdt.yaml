@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun4i-a10-wdt
+          - allwinner,sun6i-a31-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 historical: |+
   Allwinner SoCs Watchdog timer
 

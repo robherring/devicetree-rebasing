@@ -13,7 +13,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,da850-tilcdc
+          - ti,am33xx-tilcdc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: lcdc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  max-pixelclock: {}
 examples:
   - |
     fb: fb@4830e000 {

@@ -33,7 +33,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,psci-0.2
+          - arm,psci
+          - arm,psci-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  method:
+    items:
+      - const: smc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cpu_suspend: {}
+  cpu_off: {}
+  cpu_on: {}
 historical: |+
   * Power State Coordination Interface (PSCI)
 

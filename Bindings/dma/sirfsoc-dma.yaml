@@ -15,7 +15,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - sirf,atlas7-dmac
+          - sirf,prima2-dmac
+          - sirf,atlas7-dmac-v2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cell-index: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  '#dma-cells':
+    const: 0x1
+  dma-channels: {}
+  '#dma-channels': {}
 historical: |+
   * CSR SiRFSoC DMA controller
 

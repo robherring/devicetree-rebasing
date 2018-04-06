@@ -42,7 +42,33 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun8i-a83t-de2-clk
+          - allwinner,sun8i-h3-de2-clk
+          - allwinner,sun8i-v3s-de2-clk
+          - allwinner,sun50i-h5-de2-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: mod
+      - const: bus
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
 historical: |+
   Allwinner Display Engine 2.0 Clock Control Binding
   --------------------------------------------------

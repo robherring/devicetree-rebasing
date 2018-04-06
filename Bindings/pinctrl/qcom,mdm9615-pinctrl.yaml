@@ -163,7 +163,30 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,mdm9615-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     msmgpio: pinctrl@800000 {

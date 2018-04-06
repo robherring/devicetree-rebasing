@@ -201,7 +201,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5260-clock-peri
+          - samsung,exynos5260-clock-top
+          - samsung,exynos5260-clock-egl
+          - samsung,exynos5260-clock-kfc
+          - samsung,exynos5260-clock-g2d
+          - samsung,exynos5260-clock-mif
+          - samsung,exynos5260-clock-mfc
+          - samsung,exynos5260-clock-g3d
+          - samsung,exynos5260-clock-fsys
+          - samsung,exynos5260-clock-aud
+          - samsung,exynos5260-clock-isp
+          - samsung,exynos5260-clock-gscl
+          - samsung,exynos5260-clock-disp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 examples:
   - |
     clock_mfc: clock-controller@11090000 {

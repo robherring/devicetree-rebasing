@@ -13,7 +13,47 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra124-spi
+          - nvidia,tegra114-spi
+          - nvidia,tegra210-spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  clock-names:
+    items:
+      - const: spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  spi-max-frequency: {}
 historical: |
   NVIDIA Tegra114 SPI controller.
 

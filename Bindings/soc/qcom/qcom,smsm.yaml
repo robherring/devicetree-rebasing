@@ -115,7 +115,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,smsm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  qcom,ipc-1:
+    description: FIXME
+  qcom,ipc-2:
+    description: FIXME
+  qcom,ipc-3:
+    description: FIXME
+  qcom,ipc-4:
+    description: FIXME
 historical: |
   Qualcomm Shared Memory State Machine
 

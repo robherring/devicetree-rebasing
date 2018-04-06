@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-380-pmsu
+          - marvell,armada-370-pmsu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Power Management Service Unit(PMSU)
   -----------------------------------

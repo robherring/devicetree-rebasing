@@ -22,7 +22,18 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32-dac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channels-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     dac: dac@40007400 {

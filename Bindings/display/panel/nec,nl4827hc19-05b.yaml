@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nec,nl4827hc19-05b
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   NEC LCD Technologies,Ltd. WQVGA TFT LCD panel
 

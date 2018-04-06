@@ -16,7 +16,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx6q-vpu
+          - fsl,imx27-vpu
+          - fsl,imx53-vpu
+      - const: cnm,codadx6
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: per
+      - const: ahb
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  iram: {}
+  interrupt-names:
+    items:
+      - const: bit
+      - const: jpeg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  resets: {}
 historical: |+
   Chips&Media Coda multi-standard codec IP
   ========================================

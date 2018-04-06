@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,dove-pcie
+          - marvell,kirkwood-pcie
+          - marvell,armada-370-pcie
+          - marvell,armada-xp-pcie
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  bus-range: {}
+  ranges: {}
+  msi-parent: {}
 historical: |+
   * Marvell EBU PCIe interfaces
 

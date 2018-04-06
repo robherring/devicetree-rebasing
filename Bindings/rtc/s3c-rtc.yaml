@@ -13,7 +13,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,s3c2416
+          - samsung,s3c6410-rtc
+          - samsung,s3c2416-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: SMDK2416
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     rtc@10070000 {

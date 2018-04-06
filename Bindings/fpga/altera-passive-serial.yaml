@@ -20,7 +20,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: altr,fpga-passive-serial
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  nconfig-gpios: {}
+  nstat-gpios: {}
 examples:
   - |
     fpga: fpga@0 {

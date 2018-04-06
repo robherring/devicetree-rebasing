@@ -12,7 +12,17 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,ds26522
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
 examples:
   - |
     slic@1 {

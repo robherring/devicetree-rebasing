@@ -21,7 +21,64 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - hisilicon,hi3660-dw-mshc
+          - hisilicon,hi6220-dw-mshc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ciu
+      - const: biu
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  cap-mmc-highspeed: {}
+  non-removable: {}
+  bus-width: {}
+  vmmc-supply: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  cd-inverted: {}
+  num-slots: {}
+  disable-wp: {}
+  cap-sd-highspeed: {}
+  supports-highspeed: {}
+  card-detect-delay: {}
+  clock-frequency: {}
+  cd-gpios: {}
+  hisilicon,peripheral-syscon:
+    description: FIXME
+  sd-uhs-sdr12: {}
+  sd-uhs-sdr25: {}
+  sd-uhs-sdr50: {}
+  sd-uhs-sdr104: {}
+  vqmmc-supply: {}
 examples:
   - |
     /* for Hi3620 */

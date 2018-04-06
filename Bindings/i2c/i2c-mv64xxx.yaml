@@ -75,7 +75,37 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun6i-a31-i2c
+          - marvell,mv64xxx-i2c
+          - allwinner,sun4i-a10-i2c
+          - marvell,mv78230-i2c
+          - marvell,mv78230-a0-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  interrupts: {}
+  clock-frequency: {}
+  clocks: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  timeout-ms: {}
 examples:
   - |
     i2c@11000 {

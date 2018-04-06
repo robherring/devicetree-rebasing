@@ -13,7 +13,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,bam-v1.4.0
+          - qcom,bam-v1.3.0
+          - qcom,bam-v1.7.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: bam_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x1
+  qcom,ee:
+    description: FIXME
 examples:
   - |
     uart-bam: dma@f9984000 = {

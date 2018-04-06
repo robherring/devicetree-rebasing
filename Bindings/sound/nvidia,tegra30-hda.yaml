@@ -13,7 +13,39 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra124-hda
+          - nvidia,tegra30-hda
+          - nvidia,tegra210-hda
+          - nvidia,tegra132-hda
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: hda
+      - const: hda2hdmi
+      - const: hda2codec_2x
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: hda
+      - const: hda2hdmi
+      - const: hda2codec_2x
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   NVIDIA Tegra30 HDA controller
 

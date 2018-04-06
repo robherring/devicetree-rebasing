@@ -12,7 +12,60 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - stericsson,db8500-musb
+          - stericsson,db8500
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: mc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: iep_1_9
+      - const: oep_1_9
+      - const: iep_2_10
+      - const: oep_2_10
+      - const: iep_3_11
+      - const: oep_3_11
+      - const: iep_4_12
+      - const: oep_4_12
+      - const: iep_5_13
+      - const: oep_5_13
+      - const: iep_6_14
+      - const: oep_6_14
+      - const: iep_7_15
+      - const: oep_7_15
+      - const: iep_8
+      - const: oep_8
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
+  clocks: {}
 historical: |+
   Ux500 MUSB
 

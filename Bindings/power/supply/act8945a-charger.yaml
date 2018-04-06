@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: active-semi,act8945a-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  interrupt-parent: {}
+  interrupts: {}
+  active-semi,chglev-gpios:
+    description: FIXME
+  active-semi,lbo-gpios:
+    description: FIXME
+  active-semi,input-voltage-threshold-microvolt:
+    description: FIXME
+  active-semi,precondition-timeout:
+    description: FIXME
+  active-semi,total-timeout:
+    description: FIXME
 examples:
   - |
     pmic@5b {

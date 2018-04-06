@@ -18,7 +18,55 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap3-ssi-port
+          - ti,omap3-ssi
+          - ti,omap4-hsi
+          - ti,omap4-hsi-port
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: ssi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: sys
+      - const: gdd
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: gdd_mpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ssi_ssr_fck
+      - const: ssi_sst_fck
+      - const: ssi_ick
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   OMAP SSI controller bindings
 

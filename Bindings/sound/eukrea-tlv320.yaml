@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - tlv320aic23
+          - eukrea,asoc-tlv320
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  eukrea,model:
+    items:
+      - const: imx51-eukrea-tlv320aic23
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ssi-controller: {}
+  fsl,mux-int-port:
+    description: FIXME
+  fsl,mux-ext-port:
+    description: FIXME
+  '#sound-dai-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
 examples:
   - |
     sound {

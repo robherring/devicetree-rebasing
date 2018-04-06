@@ -12,7 +12,44 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-pcie
+      - const: apm,xgene2-pcie
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x2
+  '#address-cells':
+    const: 0x3
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: csr
+      - const: cfg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ranges: {}
+  dma-ranges: {}
+  bus-range: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  dma-coherent: {}
+  clocks: {}
+  msi-parent: {}
 historical: |+
   * AppliedMicro X-Gene PCIe interface
 

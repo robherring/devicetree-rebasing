@@ -17,7 +17,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - zte,zx296702-lsp1crpm-clk
+          - zte,zx296702-topcrm-clk
+          - zte,zx296702-lsp0crpm-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 historical: |
   Device Tree Clock bindings for ZTE zx296702
 

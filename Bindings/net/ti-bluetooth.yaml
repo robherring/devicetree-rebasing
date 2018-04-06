@@ -30,7 +30,46 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,wl1835-st
+          - ti,wl1271
+          - ti,wl1837
+          - ti,wl1837-st
+          - ti,wl1273
+          - ti,wl1283
+          - ti,wl1831
+          - ti,wl1281
+          - ti,wl1285-st
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  ref-clock-frequency: {}
+  tcxo-clock-frequency: {}
+  enable-gpios: {}
+  interrupts-extended: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ext_clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  max-speed: {}
 historical: |+
   Texas Instruments Bluetooth Chips
   ---------------------------------

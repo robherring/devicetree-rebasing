@@ -18,7 +18,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,s3c6410-sdhci
+          - samsung,exynos4210-sdhci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: hsmmc
+      - const: mmc_busclk.2
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  bus-width: {}
+  non-removable: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vmmc-supply: {}
+  interrupt-parent: {}
 examples:
   - |
     sdhci@12530000 {

@@ -17,7 +17,44 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: dlg,da7219
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: mclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dlg,micbias-lvl:
+    description: FIXME
+  dlg,mic-amp-in-sel:
+    items:
+      - const: diff
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  VDD-supply: {}
+  VDDMIC-supply: {}
+  VDDIO-supply: {}
 examples:
   - |
     codec: da7219@1a {

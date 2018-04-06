@@ -12,7 +12,42 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3399-mipi-dsi
+          - rockchip,rk3288-mipi-dsi
+      - const: snps,dw-mipi-dsi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ref
+      - const: pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  rockchip,grf:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  resets: {}
+  reset-names:
+    items:
+      - const: apb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     mipi_dsi: mipi@ff960000 {

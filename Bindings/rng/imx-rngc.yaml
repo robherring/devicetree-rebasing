@@ -16,7 +16,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx25-rngb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  interrupts: {}
 historical: |+
   Freescale RNGC (Random Number Generator Version C)
 

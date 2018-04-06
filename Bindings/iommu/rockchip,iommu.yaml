@@ -17,7 +17,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,iommu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: iep_mmu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#iommu-cells':
+    const: 0x0
+  rockchip,disable-mmu-reset:
+    description: FIXME
+    type: boolean
+  power-domains: {}
+  iommu-cells: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: aclk
+      - const: hclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     vopl_mmu: iommu@ff940300 {

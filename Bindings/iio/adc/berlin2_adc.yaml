@@ -17,7 +17,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,berlin2-adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: adc
+      - const: tsen
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * Berlin Analog to Digital Converter (ADC)
 

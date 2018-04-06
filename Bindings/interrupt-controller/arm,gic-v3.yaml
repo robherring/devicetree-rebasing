@@ -18,7 +18,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,gic-v3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x3
+  interrupts: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  ranges: {}
+  '#redistributor-regions': {}
+  redistributor-stride: {}
+  interrupt-parent: {}
 examples:
   - |
     gic: interrupt-controller@2cf00000 {

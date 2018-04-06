@@ -16,7 +16,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stih407-usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  st,syscfg:
+    description: FIXME
+  resets: {}
+  reset-names:
+    items:
+      - const: global
+      - const: port
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   ST STiH407 USB PHY controller
 

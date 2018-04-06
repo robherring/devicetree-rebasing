@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: motorola,mapphone-cpcap-adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts-extended: {}
+  interrupt-names:
+    items:
+      - const: adcdone
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channel-cells':
+    const: 0x1
 historical: |+
   Motorola CPCAP PMIC ADC binding
 

@@ -12,7 +12,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rockchip-audio-max98090
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  rockchip,model:
+    items:
+      - const: VEYRON-I2S
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  rockchip,i2s-controller:
+    description: FIXME
+  rockchip,audio-codec:
+    description: FIXME
+  rockchip,hp-det-gpios:
+    description: FIXME
+  rockchip,mic-det-gpios:
+    description: FIXME
+  rockchip,headset-codec:
+    description: FIXME
 historical: |+
   ROCKCHIP with MAX98090 CODEC
 

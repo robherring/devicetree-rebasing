@@ -21,7 +21,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,r7s72100-mstp-clocks
+          - renesas,r8a73a4-mstp-clocks
+          - renesas,r8a7740-mstp-clocks
+          - renesas,r8a7779-mstp-clocks
+          - renesas,r8a7778-mstp-clocks
+          - renesas,sh73a0-mstp-clocks
+      - const: renesas,cpg-mstp-clocks
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
+  clock-indices: {}
+  clock-output-names:
+    items:
+      - const: scifa0
+      - const: scifa1
+      - const: scifb0
+      - const: scifb1
+      - const: scifb2
+      - const: scifb3
+      - const: dmac
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
 historical: |+
   * Renesas CPG Module Stop (MSTP) Clocks
 

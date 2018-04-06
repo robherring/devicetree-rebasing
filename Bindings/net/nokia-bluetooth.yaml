@@ -20,7 +20,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,wl1271-bluetooth-nokia
+          - brcm,bcm2048-nokia
+      - const: nokia,h4p-bluetooth
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reset-gpios: {}
+  host-wakeup-gpios: {}
+  bluetooth-wakeup-gpios: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: sysclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Nokia Bluetooth Chips
   ---------------------

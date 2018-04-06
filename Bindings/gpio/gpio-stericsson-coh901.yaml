@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,gpio-coh901
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  interrupt-names:
+    items:
+      - const: gpio0
+      - const: gpio1
+      - const: gpio2
+      - const: gpio3
+      - const: gpio4
+      - const: gpio5
+      - const: gpio6
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
 historical: |
   ST-Ericsson COH 901 571/3 GPIO controller
 

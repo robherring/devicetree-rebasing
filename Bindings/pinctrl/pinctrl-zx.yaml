@@ -55,7 +55,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: zte,zx296718-pmm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  zte,auxiliary-controller:
+    description: FIXME
 historical: |+
   * ZTE ZX Pin Controller
 

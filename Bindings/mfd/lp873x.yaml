@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,lp8732
+          - ti,lp8733
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  buck0-in-supply: {}
+  buck1-in-supply: {}
+  ldo0-in-supply: {}
+  ldo1-in-supply: {}
 historical: |
   TI LP873X PMIC MFD driver
 

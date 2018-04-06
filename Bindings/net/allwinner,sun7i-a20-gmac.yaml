@@ -16,7 +16,72 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: allwinner,sun7i-a20-gmac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: stmmaceth
+      - const: allwinner_gmac_tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  snps,pbl:
+    description: FIXME
+  snps,fixed-burst:
+    description: FIXME
+    type: boolean
+  snps,force_sf_dma_mode:
+    description: FIXME
+    type: boolean
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  phy: {}
+  phy-mode:
+    items:
+      - const: rgmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-supply: {}
+  snps,reset-gpio:
+    description: FIXME
+  snps,reset-active-low:
+    description: FIXME
+    type: boolean
+  snps,reset-delays-us:
+    description: FIXME
 examples:
   - |
     gmac: ethernet@1c50000 {

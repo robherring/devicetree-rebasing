@@ -16,7 +16,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sirf,prima2-sdhc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cell-index: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  bus-width: {}
+  clocks: {}
 examples:
   - |
     sd0: sdhci@56000000 {

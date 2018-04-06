@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - snps,dw-apb-gpio-port
+          - snps,dw-apb-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg-io-width: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  snps,nr-gpios:
+    description: FIXME
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupts: {}
 historical: |+
   * Synopsys DesignWare APB GPIO controller
 

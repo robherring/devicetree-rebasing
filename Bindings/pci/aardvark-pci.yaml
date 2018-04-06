@@ -16,7 +16,35 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,armada-3700-pcie
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  bus-range: {}
+  interrupts: {}
+  '#interrupt-cells':
+    const: 0x1
+  msi-parent: {}
+  msi-controller: {}
+  ranges: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
 examples:
   - |
     pcie0: pcie@d0070000 {

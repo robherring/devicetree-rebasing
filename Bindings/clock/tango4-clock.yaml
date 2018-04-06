@@ -17,7 +17,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sigma,tango4-clkgen
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
 examples:
   - |
     clkgen: clkgen@10000 {

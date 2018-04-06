@@ -20,7 +20,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stmfts
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  avdd-supply: {}
+  vdd-supply: {}
+  touchscreen-size-x: {}
+  touchscreen-size-y: {}
+  touch-key-connected: {}
+  ledvdd-supply: {}
 historical: |+
   * ST-Microelectronics FingerTip touchscreen controller
 

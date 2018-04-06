@@ -20,7 +20,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8173-thermal
+          - mediatek,mt2701-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: therm
+      - const: auxadc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: therm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mediatek,auxadc:
+    description: FIXME
+  mediatek,apmixedsys:
+    description: FIXME
+  nvmem-cells: {}
+  nvmem-cell-names:
+    items:
+      - const: calibration-data
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     thermal: thermal@1100b000 {

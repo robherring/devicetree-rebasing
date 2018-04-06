@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,xps-iic-2.00.a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  xlnx,clk-freq:
+    description: FIXME
+  xlnx,family:
+    items:
+      - const: virtex5
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  xlnx,gpo-width:
+    description: FIXME
+  xlnx,iic-freq:
+    description: FIXME
+  xlnx,scl-inertial-delay:
+    description: FIXME
+  xlnx,sda-inertial-delay:
+    description: FIXME
+  xlnx,ten-bit-adr:
+    description: FIXME
 examples:
   - |
     axi_iic_0: i2c@40800000 {

@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,xps-spi-2.00.b
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  xlnx,family:
+    items:
+      - const: virtex5
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  xlnx,fifo-exist:
+    description: FIXME
+  xlnx,num-ss-bits:
+    description: FIXME
+  xlnx,num-transfer-bits:
+    description: FIXME
+  xlnx,sck-ratio:
+    description: FIXME
 examples:
   - |
     axi_quad_spi@41e00000 {

@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pixcir,pixcir_tangoc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+      - const: sleep
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  attb-gpio: {}
+  touchscreen-size-x: {}
+  touchscreen-size-y: {}
 examples:
   - |
     i2c@00000000 {

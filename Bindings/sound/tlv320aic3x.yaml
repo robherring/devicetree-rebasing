@@ -16,7 +16,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tlv320aic3x
+          - ti,tlv320aic3106
+          - ti,tlv320aic3007
+          - ti,tlv320aic3104
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  AVDD-supply: {}
+  IOVDD-supply: {}
+  DRVDD-supply: {}
+  DVDD-supply: {}
+  gpio-reset: {}
+  clocks: {}
+  ai3x-micbias-vg: {}
+  '#sound-dai-cells':
+    const: 0x0
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  adc-settle-ms: {}
 historical: |+
   Texas Instruments - tlv320aic3x Codec module
 

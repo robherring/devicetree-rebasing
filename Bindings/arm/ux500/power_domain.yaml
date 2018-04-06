@@ -21,7 +21,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,ux500-pm-domains
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#power-domain-cells':
+    const: 0x1
 examples:
   - |
     pm_domains: pm_domains0 {

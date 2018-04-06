@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lsi,axm5516-amarillo
+      - const: lsi,axm5516
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  interrupt-parent: {}
+  model:
+    items:
+      - const: Amarillo AXM5516
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Axxia AXM55xx device tree bindings
 

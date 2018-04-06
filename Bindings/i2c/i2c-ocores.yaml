@@ -13,7 +13,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: opencores,i2c-ocores
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-shift: {}
+  reg-io-width: {}
+  native-endian: {}
+  interrupts: {}
+  clocks: {}
 examples:
   - |
     i2c0: ocores@a0000000 {

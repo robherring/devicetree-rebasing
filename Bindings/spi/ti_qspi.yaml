@@ -13,7 +13,47 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am4372-qspi
+          - ti,dra7xxx-qspi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: qspi_base
+      - const: qspi_mmap
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  syscon-chipselects: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  ti,hwmods:
+    items:
+      - const: qspi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  num-cs: {}
+  interrupts: {}
+  spi-max-frequency: {}
 historical: |+
   TI QSPI controller.
 

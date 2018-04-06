@@ -16,7 +16,31 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx6dl
+          - technologic,imx6dl-ts7970
+          - technologic,imx6q-ts7970
+          - technologic,imx28-ts4600
+          - technologic,imx51-ts4800
+          - technologic,imx6dl-ts4900
+          - technologic,imx6q-ts4900
+      - const: fsl,imx6dl
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Technologic Systems i.MX6 Solo/DualLite TS-7970 (Default Device Tree)
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |
   Technologic Systems Platforms Device Tree Bindings
   --------------------------------------------------

@@ -16,7 +16,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,dove-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
 historical: |
   * Marvell Dove SoC pinctrl driver for mpp
 

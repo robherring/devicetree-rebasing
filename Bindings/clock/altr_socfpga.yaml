@@ -17,7 +17,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - altr,socfpga-gate-clk
+          - altr,socfpga-pll-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clk-gate: {}
 historical: |
   Device Tree Clock bindings for Altera's SoCFPGA platform
 

@@ -18,7 +18,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ingenic,jz4780-nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  ingenic,bch-controller:
+    description: FIXME
+  ingenic,nemc-tAS:
+    description: FIXME
+  ingenic,nemc-tAH:
+    description: FIXME
+  ingenic,nemc-tBP:
+    description: FIXME
+  ingenic,nemc-tAW:
+    description: FIXME
+  ingenic,nemc-tSTRV:
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * Ingenic JZ4780 NAND/BCH
 

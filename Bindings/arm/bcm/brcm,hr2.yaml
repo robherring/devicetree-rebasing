@@ -18,7 +18,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ubnt,unifi-switch8
+      - const: brcm,bcm53342
+      - const: brcm,hr2
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  model:
+    items:
+      - const: Ubiquiti UniFi Switch 8 (BCM53342)
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 historical: |
   Broadcom Hurricane 2 device tree bindings
   ---------------------------------------

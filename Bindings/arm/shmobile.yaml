@@ -134,7 +134,57 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,prr
+          - renesas,ape6evm
+          - renesas,genmai
+          - renesas,armadillo800eva
+          - iwave,g22d
+          - renesas,marzen
+          - renesas,bockw
+          - renesas,lager
+          - iwave,g20d
+          - renesas,koelsch
+          - renesas,porter
+          - renesas,blanche
+          - renesas,sk-rzg1e
+          - renesas,alt
+          - renesas,kzm9d
+          - renesas,rskrza1
+          - renesas,sk-rzg1m
+          - renesas,kzm9g
+          - renesas,gr-peach
+          - renesas,wheat
+          - renesas,gose
+          - renesas,silk
+          - renesas,salvator-xs
+          - shimafuji,kingfisher
+          - renesas,h3ulcb
+          - renesas,v3msk
+          - renesas,m3ulcb
+          - renesas,eagle
+          - renesas,draak
+      - const: renesas,r8a73a4
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: APE6EVM
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Renesas SH-Mobile, R-Mobile, and R-Car Platform Device Tree Bindings
   --------------------------------------------------------------------

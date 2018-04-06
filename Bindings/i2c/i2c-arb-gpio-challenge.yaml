@@ -49,7 +49,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: i2c-arb-gpio-challenge
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  i2c-parent: {}
+  our-claim-gpio: {}
+  their-claim-gpios: {}
+  slew-delay-us: {}
+  wait-retry-us: {}
+  wait-free-us: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     i2c@12ca0000 {

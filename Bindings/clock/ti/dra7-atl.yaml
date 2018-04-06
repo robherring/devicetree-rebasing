@@ -32,7 +32,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,dra7-atl
+          - ti,dra7-atl-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: atl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,provided-clocks:
+    description: FIXME
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  assigned-clock-rates: {}
 historical: |+
   Device Tree Clock bindings for ATL (Audio Tracking Logic) of DRA7 SoC.
 

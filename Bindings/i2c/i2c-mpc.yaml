@@ -75,7 +75,34 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,mpc5121-i2c-ctrl
+          - fsl,mpc5121-i2c
+      - const: fsl-i2c
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ipg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,preserve-clocking:
+    description: FIXME
+    type: boolean
 examples:
   - |
     /* MPC5121 based board */

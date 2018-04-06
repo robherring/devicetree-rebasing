@@ -19,7 +19,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos5433-mic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk_mic0
+      - const: sclk_rgb_vclk_to_mic0
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  samsung,disp-syscon:
+    description: FIXME
 historical: |+
   Device-Tree bindings for Samsung Exynos SoC mobile image compressor (MIC)
 

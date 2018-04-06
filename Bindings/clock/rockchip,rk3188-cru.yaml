@@ -17,7 +17,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rk3188-cru
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  rockchip,grf:
+    description: FIXME
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
 examples:
   - |
     cru: cru@20000000 {

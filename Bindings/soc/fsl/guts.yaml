@@ -18,7 +18,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,qoriq-device-config-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,has-rstcr:
+    description: FIXME
+    type: boolean
+  '#sleep-cells':
+    const: 0x1
+  fsl,liodn-bits:
+    description: FIXME
 examples:
   - |
     global-utilities@e0000 {  /* global utilities block */

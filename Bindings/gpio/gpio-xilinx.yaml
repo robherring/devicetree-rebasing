@@ -18,7 +18,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,xps-gpio-1.00.a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  xlnx,all-inputs:
+    description: FIXME
+  xlnx,all-inputs-2:
+    description: FIXME
+  xlnx,dout-default:
+    description: FIXME
+  xlnx,dout-default-2:
+    description: FIXME
+  xlnx,family:
+    items:
+      - const: virtex5
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  xlnx,gpio-width:
+    description: FIXME
+  xlnx,interrupt-present:
+    description: FIXME
+  xlnx,is-bidir:
+    description: FIXME
+  xlnx,is-bidir-2:
+    description: FIXME
+  xlnx,is-dual:
+    description: FIXME
+  xlnx,tri-default:
+    description: FIXME
+  xlnx,tri-default-2:
+    description: FIXME
 historical: |+
   Xilinx plb/axi GPIO controller
 

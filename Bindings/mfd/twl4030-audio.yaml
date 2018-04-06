@@ -16,7 +16,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,twl4030-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Texas Instruments TWL family (twl4030) audio module
 

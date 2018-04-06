@@ -20,7 +20,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,s5p6440-pwm
+          - samsung,exynos4210-pwm
+          - samsung,s5pc100-pwm
+          - samsung,s3c6400-pwm
+          - samsung,s3c2410-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: timers
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x3
+  interrupt-parent: {}
+  samsung,pwm-outputs:
+    description: FIXME
 historical: |+
   * Samsung PWM timers
 

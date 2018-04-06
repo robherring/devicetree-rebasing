@@ -33,7 +33,64 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-musb
+          - ti,omap3-musb
+          - ti,dwc3
+          - ti,am437x-dwc3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: mc
+      - const: dma
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: usb_otg_hs
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  multipoint: {}
+  num-eps: {}
+  ram-bits: {}
+  interface-type: {}
+  usb-phy: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mode: {}
+  power: {}
+  ctrl-module: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  utmi-mode: {}
+  ranges: {}
+  extcon: {}
 historical: |+
   OMAP GLUE AND OTHER OMAP SPECIFIC COMPONENTS
 

@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rk3399-gru-sound
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  rockchip,cpu:
+    description: FIXME
+  rockchip,codec:
+    description: FIXME
 historical: |+
   ROCKCHIP with MAX98357A/RT5514/DA7219 codecs on GRU boards
 

@@ -17,7 +17,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hi6220-ade
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: ade_base
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  hisilicon,noc-syscon:
+    description: FIXME
+  resets: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: clk_ade_core
+      - const: clk_codec_jpeg
+      - const: clk_ade_pix
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  dma-coherent: {}
 examples:
   - |
     ade: ade@f4100000 {

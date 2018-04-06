@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,gpio-r8a77995
+      - const: renesas,rcar-gen3-gpio
+      - const: renesas,gpio-rcar
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  gpio-ranges: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  clocks: {}
+  power-domains: {}
+  resets: {}
 examples:
   - |
     gpio0: gpio@ffc40000 {

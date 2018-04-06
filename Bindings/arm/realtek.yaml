@@ -16,7 +16,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - zidoo,x9s
+          - probox2,ava
+          - mele,v9
+      - const: realtek,rtd1295
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: PROBOX2 AVA
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Realtek platforms device tree bindings
   --------------------------------------

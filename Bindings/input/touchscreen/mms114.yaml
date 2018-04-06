@@ -13,7 +13,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: melfas,mms114
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  x-size: {}
+  y-size: {}
+  avdd-supply: {}
+  vdd-supply: {}
 examples:
   - |
     i2c@00000000 {

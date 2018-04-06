@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,at91sam9263-ac97c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ac97_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Atmel AC97 controller
 

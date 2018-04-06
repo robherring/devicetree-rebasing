@@ -29,7 +29,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra132-xusb-padctl
+          - nvidia,tegra124-xusb-padctl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: padctl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x1
 historical: |+
   Device tree binding for NVIDIA Tegra XUSB pad controller
   ========================================================

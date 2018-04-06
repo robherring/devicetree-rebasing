@@ -75,7 +75,34 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,sama5d2-isc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: hclock
+      - const: iscck
+      - const: gck
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clock-output-names:
+    items:
+      - const: isc-mck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Atmel Image Sensor Controller (ISC)
   ----------------------------------------------

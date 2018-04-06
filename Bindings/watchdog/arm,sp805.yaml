@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,sp805
+      - const: arm,primecell
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: wdogclk
+      - const: apb_pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  arm,primecell-periphid:
+    description: FIXME
 examples:
   - |
     watchdog@66090000 {

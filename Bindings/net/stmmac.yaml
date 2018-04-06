@@ -13,7 +13,50 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - snps,dwmac
+          - st,spear600-gmac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+      - const: eth_wake_irq
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  phy-mode:
+    items:
+      - const: mii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: stmmaceth
+      - const: pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  assigned-clock-rates: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     stmmac_axi_setup: stmmac-axi-config {

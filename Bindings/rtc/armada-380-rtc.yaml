@@ -15,7 +15,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-8k-rtc
+          - marvell,armada-380-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: rtc
+      - const: rtc-soc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
 historical: |+
   * Real Time Clock of the Armada 38x/7K/8K SoCs
 

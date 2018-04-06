@@ -68,7 +68,22 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,saw2
+          - qcom,apq8064-saw2-v1.1-cpu
+          - qcom,msm8974-saw2-v2.1-cpu
+          - qcom,apq8084-saw2-v2.1-cpu
+      - const: qcom,saw2
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  regulator: {}
 examples:
   - |
     power-controller@2099000 {

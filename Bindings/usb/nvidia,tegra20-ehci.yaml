@@ -31,7 +31,48 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-ehci
+      - const: usb-ehci
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  phy_type:
+    items:
+      - const: utmi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvidia,has-legacy-mode:
+    description: FIXME
+    type: boolean
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvidia,needs-double-reset:
+    description: FIXME
+    type: boolean
+  nvidia,phy:
+    description: FIXME
+  nvidia,phy-reset-gpio:
+    description: FIXME
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Tegra SOC USB controllers
 

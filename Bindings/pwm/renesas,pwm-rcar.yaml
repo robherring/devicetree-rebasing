@@ -12,7 +12,34 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,pwm-r8a7743
+          - renesas,pwm-r8a7745
+          - renesas,pwm-r8a7795
+          - renesas,pwm-r8a7796
+          - renesas,pwm-r8a77995
+      - const: renesas,pwm-rcar
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  power-domains: {}
+  resets: {}
+  '#pwm-cells':
+    const: 0x2
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pwm0: pwm@e6e30000 {

@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sharp,lq101k1ly04
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Sharp Display Corp. LQ101K1LY04 10.07" WXGA TFT LCD panel
 

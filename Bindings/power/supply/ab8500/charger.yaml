@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,ab8500-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  battery: {}
+  vddadc-supply: {}
 historical: |
   === AB8500 Charger Driver ===
 

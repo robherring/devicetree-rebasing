@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra186-pmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  reg-names:
+    items:
+      - const: pmc
+      - const: wake
+      - const: aotag
+      - const: scratch
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  nvidia,invert-interrupt:
+    description: FIXME
+    type: boolean
 historical: |+
   NVIDIA Tegra Power Management Controller (PMC)
 

@@ -18,7 +18,29 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,thunder
+      - const: arm,armv8
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  device_type:
+    items:
+      - const: cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  enable-method:
+    items:
+      - const: psci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Cavium ThunderX2 CN99XX platform tree bindings
   ----------------------------------------------

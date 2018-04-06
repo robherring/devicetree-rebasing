@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,dw-apb-ssi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  num-cs: {}
+  clocks: {}
+  num-chipselect: {}
+  bus-num: {}
+  tx-dma-channel: {}
+  rx-dma-channel: {}
+  resets: {}
+  reg-io-width: {}
 examples:
   - |
     spi@fff00000 {

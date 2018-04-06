@@ -26,7 +26,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: national,lp3974
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  max8998,pmic-buck1-default-dvs-idx:
+    description: FIXME
+  max8998,pmic-buck1-dvs-gpios:
+    description: FIXME
+  max8998,pmic-buck1-dvs-voltage:
+    description: FIXME
+  max8998,pmic-buck2-default-dvs-idx:
+    description: FIXME
+  max8998,pmic-buck2-dvs-gpio:
+    description: FIXME
+  max8998,pmic-buck2-dvs-voltage:
+    description: FIXME
 examples:
   - |
     pmic@66 {

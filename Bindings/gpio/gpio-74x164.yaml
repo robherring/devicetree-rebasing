@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fairchild,74hc595
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  registers-number: {}
+  spi-max-frequency: {}
 historical: |+
   * Generic 8-bits shift register GPIO driver
 

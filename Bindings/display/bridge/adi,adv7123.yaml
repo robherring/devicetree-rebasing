@@ -16,7 +16,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: adi,adv7123
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Analog Device ADV7123 Video DAC
   -------------------------------

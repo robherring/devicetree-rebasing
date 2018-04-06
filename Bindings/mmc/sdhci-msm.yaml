@@ -16,7 +16,51 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,sdhci-msm-v4
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: hc_mem
+      - const: core_mem
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: hc_irq
+      - const: pwr_irq
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+      - const: iface
+      - const: xo
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  vmmc-supply: {}
+  vqmmc-supply: {}
+  bus-width: {}
+  non-removable: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     sdhc_1: sdhci@f9824900 {

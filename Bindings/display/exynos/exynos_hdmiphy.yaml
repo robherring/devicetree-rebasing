@@ -12,7 +12,39 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos4210-hdmi
+          - exynos4210-hdmiphy
+          - samsung,exynos4212-hdmiphy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clock-names:
+    items:
+      - const: hdmi
+      - const: sclk_hdmi
+      - const: sclk_pixel
+      - const: sclk_hdmiphy
+      - const: mout_hdmi
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  clocks: {}
+  phy: {}
+  power-domains: {}
+  samsung,syscon-phandle:
+    description: FIXME
+  '#sound-dai-cells':
+    const: 0x0
+  ddc: {}
+  hpd-gpios: {}
 examples:
   - |
     hdmiphy {

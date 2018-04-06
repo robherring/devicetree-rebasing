@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - moxa,moxart-gpio
+          - cortina,gemini-gpio
+      - const: faraday,ftgpio010
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  resets: {}
+  clocks: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   Faraday Technology FTGPIO010 GPIO Controller
 

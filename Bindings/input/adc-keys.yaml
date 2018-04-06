@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: adc-keys
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: buttons
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  keyup-threshold-microvolt: {}
+  poll-interval: {}
 historical: |+
   ADC attached resistor ladder buttons
   ------------------------------------

@@ -12,7 +12,39 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,sp810
+      - const: arm,primecell
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: refclk
+      - const: timclk
+      - const: apb_pclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clock-output-names:
+    items:
+      - const: timerclk0
+      - const: timerclk1
+      - const: timerclk2
+      - const: timerclk3
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-parents: {}
 examples:
   - |
     v2m_sysctl: sysctl@20000 {

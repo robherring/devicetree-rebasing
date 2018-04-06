@@ -17,7 +17,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,juno-r1-pcie
+      - const: plda,xpressrich3-axi
+      - const: pci-host-ecam-generic
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bus-range: {}
+  linux,pci-domain:
+    description: FIXME
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  dma-coherent: {}
+  ranges: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  msi-parent: {}
+  iommu-map-mask: {}
+  iommu-map: {}
 historical: |
   * ARM Juno R1 PCIe interface
 

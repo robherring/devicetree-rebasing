@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: opencores,or1k-pic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-controller: {}
 historical: |+
   OpenRISC 1000 Programmable Interrupt Controller
 

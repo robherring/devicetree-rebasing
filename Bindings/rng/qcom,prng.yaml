@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,prng
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
 examples:
   - |
     rng@f9bff000 {

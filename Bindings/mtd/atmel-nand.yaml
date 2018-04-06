@@ -21,7 +21,57 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,at91sam9g45-nand-controller
+          - atmel,at91sam9260-nand-controller
+          - atmel,at91sam9g45-pmecc
+          - atmel,sama5d3-nand-controller
+          - atmel,sama5d4-pmecc
+          - atmel,at91rm9200-nand
+          - atmel,at91sam9261-nand-controller
+          - atmel,sama5d3-nfc
+          - atmel,sama5d2-pmecc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  atmel,nfc-sram:
+    description: FIXME
+  atmel,nfc-io:
+    description: FIXME
+  ecc-engine: {}
+  atmel,nand-addr-offset:
+    description: FIXME
+  atmel,nand-cmd-offset:
+    description: FIXME
+  nand-ecc-mode:
+    items:
+      - const: soft
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  clocks: {}
+  atmel,write-by-sram:
+    description: FIXME
+    type: boolean
 examples:
   - |
     nfc_io: nfc-io@70000000 {

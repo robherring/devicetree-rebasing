@@ -25,7 +25,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,composite-divider-clock
+          - ti,divider-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  ti,bit-shift:
+    description: FIXME
+  ti,max-div:
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,index-starts-at-one:
+    description: FIXME
+    type: boolean
+  ti,dividers:
+    description: FIXME
 historical: |+
   Binding for TI divider clock
 

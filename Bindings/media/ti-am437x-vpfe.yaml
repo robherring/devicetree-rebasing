@@ -18,7 +18,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,am437x-vpfe
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: vpfe0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 examples:
   - |
     vpfe: vpfe@f0034000 {

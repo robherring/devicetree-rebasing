@@ -16,7 +16,41 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - motorola,cpcap-led-red
+          - motorola,cpcap
+          - motorola,cpcap-led-green
+          - motorola,cpcap-led-blue
+          - motorola,cpcap-led-adl
+          - motorola,cpcap-led-cp
+      - const: st,6556002
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  spi-max-frequency: {}
+  spi-cs-high: {}
+  vdd-supply: {}
+  label:
+    items:
+      - const: status-led:red
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Motorola CPCAP PMIC LEDs
   ------------------------

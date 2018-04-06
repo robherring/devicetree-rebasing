@@ -161,7 +161,31 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,pm8941-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: chg-done
+      - const: chg-fast
+      - const: chg-trkl
+      - const: bat-temp-ok
+      - const: bat-present
+      - const: chg-gone
+      - const: usb-valid
+      - const: dc-valid
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+  usb-otg-in-supply: {}
 historical: |+
   Qualcomm Switch-Mode Battery Charger and Boost
 

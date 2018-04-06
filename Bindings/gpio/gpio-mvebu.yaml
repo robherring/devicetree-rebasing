@@ -12,34 +12,66 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-370-gpio
+          - marvell,orion-gpio
+          - marvell,armada-8k-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ngpios: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupts: {}
+  clocks: {}
+  reg-names:
+    items:
+      - const: gpio
+      - const: pwm
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x2
+  offset: {}
+  gpio-ranges: {}
 examples:
-  - |4
-      gpio0: gpio@d0018100 {
-        compatible = "marvell,armadaxp-gpio";
-        reg = <0xd0018100 0x40>,
-            <0xd0018800 0x30>;
-        ngpios = <32>;
-        gpio-controller;
-        #gpio-cells = <2>;
-        interrupt-controller;
-        #interrupt-cells = <2>;
-        interrupts = <16>, <17>, <18>, <19>;
-      };
+  - |
+    gpio0: gpio@d0018100 {
+      compatible = "marvell,armadaxp-gpio";
+      reg = <0xd0018100 0x40>,
+          <0xd0018800 0x30>;
+      ngpios = <32>;
+      gpio-controller;
+      #gpio-cells = <2>;
+      interrupt-controller;
+      #interrupt-cells = <2>;
+      interrupts = <16>, <17>, <18>, <19>;
+    };
 
-      gpio1: gpio@18140 {
-        compatible = "marvell,armada-370-gpio";
-        reg = <0x18140 0x40>, <0x181c8 0x08>;
-        reg-names = "gpio", "pwm";
-        ngpios = <17>;
-        gpio-controller;
-        #gpio-cells = <2>;
-        #pwm-cells = <2>;
-        interrupt-controller;
-        #interrupt-cells = <2>;
-        interrupts = <87>, <88>, <89>;
-        clocks = <&coreclk 0>;
-      };
+    gpio1: gpio@18140 {
+      compatible = "marvell,armada-370-gpio";
+      reg = <0x18140 0x40>, <0x181c8 0x08>;
+      reg-names = "gpio", "pwm";
+      ngpios = <17>;
+      gpio-controller;
+      #gpio-cells = <2>;
+      #pwm-cells = <2>;
+      interrupt-controller;
+      #interrupt-cells = <2>;
+      interrupts = <87>, <88>, <89>;
+      clocks = <&coreclk 0>;
+    };
 historical: |+
   * Marvell EBU GPIO controller
 

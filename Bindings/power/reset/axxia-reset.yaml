@@ -16,7 +16,13 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lsi,axm55xx-reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  syscon: {}
 examples:
   - |
     syscon: syscon@2010030000 {

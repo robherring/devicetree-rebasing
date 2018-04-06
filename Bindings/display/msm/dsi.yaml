@@ -15,7 +15,58 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,dsi-phy-28nm-8960
+          - qcom,mdss-dsi-ctrl
+          - qcom,dsi-phy-28nm-lp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  label:
+    items:
+      - const: MDSS DSI CTRL->0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dsi_ctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: iface_clk
+      - const: bus_clk
+      - const: core_mmss_clk
+      - const: src_clk
+      - const: byte_clk
+      - const: pixel_clk
+      - const: core_clk
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  syscon-sfpb: {}
+  phys: {}
+  '#clock-cells':
+    const: 0x1
+  '#phy-cells':
+    const: 0x0
+  vddio-supply: {}
 examples:
   - |
     dsi0: dsi@fd922800 {

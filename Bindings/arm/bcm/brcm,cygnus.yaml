@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,bcm11360
+          - brcm,bcm58300
+          - brcm,bcm58305
+      - const: brcm,cygnus
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Cygnus SVK (BCM958300K)
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |
   Broadcom Cygnus device tree bindings
   ------------------------------------

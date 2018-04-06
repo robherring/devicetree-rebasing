@@ -23,7 +23,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - maxim,max77693-haptic
+          - maxim,max77693
+          - maxim,max77693-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  haptic-supply: {}
+  pwms: {}
+  maxim,constant-microvolt:
+    description: FIXME
+  maxim,min-system-microvolt:
+    description: FIXME
+  maxim,thermal-regulation-celsius:
+    description: FIXME
+  maxim,battery-overcurrent-microamp:
+    description: FIXME
+  maxim,charge-input-threshold-microvolt:
+    description: FIXME
 historical: |+
   Maxim MAX77693 multi-function device
 

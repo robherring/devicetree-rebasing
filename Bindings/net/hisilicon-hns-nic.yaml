@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hns-nic-v2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ae-handle: {}
+  port-idx-in-ae: {}
+  local-mac-address: {}
+  dma-coherent: {}
 examples:
   - |
     ethernet@0{

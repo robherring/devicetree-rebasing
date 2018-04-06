@@ -70,7 +70,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,flexgen-audio
+          - st,flexgen
+          - st,flexgen-video
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: clk-ic-lmi0
+      - const: clk-ic-lmi1
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clock-critical: {}
 examples:
   - |
     clk_s_c0_flexgen: clk-s-c0-flexgen {

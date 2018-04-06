@@ -17,7 +17,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: aptina,mt9p031
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  vaa-supply: {}
+  vdd-supply: {}
+  vdd_io-supply: {}
 examples:
   - |
     i2c0@1c22000 {

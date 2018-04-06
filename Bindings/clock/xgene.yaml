@@ -17,7 +17,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - apm,xgene-pmd-clock
+          - apm,xgene-pcppll-v2-clock
+          - apm,xgene-socpll-v2-clock
+          - apm,xgene-device-clock
+          - apm,xgene-pcppll-clock
+          - apm,xgene-socpll-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-output-names:
+    items:
+      - const: pmdpll
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: div-reg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  divider-offset: {}
+  divider-width: {}
+  divider-shift: {}
+  clock-names:
+    items:
+      - const: pcppll
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  type: {}
 historical: |+
   Device Tree Clock bindings for APM X-Gene
 

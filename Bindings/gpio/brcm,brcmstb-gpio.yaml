@@ -17,7 +17,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,brcmstb-gpio
+          - brcm,bcm7445-gpio
+      - const: brcm,brcmstb-gpio
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  '#interrupt-cells':
+    const: 0x2
+  gpio-controller: {}
+  interrupt-controller: {}
+  interrupt-parent: {}
+  interrupts: {}
+  brcm,gpio-bank-widths:
+    description: FIXME
+  interrupts-extended: {}
+  wakeup-source: {}
 examples:
   - |
     upg_gio: gpio@f040a700 {

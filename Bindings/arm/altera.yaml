@@ -14,7 +14,25 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - altr,socfpga-arria5
+          - altr,socfpga-arria10
+      - const: altr,socfpga
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Altera SOCFPGA Arria 10
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Altera's SoCFPGA platform device tree bindings
   ---------------------------------------------

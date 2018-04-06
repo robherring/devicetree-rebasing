@@ -20,7 +20,50 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,davinci-nand
+          - ti,keystone-nand
+      - const: ti,davinci-nand
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,davinci-chipselect:
+    description: FIXME
+  ti,davinci-mask-ale:
+    description: FIXME
+  ti,davinci-mask-cle:
+    description: FIXME
+  ti,davinci-mask-chipsel:
+    description: FIXME
+  nand-ecc-mode:
+    items:
+      - const: hw
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,davinci-ecc-bits:
+    description: FIXME
+  nand-on-flash-bbt: {}
+  ti,davinci-ecc-mode:
+    items:
+      - const: hw
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,davinci-nand-use-bbt:
+    description: FIXME
+    type: boolean
 historical: |+
   Device tree bindings for Texas instruments Davinci/Keystone NAND controller
 

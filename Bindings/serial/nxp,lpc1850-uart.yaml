@@ -12,7 +12,45 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-uart
+      - const: ns16550a
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-shift: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: uartclk
+      - const: reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+      - const: tx
+      - const: rx
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * NXP LPC1850 UART
 

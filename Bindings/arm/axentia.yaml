@@ -16,7 +16,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - axentia,tse850v3
+          - axentia,nattis-2
+      - const: axentia,natte-2
+      - const: axentia,linea
+      - const: atmel,sama5d31
+      - const: atmel,sama5d3
+      - const: atmel,sama5
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Axentia Linea-Nattis v2 Natte v2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |
   Device tree bindings for Axentia ARM devices
   ============================================

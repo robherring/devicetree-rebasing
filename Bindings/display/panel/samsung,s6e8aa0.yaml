@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s6e8aa0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vdd3-supply: {}
+  vci-supply: {}
+  reset-gpios: {}
+  power-on-delay: {}
+  reset-delay: {}
+  init-delay: {}
+  flip-horizontal: {}
+  flip-vertical: {}
+  panel-width-mm: {}
+  panel-height-mm: {}
 examples:
   - |
     panel {

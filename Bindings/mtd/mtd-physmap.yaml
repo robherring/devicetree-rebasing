@@ -101,7 +101,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mtd-ram
+          - jedec-flash
+          - mtd-rom
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bank-width: {}
+  device-width: {}
+  probe-type:
+    items:
+      - const: map_rom
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 examples:
   - |
     flash@ff000000 {

@@ -25,7 +25,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,armada-3700-tbg-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
 historical: |+
   * Time Base Generator Clock bindings for Marvell Armada 37xx SoCs
 

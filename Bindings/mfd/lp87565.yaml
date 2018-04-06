@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,lp87565-q1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  buck10-in-supply: {}
+  buck23-in-supply: {}
 historical: |
   TI LP87565 PMIC MFD driver
 

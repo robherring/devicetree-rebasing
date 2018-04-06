@@ -114,7 +114,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8173-mdp-rsz
+          - mediatek,mt8173-mdp-rdma
+          - mediatek,mt8173-mdp-wdma
+          - mediatek,mt8173-mdp-wrot
+      - const: mediatek,mt8173-mdp
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  power-domains: {}
+  iommus: {}
+  mediatek,larb:
+    description: FIXME
+  mediatek,vpu:
+    description: FIXME
 examples:
   - |
     mdp_rdma0: rdma@14001000 {

@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lacie,netxbig-gpio-ext
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  addr-gpios: {}
+  data-gpios: {}
+  enable-gpio: {}
 historical: |+
   Binding for the GPIO extension bus found on some LaCie/Seagate boards
   (Example: 2Big/5Big Network v2, 2Big NAS).

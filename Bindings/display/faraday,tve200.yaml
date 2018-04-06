@@ -12,7 +12,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cortina,gemini-tvc
+      - const: faraday,tve200
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  resets: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: PCLK
+      - const: TVE
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   * Faraday TV Encoder TVE200
 

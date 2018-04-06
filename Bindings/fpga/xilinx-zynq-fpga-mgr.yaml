@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,zynq-devcfg-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ref_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  syscon: {}
 examples:
   - |
     devcfg: devcfg@f8007000 {

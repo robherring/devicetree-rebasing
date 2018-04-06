@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: zte,zx296702-dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: dmaclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x1
+  dma-channels: {}
+  dma-requests: {}
 historical: |+
   * ZTE ZX296702 DMA controller
 

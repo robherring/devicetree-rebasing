@@ -43,7 +43,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stih407-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  interrupts: {}
 examples:
   - |
     temp0@91a0000 {

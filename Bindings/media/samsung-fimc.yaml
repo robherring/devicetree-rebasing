@@ -25,7 +25,43 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,s5pv210-fimc
+          - samsung,exynos4210-fimc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fimc
+      - const: sclk_fimc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  samsung,sysreg:
+    description: FIXME
+  iommus: {}
+  samsung,pix-limits:
+    description: FIXME
+  samsung,mainscaler-ext:
+    description: FIXME
+    type: boolean
+  samsung,cam-if:
+    description: FIXME
+    type: boolean
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  assigned-clock-rates: {}
+  interrupt-parent: {}
 examples:
   - |
     aliases {

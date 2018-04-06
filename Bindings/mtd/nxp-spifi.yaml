@@ -19,7 +19,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1773-spifi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: spifi
+      - const: flash
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: spifi
+      - const: reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * NXP SPI Flash Interface (SPIFI)
 

@@ -47,7 +47,41 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra124-soctherm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: soctherm-reg
+      - const: car-reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: tsensor
+      - const: soctherm
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: soctherm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x1
 examples:
   - |
     soctherm@700e2000 {

@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,octeon-3860-ciu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     interrupt-controller@1070000000000 {

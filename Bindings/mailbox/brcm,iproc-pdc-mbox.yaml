@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,iproc-pdc-mbox
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#mbox-cells':
+    const: 0x1
+  dma-coherent: {}
+  brcm,rx-status-len:
+    description: FIXME
+  brcm,use-bcm-hdr:
+    description: FIXME
+    type: boolean
 examples:
   - |
     pdc0: iproc-pdc0@612c0000 {

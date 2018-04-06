@@ -13,7 +13,47 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra-audio-wm9712-colibri_t20
+      - const: nvidia,tegra-audio-wm9712
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,model:
+    items:
+      - const: Colibri T20 AC97 Audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  nvidia,audio-routing:
+    items:
+      - const: Headphone
+      - const: HPOUTL
+      - const: Headphone
+      - const: HPOUTR
+      - const: LineIn
+      - const: LINEINL
+      - const: LineIn
+      - const: LINEINR
+      - const: Mic
+      - const: MIC1
+    minItems: 10
+    maxItems: 10
+    additionalItems: false
+    description: FIXME
+  nvidia,ac97-controller:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: pll_a
+      - const: pll_a_out0
+      - const: mclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   NVIDIA Tegra audio complex
 

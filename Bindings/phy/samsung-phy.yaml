@@ -13,7 +13,49 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos4210-usb2-phy
+          - samsung,s5pv210-mipi-video-phy
+          - samsung,exynos5250-usb2-phy
+          - samsung,exynos5420-dp-video-phy
+          - samsung,exynos5250-dp-video-phy
+          - samsung,exynos3250-usb2-phy
+          - samsung,exynos4x12-usb2-phy
+          - samsung,s5pv210-usb2-phy
+          - samsung,exynos5433-mipi-video-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x1
+  syscon: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  samsung,pmureg-phandle:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: phy
+      - const: ref
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  vbus-supply: {}
+  samsung,sysreg-phandle:
+    description: FIXME
+  samsung,pmu-syscon:
+    description: FIXME
+  samsung,cam0-sysreg:
+    description: FIXME
+  samsung,cam1-sysreg:
+    description: FIXME
+  samsung,disp-sysreg:
+    description: FIXME
 historical: |+
   Samsung S5P/EXYNOS SoC series MIPI CSIS/DSIM DPHY
   -------------------------------------------------

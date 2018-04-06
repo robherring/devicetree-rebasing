@@ -16,7 +16,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: toshiba,tc358743
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: refclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reset-gpios: {}
 examples:
   - |
     tc358743@f {

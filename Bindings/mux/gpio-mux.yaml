@@ -16,7 +16,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-mux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#mux-control-cells':
+    const: 0x0
+  mux-gpios: {}
+  idle-state: {}
 examples:
   - |
     mux: mux-controller {

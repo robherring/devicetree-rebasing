@@ -119,7 +119,22 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra124-car
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
+  nvidia,external-memory-controller:
+    description: FIXME
 historical: |+
   NVIDIA Tegra124 and Tegra132 Clock And Reset Controller
 

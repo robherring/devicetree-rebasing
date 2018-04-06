@@ -16,7 +16,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: smi,sm501
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mode:
+    items:
+      - const: 640x480-32@60
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  little-endian: {}
 examples:
   - |
     display@1,0 {

@@ -15,7 +15,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: linux,bt-sco
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Bluetooth-SCO audio CODEC
 

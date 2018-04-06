@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: abilis,tb10x-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  abilis,ngpio:
+    description: FIXME
+  gpio-ranges: {}
+  gpio-ranges-group-names:
+    items:
+      - const: gpioa
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     gpioa: gpio@ff140000 {

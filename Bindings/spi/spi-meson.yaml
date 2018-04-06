@@ -20,7 +20,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson-gx-spicc
+          - amlogic,meson6-spifc
+          - amlogic,meson-axg-spicc
+          - amlogic,meson-gxbb-spifc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  num-cs: {}
 examples:
   - |
     spi@c1108d80 {

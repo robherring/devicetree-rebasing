@@ -90,7 +90,20 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ams,as3645a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Analog devices AS3645A device tree bindings
 

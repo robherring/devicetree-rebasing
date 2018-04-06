@@ -31,7 +31,32 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,cci-400-ctrl-if
+          - arm,cci-400
+          - arm,cci-400-pmu,r0
+          - arm,cci-400-pmu,r1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  interface-type:
+    items:
+      - const: ace
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 examples:
   - |
     cpus {

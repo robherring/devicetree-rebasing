@@ -15,7 +15,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,spear1340-miphy
+          - st,spear1310-miphy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  misc: {}
+  phy-id: {}
+  '#phy-cells':
+    const: 0x1
 historical: |
   ST SPEAr miphy DT details
   =========================

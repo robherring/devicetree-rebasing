@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qca,ar7100-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ngpios: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
 examples:
   - |
     gpio@18040000 {

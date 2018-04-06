@@ -12,7 +12,58 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5410-mipi-dsi
+          - samsung,exynos4210-mipi-dsi
+          - samsung,exynos3250-mipi-dsi
+          - samsung,exynos5433-mipi-dsi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  power-domains: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: dsim
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: bus_clk
+      - const: sclk_mipi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  vddcore-supply: {}
+  vddio-supply: {}
+  samsung,burst-clock-frequency:
+    description: FIXME
+  samsung,esc-clock-frequency:
+    description: FIXME
+  samsung,pll-clock-frequency:
+    description: FIXME
+  samsung,phy-type:
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     dsi@11c80000 {

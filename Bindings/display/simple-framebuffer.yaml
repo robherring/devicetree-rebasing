@@ -49,7 +49,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: allwinner,simple-framebuffer
+      - const: simple-framebuffer
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  allwinner,pipeline:
+    items:
+      - const: de_be0-lcd0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  clocks: {}
+  vcc-lcd-supply: {}
+  vdd-mipi-bridge-supply: {}
+  vcc-pg-supply: {}
 historical: |+
   Simple Framebuffer
 

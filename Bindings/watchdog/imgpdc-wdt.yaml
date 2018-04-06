@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,pdc-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: wdt
+      - const: sys
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
 historical: |+
   *ImgTec PowerDown Controller (PDC) Watchdog Timer (WDT)
 

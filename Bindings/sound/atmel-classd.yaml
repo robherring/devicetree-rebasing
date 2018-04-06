@@ -12,7 +12,48 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,sama5d2-classd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk
+      - const: gclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  atmel,pwm-type:
+    items:
+      - const: diff
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  atmel,non-overlap-time:
+    description: FIXME
 historical: |+
   * Atmel ClassD driver under ALSA SoC architecture
 

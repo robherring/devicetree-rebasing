@@ -15,7 +15,44 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,control-phy-usb2
+          - ti,omap-usb2
+          - ti,control-phy-otghs
+          - ti,phy-pipe3-sata
+          - ti,phy-pipe3-pcie
+          - ti,dra7x-usb2
+          - ti,dra7x-usb2-phy2
+          - ti,omap-usb3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ctrl-module: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: wkupclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  reg-names:
+    items:
+      - const: power
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  syscon-phy-power: {}
+  syscon-pllreset: {}
+  syscon-pcs: {}
+  phy-supply: {}
 historical: |
   TI PHY: DT DOCUMENTATION FOR PHYs in TI PLATFORMs
 

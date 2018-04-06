@@ -20,7 +20,64 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3288-dw-mshc
+          - rockchip,rk2928-dw-mshc
+          - rockchip,rv1108-dw-mshc
+          - rockchip,rk3228-dw-mshc
+          - rockchip,rk3036-dw-mshc
+          - rockchip,rk3399-dw-mshc
+          - rockchip,rk3368-dw-mshc
+          - rockchip,rk3328-dw-mshc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: biu
+      - const: ciu
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx-tx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fifo-depth: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
+  max-frequency: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  bus-width: {}
+  disable-wp: {}
+  vmmc-supply: {}
+  cap-mmc-highspeed: {}
+  cap-sd-highspeed: {}
+  card-detect-delay: {}
+  power-domains: {}
 examples:
   - |
     rkdwmmc0@12200000 {

@@ -12,7 +12,65 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,dra7-cpsw
+          - ti,am335x-cpsw
+          - ti,am4372-cpsw
+      - const: ti,cpsw
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: cpgmac0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+      - const: cpts
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  cpdma_channels: {}
+  ale_entries: {}
+  bd_ram_size: {}
+  mac_control: {}
+  slaves: {}
+  active_slave: {}
+  cpts_clock_mult: {}
+  cpts_clock_shift: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupts: {}
+  ranges: {}
+  syscon: {}
+  pinctrl-names:
+    items:
+      - const: default
+      - const: sleep
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  ti,no-idle:
+    description: FIXME
+    type: boolean
+  dual_emac: {}
+  assigned-clocks: {}
+  assigned-clock-rates: {}
 examples:
   - |
     mac: ethernet@4a100000 {

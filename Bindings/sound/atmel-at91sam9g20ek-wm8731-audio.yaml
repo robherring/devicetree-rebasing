@@ -12,7 +12,53 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,at91sam9g20ek
+          - atmel,at91sam9g20ek-wm8731-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  atmel,model:
+    items:
+      - const: wm8731 @ AT91SAMG20EK
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  atmel,audio-routing:
+    items:
+      - const: Ext Spk
+      - const: LHPOUT
+      - const: Int Mic
+      - const: MICIN
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+    description: FIXME
+  atmel,ssc-controller:
+    description: FIXME
+  atmel,audio-codec:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Atmel at91sam9g20ek
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |+
   * Atmel at91sam9g20ek wm8731 audio complex
 

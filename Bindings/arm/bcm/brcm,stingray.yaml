@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,bcm958742k
+          - brcm,bcm958742t
+      - const: brcm,stingray
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: Stingray SST100 (BCM958742T)
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Broadcom Stingray device tree bindings
   ------------------------------------------------

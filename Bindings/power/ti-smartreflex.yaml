@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap3-smartreflex-mpu-iva
+          - ti,omap3-smartreflex-core
+          - ti,omap4-smartreflex-iva
+          - ti,omap4-smartreflex-core
+          - ti,omap4-smartreflex-mpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 examples:
   - |
     smartreflex_iva: smartreflex@4a0db000 {

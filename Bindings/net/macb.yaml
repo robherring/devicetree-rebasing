@@ -13,7 +13,53 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - cdns,at91sam9260-macb
+          - cdns,zynq-gem
+          - atmel,sama5d3-gem
+          - atmel,sama5d4-gem
+          - cdns,at91rm9200-emac
+          - atmel,sama5d2-gem
+          - cdns,gem
+      - const: cdns,gem
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk
+      - const: hclk
+      - const: tx_clk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  phy-mode:
+    items:
+      - const: rgmii-id
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-handle: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  interrupt-parent: {}
 examples:
   - |
     macb0: ethernet@fffc4000 {

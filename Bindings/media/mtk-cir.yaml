@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt7623-cir
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Device-Tree bindings for Mediatek consumer IR controller
   found in Mediatek SoC family

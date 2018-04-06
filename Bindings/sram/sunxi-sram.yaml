@@ -20,7 +20,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun4i-a10-sram-controller
+          - mmio-sram
+          - allwinner,sun4i-a10-sram-a3-a4
+          - allwinner,sun4i-a10-sram-d
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |+
   Allwinnner SoC SRAM controllers
   -----------------------------------------------------

@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - x-powers,axp202-ac-power-supply
+          - x-powers,axp221-ac-power-supply
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   AXP20X and AXP22X PMICs' AC power supply
 

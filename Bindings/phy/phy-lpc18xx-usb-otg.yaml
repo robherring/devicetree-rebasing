@@ -16,7 +16,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-usb-otg-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#phy-cells':
+    const: 0x0
 historical: |+
   NXP LPC18xx/43xx internal USB OTG PHY binding
   ---------------------------------------------

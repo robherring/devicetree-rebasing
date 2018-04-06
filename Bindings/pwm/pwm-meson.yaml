@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson-axg-ee-pwm
+          - amlogic,meson8b-pwm
+          - amlogic,meson-axg-ao-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x3
 historical: |+
   Amlogic Meson PWM Controller
   ============================

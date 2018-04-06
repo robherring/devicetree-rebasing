@@ -12,7 +12,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: motorola,mapphone-cpcap-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts-extended: {}
+  interrupt-names:
+    items:
+      - const: chrg_det
+      - const: rvrs_chrg
+      - const: chrg_se1b
+      - const: se0conn
+      - const: rvrs_mode
+      - const: chrgcurr1
+      - const: vbusvld
+      - const: battdetb
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+  mode-gpios: {}
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: battdetb
+      - const: battp
+      - const: vbus
+      - const: chg_isense
+      - const: batti
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
 historical: |+
   Motorola CPCAP PMIC battery charger binding
 

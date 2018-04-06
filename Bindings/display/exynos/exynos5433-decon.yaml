@@ -18,7 +18,51 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5433-decon-tv
+          - samsung,exynos5433-decon
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk
+      - const: aclk_decon
+      - const: aclk_smmu_decon0x
+      - const: aclk_xiu_decon0x
+      - const: pclk_smmu_decon0x
+      - const: sclk_decon_vclk
+      - const: sclk_decon_eclk
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  power-domains: {}
+  interrupt-names:
+    items:
+      - const: fifo
+      - const: vsync
+      - const: lcd_sys
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  samsung,disp-sysreg:
+    description: FIXME
+  iommus: {}
+  iommu-names:
+    items:
+      - const: m0
+      - const: m1
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   Device-Tree bindings for Samsung Exynos SoC display controller (DECON)
 

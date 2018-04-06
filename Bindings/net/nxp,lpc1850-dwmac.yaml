@@ -16,7 +16,59 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-dwmac
+      - const: snps,dwmac-3.611
+      - const: snps,dwmac
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  rx-fifo-depth: {}
+  tx-fifo-depth: {}
+  snps,pbl:
+    description: FIXME
+  snps,force_thresh_dma_mode:
+    description: FIXME
+    type: boolean
+  phy-mode:
+    items:
+      - const: mii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * NXP LPC1850 GMAC ethernet controller
 

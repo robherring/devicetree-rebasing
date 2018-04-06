@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lg,lp129qe
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  backlight: {}
+  ddc-i2c-bus: {}
 historical: |
   LG 12.9" (2560x1700 pixels) TFT LCD panel
 

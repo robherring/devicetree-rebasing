@@ -16,7 +16,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - picochip,spacc-l2
+          - picochip,spacc-ipsec
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  ref-clock: {}
 historical: |+
   Picochip picoXcell SPAcc (Security Protocol Accelerator) bindings
 

@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ovti,ov5640
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: xclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  DOVDD-supply: {}
+  AVDD-supply: {}
+  DVDD-supply: {}
+  powerdown-gpios: {}
+  reset-gpios: {}
 historical: |+
   * Omnivision OV5640 MIPI CSI-2 / parallel sensor
 

@@ -16,7 +16,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-375-corediv-clock
+          - marvell,armada-370-corediv-clock
+          - marvell,armada-380-corediv-clock
+          - marvell,mv98dx3236-corediv-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Core Divider Clock bindings for Marvell MVEBU SoCs
 

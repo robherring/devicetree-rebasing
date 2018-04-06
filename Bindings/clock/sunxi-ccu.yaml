@@ -67,7 +67,46 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun5i-a10s-ccu
+          - allwinner,sun8i-a23-ccu
+          - allwinner,sun4i-a10-ccu
+          - allwinner,sun8i-h3-ccu
+          - allwinner,sun8i-h3-r-ccu
+          - allwinner,sun5i-a13-ccu
+          - allwinner,sun6i-a31-ccu
+          - allwinner,sun8i-a33-ccu
+          - allwinner,sun7i-a20-ccu
+          - allwinner,sun9i-a80-ccu
+          - nextthing,gr8-ccu
+          - allwinner,sun8i-a83t-ccu
+          - allwinner,sun8i-a83t-r-ccu
+          - allwinner,sun8i-v3s-ccu
+          - allwinner,sun8i-r40-ccu
+          - allwinner,sun50i-h5-ccu
+          - allwinner,sun50i-a64-ccu
+          - allwinner,sun50i-a64-r-ccu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: hosc
+      - const: losc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
 historical: |+
   Allwinner Clock Control Unit Binding
   ------------------------------------

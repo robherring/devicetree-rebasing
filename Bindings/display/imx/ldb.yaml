@@ -19,7 +19,43 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx53-ldb
+          - fsl,imx6q-ldb
+      - const: fsl,imx53-ldb
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  gpr: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: di0_pll
+      - const: di1_pll
+      - const: di0_sel
+      - const: di1_sel
+      - const: di0
+      - const: di1
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   Device-Tree bindings for LVDS Display Bridge (ldb)
 

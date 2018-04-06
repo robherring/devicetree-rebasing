@@ -16,7 +16,51 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: axis,artpec6-pcie
+      - const: snps,dw-pcie
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dbi
+      - const: phy
+      - const: config
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  num-lanes: {}
+  bus-range: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: msi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  axis,syscon-pcie:
+    description: FIXME
 examples:
   - |
     pcie@f8050000 {

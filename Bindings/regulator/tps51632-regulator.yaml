@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,tps51632
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-name:
+    items:
+      - const: vdd-cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-always-on: {}
+  regulator-boot-on: {}
 examples:
   - |
     tps51632 {

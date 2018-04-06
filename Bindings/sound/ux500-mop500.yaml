@@ -15,7 +15,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,snd-soc-mop500
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  stericsson,cpu-dai:
+    description: FIXME
+  stericsson,audio-codec:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: sysclk
+      - const: ulpclk
+      - const: intclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 examples:
   - |
     sound {

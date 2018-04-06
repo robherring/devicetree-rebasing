@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,nspire-keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  scan-interval: {}
+  row-delay: {}
+  clocks: {}
+  active-low: {}
+  linux,keymap:
+    description: FIXME
 historical: |+
   TI-NSPIRE Keypad
 

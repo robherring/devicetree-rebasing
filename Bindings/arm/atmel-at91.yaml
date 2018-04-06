@@ -15,7 +15,32 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,at91rm9200-wdt
+          - atmel,at91sam9260-pit
+          - atmel,sama5d2-chipid
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Atmel AT91SAM9260 family SoC
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 examples:
   - |
     rstc@fffffd00 {

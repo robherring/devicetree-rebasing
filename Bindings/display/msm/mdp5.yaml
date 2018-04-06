@@ -20,7 +20,35 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,mdp5
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: mdp_phys
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: iface_clk
+      - const: bus_clk
+      - const: core_clk
+      - const: vsync_clk
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  iommus: {}
 historical: |+
   Qualcomm adreno/snapdragon MDP5 display controller
 

@@ -13,7 +13,51 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,maxtouch
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  wakeup-source: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  linux,gpio-keymap:
+    description: FIXME
+  atmel,x-line:
+    description: FIXME
+  atmel,y-line:
+    description: FIXME
+  atmel,x-size:
+    description: FIXME
+  atmel,y-size:
+    description: FIXME
+  atmel,burst-length:
+    description: FIXME
+  atmel,threshold:
+    description: FIXME
+  atmel,orientation:
+    description: FIXME
+  vdd-supply: {}
+  interrupts-extended: {}
+  interrupt-names:
+    items:
+      - const: irq
+      - const: wakeup
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     touch@4b {

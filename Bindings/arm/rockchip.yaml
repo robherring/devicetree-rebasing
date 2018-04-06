@@ -15,7 +15,61 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - radxa,rock
+          - chipspark,rayeager-px2
+          - google,veyron-mickey-rev8
+          - netxeon,r89
+          - google,veyron-minnie-rev4
+          - google,veyron-jaq-rev5
+          - rockchip,rv1108-evb
+          - chipspark,popmetal-rk3288
+          - asus,rk3288-tinker
+          - radxa,rock2-square
+          - firefly,firefly-rk3288-reload
+          - mundoreader,bq-curie2
+          - rockchip,rk3229-evb
+          - google,veyron-jerry-rev7
+          - haoyu,marsboard-rk3066
+          - google,veyron-brain-rev0
+          - rikomagic,mk808
+          - google,veyron-speedy-rev9
+          - phytec,rk3288-pcm-947
+          - rockchip,px3-evb
+          - amarula,vyasa-rk3288
+          - rockchip,rk3228-evb
+          - rockchip,rk3288-fennec
+          - mqmaker,miqi
+          - firefly,firefly-rk3288-beta
+          - google,veyron-pinky-rev2
+          - firefly,firefly-rk3399
+          - rockchip,rk3399-sapphire-excavator
+          - rockchip,r88
+          - tronsmart,orion-r68-meta
+          - pine64,rock64
+          - google,kevin-rev15
+          - rockchip,rk3368-evb-act8846
+          - geekbuying,geekbox
+          - rockchip,px5-evb
+          - rockchip,rk3399-evb
+          - rockchip,rk3328-evb
+      - const: rockchip,rk3066a
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: Rayeager PX2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Rockchip platforms device tree bindings
   ---------------------------------------

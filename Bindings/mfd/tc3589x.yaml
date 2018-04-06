@@ -24,7 +24,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - tc3589x-gpio
+          - toshiba,tc35892
+          - toshiba,tc35893
+          - toshiba,tc3589x-gpio
+          - toshiba,tc3589x-keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  debounce-delay-ms: {}
+  keypad,num-columns:
+    description: FIXME
+  keypad,num-rows:
+    description: FIXME
+  linux,no-autorepeat:
+    description: FIXME
+    type: boolean
+  wakeup-source: {}
+  linux,keymap:
+    description: FIXME
 historical: |+
   * Toshiba TC3589x multi-purpose expander
 

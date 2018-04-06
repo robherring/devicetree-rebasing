@@ -33,7 +33,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,bcm6328-leds
+          - led
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  brcm,serial-leds:
+    description: FIXME
+    type: boolean
+  brcm,serial-dat-low:
+    description: FIXME
+    type: boolean
+  brcm,serial-shift-inv:
+    description: FIXME
+    type: boolean
 historical: |+
   LEDs connected to Broadcom BCM6328 controller
 

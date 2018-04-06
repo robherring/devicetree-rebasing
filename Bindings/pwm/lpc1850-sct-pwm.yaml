@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-sct-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  '#pwm-cells':
+    const: 0x3
 historical: |+
   * NXP LPC18xx State Configurable Timer - Pulse Width Modulator driver
 

@@ -18,7 +18,137 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,lis3lv02dl-accel
+          - st,lis331dlh
+          - st,lsm303dlh-accel
+          - st,lsm303dlh-magn
+          - st,l3g4200d-gyro
+          - st,lps001wp-press
+          - st,lis331dl-accel
+          - st,lis3mdl-magn
+          - st,lis3dh-accel
+      - const: st,lis3lv02d
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  Vdd-supply: {}
+  Vdd_IO-supply: {}
+  st,click-single-x:
+    description: FIXME
+    type: boolean
+  st,click-single-y:
+    description: FIXME
+    type: boolean
+  st,click-single-z:
+    description: FIXME
+    type: boolean
+  st,click-thresh-x:
+    description: FIXME
+  st,click-thresh-y:
+    description: FIXME
+  st,click-thresh-z:
+    description: FIXME
+  st,click-click-time-limit:
+    description: FIXME
+  st,click-latency:
+    description: FIXME
+  st,irq1-click:
+    description: FIXME
+    type: boolean
+  st,wakeup-x-lo:
+    description: FIXME
+    type: boolean
+  st,wakeup-x-hi:
+    description: FIXME
+    type: boolean
+  st,wakeup-y-lo:
+    description: FIXME
+    type: boolean
+  st,wakeup-y-hi:
+    description: FIXME
+    type: boolean
+  st,wakeup-z-lo:
+    description: FIXME
+    type: boolean
+  st,wakeup-z-hi:
+    description: FIXME
+    type: boolean
+  st,min-limit-x:
+    description: FIXME
+  st,min-limit-y:
+    description: FIXME
+  st,min-limit-z:
+    description: FIXME
+  st,max-limit-x:
+    description: FIXME
+  st,max-limit-y:
+    description: FIXME
+  st,max-limit-z:
+    description: FIXME
+  st,drdy-int-pin:
+    description: FIXME
+  vdd-supply: {}
+  vddio-supply: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  st,click-threshold-x:
+    description: FIXME
+  st,click-threshold-y:
+    description: FIXME
+  st,click-threshold-z:
+    description: FIXME
+  st,click-time-limit:
+    description: FIXME
+  st,irq2-click:
+    description: FIXME
+    type: boolean
+  st,wakeup-threshold:
+    description: FIXME
+  st,wakeup2-z-hi:
+    description: FIXME
+    type: boolean
+  st,wakeup2-threshold:
+    description: FIXME
+  st,hipass1-disable:
+    description: FIXME
+    type: boolean
+  st,hipass2-disable:
+    description: FIXME
+    type: boolean
+  st,axis-x:
+    description: FIXME
+  st,axis-y:
+    description: FIXME
+  st,axis-z:
+    description: FIXME
+  rotation-matrix:
+    items:
+      - const: '0'
+      - const: '-1'
+      - const: '0'
+      - const: '1'
+      - const: '0'
+      - const: '0'
+      - const: '0'
+      - const: '0'
+      - const: '1'
+    minItems: 9
+    maxItems: 9
+    additionalItems: false
 historical: |
   STMicroelectronics MEMS sensors
 

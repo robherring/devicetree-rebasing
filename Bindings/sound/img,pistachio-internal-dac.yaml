@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,pistachio-internal-dac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  img,cr-top:
+    description: FIXME
+  img,voltage-select:
+    description: FIXME
+  '#sound-dai-cells':
+    const: 0x0
+  VDD-supply: {}
 historical: |+
   Pistachio internal DAC DT bindings
 

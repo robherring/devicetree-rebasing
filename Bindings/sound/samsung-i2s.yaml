@@ -12,7 +12,63 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,s3c6410-i2s
+          - samsung,s5pv210-i2s
+          - samsung,exynos5420-i2s
+          - samsung,exynos7-i2s
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: iis
+      - const: i2s_opclk0
+      - const: i2s_opclk1
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clock-output-names:
+    items:
+      - const: i2s_cdclk0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+      - const: tx-sec
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  samsung,idma-addr:
+    description: FIXME
+  '#sound-dai-cells':
+    const: 0x1
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  power-domains: {}
 historical: |+
   * Samsung I2S controller
 

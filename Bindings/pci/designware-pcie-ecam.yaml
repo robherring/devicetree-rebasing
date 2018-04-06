@@ -25,7 +25,46 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada8k-pcie
+          - pci-host-ecam-generic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#size-cells':
+    const: 0x2
+  '#address-cells':
+    const: 0x3
+  '#interrupt-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  ranges: {}
+  bus-range: {}
+  msi-parent: {}
+  reg-names:
+    items:
+      - const: ctrl
+      - const: config
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  dma-coherent: {}
+  interrupts: {}
+  num-lanes: {}
+  clocks: {}
 historical: |+
   * Synopsys DesignWare PCIe root complex in ECAM shift mode
 

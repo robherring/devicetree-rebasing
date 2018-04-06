@@ -22,7 +22,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3399-dw-hdmi
+          - rockchip,rk3288-dw-hdmi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-io-width: {}
+  rockchip,grf:
+    description: FIXME
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: iahb
+      - const: isfr
+      - const: cec
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  power-domains: {}
+  ddc-i2c-bus: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   Rockchip DWC HDMI TX Encoder
   ============================

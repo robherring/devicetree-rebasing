@@ -55,7 +55,18 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,rpmcc-msm8974
+          - qcom,rpmcc-apq8064
+          - qcom,rpmcc-apq8660
+      - const: qcom,rpmcc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 examples:
   - |
     smd {

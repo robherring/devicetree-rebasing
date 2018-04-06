@@ -12,7 +12,57 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - linksys,ea9200
+          - dlink,dir-885l
+          - luxul,xap-1410v1
+          - tplink,archer-c9-v1
+          - buffalo,wzr-1750dhp
+          - luxul,xbr-4500-v1
+          - asus,rt-ac87u
+          - netgear,r8000
+          - brcm,bcm94708
+          - linksys,ea6300-v1
+          - asus,rt-n18u
+          - buffalo,wzr-600dhp2
+          - netgear,r7000
+          - brcm,bcm94709
+          - luxul,xwr-3100v1
+          - netgear,r8500
+          - luxul,xwr-1200v1
+          - luxul,xap-1510v1
+          - brcm,bcm953012k
+          - netgear,r6250v1
+          - luxul,xwc-1000
+          - buffalo,wzr-900dhp
+          - luxul,abr-4500-v1
+          - tplink,archer-c5-v2
+          - smartrg,sr400ac
+          - linksys,panamera
+          - asus,rt-ac68u
+          - netgear,r6300v2
+          - brcm,bcm953012hr
+          - brcm,bcm953012er
+          - asus,rt-ac56u
+          - buffalo,wxr-1900dhp
+      - const: brcm,bcm47094
+      - const: brcm,bcm4708
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: D-Link DIR-885L
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Broadcom BCM4708 device tree bindings
   -------------------------------------------

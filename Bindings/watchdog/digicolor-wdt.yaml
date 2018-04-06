@@ -18,7 +18,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cnxt,cx92755-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  timeout-sec: {}
 examples:
   - |
     watchdog@f0000fc0 {

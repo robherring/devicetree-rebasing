@@ -45,7 +45,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-3700-i2c
+          - mrvl,mmp-twsi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  resets: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  mrvl,i2c-fast-mode:
+    description: FIXME
+    type: boolean
 examples:
   - |
     twsi1: i2c@d4011000 {

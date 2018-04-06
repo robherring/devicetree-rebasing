@@ -20,7 +20,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,armada-3700-xtal-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-output-names:
+    items:
+      - const: xtal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
 historical: |+
   * Xtal Clock bindings for Marvell Armada 37xx SoCs
 

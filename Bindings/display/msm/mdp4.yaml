@@ -18,7 +18,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,mdp4
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: core_clk
+      - const: iface_clk
+      - const: bus_clk
+      - const: lut_clk
+      - const: hdmi_clk
+      - const: tv_clk
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  iommus: {}
 historical: |+
   Qualcomm adreno/snapdragon MDP4 display controller
 

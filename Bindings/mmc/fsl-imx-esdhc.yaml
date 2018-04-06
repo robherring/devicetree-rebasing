@@ -20,7 +20,50 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx51-esdhc
+          - fsl,imx6q-usdhc
+          - fsl,imx53-esdhc
+          - fsl,imx35-esdhc
+          - fsl,imx7d-usdhc
+          - fsl,imx6sl-usdhc
+          - fsl,imx6sx-usdhc
+          - fsl,imx25-esdhc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ipg
+      - const: ahb
+      - const: per
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  bus-width: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  cd-gpios: {}
+  keep-power-in-suspend: {}
+  no-1-8-v: {}
+  non-removable: {}
+  vmmc-supply: {}
+  pinctrl-1: {}
+  pinctrl-2: {}
+  wp-gpios: {}
 historical: |+
   * Freescale Enhanced Secure Digital Host Controller (eSDHC) for i.MX
 

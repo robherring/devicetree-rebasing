@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: chipone,icn8318
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  power-gpios: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  wake-gpios: {}
+  touchscreen-size-x: {}
+  touchscreen-size-y: {}
+  touchscreen-inverted-x: {}
+  touchscreen-swapped-x-y: {}
 historical: |+
   * ChipOne icn8318 I2C touchscreen controller
 

@@ -22,7 +22,36 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos-adc-v1
+          - samsung,exynos-adc-v2
+          - samsung,exynos3250-adc
+          - samsung,exynos7-adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channel-cells':
+    const: 0x1
+  io-channel-ranges: {}
+  samsung,syscon-phandle:
+    description: FIXME
+  vdd-supply: {}
+  assigned-clocks: {}
+  assigned-clock-rates: {}
 historical: |+
   Samsung Exynos Analog to Digital Converter bindings
 

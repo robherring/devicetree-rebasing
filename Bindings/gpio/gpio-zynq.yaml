@@ -12,7 +12,45 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - xlnx,zynqmp
+          - xlnx,zynq-gpio-1.0
+          - xlnx,zynqmp-gpio-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  clocks: {}
+  gpio-controller: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: ZynqMP EP108
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     gpio@e000a000 {

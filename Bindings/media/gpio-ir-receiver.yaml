@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-ir-receiver
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  linux,rc-map-name:
+    items:
+      - const: rc-rc6-mce
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 examples:
   - |
     ir: ir-receiver {

@@ -13,7 +13,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - sirf,atlas7-cb
+          - sirf,prima2
+          - sirf,atlas6-cb
+      - const: sirf,prima2-cb
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: CSR SiRFprimaII Evaluation Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   CSR SiRFprimaII and SiRFmarco device tree bindings.
   ========================================

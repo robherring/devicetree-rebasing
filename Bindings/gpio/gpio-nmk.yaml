@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,nomadik-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-bank: {}
+  gpio-ranges: {}
+  clocks: {}
 historical: |+
   Nomadik GPIO controller
 

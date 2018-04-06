@@ -17,7 +17,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,archs-idu-intc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  interrupt-parent: {}
+  '#interrupt-cells':
+    const: 0x1
 examples:
   - |
     core_intc: core-interrupt-controller {

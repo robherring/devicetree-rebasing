@@ -23,7 +23,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ibm,i2o-440spe
+          - ibm,mq-440spe
+          - ibm,dma-440spe
+          - amcc,xor-accelerator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dcr-reg: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cell-index: {}
+  interrupt-parent: {}
+  interrupts: {}
+  '#interrupt-cells':
+    const: 0x1
+  '#address-cells':
+    const: 0x0
+  '#size-cells':
+    const: 0x0
+  interrupt-map: {}
 historical: |+
   PPC440SPe DMA/XOR (DMA Controller and XOR Accelerator)
 

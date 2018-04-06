@@ -39,7 +39,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,scss-timer
+          - qcom,kpss-timer
+          - qcom,kpss-wdt
+      - const: qcom,kpss-wdt-apq8064
+      - const: qcom,msm-timer
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
+  cpu-offset: {}
+  clocks: {}
+  timeout-sec: {}
 examples:
   - |
     watchdog@208a038 {

@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,twl4030-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  ti,use-leds:
+    description: FIXME
+    type: boolean
 historical: |+
   twl4030 GPIO controller bindings
 

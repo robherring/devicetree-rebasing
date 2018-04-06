@@ -32,7 +32,21 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,bcm11351-pwm
+          - brcm,kona-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x3
+  clocks: {}
 historical: |+
   Broadcom Kona PWM controller device tree bindings
 

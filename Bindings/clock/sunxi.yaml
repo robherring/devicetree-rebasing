@@ -18,7 +18,77 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun8i-a23-apb0-gates-clk
+          - allwinner,sun8i-a23-apb0-clk
+          - allwinner,sun4i-a10-tcon
+          - allwinner,sun4i-a10-mmc
+          - allwinner,sun7i-a20-gmac-clk
+          - allwinner,sun6i-a31-ar100-clk
+          - allwinner,sun6i-a31-apb0-clk
+          - allwinner,sun6i-a31-apb0-gates-clk
+          - allwinner,sun4i-a10-mod0-clk
+          - allwinner,sun9i-a80-cpus-clk
+          - allwinner,sun9i-a80-apbs-gates-clk
+          - allwinner,sun9i-a80-usb-phy
+          - allwinner,sun9i-a80-mmc
+          - allwinner,sun9i-a80-mmc-config-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: apb0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: lcd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: ahb
+      - const: tcon-ch0
+      - const: tcon-ch1
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  dmas: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  vmmc-supply: {}
+  bus-width: {}
+  cd-gpios: {}
+  cd-inverted: {}
+  clock-indices: {}
+  '#phy-cells':
+    const: 0x0
+  phy-supply: {}
+  '#reset-cells':
+    const: 0x1
 historical: |
   Device Tree Clock bindings for arch-sunxi
 

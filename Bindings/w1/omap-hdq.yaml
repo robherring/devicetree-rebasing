@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am4372-hdq
+          - ti,omap3-1w
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: hdq1w
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * OMAP HDQ One wire bus master controller
 

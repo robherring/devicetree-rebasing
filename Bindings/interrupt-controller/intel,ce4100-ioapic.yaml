@@ -15,7 +15,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: intel,ce4100-ioapic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-addresses: {}
 historical: |
   Interrupt chips
   ---------------

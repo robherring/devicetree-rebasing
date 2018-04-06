@@ -22,7 +22,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,qoriq-mc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  msi-parent: {}
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |+
   * Freescale Management Complex
 

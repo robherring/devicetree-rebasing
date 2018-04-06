@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,berlin2q-sata-phy
+          - marvell,berlin2-sata-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  '#phy-cells':
+    const: 0x1
 examples:
   - |
     sata_phy: phy@f7e900a0 {

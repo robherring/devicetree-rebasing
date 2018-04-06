@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,odmi-controller
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  msi-controller: {}
+  marvell,odmi-frames:
+    description: FIXME
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  marvell,spi-base:
+    description: FIXME
 examples:
   - |
     odmi: odmi@300000 {

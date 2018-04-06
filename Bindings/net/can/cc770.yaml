@@ -16,7 +16,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - intc,82527
+          - bosch,cc770
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  bosch,external-clock-frequency:
+    description: FIXME
+  bosch,disconnect-rx1-input:
+    description: FIXME
+    type: boolean
+  bosch,disconnect-tx1-output:
+    description: FIXME
+    type: boolean
+  bosch,iso-low-speed-mux:
+    description: FIXME
+    type: boolean
+  bosch,clock-out-frequency:
+    description: FIXME
 historical: |+
   Memory mapped Bosch CC770 and Intel AN82527 CAN controller
 

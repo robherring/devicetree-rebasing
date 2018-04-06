@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-wwdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: wdtclk
+      - const: reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * NXP LPC18xx Watchdog Timer (WDT)
 

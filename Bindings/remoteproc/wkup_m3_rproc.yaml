@@ -25,7 +25,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am4372-wkup-m3
+          - ti,am3352-wkup-m3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: umem
+      - const: dmem
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: wkup_m3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,pm-firmware:
+    items:
+      - const: am335x-pm-firmware.elf
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 historical: |+
   TI Wakeup M3 Remoteproc Driver
   ==============================

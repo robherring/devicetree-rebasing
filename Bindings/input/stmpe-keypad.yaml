@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stmpe-keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  debounce-interval: {}
+  st,scan-count:
+    description: FIXME
+  st,no-autorepeat:
+    description: FIXME
+    type: boolean
+  keypad,num-rows:
+    description: FIXME
+  keypad,num-columns:
+    description: FIXME
+  linux,keymap:
+    description: FIXME
 examples:
   - |
     stmpe_keypad {

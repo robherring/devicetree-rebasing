@@ -13,7 +13,71 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-pcie
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: pads
+      - const: afi
+      - const: cs
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: intr
+      - const: msi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  bus-range: {}
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  ranges: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pex
+      - const: afi
+      - const: pll_e
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: pex
+      - const: afi
+      - const: pcie_x
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  avdd-pex-supply: {}
+  vdd-pex-supply: {}
+  avdd-pex-pll-supply: {}
+  avdd-plle-supply: {}
+  vddio-pex-clk-supply: {}
 historical: |+
   NVIDIA Tegra PCIe controller
 

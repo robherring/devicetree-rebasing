@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: usb-nop-xceiv
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reset-gpios: {}
+  vcc-supply: {}
+  '#phy-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: main_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clock-frequency: {}
+  assigned-clocks: {}
+  assigned-clock-parents: {}
 examples:
   - |
     hsusb1_phy {

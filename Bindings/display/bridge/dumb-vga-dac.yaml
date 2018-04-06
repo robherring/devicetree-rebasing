@@ -16,7 +16,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: dumb-vga-dac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vdd-supply: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   Dumb RGB to VGA DAC bridge
   ---------------------------

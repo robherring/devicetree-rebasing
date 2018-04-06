@@ -12,7 +12,34 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: motorola,cpcap-battery
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts-extended: {}
+  interrupt-names:
+    items:
+      - const: eol
+      - const: lowbph
+      - const: lowbpl
+      - const: chrgcurr1
+      - const: battdetb
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: battdetb
+      - const: battp
+      - const: chg_isense
+      - const: batti
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  power-supplies: {}
 historical: |+
   Motorola CPCAP PMIC battery driver binding
 

@@ -15,7 +15,62 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am3352-gpmc
+          - ti,omap3430-gpmc
+          - ti,omap4430-gpmc
+          - ti,omap2420-gpmc
+          - ti,omap2430-gpmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: gpmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: rxtx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpmc,num-cs:
+    description: FIXME
+  gpmc,num-waitpins:
+    description: FIXME
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x1
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  ranges: {}
+  ti,no-idle-on-init:
+    description: FIXME
+    type: boolean
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 examples:
   - |
     gpmc: gpmc@50000000 {

@@ -71,7 +71,21 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,qoriq-rcpm-1.0
+          - fsl,t4240-rcpm
+      - const: fsl,qoriq-rcpm-2.0
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sleep-cells':
+    const: 0x1
 historical: |+
   * Run Control and Power Management
   -------------------------------------------

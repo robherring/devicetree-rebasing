@@ -15,7 +15,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - cavium,octeon-5750-usbc
+          - cavium,octeon-5750-usbn
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  refclk-frequency: {}
+  refclk-type:
+    items:
+      - const: crystal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 historical: |+
   OCTEON/OCTEON+ USB BLOCK
 

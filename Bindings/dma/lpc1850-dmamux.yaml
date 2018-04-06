@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-dmamux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x3
+  dma-requests: {}
+  dma-masters: {}
 historical: |+
   NXP LPC18xx/43xx DMA MUX (DMA request router)
 

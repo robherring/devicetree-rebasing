@@ -12,7 +12,66 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - altr,tse-mdio
+          - altr,tse-msgdma-1.0
+          - altr,tse-1.0
+      - const: altr,tse-1.0
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  reg-names:
+    items:
+      - const: control_port
+      - const: rx_csr
+      - const: rx_desc
+      - const: rx_resp
+      - const: tx_csr
+      - const: tx_desc
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: rx_irq
+      - const: tx_irq
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  rx-fifo-depth: {}
+  tx-fifo-depth: {}
+  address-bits: {}
+  max-frame-size: {}
+  local-mac-address: {}
+  altr,has-supplementary-unicast:
+    description: FIXME
+    type: boolean
+  altr,enable-sup-addr:
+    description: FIXME
+  altr,has-hash-multicast-filter:
+    description: FIXME
+    type: boolean
+  altr,enable-hash:
+    description: FIXME
+  phy-mode:
+    items:
+      - const: rgmii-id
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-handle: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 examples:
   - |
     tse_sub_0_eth_tse_0: ethernet@1,00000000 {

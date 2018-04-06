@@ -12,7 +12,42 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx51-ecspi
+          - fsl,imx27-cspi
+          - fsl,imx53-ecspi
+          - fsl,imx35-cspi
+          - fsl,imx1-cspi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ipg
+      - const: per
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  cs-gpios: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * Freescale (Enhanced) Configurable Serial Peripheral Interface
     (CSPI/eCSPI) for i.MX

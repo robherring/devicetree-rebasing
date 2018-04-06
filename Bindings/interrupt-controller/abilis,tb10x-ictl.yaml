@@ -48,7 +48,21 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: abilis,tb10x-ictl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-parent: {}
+  interrupts: {}
 historical: |+
   TB10x Top Level Interrupt Controller
   ====================================

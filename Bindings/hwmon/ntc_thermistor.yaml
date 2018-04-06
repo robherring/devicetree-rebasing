@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ntc,ncp15wb473
+          - murata,ncp15wb473
+          - murata,ncp03wf104
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pullup-uv: {}
+  pullup-ohm: {}
+  pulldown-ohm: {}
+  io-channels: {}
 examples:
   - |
     ncp15wb473@0 {

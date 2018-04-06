@@ -18,7 +18,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx6ul-sai
+          - fsl,vf610-sai
+          - fsl,imx6sx-sai
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: bus
+      - const: mclk1
+      - const: mclk2
+      - const: mclk3
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  dmas: {}
+  '#sound-dai-cells':
+    const: 0x0
 historical: |+
   Freescale Synchronous Audio Interface (SAI).
 

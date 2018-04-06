@@ -19,7 +19,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,ipmmu-r8a7791
+          - renesas,ipmmu-r8a7790
+          - renesas,ipmmu-r8a7794
+          - renesas,ipmmu-r8a7793
+      - const: renesas,ipmmu-vmsa
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#iommu-cells':
+    const: 0x1
 examples:
   - |
     ipmmu_mx: mmu@fe951000 {

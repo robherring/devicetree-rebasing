@@ -20,7 +20,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - aspeed,ast2500-spi
+          - aspeed,ast2500-fmc
+          - aspeed,ast2400-fmc
+          - aspeed,ast2400-spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * Aspeed Firmware Memory controller
   * Aspeed SPI Flash Memory Controller

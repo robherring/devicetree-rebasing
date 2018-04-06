@@ -29,7 +29,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,keystone-navigator-qmss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dma-coherent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  clocks: {}
+  ranges: {}
+  queue-range: {}
+  linkram0: {}
+  linkram1: {}
 historical: |+
   * Texas Instruments Keystone Navigator Queue Management SubSystem driver
 

@@ -16,7 +16,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,ir-rev1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+      - const: sys
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     ir@2006200 {

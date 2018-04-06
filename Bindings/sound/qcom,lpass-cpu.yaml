@@ -15,7 +15,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,lpass-cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: ahbix-clk
+      - const: mi2s-osr-clk
+      - const: mi2s-bit-clk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: lpass-irq-lpaif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: lpass-lpaif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Qualcomm Technologies LPASS CPU DAI
 

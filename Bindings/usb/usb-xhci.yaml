@@ -13,7 +13,49 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - generic-xhci
+          - marvell,armada-380-xhci
+          - marvell,armada-375-xhci
+          - renesas,xhci-r8a7790
+          - renesas,xhci-r8a7743
+          - renesas,xhci-r8a7791
+          - renesas,xhci-r8a7795
+          - renesas,xhci-r8a7796
+          - marvell,armada3700-xhci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  '#usb-cells':
+    const: 0x0
+  phys: {}
+  phy-names:
+    items:
+      - const: usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  power-domains: {}
+  resets: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     usb@f0931000 {

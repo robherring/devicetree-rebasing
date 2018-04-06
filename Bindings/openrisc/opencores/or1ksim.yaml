@@ -24,7 +24,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - opencores,or1200-rtlsvn481
+          - opencores,or1ksim
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
 examples:
   - |
     cpus {

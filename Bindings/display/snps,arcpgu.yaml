@@ -17,7 +17,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,arcpgu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  encoder-slave: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pxlclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  memory-region: {}
 historical: |+
   ARC PGU
 

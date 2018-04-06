@@ -12,7 +12,61 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra30-ahub
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: d_audio
+      - const: apbif
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: d_audio
+      - const: apbif
+      - const: i2s0
+      - const: i2s1
+      - const: i2s2
+      - const: i2s3
+      - const: i2s4
+      - const: dam0
+      - const: dam1
+      - const: dam2
+      - const: spdif
+    minItems: 11
+    maxItems: 11
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx0
+      - const: tx0
+      - const: rx1
+      - const: tx1
+      - const: rx2
+      - const: tx2
+      - const: rx3
+      - const: tx3
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+  ranges: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 historical: |+
   NVIDIA Tegra30 AHUB (Audio Hub)
 

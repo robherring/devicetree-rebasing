@@ -17,7 +17,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,vexpress-sysreg,sys_led
+          - arm,vexpress-sysreg
+          - arm,vexpress-sysreg,sys_mci
+          - arm,vexpress-sysreg,sys_flash
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
 examples:
   - |
     v2m_sysreg: sysreg@10000000 {

@@ -27,7 +27,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,sci-reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#reset-cells':
+    const: 0x2
 historical: |+
   Texas Instruments System Control Interface (TI-SCI) Reset Controller
   =====================================================================

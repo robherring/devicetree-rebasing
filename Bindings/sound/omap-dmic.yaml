@@ -12,7 +12,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,omap4-dmic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: mpu
+      - const: dma
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: dmic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  dmas: {}
+  dma-names:
+    items:
+      - const: up_link
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Texas Instruments OMAP4+ Digital Microphone Module
 

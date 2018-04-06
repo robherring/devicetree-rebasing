@@ -19,7 +19,49 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,dra7-dss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: dss_core
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  syscon-pll-ctrl: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  reg:
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dss
+      - const: pll1_clkctrl
+      - const: pll1
+      - const: pll2_clkctrl
+      - const: pll2
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+      - const: video1_clk
+      - const: video2_clk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  vdda_video-supply: {}
 historical: |
   Texas Instruments DRA7x Display Subsystem
   =========================================

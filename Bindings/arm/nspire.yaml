@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,nspire-clp
+          - ti,nspire-tp
+          - ti,nspire-cx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: TI-NSPIRE Touchpad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   TI-NSPIRE calculators
 

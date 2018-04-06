@@ -12,7 +12,13 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: technologic,ts4800-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  syscon: {}
 historical: |+
   Technologic Systems Watchdog
 

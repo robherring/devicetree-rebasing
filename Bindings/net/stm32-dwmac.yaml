@@ -18,7 +18,46 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32-dwmac
+      - const: snps,dwmac-3.50a
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: stmmaceth
+      - const: mac-clk-tx
+      - const: mac-clk-rx
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  clocks: {}
+  st,syscon:
+    description: FIXME
+  snps,pbl:
+    description: FIXME
+  snps,mixed-burst:
+    description: FIXME
+    type: boolean
 examples:
   - |
     ethernet@40028000 {

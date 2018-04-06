@@ -31,7 +31,54 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,kirin960-pcie
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dbi
+      - const: apb
+      - const: phy
+      - const: config
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  bus-range: {}
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  num-lanes: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pcie_phy_ref
+      - const: pcie_aux
+      - const: pcie_apb_phy
+      - const: pcie_apb_sys
+      - const: pcie_aclk
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  reset-gpios: {}
 examples:
   - |
     pcie@f4000000 {

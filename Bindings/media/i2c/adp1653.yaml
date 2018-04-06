@@ -12,7 +12,17 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: adi,adp1653
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  enable-gpios: {}
 examples:
   - |
     adp1653: led-controller@30 {

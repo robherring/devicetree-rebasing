@@ -19,7 +19,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-matrix-keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  debounce-delay-ms: {}
+  col-scan-delay-us: {}
+  gpio-activelow: {}
+  col-gpios-binary: {}
+  col-switch-delay-ms: {}
+  col-gpios: {}
+  row-gpios: {}
+  linux,keymap:
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  wakeup-source: {}
+  linux,no-autorepeat:
+    description: FIXME
+    type: boolean
 examples:
   - |
     matrix-keypad {

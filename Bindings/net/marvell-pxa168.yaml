@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,pxa168-eth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  interrupts: {}
+  local-mac-address: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  phy-connection-type:
+    items:
+      - const: mii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-handle: {}
 examples:
   - |
     eth0: ethernet@f7b90000 {

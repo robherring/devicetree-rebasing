@@ -667,7 +667,34 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,fman-muram
+          - fsl,fman
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  cell-index: {}
+  ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fmanclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,qman-channel-range:
+    description: FIXME
 historical: |+
   =============================================================================
   Freescale Frame Manager Device Bindings

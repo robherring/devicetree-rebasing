@@ -19,7 +19,35 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: altr,socfpga-dw-mshc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  fifo-depth: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  clock-names:
+    items:
+      - const: biu
+      - const: ciu
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  num-slots: {}
+  broken-cd: {}
+  bus-width: {}
+  cap-mmc-highspeed: {}
+  cap-sd-highspeed: {}
 examples:
   - |
     mmc: dwmmc0@ff704000 {

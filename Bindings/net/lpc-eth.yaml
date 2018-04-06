@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc-eth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  phy-mode:
+    items:
+      - const: rmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  use-iram: {}
 examples:
   - |
     mac: ethernet@31060000 {

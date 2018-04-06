@@ -15,7 +15,35 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tlv320aic3111
+          - ti,tlv320dac3100
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
+  HPVDD-supply: {}
+  SPRVDD-supply: {}
+  SPLVDD-supply: {}
+  AVDD-supply: {}
+  IOVDD-supply: {}
+  DVDD-supply: {}
+  gpio-reset: {}
+  ai31xx-micbias-vg: {}
 historical: |+
   Texas Instruments - tlv320aic31xx Codec module
 

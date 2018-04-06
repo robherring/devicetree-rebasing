@@ -13,7 +13,64 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,stm32f4x9-fsotg
+          - amcc,dwc-otg
+          - rockchip,rk3066-usb
+          - snps,dwc2
+          - rockchip,rk3288-usb
+          - brcm,bcm2835-usb
+          - st,stm32f7-hsotg
+          - hisilicon,hi6220-usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  '#interrupt-cells':
+    const: 0x1
+  '#address-cells':
+    const: 0x0
+  '#size-cells':
+    const: 0x0
+  interrupts: {}
+  interrupt-map: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dr_mode:
+    items:
+      - const: host
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  g-np-tx-fifo-size: {}
+  g-rx-fifo-size: {}
+  g-tx-fifo-size: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
 historical: |+
   Platform DesignWare HS OTG USB 2.0 controller
   -----------------------------------------------------

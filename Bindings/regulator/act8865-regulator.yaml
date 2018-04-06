@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - active-semi,act8865
+          - active-semi,act8846
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  system-power-controller: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vp1-supply: {}
+  vp2-supply: {}
+  vp3-supply: {}
+  vp4-supply: {}
+  inl1-supply: {}
+  inl2-supply: {}
+  inl3-supply: {}
 historical: |+
   ACT88xx regulators
   -------------------

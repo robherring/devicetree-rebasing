@@ -19,7 +19,59 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: altr,nios2-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  device_type:
+    items:
+      - const: cpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  clock-frequency: {}
+  dcache-line-size: {}
+  icache-line-size: {}
+  dcache-size: {}
+  icache-size: {}
+  altr,implementation:
+    items:
+      - const: fast
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  altr,pid-num-bits:
+    description: FIXME
+  altr,tlb-num-ways:
+    description: FIXME
+  altr,tlb-num-entries:
+    description: FIXME
+  altr,tlb-ptr-sz:
+    description: FIXME
+  altr,has-div:
+    description: FIXME
+  altr,has-mul:
+    description: FIXME
+  altr,reset-addr:
+    description: FIXME
+  altr,fast-tlb-miss-addr:
+    description: FIXME
+  altr,exception-addr:
+    description: FIXME
+  altr,has-initda:
+    description: FIXME
+  altr,has-mmu:
+    description: FIXME
 historical: |+
   * Nios II Processor Binding
 

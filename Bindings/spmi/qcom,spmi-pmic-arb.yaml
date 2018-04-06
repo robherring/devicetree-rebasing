@@ -26,7 +26,42 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,spmi-pmic-arb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: core
+      - const: intr
+      - const: cnfg
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg:
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupt-names:
+    items:
+      - const: periph_irq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  qcom,ee:
+    description: FIXME
+  qcom,channel:
+    description: FIXME
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x0
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x4
 examples:
   - |
     spmi {

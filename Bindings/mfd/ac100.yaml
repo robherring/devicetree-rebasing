@@ -17,7 +17,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - x-powers,ac100-codec
+          - x-powers,ac100
+          - x-powers,ac100-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  '#clock-cells':
+    const: 0x0
+  clock-output-names:
+    items:
+      - const: 4M_adda
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 historical: |+
   X-Powers AC100 Codec/RTC IC Device Tree bindings
 

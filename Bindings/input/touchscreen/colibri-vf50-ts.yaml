@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: toradex,vf50-touchscreen
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  io-channels: {}
+  xp-gpios: {}
+  xm-gpios: {}
+  yp-gpios: {}
+  ym-gpios: {}
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: idle
+      - const: default
+      - const: gpios
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  pinctrl-2: {}
+  vf50-ts-min-pressure: {}
 examples:
   - |
     touchctrl: vf50_touchctrl {

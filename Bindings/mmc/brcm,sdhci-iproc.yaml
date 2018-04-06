@@ -16,7 +16,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,sdhci-iproc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  bus-width: {}
+  clocks: {}
+  iommus: {}
+  vqmmc-supply: {}
+  non-removable: {}
+  full-pwr-cycle: {}
 historical: |+
   Broadcom IPROC SDHCI controller
 

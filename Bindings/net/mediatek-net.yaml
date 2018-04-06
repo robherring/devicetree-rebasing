@@ -19,7 +19,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,eth-mac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-mode:
+    items:
+      - const: trgmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   MediaTek Frame Engine Ethernet controller
   =========================================

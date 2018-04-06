@@ -21,7 +21,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: syscon-reboot-mode
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  offset: {}
+  mode-normal: {}
+  mode-recovery: {}
+  mode-bootloader: {}
+  mode-loader: {}
 examples:
   - |
     pmu: pmu@20004000 {

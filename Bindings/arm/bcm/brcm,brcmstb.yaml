@@ -13,7 +13,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm7445
+      - const: brcm,brcmstb
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: Broadcom STB (bcm7445), SVMB reference board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |+
   ARM Broadcom STB platforms Device Tree Bindings
   -----------------------------------------------

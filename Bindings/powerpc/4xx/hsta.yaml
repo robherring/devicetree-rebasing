@@ -21,7 +21,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ibm,476gtr-hsta-msi
+      - const: ibm,hsta-msi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
 historical: |
   ppc476gtr High Speed Serial Assist (HSTA) node
   ==============================================

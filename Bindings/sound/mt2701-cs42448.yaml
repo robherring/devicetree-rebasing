@@ -12,7 +12,64 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt2701-cs42448-machine
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mediatek,platform:
+    description: FIXME
+  audio-routing:
+    items:
+      - const: Line Out Jack
+      - const: AOUT1L
+      - const: Line Out Jack
+      - const: AOUT1R
+      - const: Line Out Jack
+      - const: AOUT2L
+      - const: Line Out Jack
+      - const: AOUT2R
+      - const: Line Out Jack
+      - const: AOUT3L
+      - const: Line Out Jack
+      - const: AOUT3R
+      - const: Line Out Jack
+      - const: AOUT4L
+      - const: Line Out Jack
+      - const: AOUT4R
+      - const: AIN1L
+      - const: AMIC
+      - const: AIN1R
+      - const: AMIC
+      - const: AIN2L
+      - const: Tuner In
+      - const: AIN2R
+      - const: Tuner In
+      - const: AIN3L
+      - const: Satellite Tuner In
+      - const: AIN3R
+      - const: Satellite Tuner In
+      - const: AIN3L
+      - const: AUX In
+      - const: AIN3R
+      - const: AUX In
+    minItems: 32
+    maxItems: 32
+    additionalItems: false
+  mediatek,audio-codec:
+    description: FIXME
+  mediatek,audio-codec-bt-mrg:
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  i2s1-in-sel-gpio1: {}
+  i2s1-in-sel-gpio2: {}
 examples:
   - |
     sound:sound {

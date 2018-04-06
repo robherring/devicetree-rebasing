@@ -135,7 +135,21 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,wcnss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  qcom,smd-channels:
+    items:
+      - const: WCNSS_CTRL
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  qcom,mmio:
+    description: FIXME
 historical: |
   Qualcomm WCNSS Binding
 

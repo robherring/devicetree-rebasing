@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qiaodian,qd43003c0-40
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  backlight: {}
+  power-supply: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |
   QiaoDian XianShi Corporation 4"3 TFT LCD panel
 

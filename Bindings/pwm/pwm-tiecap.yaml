@@ -13,7 +13,51 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,dra746-ecap
+          - ti,am3352-ecap
+          - ti,da850-ecap
+          - ti,am4372-ecap
+          - ti,k2g-ecap
+          - ti,am33xx
+      - const: ti,am33xx-ecap
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x3
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: ecap0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Newflow AM335x NanoBone
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   TI SOC ECAP based APWM controller
 

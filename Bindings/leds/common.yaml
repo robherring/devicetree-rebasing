@@ -127,7 +127,12 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-leds
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   * Common leds properties.
 

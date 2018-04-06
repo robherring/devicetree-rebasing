@@ -24,7 +24,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm-keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: peri_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
+  pull-up-enabled: {}
+  col-debounce-filter-period: {}
+  status-debounce-filter-period: {}
+  row-output-enabled: {}
 historical: |+
   * Broadcom Keypad Controller device tree bindings
 

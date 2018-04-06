@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsi-master-gpio
+      - const: fsi-master
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x0
+  clock-gpios: {}
+  data-gpios: {}
+  mux-gpios: {}
+  enable-gpios: {}
+  trans-gpios: {}
 historical: |+
   Device-tree bindings for gpio-based FSI master driver
   -----------------------------------------------------

@@ -24,7 +24,48 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,at91sam9g20-i2c
+          - atmel,at91sam9260-i2c
+          - atmel,at91sam9x5-i2c
+          - atmel,sama5d4-i2c
+          - atmel,at91rm9200-i2c
+          - atmel,at91sam9g10-i2c
+          - atmel,at91sam9261-i2c
+          - atmel,sama5d2-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  atmel,fifo-size:
+    description: FIXME
+  i2c-sda-hold-time-ns: {}
 historical: |+
   I2C for Atmel platforms
 

@@ -120,7 +120,25 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,versatile-sic
+          - arm,versatile-vic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clear-mask: {}
+  valid-mask: {}
 historical: |
   Specifying interrupt information for devices
   ============================================

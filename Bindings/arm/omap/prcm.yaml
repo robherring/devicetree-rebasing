@@ -20,7 +20,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap3-cm
+          - ti,omap3-prm
+          - ti,omap4-cm
+          - ti,omap4-prm
+          - ti,omap4-scrm
+          - ti,omap5-scrm
+          - ti,omap2-prcm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |+
   OMAP PRCM bindings
 

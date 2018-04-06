@@ -13,7 +13,47 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am3352-uart
+          - ti,omap3-uart
+          - ti,omap4-uart
+          - ti,dra742-uart
+          - ti,am4372-uart
+          - ti,omap2-uart
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts-extended: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: uart1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  clock-frequency: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   OMAP UART controller
 

@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sharp,ls037v7dw01
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  label:
+    items:
+      - const: lcd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-supply: {}
+  envdd-supply: {}
+  enable-gpios: {}
+  reset-gpios: {}
+  mode-gpios: {}
 historical: |+
   SHARP LS037V7DW01 TFT-LCD panel
   ===================================

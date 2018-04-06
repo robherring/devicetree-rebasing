@@ -34,7 +34,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: exar,xra1403
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  spi-max-frequency: {}
 historical: |+
   GPIO Driver for XRA1403 16-BIT GPIO Expander With Reset Input from EXAR
 

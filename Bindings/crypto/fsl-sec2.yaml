@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,sec2.1
+          - fsl,sec1.0
+          - fsl,sec2.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  fsl,num-channels:
+    description: FIXME
+  fsl,channel-fifo-len:
+    description: FIXME
+  fsl,exec-units-mask:
+    description: FIXME
+  fsl,descriptor-types-mask:
+    description: FIXME
+  sleep: {}
 examples:
   - |
     /* MPC8548E */

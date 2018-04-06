@@ -12,7 +12,17 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - altr,sdram-edac-a10
+          - altr,sdram-edac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  altr,sdr-syscon:
+    description: FIXME
+  interrupts: {}
 examples:
   - |
     sdramedac {

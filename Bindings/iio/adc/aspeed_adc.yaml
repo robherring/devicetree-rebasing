@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - aspeed,ast2400-adc
+          - aspeed,ast2500-adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  resets: {}
+  '#io-channel-cells':
+    const: 0x1
 examples:
   - |
     adc@1e6e9000 {

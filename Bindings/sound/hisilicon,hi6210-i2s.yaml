@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hi6210-i2s
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: dacodec
+      - const: i2s-base
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  hisilicon,sysctrl-syscon:
+    description: FIXME
+  '#sound-dai-cells':
+    const: 0x1
 historical: |+
   * Hisilicon 6210 i2s controller
 

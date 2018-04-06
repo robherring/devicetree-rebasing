@@ -19,7 +19,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,emev2-smu-clkdiv
+          - renesas,emev2-smu
+          - renesas,emev2-smu-gclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  '#clock-cells':
+    const: 0x0
 historical: |+
   Device tree Clock bindings for Renesas EMMA Mobile EV2
 

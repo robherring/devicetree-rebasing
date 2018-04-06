@@ -199,7 +199,104 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - dallas,ds1374
+          - ricoh,rs5c372a
+          - ad,ad7414
+          - dallas,ds1631
+          - dallas,ds4510
+          - plx,pex8648
+          - ad,adm9240
+          - dallas,ds1775
+          - national,lm75
+          - maxim,ds1050
+          - maxim,max6625
+          - national,lm80
+          - st,24c256
+          - dallas,ds75
+          - ti,tsc2003
+          - dallas,ds3232
+          - epson,rx8581
+          - national,lm92
+          - dallas,ds1682
+          - winbond,w83793
+          - sii,s35390a
+          - dallas,ds1672
+          - infineon,slb9645tt
+          - cirrus,cs42l51
+          - national,lm85
+          - infineon,slb9635tt
+          - emmicro,em3027
+          - fsl,mpl3115
+          - isil,isl29028
+          - fsl,mma8450
+          - nxp,pcf8523
+          - ti,tmp102
+          - oki,ml86v7667
+          - ti,tmp103
+          - isil,isl1208
+          - ti,ads7830
+          - epson,rx8010
+          - fsl,mma7660
+          - ti,tmp275
+          - microcrystal,rv3029
+          - adi,adt7476
+          - ovti,ov5642
+          - ricoh,rs5c372b
+          - gmt,g751
+          - adi,adxl345
+          - microchip,mcp4651-104
+          - isil,isl29030
+          - ricoh,r2025sd
+          - national,lm63
+          - adi,adt7473
+          - samsung,24ad0xd1
+          - taos,tsl2550
+          - isil,isl12022
+          - fsl,mag3110
+          - fsl,mpr121
+          - nxp,pcf2129
+          - ti,amc6821
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#sound-dai-cells':
+    const: 0x0
+  '#thermal-sensor-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: xclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  DOVDD-supply: {}
+  AVDD-supply: {}
+  DVDD-supply: {}
+  powerdown-gpios: {}
+  reset-gpios: {}
+  '#io-channel-cells':
+    const: 0x1
+  cooling-min-state: {}
+  cooling-max-state: {}
+  '#cooling-cells':
+    const: 0x2
 historical: |
   This is a list of trivial i2c devices that have simple device tree
   bindings, consisting only of a compatible field, an address and

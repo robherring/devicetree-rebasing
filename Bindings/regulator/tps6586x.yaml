@@ -13,7 +13,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,tps6586x
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,system-power-controller:
+    description: FIXME
+    type: boolean
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  sys-supply: {}
+  vin-sm0-supply: {}
+  vin-sm1-supply: {}
+  vin-sm2-supply: {}
+  vinldo01-supply: {}
+  vinldo23-supply: {}
+  vinldo4-supply: {}
+  vinldo678-supply: {}
+  vinldo9-supply: {}
 examples:
   - |
     pmu: tps6586x@34 {

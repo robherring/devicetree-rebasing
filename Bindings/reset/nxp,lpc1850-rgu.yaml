@@ -16,7 +16,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-rgu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: delay
+      - const: reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#reset-cells':
+    const: 0x1
 historical: |
   NXP LPC1850  Reset Generation Unit (RGU)
   ========================================

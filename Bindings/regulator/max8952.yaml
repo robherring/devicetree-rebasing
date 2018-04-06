@@ -12,7 +12,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,max8952
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  max8952,vid-gpios:
+    description: FIXME
+  max8952,default-mode:
+    description: FIXME
+  max8952,dvs-mode-microvolt:
+    description: FIXME
+  max8952,sync-freq:
+    description: FIXME
+  max8952,ramp-speed:
+    description: FIXME
+  regulator-name:
+    items:
+      - const: vdd_arm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-always-on: {}
+  regulator-boot-on: {}
 examples:
   - |
     vdd_arm_reg: pmic@60 {

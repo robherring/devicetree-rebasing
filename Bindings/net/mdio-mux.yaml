@@ -17,7 +17,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mdio-mux-gpio
+      - const: mdio-mux
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  mdio-parent-bus: {}
+  gpios: {}
 examples:
   - |
     /* The parent MDIO bus. */

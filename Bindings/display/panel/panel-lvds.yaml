@@ -29,7 +29,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - tbs,a711-panel
+          - sgd,gktw70sdae4se
+      - const: panel-lvds
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  backlight: {}
+  width-mm: {}
+  height-mm: {}
+  label:
+    items:
+      - const: gktw70sdae4se
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  data-mapping:
+    items:
+      - const: jeida-18
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-supply: {}
 historical: |+
   LVDS Display Panel
   ==================

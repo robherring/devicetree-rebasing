@@ -12,7 +12,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3066-tsadc
+          - rockchip,saradc
+          - rockchip,rv1108-saradc
+          - rockchip,rk3399-saradc
+          - rockchip,rk3328-saradc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#io-channel-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: saradc
+      - const: apb_pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: saradc-apb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vref-supply: {}
+  clock-frequency: {}
 examples:
   - |
     saradc: saradc@2006c000 {

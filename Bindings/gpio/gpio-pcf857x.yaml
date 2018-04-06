@@ -22,7 +22,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nxp,pcf8575
+          - nxp,pca9673
+          - nxp,pcf8574a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-parent: {}
+  interrupts: {}
 examples:
   - |
     pcf8575: gpio@20 {

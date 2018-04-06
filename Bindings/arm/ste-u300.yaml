@@ -57,7 +57,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - stericsson,s365
+          - stericsson,u300
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: ST-Ericsson U300
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vana15-supply: {}
+  syscon: {}
 historical: |+
   ST-Ericsson U300 Device Tree Bindings
 

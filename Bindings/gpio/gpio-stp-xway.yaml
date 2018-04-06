@@ -19,7 +19,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lantiq,gpio-stp-xway
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  lantiq,shadow:
+    description: FIXME
+  lantiq,groups:
+    description: FIXME
 historical: |+
   Lantiq SoC Serial To Parallel (STP) GPIO controller
 

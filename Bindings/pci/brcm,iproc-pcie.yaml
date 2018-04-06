@@ -13,7 +13,53 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,iproc-pcie
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  linux,pci-domain:
+    description: FIXME
+  bus-range: {}
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  dma-coherent: {}
+  msi-parent: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: pcie-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  brcm,pcie-ob:
+    description: FIXME
+    type: boolean
+  brcm,pcie-ob-oarr-size:
+    description: FIXME
+    type: boolean
+  brcm,pcie-ob-axi-offset:
+    description: FIXME
+  brcm,pcie-ob-window-size:
+    description: FIXME
 examples:
   - |
     pcie0: pcie@18012000 {

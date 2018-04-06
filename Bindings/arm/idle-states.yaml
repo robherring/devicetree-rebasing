@@ -242,7 +242,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,idle-state
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  local-timer-stop: {}
+  entry-latency-us: {}
+  exit-latency-us: {}
+  min-residency-us: {}
 historical: |+
   ==========================================
   ARM idle states binding description

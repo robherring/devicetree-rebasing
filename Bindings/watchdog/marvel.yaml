@@ -13,7 +13,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-380-wdt
+          - marvell,orion-wdt
+          - marvell,armada-370-wdt
+          - marvell,armada-375-wdt
+          - marvell,armada-xp-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: nbclk
+      - const: fixed
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     wdt@20300 {

@@ -45,7 +45,27 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,kona-i2c
+          - brcm,bcm21664-i2c
+          - brcm,bcm11351-i2c
+      - const: brcm,kona-i2c
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  clock-frequency: {}
 historical: |+
   Broadcom Kona Family I2C
   =========================

@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,sbsa-uart
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  current-speed: {}
+  reg-io-width: {}
 historical: |
   * ARM SBSA defined generic UART
   This UART uses a subset of the PL011 registers and consequently lives

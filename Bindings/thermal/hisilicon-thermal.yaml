@@ -43,7 +43,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,tsensor
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: thermal_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x1
 historical: |+
   * Temperature Sensor on hisilicon SoCs
 

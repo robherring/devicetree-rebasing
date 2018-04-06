@@ -15,7 +15,43 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: asahi-kasei,ak4613
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  asahi-kasei,in1-single-end:
+    description: FIXME
+    type: boolean
+  asahi-kasei,in2-single-end:
+    description: FIXME
+    type: boolean
+  asahi-kasei,out1-single-end:
+    description: FIXME
+    type: boolean
+  asahi-kasei,out2-single-end:
+    description: FIXME
+    type: boolean
+  asahi-kasei,out3-single-end:
+    description: FIXME
+    type: boolean
+  asahi-kasei,out4-single-end:
+    description: FIXME
+    type: boolean
+  asahi-kasei,out5-single-end:
+    description: FIXME
+    type: boolean
+  asahi-kasei,out6-single-end:
+    description: FIXME
+    type: boolean
 historical: |+
   AK4613 I2C transmitter
 

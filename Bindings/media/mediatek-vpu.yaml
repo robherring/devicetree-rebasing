@@ -16,7 +16,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt8173-vpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: tcm
+      - const: cfg_reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: main
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  memory-region: {}
 examples:
   - |
     vpu: vpu@10020000 {

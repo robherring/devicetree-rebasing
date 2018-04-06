@@ -12,7 +12,13 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: vga-connector
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ddc-i2c-bus: {}
 historical: |+
   VGA Connector
   =============

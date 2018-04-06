@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,spear600-fsmc-nand
+          - stericsson,fsmc-nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  reg-names:
+    items:
+      - const: fsmc_regs
+      - const: nand_data
+      - const: nand_addr
+      - const: nand_cmd
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  clocks: {}
+  timings: {}
 examples:
   - |
     fsmc: flash@d1800000 {

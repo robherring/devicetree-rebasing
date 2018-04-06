@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,coh901318
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  '#dma-cells':
+    const: 0x1
+  dma-channels: {}
+  clocks: {}
 historical: |+
   ST-Ericsson COH 901 318 DMA Controller
 

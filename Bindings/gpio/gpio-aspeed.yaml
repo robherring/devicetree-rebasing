@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - aspeed,ast2400-gpio
+          - aspeed,ast2500-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  gpio-ranges: {}
+  clocks: {}
+  interrupt-controller: {}
 historical: |
   Aspeed GPIO controller Device Tree Bindings
   -------------------------------------------

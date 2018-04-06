@@ -22,7 +22,44 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cortina,gemini-pci
+      - const: faraday,ftpci100
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: PCLK
+      - const: PCICLK
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  '#interrupt-cells':
+    const: 0x1
+  bus-range: {}
+  ranges: {}
+  dma-ranges: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
 historical: |+
   Faraday Technology FTPCI100 PCI Host Bridge
 

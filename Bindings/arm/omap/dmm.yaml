@@ -19,7 +19,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap5-dmm
+          - ti,omap4-dmm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: dmm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 historical: |+
   OMAP Dynamic Memory Manager (DMM) bindings
 

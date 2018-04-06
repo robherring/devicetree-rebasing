@@ -12,7 +12,34 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: socionext,uniphier-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-ranges: {}
+  gpio-ranges-group-names:
+    items:
+      - const: gpio_range0
+      - const: gpio_range1
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ngpios: {}
+  socionext,interrupt-ranges:
+    description: FIXME
 examples:
   - |
     gpio: gpio@55000000 {

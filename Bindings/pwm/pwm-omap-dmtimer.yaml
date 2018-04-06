@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,omap-dmtimer-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,timers:
+    description: FIXME
+  '#pwm-cells':
+    const: 0x3
 examples:
   - |
     pwm9: dmtimer-pwm@9 {

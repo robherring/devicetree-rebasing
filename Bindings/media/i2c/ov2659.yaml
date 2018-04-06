@@ -18,7 +18,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ovti,ov2659
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: xvclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     i2c0@1c22000 {

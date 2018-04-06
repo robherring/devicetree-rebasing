@@ -26,7 +26,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,keystone-dsp-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio,syscon-dev:
+    description: FIXME
 examples:
   - |
     dspgpio0: keystone_dsp_gpio@2620240 {

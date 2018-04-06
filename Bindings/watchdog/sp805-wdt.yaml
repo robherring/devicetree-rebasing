@@ -20,15 +20,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,sp805-wdt
+      - const: arm,primecell
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: apb_pclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
-  - |4
-      cluster1_core0_watchdog: wdt@c000000 {
-        compatible = "arm,sp805-wdt", "arm,primecell";
-        reg = <0x0 0xc000000 0x0 0x1000>;
-        clocks = <&clockgen 4 3>, <&clockgen 4 3>;
-        clock-names = "apb_pclk", "wdog_clk";
-      };
+  - |
+    cluster1_core0_watchdog: wdt@c000000 {
+      compatible = "arm,sp805-wdt", "arm,primecell";
+      reg = <0x0 0xc000000 0x0 0x1000>;
+      clocks = <&clockgen 4 3>, <&clockgen 4 3>;
+      clock-names = "apb_pclk", "wdog_clk";
+    };
 historical: |+
   * ARM SP805 Watchdog Timer (WDT) Controller
 

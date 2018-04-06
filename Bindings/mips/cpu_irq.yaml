@@ -22,7 +22,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mti,cpu-interrupt-controller
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x0
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-controller: {}
 examples:
   - |
     cpu-irq: cpu-irq {

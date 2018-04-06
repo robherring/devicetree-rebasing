@@ -15,7 +15,52 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nuvoton,nau8825
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: mclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nuvoton,jkdet-enable:
+    description: FIXME
+    type: boolean
+  nuvoton,jkdet-polarity:
+    description: FIXME
+  nuvoton,vref-impedance:
+    description: FIXME
+  nuvoton,micbias-voltage:
+    description: FIXME
+  nuvoton,sar-threshold-num:
+    description: FIXME
+  nuvoton,sar-threshold:
+    description: FIXME
+  nuvoton,sar-hysteresis:
+    description: FIXME
+  nuvoton,sar-voltage:
+    description: FIXME
+  nuvoton,sar-compare-time:
+    description: FIXME
+  nuvoton,sar-sampling-time:
+    description: FIXME
+  nuvoton,short-key-debounce:
+    description: FIXME
+  nuvoton,jack-insert-debounce:
+    description: FIXME
+  nuvoton,jack-eject-debounce:
+    description: FIXME
 historical: |+
   Nuvoton NAU8825 audio codec
 

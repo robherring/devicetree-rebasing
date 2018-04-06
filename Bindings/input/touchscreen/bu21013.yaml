@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rohm,bu21013_tp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  avdd-supply: {}
+  rohm,touch-max-x:
+    description: FIXME
+  rohm,touch-max-y:
+    description: FIXME
+  rohm,flip-y:
+    description: FIXME
+    type: boolean
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  touch-gpio: {}
+  reset-gpio: {}
 examples:
   - |
     i2c@80110000 {

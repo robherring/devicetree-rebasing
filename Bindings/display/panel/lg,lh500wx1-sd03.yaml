@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lg,lh500wx1-sd03
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-supply: {}
+  backlight: {}
 historical: |
   LG Corporation 5" HD TFT LCD panel
 

@@ -18,7 +18,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tps65217-pwrbutton
+          - ti,tps65217
+          - ti,tps65218
+          - ti,tps65218-pwrbutton
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  ti,pmic-shutdown-controller:
+    description: FIXME
+    type: boolean
+  interrupt-parent: {}
+  interrupts: {}
 historical: |+
   Texas Instruments TPS65217 and TPS65218 power button
 

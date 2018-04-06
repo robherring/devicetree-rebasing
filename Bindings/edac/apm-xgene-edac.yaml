@@ -23,7 +23,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - apm,xgene-edac-mc
+          - apm,xgene-edac
+          - apm,xgene-edac-pmd
+          - apm,xgene-edac-l3-v2
+          - apm,xgene-edac-soc
+          - apm,xgene-edac-soc-v1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  ranges: {}
+  regmap-csw: {}
+  regmap-mcba: {}
+  regmap-mcbb: {}
+  regmap-efuse: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  memory-controller: {}
+  pmd-controller: {}
 examples:
   - |
     csw: csw@7e200000 {

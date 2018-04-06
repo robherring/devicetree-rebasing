@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lg,ld070wx3-sl01
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-supply: {}
+  backlight: {}
 historical: |
   LG Corporation 7" WXGA TFT LCD panel
 

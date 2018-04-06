@@ -22,7 +22,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson8b-sdio
+          - amlogic,meson-mx-sdio
+          - amlogic,meson8-sdio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+      - const: clkin
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     mmc@c1108c20 {

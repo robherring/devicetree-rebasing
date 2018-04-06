@@ -75,7 +75,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra186-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: security
+      - const: gpio
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
 historical: |+
   NVIDIA Tegra186 GPIO controllers
 

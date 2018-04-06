@@ -15,7 +15,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun7i-a20-rtc
+          - allwinner,sun4i-a10-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 historical: |+
   * sun4i/sun7i Real Time Clock
 

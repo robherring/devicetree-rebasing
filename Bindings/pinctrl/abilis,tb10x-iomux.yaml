@@ -30,7 +30,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: abilis,tb10x-iomux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-range-cells':
+    const: 0x3
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Abilis Systems TB10x pin controller
   ===================================

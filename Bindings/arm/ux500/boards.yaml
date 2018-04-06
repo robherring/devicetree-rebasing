@@ -93,7 +93,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st-ericsson,mop500
+          - ste,dbx500-backupram
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: ST-Ericsson HREF (pre-v60) and TVK1281618 UIB
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   ST-Ericsson Ux500 boards
   ------------------------

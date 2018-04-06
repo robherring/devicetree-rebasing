@@ -15,7 +15,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
 historical: |+
   * APM X-Gene Real Time Clock
 

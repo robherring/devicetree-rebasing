@@ -21,7 +21,57 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos4212-fimc-is
+          - samsung,exynos4212-fimc
+          - samsung,exynos4212-i2c-isp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fimc
+      - const: sclk_fimc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  samsung,sysreg:
+    description: FIXME
+  iommus: {}
+  samsung,pix-limits:
+    description: FIXME
+  samsung,mainscaler-ext:
+    description: FIXME
+    type: boolean
+  samsung,isp-wb:
+    description: FIXME
+    type: boolean
+  samsung,cam-if:
+    description: FIXME
+    type: boolean
+  iommu-names:
+    items:
+      - const: isp
+      - const: drc
+      - const: fd
+      - const: mcuctl
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |
   Exynos4x12 SoC series Imaging Subsystem (FIMC-IS)
 

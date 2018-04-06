@@ -566,7 +566,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,sec-v4.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,sec-era:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  interrupts: {}
+  fsl,iommu-parent:
+    description: FIXME
 historical: |+
   =====================================================================
   SEC 4 Device Tree Binding

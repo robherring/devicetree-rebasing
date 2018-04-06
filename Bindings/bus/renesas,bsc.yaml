@@ -37,7 +37,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,bsc-sh73a0
+          - renesas,bsc-r8a73a4
+      - const: renesas,bsc
+      - const: simple-pm-bus
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  power-domains: {}
+  interrupts: {}
 examples:
   - |
     bsc: bus@fec10000 {

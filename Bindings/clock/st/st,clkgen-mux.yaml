@@ -21,7 +21,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stih407-clkgen-a9-mux
+      - const: st,clkgen-mux
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 examples:
   - |
     clk_m_a9: clk-m-a9@92b0000 {

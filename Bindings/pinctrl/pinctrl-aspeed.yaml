@@ -181,7 +181,32 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - aspeed,ast2500-lhc
+          - aspeed,g5-pinctrl
+          - aspeed,g4-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  aspeed,external-nodes:
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: AST2500 EVB
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
 historical: |+
   ======================
   Aspeed Pin Controllers

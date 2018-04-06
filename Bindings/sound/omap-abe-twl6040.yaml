@@ -12,7 +12,39 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,abe-twl6040
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,model:
+    items:
+      - const: DuoVero
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,mclk-freq:
+    description: FIXME
+  ti,mcpdm:
+    description: FIXME
+  ti,twl6040:
+    description: FIXME
+  ti,audio-routing:
+    items:
+      - const: Headset Stereophone
+      - const: HSOL
+      - const: Headset Stereophone
+      - const: HSOR
+      - const: HSMIC
+      - const: Headset Mic
+      - const: Headset Mic
+      - const: Headset Mic Bias
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+    description: FIXME
 historical: |+
   * Texas Instruments OMAP4+ and twl6040 based audio setups
 

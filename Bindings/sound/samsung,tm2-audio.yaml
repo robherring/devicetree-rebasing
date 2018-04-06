@@ -12,7 +12,42 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,tm2-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  audio-codec: {}
+  i2s-controller: {}
+  audio-amplifier: {}
+  mic-bias-gpios: {}
+  model:
+    items:
+      - const: wm5110
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  samsung,audio-routing:
+    items:
+      - const: HP
+      - const: HPOUT1L
+      - const: HP
+      - const: HPOUT1R
+      - const: SPK
+      - const: SPKOUT
+      - const: SPKOUT
+      - const: HPOUT2L
+      - const: SPKOUT
+      - const: HPOUT2R
+      - const: RCV
+      - const: HPOUT3L
+      - const: RCV
+      - const: HPOUT3R
+    minItems: 14
+    maxItems: 14
+    additionalItems: false
+    description: FIXME
 historical: |+
   Samsung Exynos5433 TM2(E) audio complex with WM5110 codec
 

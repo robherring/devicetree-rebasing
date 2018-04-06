@@ -12,7 +12,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,gk20a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: stall
+      - const: nonstall
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: gpu
+      - const: pwr
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: gpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  iommus: {}
+  vdd-supply: {}
 examples:
   - |
     gpu@57000000 {

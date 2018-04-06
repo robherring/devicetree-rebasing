@@ -26,7 +26,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap2-apll-clock
+          - ti,dra7-apll-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ti,bit-shift:
+    description: FIXME
+  ti,idlest-shift:
+    description: FIXME
+  ti,clock-frequency:
+    description: FIXME
 examples:
   - |
     apll_pcie_ck: apll_pcie_ck {

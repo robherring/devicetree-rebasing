@@ -15,7 +15,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: allwinner,sun4i-a10-dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  '#dma-cells':
+    const: 0x2
 examples:
   - |
     dma: dma-controller@1c02000 {

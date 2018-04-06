@@ -26,7 +26,51 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - hardkernel,odroid-c1
+          - geniatech,atv1200
+          - tronfy,mxq
+          - minix,neo-x8
+          - amlogic,p212
+          - amlogic,p230
+          - amlogic,s400
+          - nexbox,a95x
+          - wetek,hub
+          - wetek,play2
+          - amlogic,q200
+          - kingnovel,r-box-pro
+          - amlogic,q201
+          - libretech,cc
+          - hardkernel,odroid-c2
+          - tronsmart,vega-s95-pro
+          - tronsmart,vega-s96
+          - amlogic,p201
+          - khadas,vim
+          - amlogic,p200
+          - tronsmart,vega-s95-meta
+          - friendlyarm,nanopi-k2
+          - tronsmart,vega-s95-telos
+          - hwacom,amazetv
+          - khadas,vim2
+          - amlogic,p231
+          - nexbox,a1
+      - const: amlogic,meson6
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: Geniatech ATV1200
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Amlogic MesonX device tree bindings
   -------------------------------------------

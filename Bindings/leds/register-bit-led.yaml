@@ -23,7 +23,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: register-bit-led
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  offset: {}
+  mask: {}
+  label:
+    items:
+      - const: versatile:0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  linux,default-trigger:
+    items:
+      - const: heartbeat
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  default-state:
+    items:
+      - const: on
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Device Tree Bindings for Register Bit LEDs
 

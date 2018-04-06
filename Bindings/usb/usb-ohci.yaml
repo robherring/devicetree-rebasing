@@ -12,7 +12,56 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,at91rm9200-ohci
+          - nintendo,hollywood-usb-ohci
+          - nxp,ohci-nxp
+          - generic-ohci
+          - st,spear600-ohci
+          - cavium,octeon-6335-ohci
+      - const: usb-ohci
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ohci_clk
+      - const: hclk
+      - const: uhpck
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  num-ports: {}
+  transceiver: {}
+  '#usb-cells':
+    const: 0x0
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  atmel,vbus-gpio:
+    description: FIXME
+  usbh0_id: {}
+  usbh1_id: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  atmel,oc-gpio:
+    description: FIXME
+  big-endian-regs: {}
 examples:
   - |
     ohci0: usb@1c14400 {

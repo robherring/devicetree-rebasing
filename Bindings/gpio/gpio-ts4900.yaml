@@ -17,7 +17,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - technologic,ts4900-gpio
+          - technologic,ts7970-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  ngpio: {}
 historical: |+
   * Technologic Systems I2C-FPGA's GPIO controller bindings
 

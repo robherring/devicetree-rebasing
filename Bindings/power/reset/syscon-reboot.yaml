@@ -18,7 +18,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: syscon-reboot
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regmap: {}
+  offset: {}
+  mask: {}
 examples:
   - |
     reboot {

@@ -13,7 +13,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-390-spi
+          - marvell,orion-spi
+          - marvell,armada-370-spi
+          - marvell,armada-375-spi
+          - marvell,armada-xp-spi
+          - marvell,armada-380-spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  cell-index: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Marvell Orion SPI device
 

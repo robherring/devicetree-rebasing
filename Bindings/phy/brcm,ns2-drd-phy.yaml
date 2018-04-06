@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,ns2-drd-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  reg-names:
+    items:
+      - const: icfg
+      - const: rst-ctrl
+      - const: crmu-ctrl
+      - const: usb2-strap
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  id-gpios: {}
+  vbus-gpios: {}
 examples:
   - |
     usbdrd_phy: phy@66000960 {

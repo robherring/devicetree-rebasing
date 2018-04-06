@@ -17,7 +17,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: esp,esp8089
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  esp,crystal-26M-en:
+    description: FIXME
 historical: |+
   Espressif ESP8089 wireless SDIO devices
 

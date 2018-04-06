@@ -22,7 +22,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - x-powers,axp813-gpio
+          - x-powers,axp209-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  swin-supply: {}
+  x-powers,drive-vbus-en:
+    description: FIXME
+    type: boolean
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
 historical: |+
   AXP209 GPIO & pinctrl controller
 

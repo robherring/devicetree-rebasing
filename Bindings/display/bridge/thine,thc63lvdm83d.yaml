@@ -16,7 +16,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: thine,thc63lvdm83d
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   THine Electronics THC63LVDM83D LVDS serializer
   ----------------------------------------------

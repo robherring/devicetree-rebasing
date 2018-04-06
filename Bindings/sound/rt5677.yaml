@@ -15,7 +15,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: realtek,rt5677
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  realtek,reset-gpio:
+    description: FIXME
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
 historical: |+
   RT5677 audio CODEC
 

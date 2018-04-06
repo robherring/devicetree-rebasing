@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt7623-rng
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: rng
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Device-Tree bindings for Mediatek random number generator
   found in Mediatek SoC family

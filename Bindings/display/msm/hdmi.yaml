@@ -13,7 +13,53 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,hdmi-phy-8960
+          - qcom,hdmi-tx-8960
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: core_physical
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: core_clk
+      - const: master_iface_clk
+      - const: slave_iface_clk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: hdmi-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  core-vdda-supply: {}
+  hdmi-mux-supply: {}
+  hpd-gpios: {}
+  '#phy-cells':
+    const: 0x0
 historical: |+
   Qualcomm adreno/snapdragon hdmi output
 

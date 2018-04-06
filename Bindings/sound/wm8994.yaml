@@ -16,7 +16,37 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - wlf,wm1811
+          - wlf,wm8994
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  clocks: {}
+  clock-names:
+    items:
+      - const: MCLK1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  AVDD2-supply: {}
+  CPVDD-supply: {}
+  DBVDD-supply: {}
+  SPKVDD1-supply: {}
+  SPKVDD2-supply: {}
+  DCVDD-supply: {}
+  DBVDD1-supply: {}
+  wlf,ldo1ena:
+    description: FIXME
 historical: |+
   WM1811/WM8994/WM8958 audio CODEC
 

@@ -15,7 +15,41 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - hisilicon,sysctrl
+          - hisilicon,hi3620-hi4511
+          - hisilicon,hip01-ca9x2
+          - hisilicon,hip04-d01
+          - hisilicon,hip05-d02
+          - hisilicon,hi6220-hikey
+          - hisilicon,hip07-d05
+          - hisilicon,hip06-d03
+          - hisilicon,hi3660-hikey960
+          - hisilicon,hi3798cv200-poplar
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Hisilicon Hi4511 Development Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  smp-offset: {}
+  resume-offset: {}
+  reboot-offset: {}
+  interrupt-parent: {}
 examples:
   - |
     /* for Hi3620 */

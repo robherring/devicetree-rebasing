@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: raspberrypi,bcm2835-power
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  firmware: {}
+  '#power-domain-cells':
+    const: 0x1
 historical: |+
   Raspberry Pi power domain driver
 

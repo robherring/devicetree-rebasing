@@ -33,7 +33,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: isil,isl12057
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  wakeup-source: {}
 examples:
   - |
     isl12057: isl12057@68 {

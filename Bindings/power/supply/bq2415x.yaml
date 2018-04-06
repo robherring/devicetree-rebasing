@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,bq24150a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,current-limit:
+    description: FIXME
+  ti,weak-battery-voltage:
+    description: FIXME
+  ti,battery-regulation-voltage:
+    description: FIXME
+  ti,charge-current:
+    description: FIXME
+  ti,termination-current:
+    description: FIXME
+  ti,resistor-sense:
+    description: FIXME
+  ti,usb-charger-detection:
+    description: FIXME
 historical: |+
   Binding for TI bq2415x Li-Ion Charger
 

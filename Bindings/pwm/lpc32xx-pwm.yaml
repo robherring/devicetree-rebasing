@@ -13,7 +13,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc3220-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  assigned-clocks: {}
+  assigned-clock-parents: {}
 historical: |+
   LPC32XX PWM controller
 

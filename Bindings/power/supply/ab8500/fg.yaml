@@ -24,7 +24,13 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,ab8500-fg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  battery: {}
 historical: |+
   === AB8500 Fuel Gauge Driver ===
 

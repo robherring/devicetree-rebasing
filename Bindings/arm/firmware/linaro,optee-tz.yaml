@@ -20,7 +20,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: linaro,optee-tz
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  method:
+    items:
+      - const: smc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     firmware {

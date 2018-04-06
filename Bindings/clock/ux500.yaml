@@ -75,7 +75,16 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: stericsson,u8500-clks
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
 historical: |+
   Clock bindings for ST-Ericsson Ux500 clocks
 

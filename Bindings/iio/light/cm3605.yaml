@@ -20,7 +20,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: capella,cm3605
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vdd-supply: {}
+  aset-gpios: {}
+  capella,aset-resistance-ohms:
+    description: FIXME
+  interrupts-extended: {}
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: aout
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   Capella Microsystems CM3605
   Ambient Light and Short Distance Proximity Sensor

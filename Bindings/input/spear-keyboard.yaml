@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,spear300-kbd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  linux,keymap:
+    description: FIXME
+  autorepeat: {}
+  st,mode:
+    description: FIXME
+  suspended_rate: {}
 historical: |+
   * SPEAr keyboard controller
 

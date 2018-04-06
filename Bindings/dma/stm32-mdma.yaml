@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32h7-mdma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  '#dma-cells':
+    const: 0x5
+  dma-channels: {}
+  dma-requests: {}
 examples:
   - |
     mdma1: dma@52000000 {

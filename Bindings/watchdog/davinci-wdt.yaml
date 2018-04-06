@@ -13,7 +13,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,davinci-wdt
+          - ti,keystone-wdt
+      - const: ti,davinci-wdt
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 historical: |+
   Texas Instruments DaVinci/Keystone Watchdog Timer (WDT) Controller
 

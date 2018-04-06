@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - sprd,sc9860-pll
+          - sprd,sc9860-pmu-gate
+          - sprd,sc9860-ap-clk
+          - sprd,sc9860-aon-prediv
+          - sprd,sc9860-apahb-gate
+          - sprd,sc9860-aon-gate
+          - sprd,sc9860-aonsecure-clk
+          - sprd,sc9860-agcp-gate
+          - sprd,sc9860-gpu-clk
+          - sprd,sc9860-vsp-clk
+          - sprd,sc9860-vsp-gate
+          - sprd,sc9860-cam-clk
+          - sprd,sc9860-cam-gate
+          - sprd,sc9860-disp-clk
+          - sprd,sc9860-disp-gate
+          - sprd,sc9860-apapb-gate
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  sprd,syscon:
+    description: FIXME
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pmu_gate: pmu-gate {

@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - composite-video-connector
+          - svideo-connector
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  label:
+    items:
+      - const: tv
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Analog TV Connector
   ===================

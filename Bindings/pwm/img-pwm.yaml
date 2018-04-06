@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,pistachio-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: pwm
+      - const: sys
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  img,cr-periph:
+    description: FIXME
+  '#pwm-cells':
+    const: 0x2
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pwm: pwm@18101300 {

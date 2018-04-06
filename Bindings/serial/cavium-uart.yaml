@@ -30,7 +30,21 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,octeon-3860-uart
+      - const: ns16550
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
+  current-speed: {}
+  reg-shift: {}
+  interrupts: {}
 examples:
   - |
     uart1: serial@1180000000c00 {

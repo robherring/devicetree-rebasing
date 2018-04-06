@@ -16,7 +16,13 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: linux,extcon-usb-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  id-gpio: {}
 examples:
   - |
     extcon_usb1 {

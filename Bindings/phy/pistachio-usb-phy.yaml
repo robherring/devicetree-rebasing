@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,pistachio-usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: usb_phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  img,refclk:
+    description: FIXME
+  img,cr-top:
+    description: FIXME
+  '#phy-cells':
+    const: 0x0
 historical: |+
   IMG Pistachio USB PHY
   =====================

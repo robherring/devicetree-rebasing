@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,ftm-timer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clock-names:
+    items:
+      - const: ftm-evt
+      - const: ftm-src
+      - const: ftm-evt-counter-en
+      - const: ftm-src-counter-en
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  clocks: {}
 historical: |+
   Freescale FlexTimer Module (FTM) Timer
 

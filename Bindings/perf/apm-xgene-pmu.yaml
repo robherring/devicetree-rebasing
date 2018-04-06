@@ -23,7 +23,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - apm,xgene-pmu-l3c
+          - apm,xgene-pmu-v2
+          - apm,xgene-pmu-iob
+          - apm,xgene-pmu-mcb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  ranges: {}
+  regmap-csw: {}
+  regmap-mcba: {}
+  regmap-mcbb: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  enable-bit-index: {}
 examples:
   - |
     csw: csw@7e200000 {

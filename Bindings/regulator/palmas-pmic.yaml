@@ -21,7 +21,37 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tps659038-pmic
+          - ti,tps65917-pmic
+          - ti,palmas-pmic
+          - ti,tps65913-pmic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  smps12-in-supply: {}
+  smps3-in-supply: {}
+  smps4-in-supply: {}
+  smps5-in-supply: {}
+  ldo1-in-supply: {}
+  ldo2-in-supply: {}
+  ldo3-in-supply: {}
+  ldo4-in-supply: {}
+  ldo5-in-supply: {}
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: short-irq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,ldo6-vibrator:
+    description: FIXME
+    type: boolean
+  ldoln-in-supply: {}
 historical: |+
   * palmas regulator IP block devicetree bindings
 

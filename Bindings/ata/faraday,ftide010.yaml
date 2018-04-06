@@ -24,7 +24,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cortina,gemini-pata
+      - const: faraday,ftide010
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  resets: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: PCLK
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  sata: {}
 historical: |+
   * Faraday Technology FTIDE010 PATA controller
 

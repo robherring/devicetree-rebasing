@@ -33,7 +33,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm7038-l1-intc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-parent: {}
+  interrupts: {}
 historical: |+
   Broadcom BCM7038-style Level 1 interrupt controller
 

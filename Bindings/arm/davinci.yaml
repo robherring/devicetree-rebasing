@@ -14,7 +14,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,da850-lcdk
+          - ti,da850-evm
+          - enbw,cmc
+      - const: ti,da850
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: DA850/AM1808/OMAP-L138 EVM
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Texas Instruments DaVinci Platforms Device Tree Bindings
   --------------------------------------------------------

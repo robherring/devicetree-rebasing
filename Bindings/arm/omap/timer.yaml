@@ -12,7 +12,39 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am335x-timer-1ms
+          - ti,omap3430-timer
+          - ti,omap4430-timer
+          - ti,omap5430-timer
+          - ti,omap2420-timer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: timer1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,timer-alwon:
+    description: FIXME
+    type: boolean
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   OMAP Timer bindings
 

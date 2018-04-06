@@ -21,7 +21,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,arc700-pct
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * ARC Performance Counters
 

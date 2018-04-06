@@ -24,7 +24,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap3-no-wait-interface-clock
+          - ti,omap3-interface-clock
+          - ti,omap3-hsotgusb-interface-clock
+          - ti,omap3-ssi-interface-clock
+          - ti,omap3-dss-interface-clock
+          - ti,am35xx-interface-clock
+          - ti,omap2430-interface-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,bit-shift:
+    description: FIXME
 examples:
   - |
     aes1_ick: aes1_ick@48004a14 {

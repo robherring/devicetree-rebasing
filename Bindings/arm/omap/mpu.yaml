@@ -17,7 +17,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-mpu
+          - ti,omap3-mpu
+          - ti,omap5-mpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: mpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  sram: {}
 historical: |+
   * TI - MPU (Main Processor Unit) subsystem
 

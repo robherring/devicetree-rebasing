@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,lp8557
+          - ti,lp8556
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-supply: {}
+  bl-name:
+    items:
+      - const: backlight
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dev-ctrl: {}
+  init-brt: {}
+  pwm-period: {}
+  pwms: {}
+  pwm-names:
+    items:
+      - const: lp8557
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     /* LP8555 */

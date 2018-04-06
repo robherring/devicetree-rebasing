@@ -17,7 +17,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx53-ahci
+          - fsl,imx6q-ahci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: sata
+      - const: sata_ref
+      - const: ahb
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   * Freescale i.MX AHCI SATA Controller
 

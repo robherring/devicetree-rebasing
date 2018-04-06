@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-3700-uart-ext
+          - marvell,armada-3700-uart
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: uart-sum
+      - const: uart-tx
+      - const: uart-rx
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     uart0: serial@12000 {

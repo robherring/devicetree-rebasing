@@ -17,7 +17,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - zte,zx296718-lsp1crm
+          - zte,zx296718-lsp0crm
+          - zte,zx296718-topcrm
+          - zte,zx296718-audiocrm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 historical: |
   Device Tree Clock bindings for ZTE zx296718
 

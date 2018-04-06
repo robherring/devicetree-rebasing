@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: efm32gg,cmu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#clock-cells':
+    const: 0x1
 historical: |
   * Clock bindings for Energy Micro efm32 Giant Gecko's Clock Management Unit
 

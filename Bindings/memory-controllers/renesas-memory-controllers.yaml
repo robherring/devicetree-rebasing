@@ -25,7 +25,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,dbsc3-r8a7740
+          - renesas,dbsc-r8a73a4
+          - renesas,sbsc-sh73a0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: sec
+      - const: temp
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     sbsc1: memory-controller@fe400000 {

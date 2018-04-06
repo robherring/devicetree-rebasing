@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,tps65217-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: USB
+      - const: AC
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     tps65217-charger {

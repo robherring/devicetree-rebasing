@@ -12,7 +12,17 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,ltn101nt05
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ddc-i2c-bus: {}
+  power-supply: {}
+  enable-gpios: {}
+  backlight: {}
 historical: |
   Samsung Electronics 10.1" WSVGA TFT LCD panel
 

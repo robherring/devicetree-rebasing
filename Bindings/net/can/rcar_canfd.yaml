@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,r8a7796-canfd
+          - renesas,r8a7795-canfd
+      - const: renesas,rcar-gen3-canfd
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+      - const: canfd
+      - const: can_clk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  power-domains: {}
+  resets: {}
 historical: |+
   Renesas R-Car CAN FD controller Device Tree Bindings
   ----------------------------------------------------

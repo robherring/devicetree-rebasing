@@ -13,7 +13,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s6e63j0x03
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vdd3-supply: {}
+  vci-supply: {}
+  reset-gpios: {}
+  te-gpios: {}
 historical: |+
   Samsung S6E63J0X03 1.63" 320x320 AMOLED panel (interface: MIPI-DSI command mode)
 

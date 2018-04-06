@@ -17,7 +17,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: tlm,trusted-foundations
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  tlm,version-major:
+    description: FIXME
+  tlm,version-minor:
+    description: FIXME
 examples:
   - |
     firmware {

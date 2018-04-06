@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra-audio-trimslice
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvidia,i2s-controller:
+    description: FIXME
+  nvidia,audio-codec:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: pll_a
+      - const: pll_a_out0
+      - const: mclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   NVIDIA Tegra audio complex for TrimSlice
 

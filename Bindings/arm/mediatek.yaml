@@ -38,7 +38,38 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt2701-evb
+          - mediatek,mt6592-evb
+          - mundoreader,bq-aquaris5
+          - mediatek,mt8135-evbp1
+          - mediatek,mt7623n-rfb-nand
+          - mediatek,mt6580-evbp1
+          - mediatek,mt8127-moose
+          - bananapi,bpi-r2
+          - mediatek,mt7622-rfb1
+          - mediatek,mt2712-evb
+          - mediatek,mt6797-evb
+          - mediatek,mt6795-evb
+          - mediatek,mt8173-evb
+          - mediatek,mt6755-evb
+      - const: mediatek,mt6592
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: mt6592 evb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   MediaTek SoC based Platforms Device Tree Bindings
 

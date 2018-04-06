@@ -12,7 +12,34 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - silergy,syr828
+          - silergy,syr827
+          - fcs,fan53555
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fcs,suspend-voltage-selector:
+    description: FIXME
+  regulator-name:
+    items:
+      - const: VDD_CPU
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-enable-ramp-delay: {}
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-ramp-delay: {}
+  regulator-always-on: {}
+  regulator-boot-on: {}
+  vin-supply: {}
 examples:
   - |
     regulator@40 {

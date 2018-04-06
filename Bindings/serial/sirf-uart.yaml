@@ -13,7 +13,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - sirf,atlas7-uart
+          - sirf,prima2-uart
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cell-index: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  fifosize: {}
+  clocks: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * CSR SiRFprimaII/atlasVI Universal Synchronous Asynchronous Receiver/Transmitter *
 

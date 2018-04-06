@@ -103,7 +103,33 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - pci8086,2e68.2
+          - ti,pcf8575
+          - intel,ce4100-i2c-controller
+      - const: nxp,pcf8575
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-parent: {}
+  interrupts: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |
   CE4100 I2C
   ----------

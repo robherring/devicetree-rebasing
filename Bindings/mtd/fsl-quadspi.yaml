@@ -13,7 +13,66 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,ls1021a
+          - fsl,vf610-qspi
+          - fsl,ls1021a-qspi
+          - fsl,imx6ul-qspi
+          - fsl,imx6sx-qspi
+          - fsl,ls1043a-qspi
+          - fsl,ls2080a-qspi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: QuadSPI
+      - const: QuadSPI-memory
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: qspi_en
+      - const: qspi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  model:
+    items:
+      - const: Moxa UC-8410A
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  big-endian: {}
+  bus-num: {}
+  fsl,spi-num-chipselects:
+    description: FIXME
+  fsl,spi-flash-chipselects:
+    description: FIXME
+  fsl,qspi-has-second-chip:
+    description: FIXME
+    type: boolean
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   * Freescale Quad Serial Peripheral Interface(QuadSPI)
 

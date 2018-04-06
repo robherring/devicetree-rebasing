@@ -15,7 +15,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: option,gtm601
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
 historical: |+
   GTM601 UMTS modem audio interface CODEC
 

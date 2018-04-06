@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - realtek,rt5639
+          - realtek,rt5640
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  realtek,ldo1-en-gpios:
+    description: FIXME
 historical: |+
   RT5640/RT5639 audio CODEC
 

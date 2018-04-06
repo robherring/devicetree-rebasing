@@ -19,7 +19,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,dw-mshc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  num-slots: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ciu
+      - const: biu
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
 historical: |+
   * Synopsys Designware Mobile Storage Host Controller
 

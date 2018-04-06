@@ -14,7 +14,23 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: armadeus,imx51-apf51
+      - const: fsl,imx51
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Armadeus Systems APF51 module
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Armadeus i.MX Platforms Device Tree Bindings
   -----------------------------------------------

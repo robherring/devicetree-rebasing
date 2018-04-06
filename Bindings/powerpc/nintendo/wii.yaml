@@ -17,7 +17,56 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nintendo,hollywood
+          - nintendo,wii
+          - nintendo,hollywood-vi
+          - nintendo,hollywood-pi
+          - nintendo,flipper-pic
+          - nintendo,hollywood-dsp
+          - nintendo,hollywood-si
+          - nintendo,hollywood-ai
+          - nintendo,hollywood-exi
+          - nintendo,hollywood-sdhci
+          - nintendo,hollywood-ipc
+          - nintendo,hollywood-pic
+          - nintendo,hollywood-gpio
+          - nintendo,hollywood-control
+          - nintendo,hollywood-di
+          - nintendo,flipper-vi
+          - nintendo,flipper-dsp
+          - nintendo,flipper-ai
+          - nintendo,flipper-si
+          - nintendo,flipper-exi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: nintendo,wii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  interrupt-parent: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-controller: {}
+  virtual-reg: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
 historical: |+
   Nintendo Wii device tree
   ========================

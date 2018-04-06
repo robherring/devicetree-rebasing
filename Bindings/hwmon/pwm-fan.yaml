@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pwm-fan
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pwms: {}
+  cooling-min-state: {}
+  cooling-max-state: {}
+  '#cooling-cells':
+    const: 0x2
+  cooling-levels: {}
 examples:
   - |
     fan0: pwm-fan {

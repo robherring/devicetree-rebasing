@@ -12,7 +12,51 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson8b-usb
+          - amlogic,meson8b-usb2-phy
+          - amlogic,meson8-usb2-phy
+          - amlogic,meson-gxbb-usb2-phy
+      - const: amlogic,meson-mx-usb2-phy
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: usb_general
+      - const: usb
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  interrupts: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dr_mode:
+    items:
+      - const: host
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-supply: {}
 historical: |+
   * Amlogic Meson8, Meson8b and GXBB USB2 PHY
 

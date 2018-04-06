@@ -54,7 +54,19 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,pm8941-pwrkey
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  debounce: {}
+  bias-pull-up: {}
 examples:
   - |
     pwrkey@800 {

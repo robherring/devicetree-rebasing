@@ -19,7 +19,63 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5420-dw-mshc
+          - samsung,exynos5250-dw-mshc
+          - samsung,exynos4412-dw-mshc
+          - samsung,exynos7-dw-mshc-smu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  clock-names:
+    items:
+      - const: biu
+      - const: ciu
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  fifo-depth: {}
+  cap-mmc-highspeed: {}
+  broken-cd: {}
+  card-detect-delay: {}
+  samsung,dw-mshc-ciu-div:
+    description: FIXME
+  samsung,dw-mshc-sdr-timing:
+    description: FIXME
+  samsung,dw-mshc-ddr-timing:
+    description: FIXME
+  bus-width: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  cap-sd-highspeed: {}
+  vmmc-supply: {}
+  vqmmc-supply: {}
+  mmc-hs200-1_8v: {}
+  mmc-hs400-1_8v: {}
+  non-removable: {}
+  samsung,dw-mshc-hs400-timing:
+    description: FIXME
+  samsung,read-strobe-delay:
+    description: FIXME
+  assigned-clocks: {}
+  assigned-clock-rates: {}
 historical: |+
   * Samsung Exynos specific extensions to the Synopsys Designware Mobile
     Storage Host Controller

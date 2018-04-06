@@ -28,7 +28,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,sci-pm-domain
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#power-domain-cells':
+    const: 0x1
 historical: |+
   Texas Instruments TI-SCI Generic Power Domain
   ---------------------------------------------

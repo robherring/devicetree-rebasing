@@ -15,7 +15,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: wlf,wm8903
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  micdet-cfg: {}
+  micdet-delay: {}
+  gpio-cfg: {}
 historical: |+
   WM8903 audio CODEC
 

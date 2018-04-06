@@ -17,7 +17,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-control-nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bus-clock: {}
+  gpio-control-nand,io-sync-reg:
+    description: FIXME
+  gpios: {}
+  nand-on-flash-bbt: {}
+  nand-ecc-mode:
+    items:
+      - const: soft_bch
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nand-ecc-step-size: {}
+  nand-ecc-strength: {}
 historical: |+
   GPIO assisted NAND flash
 

@@ -16,7 +16,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra210-adma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  '#dma-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: d_audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * NVIDIA Tegra Audio DMA (ADMA) controller
 

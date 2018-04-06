@@ -17,7 +17,71 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx6q-pcie
+      - const: snps,dw-pcie
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dbi
+      - const: config
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bus-range: {}
+  ranges: {}
+  num-lanes: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: msi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pcie
+      - const: pcie_bus
+      - const: pcie_phy
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reset-gpio: {}
+  reset-gpio-active-high: {}
+  vpcie-supply: {}
+  fsl,tx-swing-full:
+    description: FIXME
+  fsl,tx-swing-low:
+    description: FIXME
 examples:
   - |
     pcie@01000000 {

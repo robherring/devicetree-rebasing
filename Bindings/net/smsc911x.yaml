@@ -12,7 +12,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: smsc,lan9115
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-mode:
+    items:
+      - const: mii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  reg-io-width: {}
+  smsc,irq-push-pull:
+    description: FIXME
+    type: boolean
+  smsc,force-internal-phy:
+    description: FIXME
+    type: boolean
+  samsung,srom-page-mode:
+    description: FIXME
+    type: boolean
+  samsung,srom-timing:
+    description: FIXME
 historical: |+
   * Smart Mixed-Signal Connectivity (SMSC) LAN911x/912x Controller
 

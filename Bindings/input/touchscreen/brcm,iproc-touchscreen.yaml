@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,iproc-touchscreen
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ts_syscon: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: tsc_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  touchscreen-inverted-x: {}
+  touchscreen-inverted-y: {}
 examples:
   - |
     ts_adc_syscon: ts_adc_syscon@180a6000 {

@@ -17,7 +17,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: tpo,tpg110
+      - const: panel-dpi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  grestb-gpios: {}
+  scen-gpios: {}
+  scl-gpios: {}
+  sda-gpios: {}
+  backlight: {}
 historical: |+
   TPO TPG110 Panel
   ================

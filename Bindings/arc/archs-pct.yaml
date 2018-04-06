@@ -18,7 +18,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,archs-pct
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  interrupts: {}
 historical: |+
   * ARC HS Performance Counters
 

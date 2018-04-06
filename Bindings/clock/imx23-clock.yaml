@@ -13,7 +13,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx23-clkctrl
+      - const: fsl,clkctrl
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 historical: |+
   * Clock bindings for Freescale i.MX23
 

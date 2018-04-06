@@ -15,7 +15,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5250-gsc
+          - samsung,exynos5420-gsc
+          - samsung,exynos5433-gsc
+      - const: samsung,exynos5-gsc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: gscl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
+  iommus: {}
+  iommu: {}
 historical: |+
   * Samsung Exynos5 G-Scaler device
 

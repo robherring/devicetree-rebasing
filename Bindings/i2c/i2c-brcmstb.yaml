@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,brcmstb-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
+  interrupt-parent: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: upg_bsca
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Broadcom stb bsc iic master controller
 

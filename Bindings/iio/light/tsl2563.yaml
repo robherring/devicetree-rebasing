@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: amstaos,tsl2563
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  amstaos,cover-comp-gain:
+    description: FIXME
 historical: |+
   * AMS TAOS TSL2563 ambient light sensor
 

@@ -17,7 +17,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32-vrefbuf
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
 examples:
   - |
     vrefbuf: regulator@58003c00 {

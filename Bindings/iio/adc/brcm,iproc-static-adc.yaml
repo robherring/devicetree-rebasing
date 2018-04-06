@@ -16,7 +16,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,iproc-static-adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channel-cells':
+    const: 0x1
+  io-channel-ranges: {}
+  adc-syscon: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: tsc_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 historical: |
   * Broadcom's IPROC Static ADC controller
 

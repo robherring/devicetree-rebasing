@@ -13,7 +13,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos5433-lpass
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: sfr0_ctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  samsung,pmu-syscon:
+    description: FIXME
+  power-domains: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |+
   Samsung Exynos SoC Low Power Audio Subsystem (LPASS)
 

@@ -26,7 +26,30 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - google,chromecast
+          - sony,nsz-gs7
+          - marvell,berlin2q-dmp
+          - marvell,berlin4ct-dmp
+          - marvell,berlin4ct-stb
+      - const: marvell,berlin2
+      - const: marvell,berlin
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  model:
+    items:
+      - const: Sony NSZ-GS7
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
 historical: |+
   Marvell Berlin SoC Family Device Tree Bindings
   ---------------------------------------------------------------

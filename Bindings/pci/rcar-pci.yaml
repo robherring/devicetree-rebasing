@@ -13,7 +13,48 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,pcie-r8a7791
+          - renesas,pcie-r8a7790
+          - renesas,pcie-r8a7795
+      - const: renesas,pcie-rcar-gen2
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  bus-range: {}
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  dma-ranges: {}
+  interrupts: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pcie
+      - const: pcie_bus
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  resets: {}
 historical: |+
   * Renesas R-Car PCIe interface
 

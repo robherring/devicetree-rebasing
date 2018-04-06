@@ -49,7 +49,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,syscon-icst525-integratorap-cm
+          - arm,syscon-icst307
+          - arm,syscon-icst525-integratorap-sys
+          - arm,syscon-icst525-integratorap-pci
+          - arm,syscon-icst525-integratorcp-cm-mem
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  lock-offset: {}
+  vco-offset: {}
+  clocks: {}
 historical: |+
   ARM System Controller ICST clocks
 

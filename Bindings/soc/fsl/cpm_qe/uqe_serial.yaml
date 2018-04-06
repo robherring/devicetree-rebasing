@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,t1040-ucc-uart
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  port-number: {}
+  rx-clock-name:
+    items:
+      - const: brg2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  tx-clock-name:
+    items:
+      - const: brg2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cell-index: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
 examples:
   - |
     ucc_serial: ucc@2200 {

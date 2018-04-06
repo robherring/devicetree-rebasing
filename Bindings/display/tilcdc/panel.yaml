@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,tilcdc,panel
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+      - const: sleep
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
 examples:
   - |
     /* Settings for CDTech_S035Q01 / LCD3 cape: */

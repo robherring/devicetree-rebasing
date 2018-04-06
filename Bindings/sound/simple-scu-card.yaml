@@ -17,7 +17,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: simple-audio-card
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  simple-audio-card,name:
+    items:
+      - const: SPDIF
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 historical: |+
   ASoC Simple SCU Sound Card
 

@@ -12,7 +12,55 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra-audio-alc5632-paz00
+      - const: nvidia,tegra-audio-alc5632
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,model:
+    items:
+      - const: Compal PAZ00
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  nvidia,audio-routing:
+    items:
+      - const: Int Spk
+      - const: SPKOUT
+      - const: Int Spk
+      - const: SPKOUTN
+      - const: Headset Mic
+      - const: MICBIAS1
+      - const: MIC1
+      - const: Headset Mic
+      - const: Headset Stereophone
+      - const: HPR
+      - const: Headset Stereophone
+      - const: HPL
+      - const: DMICDAT
+      - const: Digital Mic
+    minItems: 14
+    maxItems: 14
+    additionalItems: false
+    description: FIXME
+  nvidia,audio-codec:
+    description: FIXME
+  nvidia,i2s-controller:
+    description: FIXME
+  nvidia,hp-det-gpios:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: pll_a
+      - const: pll_a_out0
+      - const: mclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   NVIDIA Tegra audio complex
 

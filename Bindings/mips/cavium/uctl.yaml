@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,octeon-6335-uctl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  refclk-frequency: {}
+  refclk-type:
+    items:
+      - const: crystal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     uctl@118006f000000 {

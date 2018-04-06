@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,zynqmp-dma-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clock-names:
+    items:
+      - const: clk_main
+      - const: clk_apb
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  xlnx,bus-width:
+    description: FIXME
+  clocks: {}
 historical: |+
   Xilinx ZynqMP DMA engine, it does support memory to memory transfers,
   memory to device and device to memory transfers. It also has flow

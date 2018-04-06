@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,r7s72100-rtc
+      - const: renesas,sh-rtc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: alarm
+      - const: period
+      - const: carry
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+      - const: rtc_x1
+      - const: rtc_x3
+      - const: extal
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  power-domains: {}
 historical: |+
   * Real Time Clock for Renesas SH and ARM SoCs
 

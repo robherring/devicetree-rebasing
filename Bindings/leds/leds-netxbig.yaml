@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lacie,netxbig-leds
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-ext: {}
+  timers: {}
 historical: |+
   Binding for the CPLD LEDs (GPIO extension bus) found on some LaCie/Seagate
   boards (Example: 2Big/5Big Network v2, 2Big NAS).

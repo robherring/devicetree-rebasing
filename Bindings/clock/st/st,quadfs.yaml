@@ -22,7 +22,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,quadfs
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: clk-s-d0-fs0-ch0
+      - const: clk-s-d0-fs0-ch1
+      - const: clk-s-d0-fs0-ch2
+      - const: clk-s-d0-fs0-ch3
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
 examples:
   - |
     clk_s_c0_quadfs: clk-s-c0-quadfs@9103000 {

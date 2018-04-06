@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-ranges: {}
 historical: |+
   NXP LPC18xx/43xx GPIO controller Device Tree Bindings
   -----------------------------------------------------

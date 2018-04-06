@@ -12,7 +12,39 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sirf,atlas7-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  '#interrupt-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: gpio0_io
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  interrupt-controller: {}
+  gpio-banks: {}
+  gpio-ranges: {}
+  gpio-ranges-group-names:
+    items:
+      - const: lvds_gpio_grp
+      - const: uart_nand_gpio_grp
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     gpio_0: gpio_mediam@17040000 {

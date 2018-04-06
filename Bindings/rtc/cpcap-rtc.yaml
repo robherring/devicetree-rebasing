@@ -16,7 +16,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: motorola,cpcap-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
 historical: |+
   Motorola CPCAP PMIC RTC
   -----------------------

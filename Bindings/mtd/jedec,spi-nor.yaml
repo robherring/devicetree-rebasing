@@ -12,7 +12,102 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - micron,n25q128a11
+          - spansion,s25sl12801
+          - micron,n25q512ax3
+          - sst,sst25wf040
+          - spansion,m25p80
+          - atmel,at25df641
+          - spansion,s25fl512s
+          - eon,en25s64
+          - spansion,s25fl256s1
+          - micron,m25p32
+          - st,m25p80
+          - mx25l25635e
+          - jedec,spi-nor
+          - m25p40
+          - m25p128
+          - sst,sst25vf016b
+          - sst,sst25vf040b
+          - n25q128a13
+          - micron,n25q064
+          - mxicy,mx25l1606e
+          - st,m25p128
+          - st,m25p40
+          - w25q32
+          - st,m25p32
+          - spansion,s25fl008k
+          - macronix,mx25l6405d
+          - mxicy,mx25l12805d
+          - mxicy,mx25l4005a
+          - micron,n25q256a
+          - sst,w25q256
+          - spansion,s25fl128s
+          - winbond,w25q64
+          - n25q32b
+          - spansion,s25fl164k
+          - micron,n25q128a13
+          - mxicy,mx25l8005
+          - sst,sst25vf032b
+          - m25p64
+          - st,m25p16
+          - sst25wf040b
+          - winbond,w25q16
+          - winbond,w25q128
+          - spansion,s25sl032p
+          - spansion,s25fl016k
+      - const: jedec,spi-nor
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  mode: {}
+  linux,part-probe:
+    items:
+      - const: ofpart
+      - const: bcm47xxpart
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+    description: FIXME
+  spi-tx-bus-width: {}
+  spi-rx-bus-width: {}
+  m25p,fast-read:
+    description: FIXME
+    type: boolean
+  spi-cpol: {}
+  spi-cpha: {}
+  label:
+    items:
+      - const: bmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cdns,read-delay:
+    description: FIXME
+  cdns,tshsl-ns:
+    description: FIXME
+  cdns,tsd2d-ns:
+    description: FIXME
+  cdns,tchsh-ns:
+    description: FIXME
+  cdns,tslch-ns:
+    description: FIXME
+  ti,spi-wdelay:
+    description: FIXME
+  m25p,default-addr-width:
+    description: FIXME
 examples:
   - |
     flash: m25p80@0 {

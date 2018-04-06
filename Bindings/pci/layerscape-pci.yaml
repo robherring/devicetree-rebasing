@@ -25,7 +25,58 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,ls2088a-pcie
+          - fsl,ls1021a-pcie
+          - fsl,ls1046a-pcie
+          - fsl,ls1012a-pcie
+          - fsl,ls2080a-pcie
+          - fsl,ls1088a-pcie
+      - const: snps,dw-pcie
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: regs
+      - const: config
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  fsl,pcie-scfg:
+    description: FIXME
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  num-lanes: {}
+  bus-range: {}
+  ranges: {}
+  msi-parent: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  interrupt-names:
+    items:
+      - const: intr
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dma-coherent: {}
 examples:
   - |
     pcie@3400000 {

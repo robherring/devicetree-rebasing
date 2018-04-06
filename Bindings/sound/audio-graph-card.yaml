@@ -35,7 +35,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: audio-graph-card
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dais: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pa-gpios: {}
+  widgets:
+    items:
+      - const: Line
+      - const: Line Out Jack
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  routing:
+    items:
+      - const: Amplifier
+      - const: LINEOUTL
+      - const: Amplifier
+      - const: LINEOUTR
+      - const: Line Out Jack
+      - const: Amplifier
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
 examples:
   - |
     sound_card {

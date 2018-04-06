@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,r8a7796-usb3-peri
+          - renesas,r8a7795-usb3-peri
+      - const: renesas,rcar-gen3-usb3-peri
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  power-domains: {}
+  resets: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     usb3_peri0: usb@ee020000 {

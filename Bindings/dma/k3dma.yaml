@@ -15,7 +15,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,k3-dma-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x1
+  dma-channels: {}
+  dma-requests: {}
+  interrupts: {}
+  clocks: {}
+  dma-no-cci: {}
+  dma-type:
+    items:
+      - const: hi6220_dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Hisilicon K3 DMA controller
 

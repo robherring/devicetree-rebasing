@@ -12,7 +12,51 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3399-edp
+          - rockchip,rk3288-dp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: dp
+      - const: pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: dp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: dp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  rockchip,grf:
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  power-domains: {}
 examples:
   - |
     dp-controller: dp@ff970000 {

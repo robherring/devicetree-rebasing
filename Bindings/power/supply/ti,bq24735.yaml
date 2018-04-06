@@ -50,7 +50,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,bq24735
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,charge-current:
+    description: FIXME
+  ti,charge-voltage:
+    description: FIXME
+  poll-interval: {}
+  interrupt-parent: {}
+  interrupts: {}
+  ti,ac-detect-gpios:
+    description: FIXME
+  ti,external-control:
+    description: FIXME
+    type: boolean
 historical: |+
   TI BQ24735 Charge Controller
   ~~~~~~~~~~

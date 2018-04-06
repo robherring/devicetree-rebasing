@@ -19,7 +19,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stih407-mailbox
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#mbox-cells':
+    const: 0x2
+  mbox-name:
+    items:
+      - const: a9
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   ST Microelectronics Mailbox Driver
 

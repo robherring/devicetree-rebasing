@@ -36,7 +36,36 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pwm-regulator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pwms: {}
+  regulator-name:
+    items:
+      - const: vdd_log
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-always-on: {}
+  voltage-table: {}
+  pwm-supply: {}
+  regulator-boot-on: {}
+  max-duty-cycle: {}
+  pwm-dutycycle-unit: {}
+  pwm-dutycycle-range: {}
+  regulator-ramp-delay: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  enable-gpios: {}
+  regulator-enable-ramp-delay: {}
+  vin-supply: {}
 historical: |
   Bindings for the Generic PWM Regulator
   ======================================

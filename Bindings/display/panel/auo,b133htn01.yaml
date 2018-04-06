@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: auo,b133htn01
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-supply: {}
+  backlight: {}
 historical: |
   AU Optronics Corporation 13.3" FHD (1920x1080) color TFT-LCD panel
 

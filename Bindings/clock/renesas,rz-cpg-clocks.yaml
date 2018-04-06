@@ -19,7 +19,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,r7s72100-cpg-clocks
+      - const: renesas,rz-cpg-clocks
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: pll
+      - const: i
+      - const: g
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#power-domain-cells':
+    const: 0x0
 historical: |+
   * Renesas RZ/A1 Clock Pulse Generator (CPG)
 

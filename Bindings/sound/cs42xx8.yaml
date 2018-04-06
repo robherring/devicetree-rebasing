@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - cirrus,cs42888
+          - cirrus,cs42448
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: mclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  VA-supply: {}
+  VD-supply: {}
+  VLS-supply: {}
+  VLC-supply: {}
 historical: |+
   CS42448/CS42888 audio CODEC
 

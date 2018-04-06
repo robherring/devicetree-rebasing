@@ -13,7 +13,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5250-g2d
+          - samsung,s5pv210-g2d
+          - samsung,exynos4212-g2d
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: sclk_fimg2d
+      - const: fimg2d
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  iommus: {}
 examples:
   - |
     g2d@12800000 {

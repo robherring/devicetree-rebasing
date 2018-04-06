@@ -27,7 +27,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8173-scpsys
+          - mediatek,mt6797-scpsys
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#power-domain-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: mfg
+      - const: mm
+      - const: vdec
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  infracfg: {}
 examples:
   - |
     scpsys: scpsys@10006000 {

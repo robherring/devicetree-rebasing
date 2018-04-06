@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,vf610-usbphy
+          - fsl,imx6q-usbphy
+          - fsl,imx6sl-usbphy
+          - fsl,imx6sx-usbphy
+          - fsl,imx23-usbphy
+      - const: fsl,imx23-usbphy
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  fsl,anatop:
+    description: FIXME
+  fsl,usbphy:
+    description: FIXME
+  fsl,usbmisc:
+    description: FIXME
+  dr_mode:
+    items:
+      - const: peripheral
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  disable-over-current: {}
 historical: |+
   * Freescale MXS USB Phy Device
 

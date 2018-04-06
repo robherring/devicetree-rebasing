@@ -148,7 +148,25 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,bman
+          - fsl,bman-fbpr
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  size: {}
+  alignment: {}
+  alloc-ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  fsl,bman-portals:
+    description: FIXME
+  memory-region: {}
 historical: |+
   QorIQ DPAA Buffer Manager Device Tree Bindings
 

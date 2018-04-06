@@ -17,7 +17,67 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - snps,dwmac-mdio
+          - allwinner,sun8i-h3-emac
+          - allwinner,sun8i-h3-mdio-mux
+          - allwinner,sun8i-h3-mdio-internal
+          - allwinner,sun8i-a83t-emac
+          - allwinner,sun50i-a64-emac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  syscon: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  phy-handle: {}
+  phy-mode:
+    items:
+      - const: rgmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  allwinner,leds-active-low:
+    description: FIXME
+    type: boolean
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  phy-supply: {}
+  mdio-parent-bus: {}
 historical: |+
   * Allwinner sun8i GMAC ethernet controller
 

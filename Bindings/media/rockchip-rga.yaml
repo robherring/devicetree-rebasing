@@ -18,7 +18,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3399-rga
+          - rockchip,rk3288-rga
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: aclk
+      - const: hclk
+      - const: sclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  power-domains: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: core
+      - const: axi
+      - const: ahb
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 historical: |+
   device-tree bindings for rockchip 2D raster graphic acceleration controller (RGA)
 

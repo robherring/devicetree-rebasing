@@ -54,7 +54,31 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,twl4030-usb
+          - ti,twl4030-bci
+          - ti,twl6030-usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  bci3v1-supply: {}
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: vac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  usb1v5-supply: {}
+  usb1v8-supply: {}
+  usb3v1-supply: {}
+  usb_mode: {}
+  '#phy-cells':
+    const: 0x0
+  usb-supply: {}
 historical: |
   USB COMPARATOR OF TWL CHIPS
 

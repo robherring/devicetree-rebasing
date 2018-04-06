@@ -16,7 +16,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ampire,am-480272h3tmqw-t01h
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     panel_rgb: panel-rgb {

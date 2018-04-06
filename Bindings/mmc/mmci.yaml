@@ -21,7 +21,56 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: arm,pl18x
+      - const: arm,primecell
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  arm,primecell-periphid:
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: cmd_irq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: mclk
+      - const: apb_pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  bus-width: {}
+  max-frequency: {}
+  non-removable: {}
+  cap-sd-highspeed: {}
+  cap-mmc-highspeed: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  vmmc-supply: {}
+  vqmmc-supply: {}
 historical: |+
   * ARM PrimeCell MultiMedia Card Interface (MMCI) PL180/1
 

@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: toshiba,tc358767
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  shutdown-gpios: {}
+  clock-names:
+    items:
+      - const: ref
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 examples:
   - |
     edp-bridge@68 {

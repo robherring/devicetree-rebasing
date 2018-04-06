@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc3220-slc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  nxp,wdr-clks:
+    description: FIXME
+  nxp,wwidth:
+    description: FIXME
+  nxp,whold:
+    description: FIXME
+  nxp,wsetup:
+    description: FIXME
+  nxp,rdr-clks:
+    description: FIXME
+  nxp,rwidth:
+    description: FIXME
+  nxp,rhold:
+    description: FIXME
+  nxp,rsetup:
+    description: FIXME
+  nand-on-flash-bbt: {}
+  gpios: {}
 examples:
   - |
     slc: flash@20020000 {

@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - calxeda,ecx-2000
+          - calxeda,hb-ddr-ctrl
+          - calxeda,ecx-2000-ddr-ctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  model:
+    items:
+      - const: Calxeda ECX-2000
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  clock-ranges: {}
 examples:
   - |
     memory-controller@fff00000 {

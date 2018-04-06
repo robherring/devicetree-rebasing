@@ -97,7 +97,34 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,vexpress,config-bus
+          - arm,vexpress,v2p-ca5s
+          - arm,vexpress,v2p-ca15,tc1
+          - arm,vexpress,v2p-ca9
+      - const: arm,vexpress
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  model:
+    items:
+      - const: V2P-CA5s
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  arm,hbi:
+    description: FIXME
+  arm,vexpress,site:
+    description: FIXME
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  arm,vexpress,config-bridge:
+    description: FIXME
 historical: |+
   ARM Versatile Express boards family
   -----------------------------------

@@ -21,7 +21,27 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mediatek,mt8173-auxadc
+          - mediatek,mt2701-auxadc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: main
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channel-cells':
+    const: 0x1
 historical: |+
   * Mediatek AUXADC - Analog to Digital Converter on Mediatek mobile soc (mt65xx/mt81xx/mt27xx)
   ===============

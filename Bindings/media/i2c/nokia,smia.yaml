@@ -76,7 +76,22 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nokia,smia
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vana-supply: {}
+  clocks: {}
+  clock-frequency: {}
+  nokia,nvm-size:
+    description: FIXME
+  flash-leds: {}
 historical: |+
   SMIA/SMIA++ sensor
 

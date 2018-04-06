@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ibm,cpm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dcr-access-method:
+    items:
+      - const: native
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dcr-reg: {}
+  unused-units: {}
+  idle-doze: {}
+  standby: {}
 examples:
   - |
     CPM0: cpm {

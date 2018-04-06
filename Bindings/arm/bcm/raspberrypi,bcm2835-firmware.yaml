@@ -12,7 +12,13 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: raspberrypi,bcm2835-firmware
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mboxes: {}
 historical: |+
   Raspberry Pi VideoCore firmware driver
 

@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,iproc-hr2-gpio
+          - brcm,iproc-nsp-gpio
+          - brcm,iproc-gpio
+      - const: brcm,iproc-gpio
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  ngpios: {}
+  interrupt-controller: {}
+  interrupts: {}
+  gpio-ranges: {}
 examples:
   - |
     gpio_ccm: gpio@1800a000 {

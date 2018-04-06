@@ -12,7 +12,17 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hi6220-usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x0
+  phy-supply: {}
+  hisilicon,peripheral-syscon:
+    description: FIXME
 examples:
   - |
     usb_phy: usbphy {

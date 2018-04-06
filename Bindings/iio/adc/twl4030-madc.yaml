@@ -16,7 +16,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,twl4030-madc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#io-channel-cells':
+    const: 0x1
 historical: |+
   * TWL4030 Monitoring Analog to Digital Converter (MADC)
 

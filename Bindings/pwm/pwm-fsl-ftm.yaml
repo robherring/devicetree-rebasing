@@ -28,7 +28,35 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,vf610-ftm-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x3
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: ftm_sys
+      - const: ftm_ext
+      - const: ftm_fix
+      - const: ftm_cnt_clk_en
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  clocks: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 historical: |+
   Freescale FlexTimer Module (FTM) PWM controller
 

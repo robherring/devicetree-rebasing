@@ -17,7 +17,58 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: wlf,wm5110
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: mclk1
+      - const: mclk2
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  wlf,micd-detect-debounce:
+    description: FIXME
+  wlf,micd-bias-start-time:
+    description: FIXME
+  wlf,micd-rate:
+    description: FIXME
+  wlf,micd-dbtime:
+    description: FIXME
+  wlf,micd-force-micbias:
+    description: FIXME
+    type: boolean
+  wlf,micd-configs:
+    description: FIXME
+  wlf,hpdet-channel:
+    description: FIXME
+  wlf,gpsw:
+    description: FIXME
+  wlf,inmode:
+    description: FIXME
+  wlf,reset:
+    description: FIXME
+  wlf,ldoena:
+    description: FIXME
+  AVDD-supply: {}
+  DBVDD1-supply: {}
+  CPVDD-supply: {}
+  DBVDD2-supply: {}
+  DBVDD3-supply: {}
 historical: |+
   Cirrus Logic/Wolfson Microelectronics Arizona class audio SoCs
 

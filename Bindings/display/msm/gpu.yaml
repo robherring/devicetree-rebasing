@@ -13,7 +13,45 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,adreno-306.0
+      - const: qcom,adreno
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: kgsl_3d0_reg_memory
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: kgsl_3d0_irq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: core
+      - const: iface
+      - const: mem
+      - const: mem_iface
+      - const: alt_mem_iface
+      - const: gfx3d
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  clocks: {}
+  power-domains: {}
+  operating-points-v2: {}
+  iommus: {}
 historical: |+
   Qualcomm adreno/snapdragon GPU
 

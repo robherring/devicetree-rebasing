@@ -50,7 +50,17 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,tcsr-mutex
+          - qcom,sfpb-mutex
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  syscon: {}
+  '#hwlock-cells':
+    const: 0x1
 examples:
   - |
     tcsr_mutex_block: syscon@fd484000 {

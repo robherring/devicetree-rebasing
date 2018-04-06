@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra20-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
 historical: |+
   NVIDIA Tegra GPIO controller
 

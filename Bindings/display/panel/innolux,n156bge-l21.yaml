@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: innolux,n156bge-l21
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-supply: {}
+  enable-gpios: {}
+  backlight: {}
 historical: |
   InnoLux 15.6" WXGA TFT LCD panel
 

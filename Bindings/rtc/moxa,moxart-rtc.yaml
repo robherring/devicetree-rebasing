@@ -12,7 +12,15 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: moxa,moxart-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-rtc-sclk: {}
+  gpio-rtc-data: {}
+  gpio-rtc-reset: {}
 examples:
   - |
     rtc: rtc {

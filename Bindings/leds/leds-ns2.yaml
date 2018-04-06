@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lacie,ns2-leds
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Binding for dual-GPIO LED found on Network Space v2 (and parents).
 

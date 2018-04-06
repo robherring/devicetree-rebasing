@@ -68,7 +68,16 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,smem
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  memory-region: {}
+  hwlocks: {}
+  qcom,rpm-msg-ram:
+    description: FIXME
 historical: |
   Qualcomm Shared Memory Manager binding
 

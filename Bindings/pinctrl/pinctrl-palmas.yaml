@@ -16,7 +16,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tps65913-pinctrl
+          - ti,palmas
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  ti,system-power-controller:
+    description: FIXME
+    type: boolean
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     palmas: tps65913 {

@@ -15,7 +15,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,orion-intc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     intc: interrupt-controller {

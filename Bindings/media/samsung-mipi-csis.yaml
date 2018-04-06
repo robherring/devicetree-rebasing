@@ -12,7 +12,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,s5pv210-csis
+          - samsung,exynos4210-csis
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: csis
+      - const: sclk_csis
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  bus-width: {}
+  power-domains: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: csis
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  interrupt-parent: {}
 examples:
   - |
     reg0: regulator@0 {

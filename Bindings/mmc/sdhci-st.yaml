@@ -17,7 +17,50 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,sdhci-stih407
+      - const: st,sdhci
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: mmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
+  interrupt-names:
+    items:
+      - const: mmcirq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clock-names:
+    items:
+      - const: mmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  bus-width: {}
+  non-removable: {}
+  sd-uhs-sdr50: {}
+  sd-uhs-sdr104: {}
+  sd-uhs-ddr50: {}
 historical: |+
   * STMicroelectronics sdhci-st MMC/SD controller
 

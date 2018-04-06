@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - technologic,sja1000
+          - nxp,sja1000
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nxp,external-clock-frequency:
+    description: FIXME
+  interrupts: {}
+  interrupt-parent: {}
+  reg-io-width: {}
+  nxp,tx-output-config:
+    description: FIXME
 historical: |+
   Memory mapped SJA1000 CAN controller from NXP (formerly Philips)
 

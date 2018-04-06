@@ -13,7 +13,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - google,snow-audio-max98090
+          - google,snow-audio-max98091
+          - google,snow-audio-max98095
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  samsung,model:
+    items:
+      - const: Peach-Pi-I2S-MAX98091
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  samsung,i2s-controller:
+    description: FIXME
+  samsung,audio-codec:
+    description: FIXME
 historical: |+
   Audio Binding for Snow boards
 

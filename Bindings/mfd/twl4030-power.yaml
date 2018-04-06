@@ -18,7 +18,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,twl4030-power-idle-osc-off
+          - ti,twl4030-power
+          - ti,twl4030-power-reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,use_poweroff:
+    description: FIXME
+    type: boolean
 historical: |+
   Texas Instruments TWL family (twl4030) reset and power management module
 

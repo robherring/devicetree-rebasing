@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stmpe-ts
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  st,adc-freq:
+    description: FIXME
+  st,ave-ctrl:
+    description: FIXME
+  st,fraction-z:
+    description: FIXME
+  st,i-drive:
+    description: FIXME
+  st,mod-12b:
+    description: FIXME
+  st,ref-sel:
+    description: FIXME
+  st,sample-time:
+    description: FIXME
+  st,settling:
+    description: FIXME
+  st,touch-det-delay:
+    description: FIXME
 examples:
   - |
     stmpe_touchscreen {

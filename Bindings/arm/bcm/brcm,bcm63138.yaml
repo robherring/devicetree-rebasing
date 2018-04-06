@@ -15,7 +15,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,BCM963138DVT
+      - const: brcm,bcm63138
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Broadcom BCM963138DVT
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 examples:
   - |
     cpus {

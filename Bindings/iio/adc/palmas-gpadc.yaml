@@ -31,7 +31,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,palmas-gpadc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#io-channel-cells':
+    const: 0x1
+  ti,channel0-current-microamp:
+    description: FIXME
+  ti,channel3-current-microamp:
+    description: FIXME
 historical: |+
   * Palmas general purpose ADC IP block devicetree bindings
 

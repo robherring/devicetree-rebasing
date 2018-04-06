@@ -31,7 +31,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: i2c-mux-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  i2c-parent: {}
+  pinctrl-names:
+    items:
+      - const: i2c0
+      - const: i2c1
+      - const: i2c2
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  pinctrl-2: {}
 examples:
   - |
     pinctrl-names = "ddc", "pta", "idle"  ->  ddc = bus 0, pta = bus 1

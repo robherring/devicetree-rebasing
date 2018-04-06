@@ -16,7 +16,54 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: altr,socfpga-stmmac
+      - const: snps,dwmac-3.70a
+      - const: snps,dwmac
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  altr,sysmgr-syscon:
+    description: FIXME
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mac-address: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  snps,multicast-filter-bins:
+    description: FIXME
+  snps,perfect-filter-entries:
+    description: FIXME
+  tx-fifo-depth: {}
+  rx-fifo-depth: {}
+  phy-mode:
+    items:
+      - const: gmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Altera SOCFPGA SoC DWMAC controller
 

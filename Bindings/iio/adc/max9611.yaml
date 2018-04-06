@@ -38,7 +38,17 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,max9611
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  shunt-resistor-micro-ohms: {}
 historical: |+
   * Maxim max9611/max9612 current sense amplifier with 12-bits ADC interface
 

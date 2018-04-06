@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-decoder
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  linux,axis:
+    description: FIXME
+  decoder-max-value: {}
 examples:
   - |
     gpio-decoder0 {

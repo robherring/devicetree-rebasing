@@ -17,7 +17,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: socionext,uniphier-system-cache
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  cache-unified: {}
+  cache-size: {}
+  cache-sets: {}
+  cache-line-size: {}
+  cache-level: {}
 examples:
   - |
     l2: l2-cache@500c0000 {

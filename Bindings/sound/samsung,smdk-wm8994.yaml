@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,smdk-wm8994
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  samsung,i2s-controller:
+    description: FIXME
+  samsung,audio-codec:
+    description: FIXME
 historical: |
   Samsung SMDK audio complex
 

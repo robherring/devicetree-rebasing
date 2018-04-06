@@ -12,7 +12,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-gpio
+          - ti,omap3-gpio
+          - ti,omap2-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: gpio1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,gpio-always-on:
+    description: FIXME
+    type: boolean
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
 historical: |+
   OMAP GPIO controller bindings
 

@@ -74,7 +74,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-7k-pinctrl
+          - marvell,cp110-clock
+          - marvell,armada-8k-cpm-pinctrl
+          - marvell,armada-8k-cps-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x2
 historical: |+
   Marvell Armada CP110 System Controller 0
   ========================================

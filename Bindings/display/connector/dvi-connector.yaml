@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: dvi-connector
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  label:
+    items:
+      - const: dvi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  digital: {}
+  ddc-i2c-bus: {}
 historical: |+
   DVI Connector
   ==============

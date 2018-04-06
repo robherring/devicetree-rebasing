@@ -19,7 +19,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s5pv210-keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     keypad@100a0000 {

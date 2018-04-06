@@ -14,7 +14,23 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm3380-l2-intc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-parent: {}
+  interrupts: {}
+  brcm,int-map-mask:
+    description: FIXME
 historical: |+
   Broadcom BCM3380-style Level 1 / Level 2 interrupt controller
 

@@ -41,7 +41,45 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - apm,xgene-mdio
+          - apm,xgene-enet
+          - apm,xgene1-sgenet
+          - apm,xgene1-xgenet
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg-names:
+    items:
+      - const: enet_csr
+      - const: ring_csr
+      - const: ring_cmd
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  dma-coherent: {}
+  clocks: {}
+  local-mac-address: {}
+  phy-connection-type:
+    items:
+      - const: rgmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy-handle: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  channel: {}
+  rxlos-gpios: {}
 examples:
   - |
     menetclk: menetclk {

@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: img,pistachio-gptimer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fast
+      - const: sys
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  img,cr-periph:
+    description: FIXME
 examples:
   - |
     timer: timer@18102000 {

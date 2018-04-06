@@ -21,7 +21,20 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra186-bpmp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mboxes: {}
+  shmem: {}
+  '#clock-cells':
+    const: 0x1
+  '#reset-cells':
+    const: 0x1
+  '#power-domain-cells':
+    const: 0x1
 historical: |+
   NVIDIA Tegra Boot and Power Management Processor (BPMP)
 

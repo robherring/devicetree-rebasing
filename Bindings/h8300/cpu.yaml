@@ -12,13 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,h8300
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-frequency: {}
 examples:
-  - |4
-      cpu@0 {
-        compatible = "renesas,h8300";
-        clock-frequency = <20000000>;
-      };
+  - |
+    cpu@0 {
+      compatible = "renesas,h8300";
+      clock-frequency = <20000000>;
+    };
 historical: |+
   * H8/300 CPU bindings
 

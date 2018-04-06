@@ -30,7 +30,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: dpot-dac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vref-supply: {}
+  io-channels: {}
+  io-channel-names:
+    items:
+      - const: dpot
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channel-cells':
+    const: 0x1
 examples:
   - |
     &i2c {

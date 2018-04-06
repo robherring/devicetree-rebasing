@@ -26,7 +26,53 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,spi-bcm-qspi
+      - const: brcm,spi-nsp-qspi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  reg-names:
+    items:
+      - const: mspi
+      - const: bspi
+      - const: intr_regs
+      - const: intr_status_reg
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: spi_lr_fullness_reached
+      - const: spi_lr_session_aborted
+      - const: spi_lr_impatient
+      - const: spi_lr_session_done
+      - const: spi_lr_overhead
+      - const: mspi_done
+      - const: mspi_halted
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: iprocmed
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  num-cs: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  bspi-sel: {}
+  interrupt-parent: {}
 historical: |+
   Broadcom SPI controller
 

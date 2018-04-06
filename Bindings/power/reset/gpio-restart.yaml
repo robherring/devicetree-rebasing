@@ -29,7 +29,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-restart
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  priority: {}
+  open-source: {}
+  active-delay: {}
+  inactive-delay: {}
+  wait-delay: {}
 historical: |+
   Drive a GPIO line that can be used to restart the system from a restart
   handler.

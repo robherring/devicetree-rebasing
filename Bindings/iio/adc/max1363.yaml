@@ -20,7 +20,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - maxim,max1037
+          - maxim,max1237
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Maxim 1x3x/136x/116xx Analog to Digital Converter (ADC)
 

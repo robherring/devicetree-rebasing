@@ -12,7 +12,36 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,sama5d3-pwm
+          - atmel,at91sam9rl-pwm
+          - atmel,sama5d2-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#pwm-cells':
+    const: 0x3
+  clocks: {}
+  clock-names:
+    items:
+      - const: pwm_clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     pwm0: pwm@f8034000 {

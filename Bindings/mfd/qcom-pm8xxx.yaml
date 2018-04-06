@@ -110,7 +110,40 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,pm8921
+          - qcom,pm8821
+          - qcom,pm8921-rtc
+          - qcom,pm8018
+          - qcom,pm8018-rtc
+          - qcom,pm8941-rtc
+          - qcom,pm8058-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  allow-set-time: {}
+  reg-names:
+    items:
+      - const: rtc
+      - const: alarm
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |
   Qualcomm PM8xxx PMIC multi-function devices
 

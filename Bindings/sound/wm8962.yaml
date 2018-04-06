@@ -15,7 +15,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: wlf,wm8962
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  DCVDD-supply: {}
+  DBVDD-supply: {}
+  AVDD-supply: {}
+  CPVDD-supply: {}
+  MICVDD-supply: {}
+  PLLVDD-supply: {}
+  SPKVDD1-supply: {}
+  SPKVDD2-supply: {}
 historical: |+
   WM8962 audio CODEC
 

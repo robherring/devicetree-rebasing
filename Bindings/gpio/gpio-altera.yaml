@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: altr,pio-1.0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  altr,gpio-bank-width:
+    description: FIXME
+  resetvalue: {}
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
 historical: |+
   Altera GPIO controller bindings
 

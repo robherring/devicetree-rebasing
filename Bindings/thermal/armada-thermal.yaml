@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada370-thermal
+          - marvell,armada380-thermal
+          - marvell,armada375-thermal
+          - marvell,armadaxp-thermal
+          - marvell,armada-ap806-thermal
+          - marvell,armada-cp110-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     /* Legacy bindings */

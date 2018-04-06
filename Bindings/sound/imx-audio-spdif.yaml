@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx-audio-spdif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: imx-spdif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spdif-controller: {}
+  spdif-out: {}
 historical: |+
   Freescale i.MX audio complex with S/PDIF transceiver
 

@@ -12,7 +12,59 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-mcbsp
+          - ti,omap3-mcbsp
+          - ti,omap2420-mcbsp
+          - ti,omap2430-mcbsp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: mpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: common
+      - const: tx
+      - const: rx
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  ti,buffer-size:
+    description: FIXME
+  ti,hwmods:
+    items:
+      - const: mcbsp1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Texas Instruments OMAP2+ McBSP module
 

@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - compulab,sbc-imx7
+          - compulab,cl-som-imx7
+      - const: fsl,imx7d
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: CompuLab CL-SOM-iMX7
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   CompuLab SB-SOM is a multi-module baseboard capable of carrying:
    - CM-T43

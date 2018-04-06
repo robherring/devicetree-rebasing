@@ -16,7 +16,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,kona-sdhci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  max-frequency: {}
+  non-removable: {}
+  cd-gpios: {}
+  vmmc-supply: {}
+  vqmmc-supply: {}
 historical: |+
   Broadcom BCM281xx SDHCI
 

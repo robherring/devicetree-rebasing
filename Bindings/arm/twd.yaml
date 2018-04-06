@@ -20,7 +20,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,arm11mp-twd-timer
+          - arm,cortex-a9-twd-timer
+          - arm,cortex-a5-twd-timer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
 examples:
   - |
     twd-timer@2c000600 {

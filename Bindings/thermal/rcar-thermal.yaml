@@ -13,7 +13,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,thermal-r8a7779
+          - renesas,thermal-r8a73a4
+          - renesas,thermal-r8a7790
+          - renesas,thermal-r8a7743
+          - renesas,thermal-r8a7791
+          - renesas,thermal-r8a7793
+      - const: renesas,rcar-thermal
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  power-domains: {}
+  resets: {}
+  '#thermal-sensor-cells':
+    const: 0x0
 historical: |+
   * Renesas R-Car Thermal
 

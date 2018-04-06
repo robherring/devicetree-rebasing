@@ -18,7 +18,13 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,twl4030-pwrbutton
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 historical: |+
   Texas Instruments TWL family (twl4030) pwrbutton module
 

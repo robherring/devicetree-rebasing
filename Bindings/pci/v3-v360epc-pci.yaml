@@ -15,7 +15,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,integrator-ap-pci
+          - arm,integrator-ap
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: ARM Integrator/AP
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dma-ranges: {}
+  '#interrupt-cells':
+    const: 0x1
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  bus-range: {}
+  ranges: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
 historical: |+
   V3 Semiconductor V360 EPC PCI bridge
 

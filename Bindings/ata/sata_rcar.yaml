@@ -13,7 +13,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,sata-r8a7790
+          - renesas,sata-r8a7779
+          - renesas,sata-r8a7791
+          - renesas,sata-r8a7795
+      - const: renesas,rcar-sata
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  power-domains: {}
+  resets: {}
+  iommus: {}
 historical: |+
   * Renesas R-Car SATA
 

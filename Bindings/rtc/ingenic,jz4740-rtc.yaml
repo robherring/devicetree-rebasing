@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ingenic,jz4740-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  system-power-controller: {}
 historical: |+
   JZ4740 and similar SoCs real-time clock driver
 

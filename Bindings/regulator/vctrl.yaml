@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: vctrl-regulator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-name:
+    items:
+      - const: ppvar_bigcpu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  ctrl-supply: {}
+  ctrl-voltage-range: {}
+  regulator-settling-time-up-us: {}
+  min-slew-down-rate: {}
+  ovp-threshold-percent: {}
 examples:
   - |
     vctrl-reg {

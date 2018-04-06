@@ -24,7 +24,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,lm3532-backlight
+          - ti,lm3532
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  enable-gpios: {}
 historical: |
   TI LMU (Lighting Management Unit) device tree bindings
 

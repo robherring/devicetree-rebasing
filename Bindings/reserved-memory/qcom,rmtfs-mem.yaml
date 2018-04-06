@@ -62,7 +62,19 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,rmtfs-mem
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  no-map: {}
+  qcom,client-id:
+    description: FIXME
 historical: |
   Qualcomm Remote File System Memory binding
 

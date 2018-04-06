@@ -18,7 +18,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: syscon-poweroff
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regmap: {}
+  offset: {}
+  mask: {}
+  value: {}
 examples:
   - |
     poweroff {

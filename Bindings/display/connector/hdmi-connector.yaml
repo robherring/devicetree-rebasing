@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hdmi-connector
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  type:
+    items:
+      - const: d
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  label:
+    items:
+      - const: hdmi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  hpd-gpios: {}
+  ddc-i2c-bus: {}
 historical: |+
   HDMI Connector
   ==============

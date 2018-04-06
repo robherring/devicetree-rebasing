@@ -26,7 +26,13 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-slimpro-i2c
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mboxes: {}
 examples:
   - |
     i2cslimpro {

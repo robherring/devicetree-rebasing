@@ -30,7 +30,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: i2c-mux-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  mux-gpios: {}
+  i2c-parent: {}
+  idle-state: {}
 examples:
   - |
     i2cmux {

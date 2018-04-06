@@ -12,7 +12,48 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,asoc-wm8904
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  atmel,model:
+    items:
+      - const: wm8904 @ SAMA5D3EK
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  atmel,audio-routing:
+    items:
+      - const: Headphone Jack
+      - const: HPOUTL
+      - const: Headphone Jack
+      - const: HPOUTR
+      - const: IN2L
+      - const: Line In Jack
+      - const: IN2R
+      - const: Line In Jack
+      - const: Mic
+      - const: MICBIAS
+      - const: IN1L
+      - const: Mic
+    minItems: 12
+    maxItems: 12
+    additionalItems: false
+    description: FIXME
+  atmel,ssc-controller:
+    description: FIXME
+  atmel,audio-codec:
+    description: FIXME
 historical: |+
   Atmel ASoC driver with wm8904 audio codec complex
 

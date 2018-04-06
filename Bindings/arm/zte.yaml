@@ -14,7 +14,32 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - zte,zx-bus-matrix
+          - zte,zx296702-ad1
+          - zte,zx296702-pcu
+          - zte,zx296718-evb
+      - const: zte,zx296702
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: ZTE ZX296702 AD1 Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |+
   ZTE platforms device tree bindings
   ---------------------------------------

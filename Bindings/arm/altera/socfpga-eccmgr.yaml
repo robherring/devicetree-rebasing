@@ -14,7 +14,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - altr,socfpga-l2-ecc
+          - altr,socfpga-ecc-manager
+          - altr,socfpga-ocram-ecc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  iram: {}
 examples:
   - |
     eccmgr: eccmgr@ffd08140 {

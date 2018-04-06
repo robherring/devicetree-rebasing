@@ -19,7 +19,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: hisilicon,hi6220-stub-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  hisilicon,hi6220-clk-sram:
+    description: FIXME
+  '#clock-cells':
+    const: 0x1
+  mbox-names:
+    items:
+      - const: mbox-tx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mboxes: {}
 examples:
   - |
     sys_ctrl: sys_ctrl@f7030000 {

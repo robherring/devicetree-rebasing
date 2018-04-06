@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32h7-dmamux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#dma-cells':
+    const: 0x3
+  dma-channels: {}
+  dma-requests: {}
+  dma-masters: {}
+  clocks: {}
 historical: |+
   STM32 DMA MUX (DMA request router)
 

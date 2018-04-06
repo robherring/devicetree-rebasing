@@ -12,7 +12,49 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,abb-v2
+          - ti,abb-v1
+          - ti,abb-v3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-name:
+    items:
+      - const: abb_mpu_iva
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x0
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: base-address
+      - const: int-address
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ti,tranxdone-status-mask:
+    description: FIXME
+  clocks: {}
+  ti,settling-time:
+    description: FIXME
+  ti,clock-cycles:
+    description: FIXME
+  ti,abb_info:
+    description: FIXME
+  ti,ldovbb-override-mask:
+    description: FIXME
+  ti,ldovbb-vset-mask:
+    description: FIXME
 historical: |+
   Adaptive Body Bias(ABB) SoC internal LDO regulator for Texas Instruments SoCs
 

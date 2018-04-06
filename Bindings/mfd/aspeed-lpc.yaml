@@ -131,7 +131,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - aspeed,ast2500-lpc-bmc
+          - aspeed,ast2500-lpc
+          - aspeed,ast2400-lpc
+          - aspeed,ast2400-lpc-bmc
+      - const: simple-mfd
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |+
   ======================================================================
   Device tree bindings for the Aspeed Low Pin Count (LPC) Bus Controller

@@ -19,7 +19,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,stih407-fdma-mpe31-12
+          - st,stih407-fdma-mpe31-11
+          - st,stih407-fdma-mpe31-13
+      - const: st,slim-rproc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  reg-names:
+    items:
+      - const: slimcore
+      - const: dmem
+      - const: peripherals
+      - const: imem
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  clocks: {}
+  interrupts: {}
+  dma-channels: {}
+  '#dma-cells':
+    const: 0x3
 examples:
   - |
     fdma0: dma-controller@8e20000 {

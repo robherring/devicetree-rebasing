@@ -16,26 +16,42 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#phy-cells':
+    const: 0x1
+  clocks: {}
+  apm,tx-boost-gain:
+    description: FIXME
+  apm,tx-eye-tuning:
+    description: FIXME
 examples:
-  - |4
-      phy1: phy@1f21a000 {
-        compatible = "apm,xgene-phy";
-        reg = <0x0 0x1f21a000 0x0 0x100>;
-        #phy-cells = <1>;
-      };
+  - |
+    phy1: phy@1f21a000 {
+      compatible = "apm,xgene-phy";
+      reg = <0x0 0x1f21a000 0x0 0x100>;
+      #phy-cells = <1>;
+    };
 
-      phy2: phy@1f22a000 {
-        compatible = "apm,xgene-phy";
-        reg = <0x0 0x1f22a000 0x0 0x100>;
-        #phy-cells = <1>;
-      };
+    phy2: phy@1f22a000 {
+      compatible = "apm,xgene-phy";
+      reg = <0x0 0x1f22a000 0x0 0x100>;
+      #phy-cells = <1>;
+    };
 
-      phy3: phy@1f23a000 {
-        compatible = "apm,xgene-phy";
-        reg = <0x0 0x1f23a000 0x0 0x100>;
-        #phy-cells = <1>;
-      };
+    phy3: phy@1f23a000 {
+      compatible = "apm,xgene-phy";
+      reg = <0x0 0x1f23a000 0x0 0x100>;
+      #phy-cells = <1>;
+    };
 historical: |+
   * APM X-Gene 15Gbps Multi-purpose PHY nodes
 

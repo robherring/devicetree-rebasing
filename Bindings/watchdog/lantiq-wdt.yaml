@@ -16,15 +16,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lantiq,wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
-  - |4
-      watchdog@803f0 {
-        compatible = "lantiq,xrx200-wdt", "lantiq,xrx100-wdt";
-        reg = <0x803f0 0x10>;
+  - |
+    watchdog@803f0 {
+      compatible = "lantiq,xrx200-wdt", "lantiq,xrx100-wdt";
+      reg = <0x803f0 0x10>;
 
-        lantiq,rcu = <&rcu0>;
-      };
+      lantiq,rcu = <&rcu0>;
+    };
 historical: |
   Lantiq WTD watchdog binding
   ============================

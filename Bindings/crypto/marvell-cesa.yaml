@@ -12,7 +12,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,dove-crypto
+          - marvell,kirkwood-crypto
+          - marvell,orion-crypto
+          - marvell,armada-370-crypto
+          - marvell,armada-375-crypto
+          - marvell,armada-xp-crypto
+          - marvell,armada-38x-crypto
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: regs
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  marvell,crypto-srams:
+    description: FIXME
+  marvell,crypto-sram-size:
+    description: FIXME
+  clock-names:
+    items:
+      - const: cesa0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     crypto@90000 {

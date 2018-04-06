@@ -12,7 +12,70 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ad,tegra-audio-wm8903-medcom-wide
+          - nvidia,tegra-audio-wm8903-cardhu
+          - nvidia,tegra-audio-wm8903-seaboard
+          - ad,tegra-audio-plutux
+          - nvidia,tegra-audio-wm8903-ventana
+          - nvidia,tegra-audio-wm8903-harmony
+          - ad,tegra-audio-wm8903-tec
+      - const: nvidia,tegra-audio-wm8903
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  nvidia,model:
+    items:
+      - const: NVIDIA Tegra Cardhu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  nvidia,audio-routing:
+    items:
+      - const: Headphone Jack
+      - const: HPOUTR
+      - const: Headphone Jack
+      - const: HPOUTL
+      - const: Int Spk
+      - const: ROP
+      - const: Int Spk
+      - const: RON
+      - const: Int Spk
+      - const: LOP
+      - const: Int Spk
+      - const: LON
+      - const: Mic Jack
+      - const: MICBIAS
+      - const: IN1L
+      - const: Mic Jack
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
+    description: FIXME
+  nvidia,i2s-controller:
+    description: FIXME
+  nvidia,audio-codec:
+    description: FIXME
+  nvidia,spkr-en-gpios:
+    description: FIXME
+  nvidia,hp-det-gpios:
+    description: FIXME
+  clocks: {}
+  clock-names:
+    items:
+      - const: pll_a
+      - const: pll_a_out0
+      - const: mclk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  nvidia,int-mic-en-gpios:
+    description: FIXME
+  nvidia,ext-mic-en-gpios:
+    description: FIXME
 historical: |+
   NVIDIA Tegra audio complex
 

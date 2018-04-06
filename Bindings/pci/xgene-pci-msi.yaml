@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene1-msi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  msi-controller: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
 historical: |+
   * AppliedMicro X-Gene v1 PCIe MSI controller
 

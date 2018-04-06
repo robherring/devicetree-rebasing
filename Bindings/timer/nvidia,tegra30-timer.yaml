@@ -17,7 +17,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra114-timer
+          - nvidia,tegra30-timer
+          - nvidia,tegra124-timer
+      - const: nvidia,tegra20-timer
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
 historical: |
   NVIDIA Tegra30 timer
 

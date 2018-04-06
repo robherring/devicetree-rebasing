@@ -20,7 +20,24 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,thunderx2-cn9900
+      - const: brcm,vulcan-soc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  model:
+    items:
+      - const: Cavium ThunderX2 CN99XX
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
 historical: |
   Broadcom Vulcan device tree bindings
   ------------------------------------

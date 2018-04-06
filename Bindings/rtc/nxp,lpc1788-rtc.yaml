@@ -16,7 +16,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1850-rtc
+      - const: nxp,lpc1788-rtc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: rtc
+      - const: reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   NXP LPC1788 real-time clock
 

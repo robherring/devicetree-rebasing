@@ -13,7 +13,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: active-semi,act8945a
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  active-semi,vsel-high:
+    description: FIXME
+    type: boolean
 examples:
   - |
     pmic@5b {

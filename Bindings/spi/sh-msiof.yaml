@@ -13,7 +13,50 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,msiof-r8a7790
+          - renesas,msiof-r8a7745
+          - renesas,msiof-r8a7743
+          - renesas,msiof-r8a7791
+          - renesas,msiof-r8a7792
+          - renesas,msiof-sh73a0
+          - renesas,msiof-r8a7795
+          - renesas,msiof-r8a7796
+      - const: renesas,rcar-gen2-msiof
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+      - const: tx
+      - const: rx
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  power-domains: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  resets: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     msiof0: spi@e6e20000 {

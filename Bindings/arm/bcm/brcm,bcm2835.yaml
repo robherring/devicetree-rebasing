@@ -15,7 +15,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - raspberrypi,model-a-plus
+          - raspberrypi,model-zero-w
+          - raspberrypi,model-b-rev2
+          - raspberrypi,model-b-plus
+      - const: brcm,bcm2835
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  model:
+    items:
+      - const: Raspberry Pi Zero W
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
 historical: |
   Broadcom BCM2835 device tree bindings
   -------------------------------------------

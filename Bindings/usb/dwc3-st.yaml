@@ -17,7 +17,45 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stih407-dwc3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: reg-glue
+      - const: syscfg-reg
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  st,syscfg:
+    description: FIXME
+  resets: {}
+  reset-names:
+    items:
+      - const: powerdown
+      - const: softreset
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  ranges: {}
 historical: |
   ST DWC3 glue logic
 

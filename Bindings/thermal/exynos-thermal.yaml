@@ -13,7 +13,57 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5420-tmu
+          - samsung,exynos4210-tmu
+          - samsung,exynos5420-tmu-ext-triminfo
+          - samsung,exynos5250-tmu
+          - samsung,exynos3250-tmu
+          - samsung,exynos4412-tmu
+          - samsung,exynos5440-tmu
+          - samsung,exynos5433-tmu
+          - samsung,exynos7-tmu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#thermal-sensor-cells':
+    const: 0x0
+  samsung,tmu_gain:
+    description: FIXME
+  samsung,tmu_reference_voltage:
+    description: FIXME
+  samsung,tmu_noise_cancel_mode:
+    description: FIXME
+  samsung,tmu_efuse_value:
+    description: FIXME
+  samsung,tmu_min_efuse_value:
+    description: FIXME
+  samsung,tmu_max_efuse_value:
+    description: FIXME
+  samsung,tmu_first_point_trim:
+    description: FIXME
+  samsung,tmu_second_point_trim:
+    description: FIXME
+  samsung,tmu_default_temp_offset:
+    description: FIXME
+  samsung,tmu_cal_type:
+    description: FIXME
+  interrupt-parent: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: tmu_apbif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vtmu-supply: {}
 examples:
   - |
     tmu@100c0000 {

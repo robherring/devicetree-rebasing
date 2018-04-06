@@ -16,7 +16,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,am3517-hecc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg-names:
+    items:
+      - const: hecc
+      - const: hecc-ram
+      - const: mbx
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
 historical: |+
   Texas Instruments High End CAN Controller (HECC)
   ================================================

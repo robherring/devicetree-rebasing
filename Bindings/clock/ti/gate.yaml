@@ -26,7 +26,35 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,composite-no-wait-gate-clock
+          - ti,gate-clock
+          - ti,composite-gate-clock
+          - ti,wait-gate-clock
+          - ti,clkdm-gate-clock
+          - ti,dss-gate-clock
+          - ti,hsdiv-gate-clock
+          - ti,am35xx-gate-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,bit-shift:
+    description: FIXME
+  ti,set-rate-parent:
+    description: FIXME
+    type: boolean
+  ti,set-bit-to-disable:
+    description: FIXME
+    type: boolean
 examples:
   - |
     mmchs2_fck: mmchs2_fck@48004a00 {

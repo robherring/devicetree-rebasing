@@ -12,7 +12,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: lg,lg4573
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  spi-max-frequency: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-on-delay: {}
 examples:
   - |
     lcd_panel: display@0 {

@@ -12,7 +12,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,ipic-msi
+          - fsl,ipic
+          - fsl,mpic
+          - fsl,mpic-msi
+          - fsl,mpic-msi-v4.3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#address-cells':
+    const: 0x0
+  '#interrupt-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  msi-available-ranges: {}
+  interrupts: {}
+  interrupt-parent: {}
+  device_type:
+    items:
+      - const: open-pic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  big-endian: {}
+  single-cpu-affinity: {}
+  last-interrupt-source: {}
 examples:
   - |
     msi@41600 {

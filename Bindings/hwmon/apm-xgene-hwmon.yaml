@@ -25,7 +25,13 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-slimpro-hwmon
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mboxes: {}
 examples:
   - |
     hwmonslimpro {

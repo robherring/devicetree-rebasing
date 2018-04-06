@@ -52,7 +52,23 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,pm8941-misc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: usb_id
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pmic {

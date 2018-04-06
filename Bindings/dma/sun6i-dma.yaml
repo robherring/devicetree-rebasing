@@ -16,7 +16,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - allwinner,sun8i-h3-dma
+          - allwinner,sun8i-a23-dma
+          - allwinner,sun6i-a31-dma
+          - allwinner,sun8i-a83t-dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  resets: {}
+  '#dma-cells':
+    const: 0x1
 examples:
   - |
     dma: dma-controller@1c02000 {

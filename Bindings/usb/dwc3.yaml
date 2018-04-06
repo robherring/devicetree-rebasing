@@ -17,7 +17,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,dwc3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-phy
+      - const: usb3-phy
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  snps,dis_u3_susphy_quirk:
+    description: FIXME
+    type: boolean
 historical: |
   synopsys DWC3 CORE
 

@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - inside-secure,safexcel-eip97
+          - inside-secure,safexcel-eip197
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: mem
+      - const: ring0
+      - const: ring1
+      - const: ring2
+      - const: ring3
+      - const: eip
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  clocks: {}
+  dma-coherent: {}
 examples:
   - |
     crypto: crypto@800000 {

@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,pl081
+          - arm,pl080
+      - const: arm,primecell
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: apb_pclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * ARM PrimeCells PL080 and PL081 and derivatives DMA controller
 

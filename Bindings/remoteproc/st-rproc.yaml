@@ -19,7 +19,36 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,st231-rproc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  memory-region: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: sw_reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-frequency: {}
+  st,syscfg:
+    description: FIXME
+  '#mbox-cells':
+    const: 0x1
+  mbox-names:
+    items:
+      - const: vq0_rx
+      - const: vq0_tx
+      - const: vq1_rx
+      - const: vq1_tx
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  mboxes: {}
 examples:
   - |
     audio_reserved: rproc@42000000 {

@@ -12,7 +12,19 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: foxlink,fl500wvr00-a0t
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  backlight: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  power-supply: {}
 historical: |
   Foxlink Group 5" WVGA TFT LCD panel
 

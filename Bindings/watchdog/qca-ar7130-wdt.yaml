@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qca,ar7130-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Qualcomm Atheros AR7130 Watchdog Timer (WDT) Controller
 

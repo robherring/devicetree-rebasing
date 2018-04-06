@@ -15,7 +15,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,tca8418
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  linux,keymap:
+    description: FIXME
+  keypad,num-rows:
+    description: FIXME
+  keypad,num-columns:
+    description: FIXME
 historical: |
   This binding is based on the matrix-keymap binding with the following
   changes:

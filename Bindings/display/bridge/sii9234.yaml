@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sil,sii9234
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  avcc33-supply: {}
+  iovcc18-supply: {}
+  avcc12-supply: {}
+  cvcc12-supply: {}
+  reset-gpios: {}
+  interrupt-parent: {}
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     sii9234@39 {

@@ -22,7 +22,32 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s5c73m3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  standby-gpios: {}
+  xshutdown-gpios: {}
+  vdd-int-supply: {}
+  vddio-cis-supply: {}
+  vdda-supply: {}
+  vddio-host-supply: {}
+  vdd-af-supply: {}
+  vdd-reg-supply: {}
+  clock-frequency: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: cis_extclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Samsung S5C73M3 8Mp camera ISP
   ------------------------------

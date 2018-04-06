@@ -20,7 +20,42 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,bcm2835-dma
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: dma0
+      - const: dma1
+      - const: dma2
+      - const: dma3
+      - const: dma4
+      - const: dma5
+      - const: dma6
+      - const: dma7
+      - const: dma8
+      - const: dma9
+      - const: dma10
+      - const: dma11
+      - const: dma12
+      - const: dma13
+      - const: dma14
+      - const: dma-shared-all
+    minItems: 16
+    maxItems: 16
+    additionalItems: false
+  '#dma-cells':
+    const: 0x1
+  brcm,dma-channel-mask:
+    description: FIXME
 historical: |+
   * BCM2835 DMA controller
 

@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tps62362
+          - ti,tps62361
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-name:
+    items:
+      - const: tps62361-vout
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-boot-on: {}
+  regulator-always-on: {}
+  ti,vsel0-state-high:
+    description: FIXME
+    type: boolean
+  ti,vsel1-state-high:
+    description: FIXME
+    type: boolean
+  vin-supply: {}
 examples:
   - |
     abc: tps62360 {

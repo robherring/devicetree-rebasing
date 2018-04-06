@@ -16,7 +16,54 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos5433-cmu-cpif
+          - samsung,exynos5433-cmu-top
+          - samsung,exynos5433-cmu-mif
+          - samsung,exynos5433-cmu-peric
+          - samsung,exynos5433-cmu-peris
+          - samsung,exynos5433-cmu-fsys
+          - samsung,exynos5433-cmu-g2d
+          - samsung,exynos5433-cmu-disp
+          - samsung,exynos5433-cmu-aud
+          - samsung,exynos5433-cmu-bus0
+          - samsung,exynos5433-cmu-bus1
+          - samsung,exynos5433-cmu-bus2
+          - samsung,exynos5433-cmu-g3d
+          - samsung,exynos5433-cmu-gscl
+          - samsung,exynos5433-cmu-apollo
+          - samsung,exynos5433-cmu-atlas
+          - samsung,exynos5433-cmu-mscl
+          - samsung,exynos5433-cmu-mfc
+          - samsung,exynos5433-cmu-hevc
+          - samsung,exynos5433-cmu-isp
+          - samsung,exynos5433-cmu-cam0
+          - samsung,exynos5433-cmu-cam1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clock-names:
+    items:
+      - const: oscclk
+      - const: sclk_mphy_pll
+      - const: sclk_mfc_pll
+      - const: sclk_bus_pll
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  clocks: {}
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  assigned-clock-rates: {}
+  power-domains: {}
 examples:
   - |
     xxti: xxti {

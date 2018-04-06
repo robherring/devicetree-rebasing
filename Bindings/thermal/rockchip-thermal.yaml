@@ -13,7 +13,61 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rv1108-tsadc
+          - rockchip,rk3288-tsadc
+          - rockchip,rk3228-tsadc
+          - rockchip,rk3399-tsadc
+          - rockchip,rk3368-tsadc
+          - rockchip,rk3328-tsadc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: tsadc
+      - const: apb_pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: tsadc-apb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: init
+      - const: default
+      - const: sleep
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  pinctrl-2: {}
+  '#thermal-sensor-cells':
+    const: 0x1
+  rockchip,hw-tshut-temp:
+    description: FIXME
+  rockchip,hw-tshut-mode:
+    description: FIXME
+  rockchip,hw-tshut-polarity:
+    description: FIXME
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  rockchip,grf:
+    description: FIXME
 historical: |+
   * Temperature Sensor ADC (TSADC) on rockchip SoCs
 

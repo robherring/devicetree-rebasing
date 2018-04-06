@@ -12,7 +12,44 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: rockchip,rk3288-hdmi-analog
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  rockchip,audio-codec:
+    description: FIXME
+  rockchip,hp-det-gpios:
+    description: FIXME
+  rockchip,hp-en-gpios:
+    description: FIXME
+  rockchip,i2s-controller:
+    description: FIXME
+  rockchip,model:
+    items:
+      - const: I2S
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  rockchip,routing:
+    items:
+      - const: Analog
+      - const: LOUT2
+      - const: Analog
+      - const: ROUT2
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+    description: FIXME
 historical: |+
   ROCKCHIP RK3288 with HDMI and analog audio
 

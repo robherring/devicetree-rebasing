@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fsl,imx-audio-sgtl5000
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: imx6q-apalis-sgtl5000
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ssi-controller: {}
+  audio-codec: {}
+  audio-routing:
+    items:
+      - const: LINE_IN
+      - const: Line In Jack
+      - const: MIC_IN
+      - const: Mic Jack
+      - const: Mic Jack
+      - const: Mic Bias
+      - const: Headphone Jack
+      - const: HP_OUT
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+  mux-int-port: {}
+  mux-ext-port: {}
 historical: |+
   Freescale i.MX audio complex with SGTL5000 codec
 

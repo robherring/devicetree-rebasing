@@ -13,7 +13,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,mc13783
+          - fsl,mc13892
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  spi-max-frequency: {}
+  spi-cs-high: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  fsl,mc13xxx-uses-rtc:
+    description: FIXME
+    type: boolean
 historical: |+
   * Freescale MC13783/MC13892 Power Management Integrated Circuit (PMIC)
 

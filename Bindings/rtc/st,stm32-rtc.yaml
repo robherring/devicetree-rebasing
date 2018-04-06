@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: ck_rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-parents: {}
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: alarm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  st,syscfg:
+    description: FIXME
 examples:
   - |
     rtc: rtc@40002800 {

@@ -15,7 +15,100 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - zyxel,nsa320
+          - synology,ds212
+          - synology,ds411slim
+          - buffalo,lschlv2
+          - keymile,km_kirkwood
+          - qnap,ts219
+          - zyxel,nsa310a
+          - synology,ds209
+          - globalscale,dreamplug-003-ds2001
+          - buffalo,lsvl
+          - cloudengines,pogoplugv4
+          - marvell,mv88f6281gtw-ge
+          - synology,ds210jv10
+          - synology,ds409slim
+          - marvell,openrd-client
+          - cloudengines,pogoe02
+          - buffalo,lswxl
+          - lacie,netspace_lite_v2
+          - mpl,cec4-10
+          - raidsonic,ib-nas6210-b
+          - marvell,rd88f6281-z0
+          - synology,rs411
+          - dlink,dns-325-a1
+          - marvell,db-88f6282-bp
+          - globalscale,sheevaplug
+          - marvell,openrd-ultimate
+          - keymile,km_fixedeth
+          - synology,ds110jv10
+          - marvell,rd88f6281-a
+          - synology,ds111
+          - marvell,db-88f6281-bp
+          - synology,ds411j
+          - dlink,dns-320-a1
+          - lacie,net5big_v2
+          - marvell,openrd-base
+          - synology,rs212
+          - globalscale,guruplug-server-plus
+          - lacie,netspace_v2
+          - dlink,dir-665
+          - buffalo,lsqvl
+          - seagate,dockstar
+          - netgear,readynas-nv+-v2
+          - plathome,openblocks-a6
+          - netgear,readynas-duo-v2
+          - synology,ds212jv10
+          - qnap,ts419
+          - lacie,nas2big
+          - lacie,netspace_max_v2
+          - marvell,rd88f6192
+          - zyxel,nsa325
+          - hp,t5325
+          - iom,ix2-200
+          - seagate,blackarmor-nas220
+          - buffalo,lsxhl
+          - synology,rs409
+          - iom,iconnect-1.1
+          - usi,topkick-1281P2
+          - plathome,openblocks-a7
+          - buffalo,lswsxl
+          - lacie,net2big_v2
+          - linksys,viper
+          - lacie,cloudbox
+          - seagate,goflexnet
+          - lacie,netspace_mini_v2
+          - synology,ds109
+          - lacie,inetspace_v2
+          - globalscale,sheevaplug-esata-rev13
+          - buffalo,lswvl
+          - lacie,laplug
+          - excito,b3
+          - lacie,d2net_v2
+      - const: synology,ds212pv10
+      - const: synology,ds212pv10
+      - const: synology,ds212pv20
+      - const: synology,ds213airv10
+      - const: synology,ds213v10
+      - const: marvell,kirkwood
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: Synology DS212, DS212p v10, v20, DS213air v10, DS213 v10
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Marvell Kirkwood SoC Family Device Tree Bindings
   ------------------------------------------------

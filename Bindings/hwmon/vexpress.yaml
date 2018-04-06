@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,vexpress-volt
+          - arm,vexpress-temp
+          - arm,vexpress-amp
+          - arm,vexpress-power
+          - arm,vexpress-energy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  arm,vexpress-sysreg,func:
+    description: FIXME
+  label:
+    items:
+      - const: DCC
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-name:
+    items:
+      - const: VIO
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-always-on: {}
 examples:
   - |
     energy@0 {

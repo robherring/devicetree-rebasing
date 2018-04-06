@@ -13,7 +13,48 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - hisilicon,hi3798cv200-gmac
+          - hisilicon,hix5hd2-gmac
+      - const: hisilicon,hisi-gmac-v1
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: mac_core
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  phy-handle: {}
+  phy-mode:
+    items:
+      - const: mii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mac-address: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: mac_core
+      - const: mac_ifc
+      - const: phy
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 examples:
   - |
     gmac0: ethernet@f9840000 {

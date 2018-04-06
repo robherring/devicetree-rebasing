@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: edt,et057090dhu
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  backlight: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  enable-gpios: {}
+  power-supply: {}
+  bus-format-override:
+    items:
+      - const: rgb24
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pixelclk-active: {}
 historical: |
   Emerging Display Technology Corp. 5.7" VGA TFT LCD panel
 

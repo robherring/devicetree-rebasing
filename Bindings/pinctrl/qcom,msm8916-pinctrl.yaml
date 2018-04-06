@@ -197,7 +197,150 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,msm8916-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  gpio-line-names:
+    items:
+      - const: '[UART0_TX]'
+      - const: '[UART0_RX]'
+      - const: '[UART0_CTS_N]'
+      - const: '[UART0_RTS_N]'
+      - const: '[UART1_TX]'
+      - const: '[UART1_RX]'
+      - const: '[I2C0_SDA]'
+      - const: '[I2C0_SCL]'
+      - const: '[SPI1_DOUT]'
+      - const: '[SPI1_DIN]'
+      - const: '[SPI1_CS]'
+      - const: '[SPI1_SCLK]'
+      - const: GPIO-B
+      - const: GPIO-C
+      - const: '[I2C3_SDA]'
+      - const: '[I2C3_SCL]'
+      - const: '[SPI0_MOSI]'
+      - const: '[SPI0_MISO]'
+      - const: '[SPI0_CS_N]'
+      - const: '[SPI0_CLK]'
+      - const: HDMI_HPD_N
+      - const: USR_LED_1_CTRL
+      - const: '[I2C1_SDA]'
+      - const: '[I2C1_SCL]'
+      - const: GPIO-G
+      - const: GPIO-H
+      - const: '[CSI0_MCLK]'
+      - const: '[CSI1_MCLK]'
+      - const: GPIO-K
+      - const: '[I2C2_SDA]'
+      - const: '[I2C2_SCL]'
+      - const: DSI2HDMI_INT_N
+      - const: DSI_SW_SEL_APQ
+      - const: GPIO-L
+      - const: GPIO-J
+      - const: GPIO-I
+      - const: GPIO-A
+      - const: FORCED_USB_BOOT
+      - const: SD_CARD_DET_N
+      - const: '[WCSS_BT_SSBI]'
+      - const: '[WCSS_WLAN_DATA_2]'
+      - const: '[WCSS_WLAN_DATA_1]'
+      - const: '[WCSS_WLAN_DATA_0]'
+      - const: '[WCSS_WLAN_SET]'
+      - const: '[WCSS_WLAN_CLK]'
+      - const: '[WCSS_FM_SSBI]'
+      - const: '[WCSS_FM_SDI]'
+      - const: '[WCSS_BT_DAT_CTL]'
+      - const: '[WCSS_BT_DAT_STB]'
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: '[CDC_PDM0_CLK]'
+      - const: '[CDC_PDM0_SYNC]'
+      - const: '[CDC_PDM0_TX0]'
+      - const: '[CDC_PDM0_RX0]'
+      - const: '[CDC_PDM0_RX1]'
+      - const: '[CDC_PDM0_RX2]'
+      - const: GPIO-D
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: BOOT_CONFIG_0
+      - const: BOOT_CONFIG_1
+      - const: BOOT_CONFIG_2
+      - const: BOOT_CONFIG_3
+      - const: NC
+      - const: NC
+      - const: BOOT_CONFIG_5
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: NC
+      - const: SSBI_GPS
+      - const: NC
+      - const: NC
+      - const: KEY_VOLP_N
+      - const: NC
+      - const: NC
+      - const: '[LS_EXP_MI2S_WS]'
+      - const: NC
+      - const: NC
+      - const: '[LS_EXP_MI2S_SCK]'
+      - const: '[LS_EXP_MI2S_DATA0]'
+      - const: GPIO-E
+      - const: NC
+      - const: '[DSI2HDMI_MI2S_WS]'
+      - const: '[DSI2HDMI_MI2S_SCK]'
+      - const: '[DSI2HDMI_MI2S_DATA0]'
+      - const: USR_LED_2_CTRL
+      - const: SB_HS_ID
+    minItems: 122
+    maxItems: 122
+    additionalItems: false
 examples:
   - |
     tlmm: pinctrl@1000000 {

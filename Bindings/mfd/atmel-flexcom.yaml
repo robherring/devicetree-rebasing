@@ -17,7 +17,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,sama5d2-flexcom
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  atmel,flexcom-mode:
+    description: FIXME
 historical: |+
   * Device tree bindings for Atmel Flexcom (Flexible Serial Communication Unit)
 

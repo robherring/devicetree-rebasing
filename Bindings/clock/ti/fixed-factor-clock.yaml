@@ -21,7 +21,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,fixed-factor-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  ti,clock-mult:
+    description: FIXME
+  ti,clock-div:
+    description: FIXME
+  ti,set-rate-parent:
+    description: FIXME
+    type: boolean
 examples:
   - |
     clock {

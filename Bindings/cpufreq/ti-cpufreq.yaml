@@ -20,7 +20,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - operating-points-v2-ti-cpu
+          - operating-points-v2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  opp-shared: {}
+  syscon: {}
 historical: |+
   TI CPUFreq and OPP bindings
   ================================

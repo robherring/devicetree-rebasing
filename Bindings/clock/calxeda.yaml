@@ -17,7 +17,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - calxeda,hb-a9periph-clock
+          - calxeda,hb-pll-clock
+          - calxeda,hb-a9bus-clock
+          - calxeda,hb-emmc-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Device Tree Clock bindings for Calxeda highbank platform
 

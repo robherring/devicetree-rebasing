@@ -14,7 +14,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - i2se,duckbill-2-enocean
+          - i2se,duckbill
+          - i2se,duckbill-2-485
+          - i2se,duckbill-2-spi
+      - const: fsl,imx28
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupt-parent: {}
+  model:
+    items:
+      - const: I2SE Duckbill
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   I2SE Device Tree Bindings
   -------------------------

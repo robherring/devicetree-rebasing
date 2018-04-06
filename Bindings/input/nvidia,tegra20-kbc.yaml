@@ -12,7 +12,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra20-kbc
+          - nvidia,tegra30-kbc
+      - const: nvidia,tegra20-kbc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: kbc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nvidia,debounce-delay-ms:
+    description: FIXME
+  nvidia,repeat-delay-ms:
+    description: FIXME
+  nvidia,ghost-filter:
+    description: FIXME
+    type: boolean
+  nvidia,kbc-row-pins:
+    description: FIXME
+  nvidia,kbc-col-pins:
+    description: FIXME
+  linux,keymap:
+    description: FIXME
 historical: |+
   * Tegra keyboard controller
   The key controller has maximum 24 pins to make matrix keypad. Any pin

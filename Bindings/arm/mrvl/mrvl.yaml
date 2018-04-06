@@ -14,7 +14,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mrvl,pxa910-dkb
+          - mrvl,mmp2-brownstone
+          - mrvl,pxa168-aspenite
+      - const: mrvl,mmp2
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Marvell MMP2 Brownstone Development Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Marvell Platforms Device Tree Bindings
   ----------------------------------------------------

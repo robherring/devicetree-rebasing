@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pwm-backlight
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pwms: {}
+  brightness-levels: {}
+  default-brightness-level: {}
+  enable-gpios: {}
+  power-supply: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pwm-names:
+    items:
+      - const: backlight
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  turn-on-delay-ms: {}
+  backlight-boot-off: {}
+  pwm-delay-us: {}
 examples:
   - |
     backlight {

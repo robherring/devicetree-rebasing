@@ -18,7 +18,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,scm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+      - const: bus
+      - const: iface
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#reset-cells':
+    const: 0x1
+  qcom,dload-mode:
+    description: FIXME
 examples:
   - |
     firmware {

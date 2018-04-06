@@ -17,7 +17,31 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mmc-pwrseq-simple
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reset-gpios: {}
+  post-power-on-delay-ms: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ext_clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  power-off-delay-us: {}
 historical: |+
   * The simple MMC power sequence provider
 

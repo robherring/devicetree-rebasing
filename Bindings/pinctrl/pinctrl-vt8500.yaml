@@ -16,7 +16,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - wm,wm8505
+          - wm,wm8650-pinctrl
+          - wm,wm8505-pinctrl
+          - via,vt8500-pinctrl
+          - wm,wm8850
+          - wm,wm8850-pinctrl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  gpio-controller: {}
+  '#gpio-cells':
+    const: 0x2
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Wondermedia WM8505 Netbook
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pinctrl: pinctrl {

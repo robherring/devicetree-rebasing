@@ -18,7 +18,51 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3288-spdif
+          - rockchip,rk3188-spdif
+          - rockchip,rk3228-spdif
+          - rockchip,rk3399-spdif
+          - rockchip,rk3368-spdif
+          - rockchip,rk3328-spdif
+      - const: rockchip,rk3066-spdif
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
+  clock-names:
+    items:
+      - const: hclk
+      - const: mclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  rockchip,grf:
+    description: FIXME
+  power-domains: {}
 historical: |+
   * Rockchip SPDIF transceiver
 

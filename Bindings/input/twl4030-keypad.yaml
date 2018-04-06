@@ -24,7 +24,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,twl4030-keypad
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  keypad,num-rows:
+    description: FIXME
+  keypad,num-columns:
+    description: FIXME
 examples:
   - |
     twl_keypad: keypad {

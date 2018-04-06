@@ -27,7 +27,29 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,orion-sdio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bus-width: {}
+  cap-sdio-irq: {}
+  cap-sd-highspeed: {}
+  cap-mmc-highspeed: {}
 examples:
   - |
     mvsdio@d00d4000 {

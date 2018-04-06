@@ -17,7 +17,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,palmas-clk32kgaudio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
 examples:
   - |
     #include <dt-bindings/mfd/palmas.h>

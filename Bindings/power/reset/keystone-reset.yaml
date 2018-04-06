@@ -22,7 +22,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,keystone-reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,syscon-pll:
+    description: FIXME
+  ti,syscon-dev:
+    description: FIXME
+  ti,wdt-list:
+    description: FIXME
 historical: |+
   * Device tree bindings for Texas Instruments keystone reset
 

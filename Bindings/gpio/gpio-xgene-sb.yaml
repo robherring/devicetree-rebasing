@@ -29,7 +29,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: apm,xgene-gpio-sb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  interrupts: {}
+  interrupt-parent: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  apm,nr-gpios:
+    description: FIXME
+  apm,nr-irqs:
+    description: FIXME
+  apm,irq-start:
+    description: FIXME
 examples:
   - |
     sbgpio: gpio@17001000{

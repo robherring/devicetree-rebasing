@@ -57,7 +57,64 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,netcp-gbe-5
+          - ti,netcp-1.0
+          - ti,netcp-gbe-9
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: efuse
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pa_clk
+      - const: ethss_clk
+      - const: cpts
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  dma-coherent: {}
+  ti,navigator-dmas:
+    description: FIXME
+  ti,navigator-dma-names:
+    items:
+      - const: netrx0
+      - const: netrx1
+      - const: nettx
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+    description: FIXME
+  label:
+    items:
+      - const: netcp-gbe
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  tx-queue: {}
+  tx-channel:
+    items:
+      - const: nettx
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   This document describes the device tree bindings associated with the
   keystone network coprocessor(NetCP) driver support.

@@ -28,7 +28,24 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos4210-secss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: secss
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Samsung SoC SSS (Security SubSystem) module
 

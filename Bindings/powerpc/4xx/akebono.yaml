@@ -17,7 +17,35 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ibm,476gtr-ahci
+          - ibm,akebono
+          - ibm,476gtr-sdhci
+          - ibm,akebono-avr
+          - ibm,akebono-fpga
+      - const: ibm,476gtr
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  model:
+    items:
+      - const: ibm,akebono
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dcr-parent: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
 historical: |
   IBM Akebono board device tree
   =============================

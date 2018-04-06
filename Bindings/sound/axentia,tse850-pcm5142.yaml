@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: axentia,tse850-pcm5142
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  axentia,cpu-dai:
+    description: FIXME
+  axentia,audio-codec:
+    description: FIXME
+  axentia,add-gpios:
+    description: FIXME
+  axentia,loop1-gpios:
+    description: FIXME
+  axentia,loop2-gpios:
+    description: FIXME
+  axentia,ana-supply:
+    description: FIXME
 examples:
   - |
     &ssc0 {

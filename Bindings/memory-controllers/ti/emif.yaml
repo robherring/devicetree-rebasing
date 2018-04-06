@@ -19,7 +19,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,emif-4d
+          - ti,emif-am3352
+          - ti,emif-am4372
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: emif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  interrupts: {}
+  ti,no-idle-on-init:
+    description: FIXME
+    type: boolean
+  phy-type: {}
+  hw-caps-read-idle-ctrl: {}
+  hw-caps-ll-interface: {}
+  hw-caps-temp-alert: {}
 historical: |
   * EMIF family of TI SDRAM controllers
 

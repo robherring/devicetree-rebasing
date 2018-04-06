@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - altr,socfpga-hps2fpga-bridge
+          - altr,socfpga-lwhps2fpga-bridge
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  clocks: {}
 examples:
   - |
     fpga_bridge0: fpga-bridge@ff400000 {

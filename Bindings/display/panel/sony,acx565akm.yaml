@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sony,acx565akm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  label:
+    items:
+      - const: lcd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reset-gpios: {}
 historical: |+
   Sony ACX565AKM SDI Panel
   ========================

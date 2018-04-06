@@ -13,7 +13,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,dra746-ehrpwm
+          - ti,am3352-ehrpwm
+          - ti,da850-ehrpwm
+          - ti,am4372-ehrpwm
+      - const: ti,am33xx-ehrpwm
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x3
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: tbclk
+      - const: fck
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   TI SOC EHRPWM based PWM controller
 

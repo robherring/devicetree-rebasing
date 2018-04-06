@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,octeon-3860-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpio-controller: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupts: {}
 examples:
   - |
     gpio-controller@1070000000800 {

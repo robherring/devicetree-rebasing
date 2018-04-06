@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cavium,octeon-5750-mix
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  cell-index: {}
+  interrupts: {}
+  local-mac-address: {}
+  phy-handle: {}
 examples:
   - |
     ethernet@1070000100800 {

@@ -16,7 +16,30 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s5k6a3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  svdda-supply: {}
+  svddio-supply: {}
+  afvdd-supply: {}
+  clock-frequency: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: extclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  samsung,camclk-out:
+    description: FIXME
+  gpios: {}
 historical: |
   Samsung S5K6A3(YX) raw image sensor
   ---------------------------------

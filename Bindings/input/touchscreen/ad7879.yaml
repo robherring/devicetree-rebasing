@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: adi,ad7879-1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  touchscreen-max-pressure: {}
+  adi,resistance-plate-x:
+    description: FIXME
+  adi,first-conversion-delay:
+    description: FIXME
+  adi,acquisition-time:
+    description: FIXME
+  adi,median-filter-size:
+    description: FIXME
+  adi,averaging:
+    description: FIXME
+  adi,conversion-interval:
+    description: FIXME
 examples:
   - |
     ad7879@2c {

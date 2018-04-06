@@ -262,7 +262,44 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,coresight-tpiu
+          - coresight-etb10
+          - arm,coresight-replicator
+          - arm,coresight-funnel
+          - arm,coresight-etm3x
+          - arm,primecell
+          - arm,coresight-etb10
+          - arm,coresight-tmc
+          - arm,coresight-dynamic-replicator
+          - arm,coresight-etm4x
+          - arm,coresight-stm
+      - const: arm,primecell
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: apb_pclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cpu: {}
+  reg-names:
+    items:
+      - const: stm-base
+      - const: stm-stimulus-base
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
 historical: |+
   * CoreSight Components:
 

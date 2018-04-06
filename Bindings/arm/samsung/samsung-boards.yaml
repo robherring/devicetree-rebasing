@@ -13,7 +13,59 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,smdk5410
+          - samsung,trats
+          - samsung,secure-firmware
+          - hardkernel,odroid-xu4
+          - google,pi-rev16
+          - samsung,universal_c210
+          - samsung,smdk5250
+          - samsung,rinato
+          - insignal,arndale-octa
+          - samsung,smdk4412
+          - hardkernel,odroid-xu3-lite
+          - samsung,ssdk5440
+          - google,snow-rev5
+          - google,spring
+          - insignal,origen4412
+          - hardkernel,odroid-hc1
+          - google,snow-rev4
+          - samsung,monk
+          - friendlyarm,tiny4412
+          - samsung,sd5v1
+          - samsung,xyref5260
+          - samsung,smdk5420
+          - samsung,trats2
+          - hardkernel,odroid-u3
+          - hardkernel,odroid-x2
+          - samsung,artik5-eval
+          - google,pit-rev16
+          - topeet,itop4412-elite
+          - samsung,tm2
+          - samsung,tm2e
+      - const: samsung,exynos4210
+      - const: samsung,exynos4
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Samsung Trats based on Exynos4210
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   * Samsung's Exynos SoC based boards
 

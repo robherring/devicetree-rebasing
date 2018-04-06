@@ -12,7 +12,43 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-370-sata
+          - marvell,orion-sata
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: '0'
+      - const: '1'
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: port0
+      - const: port1
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nr-ports: {}
 historical: |+
   * Marvell Orion SATA
 

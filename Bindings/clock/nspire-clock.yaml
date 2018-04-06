@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - lsi,nspire-classic-ahb-divider
+          - lsi,nspire-classic-clock
+          - lsi,nspire-cx-clock
+          - lsi,nspire-cx-ahb-divider
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 historical: |+
   TI-NSPIRE Clocks
 

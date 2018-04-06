@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cosmic,10001-adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  adc-reserved-channels: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: adc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  '#io-channel-cells':
+    const: 0x1
+  vref-supply: {}
 historical: |+
   * Cosmic Circuits - Analog to Digital Converter (CC-10001-ADC)
 

@@ -16,7 +16,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ingenic,jz4780-nemc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  clocks: {}
 historical: |+
   * Ingenic JZ4780 NAND/external memory controller (NEMC)
 

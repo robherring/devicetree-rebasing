@@ -21,7 +21,53 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - snps,dwc-ahci
+          - marvell,armada-380-ahci
+          - allwinner,sun4i-a10-ahci
+          - snps,exynos5440-ahci
+          - snps,spear-ahci
+          - hisilicon,hisi-ahci
+          - marvell,armada-3700-ahci
+          - brcm,iproc-ahci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  samsung,sata-freq:
+    description: FIXME
+  clock-names:
+    items:
+      - const: sata
+      - const: sclk_sata
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: sata-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  target-supply: {}
+  reg-names:
+    items:
+      - const: ahci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   * AHCI SATA Controller
 

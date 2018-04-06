@@ -12,7 +12,54 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,nwl-pcie-2.11
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  '#interrupt-cells':
+    const: 0x1
+  msi-controller: {}
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: misc
+      - const: dummy
+      - const: intx
+      - const: msi1
+      - const: msi0
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
+  msi-parent: {}
+  reg:
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg-names:
+    items:
+      - const: breg
+      - const: pcireg
+      - const: cfg
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  ranges: {}
+  bus-range: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
 historical: |+
   * Xilinx NWL PCIe Root Port Bridge DT description
 

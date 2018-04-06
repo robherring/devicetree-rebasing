@@ -12,7 +12,32 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nxp,lpc1857-eeprom
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: reg
+      - const: mem
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: eeprom
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  resets: {}
+  interrupts: {}
 historical: |+
   * NXP LPC18xx EEPROM memory NVMEM driver
 

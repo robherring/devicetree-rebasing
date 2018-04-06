@@ -12,7 +12,35 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,at91sam9260-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  atmel,watchdog-type:
+    items:
+      - const: hardware
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  atmel,reset-type:
+    items:
+      - const: all
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  atmel,dbg-halt:
+    description: FIXME
+    type: boolean
 examples:
   - |
     watchdog@fffffd00 {

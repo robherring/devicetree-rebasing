@@ -36,7 +36,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,ap806-pinctrl
+          - marvell,ap806-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 historical: |+
   Marvell Armada AP806 System Controller
   ======================================

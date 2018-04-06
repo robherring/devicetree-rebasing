@@ -13,7 +13,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: dlg,da9210
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  regulator-boot-on: {}
+  regulator-always-on: {}
 examples:
   - |
     da9210@68 {

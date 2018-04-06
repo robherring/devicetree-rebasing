@@ -16,7 +16,37 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,mpc8323rdb-mmc-slot
+          - fsl,mpc8610hpcd-mmc-slot
+          - mmc-spi-slot
+      - const: mmc-spi-slot
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  voltage-ranges: {}
+  spi-max-frequency: {}
+  interrupt-parent: {}
+  interrupts: {}
+  broken-cd: {}
+  mode: {}
+  pl022,hierarchy:
+    description: FIXME
+  pl022,interface:
+    description: FIXME
+  pl022,com-mode:
+    description: FIXME
+  pl022,rx-level-trig:
+    description: FIXME
+  pl022,tx-level-trig:
+    description: FIXME
 examples:
   - |
     mmc-slot@0 {

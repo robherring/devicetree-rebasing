@@ -18,7 +18,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mdio-mux-mmioreg
+      - const: mdio-mux
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  mdio-parent-bus: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  mux-mask: {}
 historical: |+
   Properties for an MDIO bus multiplexer controlled by a memory-mapped device
 

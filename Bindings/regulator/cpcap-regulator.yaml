@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: motorola,mapphone-cpcap-regulator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Motorola CPCAP PMIC voltage regulators
   ------------------------------------

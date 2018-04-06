@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: aspeed,ast2400-i2c-ic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-controller: {}
 historical: |+
   Device tree configuration for the I2C Interrupt Controller on the AST24XX and
   AST25XX SoCs.

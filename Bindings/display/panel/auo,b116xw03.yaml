@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: auo,b116xw03
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-supply: {}
+  backlight: {}
 historical: |
   AU Optronics Corporation 11.6" HD (1366x768) color TFT-LCD panel
 

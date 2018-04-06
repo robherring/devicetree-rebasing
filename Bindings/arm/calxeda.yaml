@@ -16,7 +16,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: calxeda,highbank
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: Calxeda Highbank
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  clock-ranges: {}
 historical: |
   Calxeda Platforms Device Tree Bindings
   -----------------------------------------------

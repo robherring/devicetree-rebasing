@@ -15,7 +15,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: al,alpine-msix
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  msi-controller: {}
+  al,msi-base-spi:
+    description: FIXME
+  al,msi-num-spis:
+    description: FIXME
 historical: |+
   Alpine MSIX controller
 

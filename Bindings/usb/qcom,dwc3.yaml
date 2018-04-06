@@ -12,46 +12,60 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,dwc3
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  clocks: {}
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  power-domains: {}
 examples:
-  - |4
-      hs_phy: phy@100f8800 {
-        compatible = "qcom,dwc3-hs-usb-phy";
-        reg = <0x100f8800 0x30>;
-        clocks = <&gcc USB30_0_UTMI_CLK>;
-        clock-names = "ref";
-        #phy-cells = <0>;
+  - |
+    hs_phy: phy@100f8800 {
+      compatible = "qcom,dwc3-hs-usb-phy";
+      reg = <0x100f8800 0x30>;
+      clocks = <&gcc USB30_0_UTMI_CLK>;
+      clock-names = "ref";
+      #phy-cells = <0>;
 
+    };
+
+    ss_phy: phy@100f8830 {
+      compatible = "qcom,dwc3-ss-usb-phy";
+      reg = <0x100f8830 0x30>;
+      clocks = <&gcc USB30_0_MASTER_CLK>;
+      clock-names = "ref";
+      #phy-cells = <0>;
+
+    };
+
+    usb3_0: usb30@0 {
+      compatible = "qcom,dwc3";
+      #address-cells = <1>;
+      #size-cells = <1>;
+      clocks = <&gcc USB30_0_MASTER_CLK>;
+      clock-names = "core";
+
+      ranges;
+
+
+      dwc3@10000000 {
+        compatible = "snps,dwc3";
+        reg = <0x10000000 0xcd00>;
+        interrupts = <0 205 0x4>;
+        phys = <&hs_phy>, <&ss_phy>;
+        phy-names = "usb2-phy", "usb3-phy";
+        dr_mode = "host";
       };
-
-      ss_phy: phy@100f8830 {
-        compatible = "qcom,dwc3-ss-usb-phy";
-        reg = <0x100f8830 0x30>;
-        clocks = <&gcc USB30_0_MASTER_CLK>;
-        clock-names = "ref";
-        #phy-cells = <0>;
-
-      };
-
-      usb3_0: usb30@0 {
-        compatible = "qcom,dwc3";
-        #address-cells = <1>;
-        #size-cells = <1>;
-        clocks = <&gcc USB30_0_MASTER_CLK>;
-        clock-names = "core";
-
-        ranges;
-
-
-        dwc3@10000000 {
-          compatible = "snps,dwc3";
-          reg = <0x10000000 0xcd00>;
-          interrupts = <0 205 0x4>;
-          phys = <&hs_phy>, <&ss_phy>;
-          phy-names = "usb2-phy", "usb3-phy";
-          dr_mode = "host";
-        };
-      };
+    };
 historical: |+
   Qualcomm SuperSpeed DWC3 USB SoC controller
 

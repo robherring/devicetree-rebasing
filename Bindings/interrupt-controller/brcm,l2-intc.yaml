@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: brcm,l2-intc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupts: {}
+  interrupt-parent: {}
+  interrupt-names:
+    items:
+      - const: hif
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  brcm,irq-can-wake:
+    description: FIXME
+    type: boolean
 historical: |+
   Broadcom Generic Level 2 Interrupt Controller
 

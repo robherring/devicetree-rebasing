@@ -12,7 +12,12 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: pwm-leds
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   LED connected to PWM
 

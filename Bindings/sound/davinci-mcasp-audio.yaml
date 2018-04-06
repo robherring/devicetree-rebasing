@@ -13,7 +13,72 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,dra7-mcasp-audio
+          - ti,am33xx-mcasp-audio
+          - ti,da830-mcasp-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: mcasp0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: mpu
+      - const: dat
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  op-mode: {}
+  tdm-slots: {}
+  serial-dir: {}
+  tx-num-evt: {}
+  rx-num-evt: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+      - const: ahclkx
+      - const: ahclkr
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#sound-dai-cells':
+    const: 0x0
 historical: |+
   Texas Instruments McASP controller
 

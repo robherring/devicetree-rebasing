@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-fan
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  gpio-fan,speed-map:
+    description: FIXME
+  alarm-gpios: {}
+  '#cooling-cells':
+    const: 0x2
+  cooling-cells: {}
+  cooling-min-level: {}
+  cooling-max-level: {}
 examples:
   - |
     gpio_fan {

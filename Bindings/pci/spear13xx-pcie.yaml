@@ -16,7 +16,47 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,spear1340-pcie
+      - const: snps,dw-pcie
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: dbi
+      - const: config
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  interrupt-map-mask: {}
+  interrupt-map: {}
+  num-lanes: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: pcie-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x3
+  '#size-cells':
+    const: 0x2
+  device_type:
+    items:
+      - const: pci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  bus-range: {}
 historical: |
   SPEAr13XX PCIe DT detail:
   ================================

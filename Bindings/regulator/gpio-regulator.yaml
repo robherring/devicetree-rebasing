@@ -13,7 +13,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: regulator-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-name:
+    items:
+      - const: SDHI0 VccQ
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  regulator-min-microvolt: {}
+  regulator-max-microvolt: {}
+  vin-supply: {}
+  enable-gpio: {}
+  gpios: {}
+  states: {}
+  enable-active-high: {}
 examples:
   - |
     mmciv: gpio-regulator {

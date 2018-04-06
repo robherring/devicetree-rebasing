@@ -18,7 +18,70 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,at91rm9200-clk-main
+          - atmel,at91rm9200-clk-main-osc
+          - atmel,at91sam9260-clk-slow
+          - atmel,at91rm9200-clk-pll
+          - atmel,at91rm9200-clk-master
+          - atmel,at91rm9200-clk-usb
+          - atmel,at91rm9200-clk-programmable
+          - atmel,at91rm9200-clk-system
+          - atmel,at91rm9200-clk-peripheral
+          - atmel,at91sam9g20-clk-pllb
+          - atmel,at91sam9x5-clk-utmi
+          - atmel,at91sam9x5-sckc
+          - atmel,at91sam9x5-clk-slow-osc
+          - atmel,at91sam9x5-clk-slow-rc-osc
+          - atmel,at91sam9x5-clk-main-rc-osc
+          - atmel,sama5d3-clk-pll
+          - atmel,at91sam9x5-clk-plldiv
+          - atmel,at91sam9x5-clk-master
+          - atmel,at91sam9x5-clk-usb
+          - atmel,at91sam9x5-clk-programmable
+          - atmel,at91sam9x5-clk-smd
+          - atmel,at91sam9x5-clk-peripheral
+          - atmel,sama5d4-clk-h32mx
+          - atmel,sama5d4-sckc
+          - atmel,at91sam9g45-clk-programmable
+          - atmel,sama5d2-clk-audio-pll-frac
+          - atmel,sama5d2-clk-audio-pll-pad
+          - atmel,sama5d2-clk-audio-pll-pmc
+          - atmel,sama5d2-clk-generated
+          - atmel,at91sam9n12-clk-usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  interrupts-extended: {}
+  clocks: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  atmel,clk-input-range:
+    description: FIXME
+  '#atmel,pll-clk-output-range-cells':
+    const: 0x4
+  atmel,pll-clk-output-ranges:
+    description: FIXME
+  atmel,clk-output-range:
+    description: FIXME
+  atmel,clk-divisors:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  interrupt-parent: {}
+  interrupts: {}
+  atmel,startup-time-usec:
+    description: FIXME
+  clock-frequency: {}
+  clock-accuracy: {}
 historical: |
   Device Tree Clock bindings for arch-at91
 

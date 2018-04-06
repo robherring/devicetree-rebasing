@@ -16,7 +16,53 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3188-spi
+          - rockchip,rk3066-spi
+          - rockchip,rk3288-spi
+          - rockchip,rv1108-spi
+          - rockchip,rk3228-spi
+          - rockchip,rk3399-spi
+          - rockchip,rk3368-spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: spiclk
+      - const: apb_pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#dma-cells':
+    const: 0x2
 examples:
   - |
     spi0: spi@ff110000 {

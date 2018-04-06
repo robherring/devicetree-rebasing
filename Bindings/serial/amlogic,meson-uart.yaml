@@ -21,7 +21,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson8b-uart
+          - amlogic,meson6-uart
+          - amlogic,meson8-uart
+          - amlogic,meson-gx-uart
+      - const: amlogic,meson-uart
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: xtal
+      - const: pclk
+      - const: baud
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Amlogic Meson SoC UART Serial Interface
   =======================================

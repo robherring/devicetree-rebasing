@@ -13,7 +13,44 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tps65911
+          - ti,tps65910
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vcc1-supply: {}
+  vcc2-supply: {}
+  vcc3-supply: {}
+  vcc4-supply: {}
+  vcc5-supply: {}
+  vcc6-supply: {}
+  vcc7-supply: {}
+  vccio-supply: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  ti,system-power-controller:
+    description: FIXME
+    type: boolean
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
 examples:
   - |
     pmu: tps65910@d2 {

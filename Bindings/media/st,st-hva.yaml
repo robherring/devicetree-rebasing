@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,st-hva
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: hva_registers
+      - const: hva_esram
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clock-names:
+    items:
+      - const: clk_hva
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
 examples:
   - |
     hva@8c85000{

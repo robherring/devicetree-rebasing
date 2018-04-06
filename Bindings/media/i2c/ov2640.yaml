@@ -17,7 +17,34 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ovti,ov2640
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  resetb-gpios: {}
+  pwdn-gpios: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: xvclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
 examples:
   - |
     i2c1: i2c@f0018000 {

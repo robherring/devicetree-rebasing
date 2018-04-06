@@ -13,7 +13,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-wdt
+          - ti,omap3-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,hwmods:
+    items:
+      - const: wd_timer2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  interrupts: {}
 historical: |+
   TI Watchdog Timer (WDT) Controller for OMAP
 

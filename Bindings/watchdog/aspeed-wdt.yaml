@@ -12,7 +12,52 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - aspeed,ast2500-wdt
+          - none
+          - aspeed,ast2400-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fin_pll
+      - const: mct
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  aspeed,reset-type:
+    items:
+      - const: none
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  aspeed,external-signal:
+    description: FIXME
+    type: boolean
+  aspeed,ext-push-pull:
+    description: FIXME
+    type: boolean
+  aspeed,ext-active-high:
+    description: FIXME
+    type: boolean
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     wdt1: watchdog@1e785000 {

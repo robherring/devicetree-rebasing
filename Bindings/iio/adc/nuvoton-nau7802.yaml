@@ -12,7 +12,18 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nuvoton,nau7802
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  nuvoton,vldo:
+    description: FIXME
 historical: |+
   * Nuvoton NAU7802 Analog to Digital Converter (ADC)
 

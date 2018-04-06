@@ -18,7 +18,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - netlogic,xlp208-gpio
+          - netlogic,xlp
+          - netlogic,xlp316-gpio
+          - netlogic,xlp532-gpio
+          - netlogic,xlp980-gpio
+          - netlogic,xlp832-gpio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  model:
+    items:
+      - const: netlogic,XLP-FVP
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x2
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-controller: {}
 examples:
   - |
     gpio: xlp_gpio@34000 {

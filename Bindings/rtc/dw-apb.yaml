@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - snps,dw-apb-timer
+          - snps,dw-apb-timer-osc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: timer
+      - const: pclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clock-frequency: {}
 examples:
   - |
     timer@ffe00000 {

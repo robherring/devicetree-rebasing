@@ -18,7 +18,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - direct-mapped
+          - fsl,pamu-v1.0
+      - const: fsl,pamu
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ranges: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupts: {}
+  bank-width: {}
 examples:
   - |
     iommu@20000 {

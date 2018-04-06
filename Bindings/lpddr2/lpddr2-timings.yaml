@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: jedec,lpddr2-timings
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  min-freq: {}
+  max-freq: {}
+  tRPab: {}
+  tRCD: {}
+  tWR: {}
+  tRAS-min: {}
+  tRRD: {}
+  tWTR: {}
+  tXP: {}
+  tRTP: {}
+  tCKESR: {}
+  tDQSCK-max: {}
+  tFAW: {}
+  tZQCS: {}
+  tZQCL: {}
+  tZQinit: {}
+  tRAS-max-ns: {}
+  tDQSCK-max-derated: {}
 historical: |+
   * AC timing parameters of LPDDR2(JESD209-2) memories for a given speed-bin
 

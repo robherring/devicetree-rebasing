@@ -12,7 +12,20 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,h8300h-intc
+      - const: renesas,h8300-intc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-controller: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     h8intc: interrupt-controller@fee012 {

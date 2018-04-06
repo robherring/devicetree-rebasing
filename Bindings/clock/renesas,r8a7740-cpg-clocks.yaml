@@ -18,7 +18,43 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,r8a7740-cpg-clocks
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x1
+  clock-output-names:
+    items:
+      - const: system
+      - const: pllc0
+      - const: pllc1
+      - const: pllc2
+      - const: r
+      - const: usb24s
+      - const: i
+      - const: zg
+      - const: b
+      - const: m1
+      - const: hp
+      - const: hpp
+      - const: usbp
+      - const: s
+      - const: zb
+      - const: m3
+      - const: cp
+    minItems: 17
+    maxItems: 17
+    additionalItems: false
+  renesas,mode:
+    description: FIXME
 historical: |+
   These bindings should be considered EXPERIMENTAL for now.
 

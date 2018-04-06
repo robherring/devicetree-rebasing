@@ -119,7 +119,38 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,exynos7-clock-top0
+          - samsung,exynos7-clock-topc
+          - samsung,exynos7-clock-top1
+          - samsung,exynos7-clock-ccore
+          - samsung,exynos7-clock-peric0
+          - samsung,exynos7-clock-peric1
+          - samsung,exynos7-clock-peris
+          - samsung,exynos7-clock-fsys0
+          - samsung,exynos7-clock-fsys1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
+  clock-names:
+    items:
+      - const: fin_pll
+      - const: dout_sclk_bus0_pll
+      - const: dout_sclk_bus1_pll
+      - const: dout_sclk_cc_pll
+      - const: dout_sclk_mfc_pll
+    minItems: 5
+    maxItems: 5
+    additionalItems: false
 historical: |
   * Samsung Exynos7 Clock Controller
 

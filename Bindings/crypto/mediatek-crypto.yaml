@@ -12,7 +12,25 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,eip97-crypto
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: cryp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  power-domains: {}
 examples:
   - |
     crypto: crypto@1b240000 {

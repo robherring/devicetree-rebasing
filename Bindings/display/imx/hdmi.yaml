@@ -21,7 +21,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx6q-hdmi
+          - fsl,imx6dl-hdmi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  gpr: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: iahb
+      - const: isfr
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  ddc-i2c-bus: {}
 examples:
   - |
     gpr: iomuxc-gpr@20e0000 {

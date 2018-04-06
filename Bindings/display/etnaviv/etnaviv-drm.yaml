@@ -16,7 +16,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx-gpu-subsystem
+          - marvell,dove-gpu-subsystem
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  cores: {}
 historical: |+
   Etnaviv DRM master device
   =========================

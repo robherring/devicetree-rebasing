@@ -16,7 +16,15 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mmio-mux
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#mux-control-cells':
+    const: 0x1
+  mux-reg-masks: {}
 examples:
   - |
     syscon {

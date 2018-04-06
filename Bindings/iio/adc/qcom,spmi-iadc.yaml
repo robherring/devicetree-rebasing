@@ -57,7 +57,20 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,pm8941-iadc
+      - const: qcom,spmi-iadc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  qcom,external-resistor-micro-ohms:
+    description: FIXME
 examples:
   - |
     /* IADC node */

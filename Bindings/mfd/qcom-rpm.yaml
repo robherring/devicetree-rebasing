@@ -291,7 +291,86 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,rpm-pm8921-regulators
+          - qcom,rpm-apq8064
+          - qcom,rpm-mdm9615
+          - qcom,rpm-pm8018-regulators
+          - qcom,rpm-msm8660
+          - qcom,rpm-pm8901-regulators
+          - qcom,rpm-pm8058-regulators
+          - qcom,rpm-msm8960
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  qcom,ipc:
+    description: FIXME
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: ack
+      - const: err
+      - const: wakeup
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  vin_lvs1_3_6-supply: {}
+  vin_lvs2-supply: {}
+  vin_lvs4_5_7-supply: {}
+  vdd_l1_l2_l12_l18-supply: {}
+  vdd_l24-supply: {}
+  vdd_l25-supply: {}
+  vdd_l26-supply: {}
+  vdd_l27-supply: {}
+  vdd_l28-supply: {}
+  vin_lvs1-supply: {}
+  vdd_l7-supply: {}
+  vdd_l8-supply: {}
+  vdd_l9_l10_l11_l12-supply: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: ram
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vdd_l0-supply: {}
+  vdd_l1-supply: {}
+  vdd_l2-supply: {}
+  vdd_l3-supply: {}
+  vdd_l4-supply: {}
+  vdd_l5-supply: {}
+  vdd_l6-supply: {}
+  vdd_s2-supply: {}
+  vdd_s3-supply: {}
+  vdd_s4-supply: {}
+  lvs0_in-supply: {}
+  lvs1_in-supply: {}
+  lvs2_in-supply: {}
+  lvs3_in-supply: {}
+  mvs_in-supply: {}
+  vdd_l0_l1_lvs-supply: {}
+  vdd_l2_l11_l12-supply: {}
+  vdd_l3_l4_l5-supply: {}
+  vdd_l6_l7-supply: {}
+  vdd_l9-supply: {}
+  vdd_l10-supply: {}
+  vdd_l13_l16-supply: {}
+  vdd_l14_l15-supply: {}
+  vdd_l17_l18-supply: {}
+  vdd_l19_l20-supply: {}
+  vdd_l21-supply: {}
+  vdd_l22-supply: {}
+  vdd_l23_l24_l25-supply: {}
+  vdd_s0-supply: {}
+  vdd_s1-supply: {}
+  vdd_ncp-supply: {}
 historical: |+
   Qualcomm Resource Power Manager (RPM)
 

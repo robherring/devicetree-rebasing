@@ -22,7 +22,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra186-hsp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: doorbell
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#mbox-cells':
+    const: 0x2
 historical: |+
   NVIDIA Tegra Hardware Synchronization Primitives (HSP)
 

@@ -20,7 +20,82 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stih407-dwmac
+      - const: snps,dwmac
+      - const: snps,dwmac-3.710
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  device_type:
+    items:
+      - const: network
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: stmmaceth
+      - const: sti-ethconf
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  st,syscon:
+    description: FIXME
+  st,gmac_en:
+    description: FIXME
+    type: boolean
+  resets: {}
+  reset-names:
+    items:
+      - const: stmmaceth
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: macirq
+      - const: eth_wake_irq
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  snps,pbl:
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clock-names:
+    items:
+      - const: stmmaceth
+      - const: sti-ethclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  clocks: {}
+  st,tx-retime-src:
+    items:
+      - const: clkgen
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  phy-mode:
+    items:
+      - const: rgmii
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fixed-link: {}
 historical: |+
   STMicroelectronics SoC DWMAC glue layer controller
 

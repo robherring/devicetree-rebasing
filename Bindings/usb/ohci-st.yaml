@@ -12,7 +12,33 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,st-ohci-300x
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: power
+      - const: softreset
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     ohci0: usb@fe1ffc00 {

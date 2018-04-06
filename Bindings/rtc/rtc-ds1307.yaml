@@ -12,7 +12,29 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - dallas,ds1337
+          - dallas,ds1339
+          - st,m41t00
+          - dallas,ds1307
+          - dallas,ds1338
+          - dallas,ds1340
+          - epson,rx8025
+          - pericom,pt7c4338
+          - microchip,mcp7941x
+          - microchip,mcp7940x
+          - dallas,ds1341
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-parent: {}
 examples:
   - |
     rtc1: ds1339@68 {

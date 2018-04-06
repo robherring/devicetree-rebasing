@@ -46,7 +46,12 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: st,stm32-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     timers@40010000 {

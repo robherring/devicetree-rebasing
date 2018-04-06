@@ -23,7 +23,74 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,sdhi-r7s72100
+          - renesas,sdhi-r8a73a4
+          - renesas,sdhi-r8a7740
+          - renesas,sdhi-r8a7745
+          - renesas,sdhi-r8a7779
+          - renesas,sdhi-r8a7778
+          - renesas,sdhi-r8a7790
+          - renesas,sdhi-r8a7743
+          - renesas,sdhi-r8a7791
+          - renesas,sdhi-r8a7792
+          - renesas,sdhi-r8a7794
+          - renesas,sdhi-sh73a0
+          - renesas,sdhi-r8a7793
+          - renesas,sdhi-r8a7795
+          - renesas,sdhi-r8a7796
+          - renesas,sdhi-r8a77995
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  power-domains: {}
+  cap-sd-highspeed: {}
+  vmmc-supply: {}
+  bus-width: {}
+  toshiba,mmc-wrprotect-disable:
+    description: FIXME
+    type: boolean
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  clock-names:
+    items:
+      - const: core
+      - const: cd
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  cap-sdio-irq: {}
+  vqmmc-supply: {}
+  cd-gpios: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+      - const: tx
+      - const: rx
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  max-frequency: {}
+  resets: {}
+  wp-gpios: {}
+  pinctrl-1: {}
+  sd-uhs-sdr50: {}
+  sd-uhs-sdr104: {}
 examples:
   - |
     sdhi0: sd@ee100000 {

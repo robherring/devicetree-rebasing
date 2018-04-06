@@ -176,7 +176,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fpga-region
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fpga-mgr: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
 historical: |+
   FPGA Region Device Tree Binding
 

@@ -17,7 +17,45 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - qcom,msm8996-qmp-usb3-phy
+          - qcom,msm8996-qmp-pcie-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: aux
+      - const: cfg_ahb
+      - const: ref
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  vdda-phy-supply: {}
+  vdda-pll-supply: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: phy
+      - const: common
+      - const: cfg
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
 examples:
   - |
     phy@34000 {

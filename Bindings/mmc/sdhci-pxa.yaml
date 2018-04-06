@@ -16,7 +16,42 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - mrvl,pxav3-mmc
+          - marvell,armada-380-sdhci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: sdhci
+      - const: mbus
+      - const: conf-sdio3
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  reg:
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  mrvl,clk-delay-cycles:
+    description: FIXME
+  clock-frequency: {}
+  broken-cd: {}
+  wp-inverted: {}
+  bus-width: {}
+  no-1-8-v: {}
+  clock-names:
+    items:
+      - const: io
+      - const: core
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * Marvell sdhci-pxa v2/v3 controller
 

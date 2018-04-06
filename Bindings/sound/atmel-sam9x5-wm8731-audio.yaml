@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,sam9x5-wm8731-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  atmel,model:
+    items:
+      - const: wm8731 @ AT91SAM9X5EK
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  atmel,audio-routing:
+    items:
+      - const: Headphone Jack
+      - const: RHPOUT
+      - const: Headphone Jack
+      - const: LHPOUT
+      - const: LLINEIN
+      - const: Line In Jack
+      - const: RLINEIN
+      - const: Line In Jack
+    minItems: 8
+    maxItems: 8
+    additionalItems: false
+    description: FIXME
+  atmel,ssc-controller:
+    description: FIXME
+  atmel,audio-codec:
+    description: FIXME
 historical: |+
   * Atmel at91sam9x5ek wm8731 audio complex
 

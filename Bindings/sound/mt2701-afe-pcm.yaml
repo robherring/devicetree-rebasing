@@ -13,7 +13,75 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt2701-audio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: afe
+      - const: asys
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-domains: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: infra_sys_audio_clk
+      - const: top_audio_mux1_sel
+      - const: top_audio_mux2_sel
+      - const: top_audio_mux1_div
+      - const: top_audio_mux2_div
+      - const: top_audio_48k_timing
+      - const: top_audio_44k_timing
+      - const: top_audpll_mux_sel
+      - const: top_apll_sel
+      - const: top_aud1_pll_98M
+      - const: top_aud2_pll_90M
+      - const: top_hadds2_pll_98M
+      - const: top_hadds2_pll_294M
+      - const: top_audpll
+      - const: top_audpll_d4
+      - const: top_audpll_d8
+      - const: top_audpll_d16
+      - const: top_audpll_d24
+      - const: top_audintbus_sel
+      - const: clk_26m
+      - const: top_syspll1_d4
+      - const: top_aud_k1_src_sel
+      - const: top_aud_k2_src_sel
+      - const: top_aud_k3_src_sel
+      - const: top_aud_k4_src_sel
+      - const: top_aud_k5_src_sel
+      - const: top_aud_k6_src_sel
+      - const: top_aud_k1_src_div
+      - const: top_aud_k2_src_div
+      - const: top_aud_k3_src_div
+      - const: top_aud_k4_src_div
+      - const: top_aud_k5_src_div
+      - const: top_aud_k6_src_div
+      - const: top_aud_i2s1_mclk
+      - const: top_aud_i2s2_mclk
+      - const: top_aud_i2s3_mclk
+      - const: top_aud_i2s4_mclk
+      - const: top_aud_i2s5_mclk
+      - const: top_aud_i2s6_mclk
+      - const: top_asm_m_sel
+      - const: top_asm_h_sel
+      - const: top_univpll2_d4
+      - const: top_univpll2_d2
+      - const: top_syspll_d5
+    minItems: 44
+    maxItems: 44
+    additionalItems: false
 examples:
   - |
     audsys: audio-subsystem@11220000 {

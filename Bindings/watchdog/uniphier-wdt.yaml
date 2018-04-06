@@ -15,7 +15,12 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: socionext,uniphier-wdt
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     sysctrl@61840000 {

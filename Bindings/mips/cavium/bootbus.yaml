@@ -16,7 +16,49 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - cavium,octeon-3860-bootbus-config
+          - cavium,octeon-3860-bootbus
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x2
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  cavium,cs-index:
+    description: FIXME
+  cavium,t-adr:
+    description: FIXME
+  cavium,t-ce:
+    description: FIXME
+  cavium,t-oe:
+    description: FIXME
+  cavium,t-we:
+    description: FIXME
+  cavium,t-rd-hld:
+    description: FIXME
+  cavium,t-wr-hld:
+    description: FIXME
+  cavium,t-pause:
+    description: FIXME
+  cavium,t-wait:
+    description: FIXME
+  cavium,t-page:
+    description: FIXME
+  cavium,t-rd-dly:
+    description: FIXME
+  cavium,pages:
+    description: FIXME
+  cavium,bus-width:
+    description: FIXME
 examples:
   - |
     bootbus: bootbus@1180000000000 {

@@ -19,7 +19,40 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: maxim,max8997-pmic
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  max8997,pmic-buck1-uses-gpio-dvs:
+    description: FIXME
+    type: boolean
+  max8997,pmic-buck2-uses-gpio-dvs:
+    description: FIXME
+    type: boolean
+  max8997,pmic-buck5-uses-gpio-dvs:
+    description: FIXME
+    type: boolean
+  max8997,pmic-ignore-gpiodvs-side-effect:
+    description: FIXME
+    type: boolean
+  max8997,pmic-buck125-default-dvs-idx:
+    description: FIXME
+  max8997,pmic-buck125-dvs-gpios:
+    description: FIXME
+  max8997,pmic-buck1-dvs-voltage:
+    description: FIXME
+  max8997,pmic-buck2-dvs-voltage:
+    description: FIXME
+  max8997,pmic-buck5-dvs-voltage:
+    description: FIXME
 examples:
   - |
     max8997_pmic@66 {

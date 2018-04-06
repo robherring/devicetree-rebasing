@@ -17,7 +17,29 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: fixed-factor-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  '#clock-cells':
+    const: 0x0
+  clock-div: {}
+  clock-mult: {}
+  clock-output-names:
+    items:
+      - const: ar100
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: socplldiv2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     clock {

@@ -12,7 +12,59 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,qspi-r8a7745
+          - renesas,rspi-r7s72100
+          - renesas,qspi-r8a7790
+          - renesas,qspi-r8a7743
+          - renesas,qspi-r8a7791
+          - renesas,qspi-r8a7792
+          - renesas,qspi-r8a7794
+          - renesas,qspi-r8a7793
+      - const: renesas,rspi-rz
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: error
+      - const: rx
+      - const: tx
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  clocks: {}
+  power-domains: {}
+  num-cs: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+      - const: tx
+      - const: rx
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  resets: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     spi0: spi@e800c800 {

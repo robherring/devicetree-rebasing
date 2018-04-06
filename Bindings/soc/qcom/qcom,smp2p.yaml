@@ -122,7 +122,22 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: qcom,smp2p
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  qcom,smem:
+    description: FIXME
+  interrupt-parent: {}
+  interrupts: {}
+  qcom,ipc:
+    description: FIXME
+  qcom,local-pid:
+    description: FIXME
+  qcom,remote-pid:
+    description: FIXME
 historical: |
   Qualcomm Shared Memory Point 2 Point binding
 

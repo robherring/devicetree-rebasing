@@ -13,7 +13,22 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3188-usb-phy
+          - rockchip,rk3066a-usb-phy
+          - rockchip,rk3288-usb-phy
+      - const: rockchip,rk3288-usb-phy
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  rockchip,grf:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 historical: |+
   ROCKCHIP USB2 PHY
 

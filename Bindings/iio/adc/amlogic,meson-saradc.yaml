@@ -12,7 +12,34 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson8b-saradc
+          - amlogic,meson-saradc
+          - amlogic,meson8-saradc
+          - amlogic,meson-gxl-saradc
+          - amlogic,meson-gxbb-saradc
+          - amlogic,meson-gxm-saradc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#io-channel-cells':
+    const: 0x1
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: clkin
+      - const: core
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  vref-supply: {}
 examples:
   - |
     saradc: adc@8680 {

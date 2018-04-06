@@ -19,7 +19,17 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: ti,palmas-pwrbutton
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  wakeup-source: {}
+  ti,palmas-long-press-seconds:
+    description: FIXME
 historical: |+
   Texas Instruments Palmas family power button module
 

@@ -20,7 +20,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - samsung,mfc-v8
+          - samsung,mfc-v5
+          - samsung,mfc-v6
+          - samsung,mfc-v7
+          - samsung,exynos5433-mfc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  power-domains: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: mfc
+      - const: sclk_mfc
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  iommus: {}
+  iommu-names:
+    items:
+      - const: left
+      - const: right
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * Samsung Multi Format Codec (MFC)
 

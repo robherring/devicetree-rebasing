@@ -31,7 +31,71 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,qoriq-platform-pll-2.0
+          - fsl,qoriq-core-pll-2.0
+          - fsl,qoriq-core-mux-2.0
+          - fsl,t4240-clockgen
+          - fsl,p3041-clockgen
+          - fsl,qoriq-core-pll-1.0
+          - fsl,qoriq-core-mux-1.0
+          - fsl,qoriq-platform-pll-1.0
+          - fsl,p2041-clockgen
+          - fsl,p5040-clockgen
+          - fsl,b4860-clockgen
+          - fsl,b4420-clockgen
+          - fsl,p4080-clockgen
+          - fsl,p5020-clockgen
+          - fsl,ls1021a-clockgen
+          - fsl,ls1043a-clockgen
+          - fsl,ls2080a-clockgen
+          - fsl,ls1046a-clockgen
+          - fsl,ls1012a-clockgen
+          - fsl,ls1088a-clockgen
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: pll0
+      - const: pll0-div2
+      - const: pll0-div4
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  clock-names:
+    items:
+      - const: pll0
+      - const: pll0-div2
+      - const: pll1-div4
+      - const: pll1
+      - const: pll1-div2
+      - const: pll1-div4
+    minItems: 6
+    maxItems: 6
+    additionalItems: false
+  ranges: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  clock-frequency: {}
+  interrupt-parent: {}
+  model:
+    items:
+      - const: LS1043A RDB Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * Clock Block on Freescale QorIQ Platforms
 

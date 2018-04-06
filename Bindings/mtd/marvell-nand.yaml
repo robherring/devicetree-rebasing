@@ -12,7 +12,43 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,armada-8k-nand
+          - marvell,armada370-nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  interrupts: {}
+  clocks: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  num-cs: {}
+  marvell,nand-keep-config:
+    description: FIXME
+    type: boolean
+  marvell,nand-enable-arbiter:
+    description: FIXME
+    type: boolean
+  nand-on-flash-bbt: {}
+  nand-ecc-strength: {}
+  nand-ecc-step-size: {}
+  marvell,system-controller:
+    description: FIXME
 historical: |+
   Marvell NAND Flash Controller (NFC)
 

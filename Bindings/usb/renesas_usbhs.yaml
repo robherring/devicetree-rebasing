@@ -12,7 +12,62 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,usbhs-r8a7790
+          - renesas,usbhs-r8a7745
+          - renesas,usbhs-r8a7743
+          - renesas,usbhs-r8a7791
+          - renesas,usbhs-r8a7794
+          - renesas,usbhs-r8a7795
+          - renesas,usbhs-r8a7796
+      - const: renesas,rcar-gen2-usbhs
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  dmas: {}
+  dma-names:
+    items:
+      - const: ch0
+      - const: ch1
+      - const: ch2
+      - const: ch3
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  power-domains: {}
+  resets: {}
+  renesas,buswait:
+    description: FIXME
+  phys: {}
+  phy-names:
+    items:
+      - const: usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  renesas,enable-gpio:
+    description: FIXME
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     usbhs: usb@e6590000 {

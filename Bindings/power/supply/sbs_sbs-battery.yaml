@@ -33,7 +33,20 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: sbs,sbs-battery
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  sbs,poll-retry-count:
+    description: FIXME
+  sbs,i2c-retry-count:
+    description: FIXME
 historical: |+
   SBS sbs-battery
   ~~~~~~~~~~

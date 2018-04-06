@@ -16,7 +16,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: xlnx,zynqmp-rtc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: alarm
+      - const: sec
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  calibration: {}
 historical: |+
   * Xilinx Zynq Ultrascale+ MPSoC Real Time Clock
 

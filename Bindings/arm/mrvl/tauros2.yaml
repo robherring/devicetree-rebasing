@@ -12,7 +12,14 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: marvell,tauros2-cache
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  marvell,tauros2-cache-features:
+    description: FIXME
 examples:
   - |
     L2: l2-cache {

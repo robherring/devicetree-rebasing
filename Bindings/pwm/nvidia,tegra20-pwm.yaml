@@ -13,7 +13,38 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra114-pwm
+          - nvidia,tegra30-pwm
+          - nvidia,tegra20-pwm
+          - nvidia,tegra124-pwm
+          - nvidia,tegra210-pwm
+      - const: nvidia,tegra20-pwm
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x2
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clock-names:
+    items:
+      - const: pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     pwm: pwm@7000a000 {

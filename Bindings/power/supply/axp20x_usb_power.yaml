@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - x-powers,axp223-usb-power-supply
+          - x-powers,axp223
+          - x-powers,axp202-usb-power-supply
+          - x-powers,axp221-usb-power-supply
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  eldoin-supply: {}
+  drivevbus-supply: {}
+  x-powers,drive-vbus-en:
+    description: FIXME
+    type: boolean
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
 historical: |+
   AXP20x USB power supply
 

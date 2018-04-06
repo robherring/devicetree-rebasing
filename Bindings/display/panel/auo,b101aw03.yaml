@@ -12,7 +12,16 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: auo,b101aw03
+      - const: simple-panel
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  power-supply: {}
+  enable-gpios: {}
+  backlight: {}
 historical: |
   AU Optronics Corporation 10.1" WSVGA TFT LCD panel
 

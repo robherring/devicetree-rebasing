@@ -16,7 +16,26 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: cortina,gemini-watchdog
+      - const: faraday,ftwdt010
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  resets: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: PCLK
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Faraday Technology FTWDT010 watchdog
 

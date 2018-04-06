@@ -12,7 +12,13 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: okaya,rs800480t-7x0gp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  backlight: {}
 historical: |
   OKAYA Electric America, Inc. RS800480T-7X0GP 7" WVGA LCD panel
 

@@ -15,7 +15,25 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,smdkv310
+      - const: samsung,exynos4210
+      - const: samsung,exynos4
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  interrupt-parent: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Samsung smdkv310 evaluation board based on Exynos4210
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   * Insignal's Exynos4210 based Origen evaluation board
 

@@ -55,7 +55,16 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: atmel,tcb-timer
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * Device tree bindings for Atmel Timer Counter Blocks
   - compatible: Should be "atmel,<chip>-tcb", "simple-mfd", "syscon".

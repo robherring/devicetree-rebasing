@@ -12,7 +12,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,arc_ps2
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: arc_ps2_irq
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   * ARC PS/2 driver: PS/2 block used in some ARC FPGA's & nSIM OSCI model
 

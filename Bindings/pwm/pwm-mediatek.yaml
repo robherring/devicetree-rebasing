@@ -12,7 +12,31 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: mediatek,mt7623-pwm
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#pwm-cells':
+    const: 0x2
+  clocks: {}
+  clock-names:
+    items:
+      - const: top
+      - const: main
+      - const: pwm1
+      - const: pwm2
+      - const: pwm3
+      - const: pwm4
+      - const: pwm5
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
 examples:
   - |
     pwm0: pwm@11006000 {

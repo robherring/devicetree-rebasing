@@ -12,7 +12,27 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: startek,startek-kd050c
+      - const: panel-dpi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  label:
+    items:
+      - const: lcd
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  enable-gpios: {}
 historical: |
   Startek Electronic Technology Co. KD050C 5.0" WVGA TFT LCD panel
 

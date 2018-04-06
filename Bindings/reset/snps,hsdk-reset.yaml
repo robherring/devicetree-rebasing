@@ -17,7 +17,18 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,hsdk-reset
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#reset-cells':
+    const: 0x1
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 examples:
   - |
     reset: reset@880 {

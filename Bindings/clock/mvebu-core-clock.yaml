@@ -62,7 +62,28 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,dove-core-clock
+          - marvell,kirkwood-core-clock
+          - marvell,mv88f5182-core-clock
+          - marvell,armada-390-core-clock
+          - marvell,armada-370-core-clock
+          - marvell,armada-375-core-clock
+          - marvell,armada-xp-core-clock
+          - marvell,armada-380-core-clock
+          - marvell,mv98dx3236-core-clock
+          - marvell,mv88f5181-core-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
 historical: |+
   * Core Clock bindings for Marvell MVEBU SoCs
 

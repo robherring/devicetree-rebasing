@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - amlogic,meson8b-rng
+          - amlogic,meson-rng
+          - amlogic,meson8-rng
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Amlogic Meson Random number generator
   =====================================

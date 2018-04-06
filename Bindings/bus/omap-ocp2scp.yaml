@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am437x-ocp2scp
+          - ti,omap-ocp2scp
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  ranges: {}
+  ti,hwmods:
+    items:
+      - const: ocp2scp_usb_phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
 historical: |
   * OMAP OCP2SCP - ocp interface to scp interface
 

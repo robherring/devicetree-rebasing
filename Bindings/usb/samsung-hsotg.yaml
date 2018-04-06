@@ -23,7 +23,39 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,s3c6400-hsotg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: usb2-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vusb_d-supply: {}
+  vusb_a-supply: {}
+  dr_mode:
+    items:
+      - const: peripheral
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Samsung High Speed USB OTG controller
   -----------------------------

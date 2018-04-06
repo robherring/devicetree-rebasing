@@ -26,7 +26,22 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am4372-wkup-m3-ipc
+          - ti,am3352-wkup-m3-ipc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,rproc:
+    description: FIXME
+  mboxes: {}
 historical: |+
   Wakeup M3 IPC Driver
   =====================

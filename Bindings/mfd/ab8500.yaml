@@ -13,7 +13,59 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - stericsson,ab8500-rtc
+          - stericsson,ab8500
+          - stericsson,ab8500-gpadc
+          - stericsson,ab8500-usb
+          - stericsson,ab8500-sysctrl
+          - stericsson,ab8500-pwm
+          - stericsson,ab8500-codec
+          - stericsson,ab8500-regulator
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x2
+  interrupt-names:
+    items:
+      - const: 60S
+      - const: ALARM
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  vddadc-supply: {}
+  vddulpivio18-supply: {}
+  v-ape-supply: {}
+  musb_1v8-supply: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: sysclk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+      - const: sleep
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  V-AUD-supply: {}
+  V-AMIC1-supply: {}
+  V-AMIC2-supply: {}
+  V-DMIC-supply: {}
+  stericsson,earpeice-cmv:
+    description: FIXME
+  vin-supply: {}
 historical: |
   * AB8500 Multi-Functional Device (MFD)
 

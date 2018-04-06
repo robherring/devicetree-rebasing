@@ -12,7 +12,21 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: jdi,lt070me05000
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  vddp-supply: {}
+  iovcc-supply: {}
+  enable-gpios: {}
+  reset-gpios: {}
+  dcdc-en-gpios: {}
 examples:
   - |
     dsi0: qcom,mdss_dsi@4700000 {

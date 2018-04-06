@@ -13,7 +13,41 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nvidia,tegra20-slink
+          - nvidia,tegra30-slink
+      - const: nvidia,tegra20-slink
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  spi-max-frequency: {}
 historical: |+
   NVIDIA Tegra20/Tegra30 SLINK controller.
 

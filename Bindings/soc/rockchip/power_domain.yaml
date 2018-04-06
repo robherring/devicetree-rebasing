@@ -132,7 +132,28 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - rockchip,rk3288-power-controller
+          - switches
+          - rockchip,rk3399-power-controller
+          - rockchip,rk3328-power-controller
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#power-domain-cells':
+    const: 0x1
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  assigned-clocks: {}
+  assigned-clock-parents: {}
 examples:
   - |
     power: power-controller {

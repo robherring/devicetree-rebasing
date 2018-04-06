@@ -12,7 +12,30 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - marvell,dove-db
+          - solidrun,cubox
+          - globalscale,d3plug
+          - globalscale,d2plug
+          - compulab,sbc-a510
+          - solidrun,cubox-es
+      - const: marvell,dove
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: SolidRun CuBox
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |+
   Marvell Dove Platforms Device Tree Bindings
   -----------------------------------------------

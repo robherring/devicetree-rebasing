@@ -94,7 +94,46 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl-usb2-mph
+          - fsl-usb2-dr
+          - fsl,mpc5121-usb2-dr
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  interrupt-parent: {}
+  interrupts: {}
+  phy_type:
+    items:
+      - const: ulpi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  sleep: {}
+  port0: {}
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: ipg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     usb@22000 {

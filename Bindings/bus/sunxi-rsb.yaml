@@ -58,7 +58,31 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: allwinner,sun8i-a23-rsb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-frequency: {}
+  resets: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
 examples:
   - |
     rsb@1f03400 {

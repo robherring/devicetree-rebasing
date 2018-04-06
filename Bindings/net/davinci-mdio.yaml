@@ -13,7 +13,61 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,cpsw-mdio
+          - ti,keystone_mdio
+          - ti,davinci_mdio
+          - ti,am4372-mdio
+      - const: ti,davinci_mdio
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  bus_freq: {}
+  ti,hwmods:
+    items:
+      - const: davinci_mdio
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  pinctrl-names:
+    items:
+      - const: default
+      - const: sleep
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pinctrl-0: {}
+  pinctrl-1: {}
+  cpdma_channels: {}
+  ale_entries: {}
+  bd_ram_size: {}
+  mac_control: {}
+  slaves: {}
+  active_slave: {}
+  cpts_clock_mult: {}
+  cpts_clock_shift: {}
+  interrupt-parent: {}
+  interrupts: {}
+  ranges: {}
+  syscon: {}
 examples:
   - |
     mdio: davinci_mdio@4a101000 {

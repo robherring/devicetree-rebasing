@@ -17,7 +17,21 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: snps,dw-apb-ictl
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-parent: {}
+  interrupts: {}
 examples:
   - |
     aic: interrupt-controller@3000 {

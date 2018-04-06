@@ -12,7 +12,28 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: edt,etm0700g0dh6
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  enable-gpios: {}
+  power-supply: {}
+  backlight: {}
+  bus-format-override:
+    items:
+      - const: rgb24
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Emerging Display Technology Corp. ETM0700G0DH6 7.0" WVGA TFT LCD panel
 

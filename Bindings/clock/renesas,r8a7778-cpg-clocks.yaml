@@ -18,7 +18,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: renesas,r8a7778-cpg-clocks
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x1
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: plla
+      - const: pllb
+      - const: b
+      - const: out
+      - const: p
+      - const: s
+      - const: s1
+    minItems: 7
+    maxItems: 7
+    additionalItems: false
+  '#power-domain-cells':
+    const: 0x0
 historical: |+
   * Renesas R8A7778 Clock Pulse Generator (CPG)
 

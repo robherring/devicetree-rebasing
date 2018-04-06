@@ -14,7 +14,27 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - olimex,imx23-olinuxino
+          - olimex,sam9-l9260
+      - const: atmel,at91sam9260
+      - const: atmel,at91sam9
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Olimex sam9-l9260
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
 historical: |
   Olimex Device Tree Bindings
   ---------------------------

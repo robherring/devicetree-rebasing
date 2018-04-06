@@ -20,7 +20,68 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,omap4-hsmmc
+          - ti,omap3-hsmmc
+          - ti,k2g-hsmmc
+          - ti,omap3-pre-es3-hsmmc
+          - ti,omap2-hsmmc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  ti,hwmods:
+    items:
+      - const: mmc1
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  ti,dual-volt:
+    description: FIXME
+    type: boolean
+  dmas: {}
+  dma-names:
+    items:
+      - const: tx
+      - const: rx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  pbias-supply: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  vmmc-supply: {}
+  bus-width: {}
+  ti,needs-special-reset:
+    description: FIXME
+    type: boolean
+  ti,needs-special-hs-handling:
+    description: FIXME
+    type: boolean
+  cd-gpios: {}
+  no-1-8-v: {}
+  max-frequency: {}
+  power-domains: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: fck
+      - const: mmchsdb_fck
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   * TI Highspeed MMC host controller for OMAP and 66AK2G family.
 

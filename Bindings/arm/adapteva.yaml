@@ -15,7 +15,23 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: adapteva,parallella
+      - const: xlnx,zynq-7000
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Adapteva Parallella Board
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |
   Adapteva Platforms Device Tree Bindings
   ---------------------------------------

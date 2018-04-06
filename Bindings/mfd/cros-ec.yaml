@@ -84,7 +84,29 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: google,cros-ec-spi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-parent: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  google,has-vbc-nvram:
+    description: FIXME
+    type: boolean
 historical: |+
   ChromeOS Embedded Controller
 

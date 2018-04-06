@@ -24,7 +24,33 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,keystone,main-pll-clock
+          - ti,keystone,pll-clock
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#clock-cells':
+    const: 0x0
+  clocks: {}
+  clock-output-names:
+    items:
+      - const: arm-pll-clk
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg-names:
+    items:
+      - const: control
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     mainpllclk: mainpllclk@2310110 {

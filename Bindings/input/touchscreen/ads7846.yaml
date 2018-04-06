@@ -20,7 +20,51 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,tsc2046
+          - ti,ads7846
+          - ti,ads7843
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  spi-max-frequency: {}
+  interrupts: {}
+  vcc-supply: {}
+  ti,x-min:
+    description: FIXME
+  ti,x-max:
+    description: FIXME
+  ti,y-min:
+    description: FIXME
+  ti,y-max:
+    description: FIXME
+  ti,x-plate-ohms:
+    description: FIXME
+  ti,pressure-max:
+    description: FIXME
+  ti,swap-xy:
+    description: FIXME
+    type: boolean
+  wakeup-source: {}
+  interrupt-parent: {}
+  pendown-gpio: {}
+  interrupts-extended: {}
+  ti,vref-delay-usecs:
+    description: FIXME
+  ti,y-plate-ohms:
+    description: FIXME
+  ti,debounce-rep:
+    description: FIXME
+  ti,debounce-tol:
+    description: FIXME
+  ti,debounce-max:
+    description: FIXME
 examples:
   - |
     spi_controller {

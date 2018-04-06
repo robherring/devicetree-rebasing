@@ -38,7 +38,26 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: gpio-charger
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  charger-type:
+    items:
+      - const: mains
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  gpios: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     usb_charger: charger {

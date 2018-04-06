@@ -25,7 +25,45 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - brcm,nand-iproc
+          - brcm,nand-bcm63138
+          - brcm,brcmnand-v7.1
+          - brcm,brcmnand-v5.0
+          - brcm,brcmnand-v6.2
+      - const: brcm,brcmnand-v7.0
+      - const: brcm,brcmnand
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg-names:
+    items:
+      - const: nand
+      - const: nand-int-base
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  interrupt-names:
+    items:
+      - const: nand
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  brcm,nand-has-wp:
+    description: FIXME
+    type: boolean
+  interrupt-parent: {}
 historical: |+
   * Broadcom STB NAND Controller
 

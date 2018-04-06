@@ -12,7 +12,24 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: altr,socfpga-a10-fpga-mgr
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  clocks: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: fpgamgr
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 examples:
   - |
     fpga_mgr: fpga-mgr@ffd03000 {

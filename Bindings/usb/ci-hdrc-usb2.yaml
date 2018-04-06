@@ -13,7 +13,87 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx28-usb
+          - qcom,ci-hdrc
+          - fsl,imx6q-usb
+          - fsl,imx27-usb
+          - xlnx,zynq-usb-2.20a
+          - fsl,imx7d-usb
+          - fsl,imx6ul-usb
+          - fsl,imx6sl-usb
+          - fsl,imx6sx-usb
+          - chipidea,usb2
+          - lsi,zevio-usb
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: core
+      - const: iface
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
+  resets: {}
+  reset-names:
+    items:
+      - const: core
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  phy_type:
+    items:
+      - const: ulpi
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ahb-burst-config: {}
+  phys: {}
+  phy-names:
+    items:
+      - const: usb-phy
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#reset-cells':
+    const: 0x1
+  dr_mode:
+    items:
+      - const: otg
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  fsl,usbphy:
+    description: FIXME
+  vbus-supply: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  fsl,usbmisc:
+    description: FIXME
+  tx-burst-size-dword: {}
+  rx-burst-size-dword: {}
+  disable-over-current: {}
+  interrupt-parent: {}
+  usb-phy: {}
+  phy-clkgate-delay-us: {}
+  fsl,anatop:
+    description: FIXME
 examples:
   - |
     usb@f7ed0000 {

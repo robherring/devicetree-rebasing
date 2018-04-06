@@ -12,7 +12,37 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - arm,pl192-vic
+          - picochip,pc7302-pc3x3
+          - picochip,pc3x2-timer
+          - picochip,pc7302-pc3x2
+      - const: picochip,pc3x3
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x1
+  model:
+    items:
+      - const: Picochip PC7302 (PC3X3)
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupt-controller: {}
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#interrupt-cells':
+    const: 0x1
+  interrupt-parent: {}
+  interrupts: {}
+  clock-freq: {}
 historical: |
   Picochip picoXcell device tree bindings.
   ========================================

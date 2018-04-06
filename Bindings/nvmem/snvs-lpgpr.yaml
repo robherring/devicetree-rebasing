@@ -16,7 +16,14 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - fsl,imx6ul-snvs-lpgpr
+          - fsl,imx6q-snvs-lpgpr
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
 historical: |+
   Device tree bindings for Low Power General Purpose Register found in i.MX6Q/D
   Secure Non-Volatile Storage.

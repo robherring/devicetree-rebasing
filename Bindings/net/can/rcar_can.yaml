@@ -13,7 +13,47 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - renesas,can-r8a7790
+          - renesas,can-r8a7745
+          - renesas,can-r8a7743
+          - renesas,can-r8a7791
+          - renesas,can-r8a7792
+          - renesas,can-r8a7794
+          - renesas,can-r8a7793
+          - renesas,can-r8a7795
+          - renesas,can-r8a7796
+      - const: renesas,rcar-gen2-can
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: clkp1
+      - const: clkp2
+      - const: can_clk
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  power-domains: {}
+  resets: {}
+  pinctrl-0: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  assigned-clocks: {}
+  assigned-clock-rates: {}
 historical: |+
   Renesas R-Car CAN controller Device Tree Bindings
   -------------------------------------------------

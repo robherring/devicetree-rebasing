@@ -18,7 +18,38 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,da830-spi
+          - ti,keystone-spi
+      - const: ti,dm6441-spi
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  num-cs: {}
+  ti,davinci-spi-intr-line:
+    description: FIXME
+  interrupts: {}
+  clocks: {}
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  ti,davinci-spi-num-cs:
+    description: FIXME
+  dmas: {}
+  dma-names:
+    items:
+      - const: rx
+      - const: tx
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
 historical: |+
   Davinci SPI controller device bindings
 

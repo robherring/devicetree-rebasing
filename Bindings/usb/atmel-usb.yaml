@@ -16,7 +16,49 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - atmel,at91sam9rl-udc
+          - atmel,at91sam9260-udc
+          - atmel,sama5d3-udc
+          - atmel,at91sam9g45-udc
+          - atmel,at91rm9200-udc
+          - atmel,at91sam9261-udc
+          - atmel,at91sam9263-udc
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: pclk
+      - const: hclk
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  atmel,vbus-gpio:
+    description: FIXME
+  '#address-cells':
+    const: 0x1
+  '#size-cells':
+    const: 0x0
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  atmel,pullup-gpio:
+    description: FIXME
+  atmel,matrix:
+    description: FIXME
 historical: |
   Atmel SOC USB controllers
 

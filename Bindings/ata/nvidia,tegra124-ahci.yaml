@@ -43,7 +43,48 @@ description: |
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: nvidia,tegra124-ahci
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
+  interrupts: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: sata
+      - const: sata-oob
+      - const: cml1
+      - const: pll_e
+    minItems: 4
+    maxItems: 4
+    additionalItems: false
+  resets: {}
+  reset-names:
+    items:
+      - const: sata
+      - const: sata-oob
+      - const: sata-cold
+    minItems: 3
+    maxItems: 3
+    additionalItems: false
+  phys: {}
+  phy-names:
+    items:
+      - const: sata-0
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  hvdd-supply: {}
+  vddio-supply: {}
+  avdd-supply: {}
+  target-5v-supply: {}
+  target-12v-supply: {}
 historical: |
   Tegra124 SoC SATA AHCI controller
 

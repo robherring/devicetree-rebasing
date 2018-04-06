@@ -12,7 +12,26 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - const: samsung,exynos4212-fimc-lite
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  power-domains: {}
+  clocks: {}
+  clock-names:
+    items:
+      - const: flite
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  iommus: {}
 historical: |
   Exynos4x12/Exynos5 SoC series camera host interface (FIMC-LITE)
 

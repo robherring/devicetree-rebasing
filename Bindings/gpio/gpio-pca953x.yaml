@@ -12,7 +12,45 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - nxp,pca9556
+          - nxp,pca9557
+          - nxp,pca9555
+          - ti,tca6416
+          - pca9554
+          - nxp,pca9539
+          - maxim,max7310
+          - nxp,pca9535
+          - ti,pca9536
+          - nxp,pca9538
+          - nxp,pca9554
+          - ti,tca6424
+          - nxp,pca9505
+          - nxp,pca9536
+          - ti,tca9539
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  '#gpio-cells':
+    const: 0x2
+  gpio-controller: {}
+  polarity: {}
+  interrupts: {}
+  interrupt-controller: {}
+  interrupt-parent: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
 examples:
   - |
     gpio@20 {

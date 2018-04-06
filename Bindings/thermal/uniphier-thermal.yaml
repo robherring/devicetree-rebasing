@@ -17,7 +17,19 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - socionext,uniphier-ld20-thermal
+          - socionext,uniphier-pxs2-thermal
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  interrupts: {}
+  '#thermal-sensor-cells':
+    const: 0x0
+  socionext,tmod-calibration:
+    description: FIXME
 examples:
   - |
     sysctrl@61840000 {

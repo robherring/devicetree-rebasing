@@ -17,7 +17,48 @@ description: |+
              
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - ti,am3517-emac
+          - ti,davinci-dm6467-emac
+          - ti,dm816-emac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  ti,davinci-ctrl-reg-offset:
+    description: FIXME
+  ti,davinci-ctrl-mod-reg-offset:
+    description: FIXME
+  ti,davinci-ctrl-ram-offset:
+    description: FIXME
+  ti,davinci-ctrl-ram-size:
+    description: FIXME
+  local-mac-address: {}
+  interrupts: {}
+  pinctrl-names:
+    items:
+      - const: default
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  pinctrl-0: {}
+  ti,hwmods:
+    items:
+      - const: davinci_emac
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+    description: FIXME
+  syscon: {}
+  ti,davinci-rmii-en:
+    description: FIXME
+  clocks: {}
+  phy-handle: {}
 examples:
   - |
     eth0: emac@1e20000 {

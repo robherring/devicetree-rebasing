@@ -13,7 +13,23 @@ maintainers:
 description: test
 
 properties:
-  compatible: {}
+  compatible:
+    items:
+      - enum:
+          - st,m95m02
+          - eeprom
+          - atmel,at25
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  reg:
+    minItems: 1
+    maxItems: 1
+    additionalItems: false
+  size: {}
+  pagesize: {}
+  address-width: {}
+  spi-max-frequency: {}
 examples:
   - |
     eeprom@0 {
